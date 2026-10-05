@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Python Practical AI Study Assistant</title>
+<meta name="theme-color" content="#07080c">
+<title>Python Practical AI</title>
 
 <style>
 *{
@@ -12,43 +13,91 @@
     box-sizing:border-box;
 }
 
+:root{
+    --bg:#06070a;
+    --panel:#0d1016;
+    --panel2:#11151d;
+    --border:#222732;
+    --text:#f5f7fb;
+    --muted:#858d9b;
+    --muted2:#59616e;
+    --purple:#8b5cf6;
+    --purple2:#a78bfa;
+    --green:#34d399;
+    --red:#fb7185;
+    --blue:#60a5fa;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
 body{
-    background:#050607;
-    color:#e5e7eb;
-    font-family:Inter,Arial,sans-serif;
-    min-height:100vh;
+    background:
+        radial-gradient(
+            circle at 50% -15%,
+            rgba(139,92,246,.22),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 100% 50%,
+            rgba(59,130,246,.08),
+            transparent 30%
+        ),
+        var(--bg);
+    color:var(--text);
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+button,
+textarea{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
 }
 
 ::-webkit-scrollbar{
     width:7px;
 }
+
 ::-webkit-scrollbar-track{
-    background:#050607;
+    background:transparent;
 }
+
 ::-webkit-scrollbar-thumb{
-    background:#252a33;
+    background:#272c36;
     border-radius:20px;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
-header{
-    height:64px;
-    position:sticky;
+.header{
+    position:fixed;
     top:0;
-    z-index:100;
-
-    background:rgba(5,6,7,.94);
-    backdrop-filter:blur(20px);
-
-    border-bottom:1px solid #171a20;
+    left:0;
+    right:0;
+    height:66px;
+    z-index:9999;
+    background:rgba(6,7,10,.82);
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
-.nav{
-    max-width:1200px;
+.header-inner{
+    max-width:1450px;
     height:100%;
     margin:auto;
-    padding:0 16px;
+    padding:0 20px;
 
     display:flex;
     align-items:center;
@@ -58,434 +107,1036 @@ header{
 .brand{
     display:flex;
     align-items:center;
-    gap:10px;
-
-    font-weight:800;
-    font-size:15px;
+    gap:11px;
 }
 
-.logo{
-    width:36px;
-    height:36px;
+.brand-icon{
+    width:38px;
+    height:38px;
+    border-radius:12px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    border-radius:10px;
+    background:
+        linear-gradient(
+            145deg,
+            #211332,
+            #0c0e13
+        );
 
-    background:#111318;
-    border:1px solid #292e38;
+    border:1px solid rgba(167,139,250,.25);
+
+    box-shadow:
+        0 0 30px rgba(139,92,246,.12);
+
+    font-size:19px;
 }
 
-.nav-right{
+.brand-name{
+    font-size:13px;
+    font-weight:850;
+}
+
+.brand-sub{
+    color:#5d6572;
+    font-size:8px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-top:2px;
+}
+
+.header-actions{
     display:flex;
     gap:7px;
 }
 
-button{
-    font-family:inherit;
-}
+.header-btn{
+    height:35px;
+    padding:0 12px;
 
-.top-btn{
-    padding:8px 11px;
+    border-radius:9px;
 
-    border:1px solid #20252e;
-    border-radius:8px;
+    border:1px solid var(--border);
 
-    background:#0b0d10;
-    color:#9ca3af;
+    background:#0c0f14;
 
-    font-size:11px;
-    font-weight:700;
-
-    cursor:pointer;
-}
-
-.top-btn:hover{
-    background:#151820;
-    color:#fff;
-}
-
-.download{
-    color:#a78bfa;
-    border-color:#352866;
-}
-
-/* HERO */
-
-.hero{
-    max-width:1200px;
-    margin:auto;
-    padding:45px 16px 25px;
-}
-
-.badge{
-    display:inline-block;
-
-    padding:6px 10px;
-
-    background:#0d0b15;
-    border:1px solid #292044;
-
-    color:#a78bfa;
-
-    border-radius:20px;
+    color:#aab1bd;
 
     font-size:9px;
-    font-weight:800;
+    font-weight:850;
 
-    margin-bottom:14px;
+    transition:.2s;
 }
 
-h1{
-    font-size:clamp(36px,6vw,68px);
-    line-height:1;
-    letter-spacing:-3px;
-    margin-bottom:16px;
+.header-btn:hover{
+    color:#fff;
+    background:#171b23;
+    border-color:#343a46;
 }
 
-.gradient{
-    color:#a78bfa;
+.header-btn.primary{
+    color:#c4b5fd;
+    border-color:rgba(139,92,246,.28);
+    background:rgba(139,92,246,.08);
+}
+
+/* ================= APP ================= */
+
+.app{
+    padding-top:66px;
+    min-height:100vh;
+}
+
+.main{
+    max-width:1450px;
+    margin:auto;
+    padding:0 20px 120px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:280px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:50px 10px 30px;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    padding:7px 12px;
+
+    border-radius:30px;
+
+    background:rgba(139,92,246,.07);
+
+    border:1px solid rgba(139,92,246,.25);
+
+    color:#bba8ff;
+
+    font-size:8px;
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    margin-bottom:18px;
+}
+
+.pulse{
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#34d399;
+
+    box-shadow:
+        0 0 12px #34d399;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,82px);
+
+    line-height:.95;
+
+    letter-spacing:-5px;
+
+    font-weight:900;
+
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #c084fc,
+            #818cf8
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
 }
 
 .hero p{
     max-width:720px;
 
-    color:#69717e;
-
-    font-size:14px;
-    line-height:1.8;
-}
-
-/* SEARCH */
-
-.search-area{
-    max-width:1200px;
-    margin:auto;
-    padding:0 16px 18px;
-
-    position:sticky;
-    top:64px;
-    z-index:50;
-}
-
-.search{
-    display:flex;
-    align-items:center;
-    gap:8px;
-
-    background:#090b0e;
-
-    border:1px solid #1b2028;
-    border-radius:12px;
-
-    padding:5px;
-
-    box-shadow:0 10px 40px rgba(0,0,0,.4);
-}
-
-.search-icon{
-    width:40px;
-    text-align:center;
-    color:#626b78;
-}
-
-#question{
-    width:100%;
-
-    border:0;
-    outline:0;
-
-    background:transparent;
-
-    color:#e5e7eb;
-
-    padding:12px 0;
+    color:#747d8b;
 
     font-size:13px;
+
+    line-height:1.9;
 }
 
-#question::placeholder{
-    color:#444b56;
-}
+/* ================= WORKSPACE ================= */
 
-.ask{
-    padding:10px 15px;
-
-    border:0;
-    border-radius:9px;
-
-    background:#7c3aed;
-
-    color:#fff;
-
-    cursor:pointer;
-
-    font-size:11px;
-    font-weight:800;
-}
-
-.ask:hover{
-    background:#8b5cf6;
-}
-
-/* MAIN */
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:0 16px 60px;
-}
-
-.layout{
+.workspace{
     display:grid;
-    grid-template-columns:280px 1fr;
-    gap:15px;
+
+    grid-template-columns:
+        245px
+        minmax(0,1fr);
+
+    gap:14px;
+
+    align-items:start;
 }
 
-/* SIDEBAR */
+/* ================= SIDEBAR ================= */
 
 .sidebar{
-    height:max-content;
-
     position:sticky;
-    top:140px;
+    top:82px;
 
-    background:#080a0d;
+    padding:10px;
 
-    border:1px solid #151a21;
-    border-radius:14px;
+    border-radius:16px;
 
-    padding:12px;
+    border:1px solid rgba(255,255,255,.07);
+
+    background:rgba(10,12,16,.76);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
 }
 
-.side-title{
+.side-label{
+    padding:9px 10px;
+
     color:#555e6b;
-    font-size:9px;
-    font-weight:800;
-    text-transform:uppercase;
 
-    padding:7px 9px;
+    font-size:8px;
+    font-weight:900;
+
+    letter-spacing:1.2px;
+
+    text-transform:uppercase;
 }
 
-.topic{
+.side-item{
     width:100%;
 
     text-align:left;
 
-    padding:10px;
+    padding:10px 11px;
 
     margin:2px 0;
 
+    border-radius:9px;
+
     border:1px solid transparent;
-    border-radius:8px;
 
     background:transparent;
-    color:#858e9b;
 
-    cursor:pointer;
+    color:#7d8694;
 
-    font-size:11px;
+    font-size:10px;
+
+    font-weight:700;
+
+    transition:.2s;
 }
 
-.topic:hover,
-.topic.active{
-    background:#10131a;
-    border-color:#202631;
+.side-item:hover{
+    background:#11141a;
+
     color:#c4b5fd;
+
+    border-color:#252a35;
 }
 
-/* CHAT */
+.side-item.active{
+    background:rgba(139,92,246,.1);
+
+    color:#c4b5fd;
+
+    border-color:rgba(139,92,246,.2);
+}
+
+.side-divider{
+    height:1px;
+
+    margin:8px 3px;
+
+    background:rgba(255,255,255,.07);
+}
+
+/* ================= CHAT ================= */
 
 .chat{
-    min-height:600px;
+    position:relative;
 
-    background:#07090c;
+    min-width:0;
 
-    border:1px solid #151a21;
-    border-radius:14px;
+    min-height:720px;
+
+    border-radius:18px;
 
     overflow:hidden;
 
-    display:flex;
-    flex-direction:column;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15,17,23,.9),
+            rgba(8,10,14,.96)
+        );
+
+    border:1px solid rgba(255,255,255,.07);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.5);
 }
 
-.chat-head{
-    padding:14px 16px;
+/* CHAT HEADER */
 
-    border-bottom:1px solid #151a21;
+.chat-header{
+    height:57px;
 
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+
+    padding:0 16px;
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+    background:rgba(12,14,19,.72);
+
+    backdrop-filter:blur(15px);
 }
 
-.chat-title{
-    font-size:13px;
-    font-weight:800;
-}
-
-.status{
-    color:#6ee7b7;
-    font-size:9px;
-}
-
-.messages{
-    flex:1;
-
-    padding:18px;
-
-    min-height:500px;
-}
-
-.message{
+.chat-info{
     display:flex;
+    align-items:center;
     gap:10px;
-
-    margin-bottom:18px;
 }
 
-.avatar{
-    width:30px;
-    height:30px;
+.ai-avatar{
+    width:31px;
+    height:31px;
 
-    flex-shrink:0;
+    border-radius:9px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    border-radius:9px;
+    background:#171022;
 
-    background:#10131a;
+    border:1px solid rgba(139,92,246,.25);
+}
 
-    border:1px solid #202631;
+.chat-name{
+    font-size:11px;
+    font-weight:850;
+}
+
+.chat-status{
+    margin-top:2px;
+
+    color:#5d6673;
+
+    font-size:8px;
+}
+
+.status-dot{
+    display:inline-block;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#34d399;
+
+    margin-right:4px;
+}
+
+.chat-actions{
+    display:flex;
+    gap:5px;
+}
+
+.icon-btn{
+    width:32px;
+    height:32px;
+
+    border-radius:8px;
+
+    border:1px solid var(--border);
+
+    background:#0c0f14;
+
+    color:#788291;
 
     font-size:12px;
 }
 
-.msg-body{
-    flex:1;
+.icon-btn:hover{
+    color:white;
+    background:#171a21;
+}
+
+/* ================= MESSAGES ================= */
+
+.messages{
+    height:calc(100vh - 330px);
+
+    min-height:550px;
+
+    overflow-y:auto;
+
+    padding:
+        28px
+        clamp(14px,4vw,55px)
+        140px;
+}
+
+.message{
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:28px;
+
+    animation:
+        messageIn
+        .25s
+        ease;
+}
+
+@keyframes messageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(6px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.message.user{
+    flex-direction:row-reverse;
+}
+
+.message-avatar{
+    width:34px;
+    height:34px;
+
+    min-width:34px;
+
+    border-radius:10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--border);
+
+    background:#10131a;
+
+    font-size:14px;
+}
+
+.user .message-avatar{
+    background:#181126;
+
+    border-color:
+        rgba(139,92,246,.22);
+}
+
+.message-body{
+    max-width:900px;
 
     min-width:0;
 }
 
-.msg-name{
-    color:#a78bfa;
+.user .message-body{
+    text-align:right;
+}
 
-    font-size:10px;
-    font-weight:800;
+.message-name{
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    color:#9d8ae9;
 
     margin-bottom:6px;
 }
 
-.user .msg-name{
-    color:#94a3b8;
+.user .message-name{
+    color:#657080;
 }
 
-.msg-text{
-    color:#aab3bf;
+.message-content{
+    color:#c5cad3;
 
     font-size:12px;
 
-    line-height:1.75;
-
-    white-space:pre-wrap;
+    line-height:1.8;
 
     word-break:break-word;
 }
 
-/* CODE */
+.user .message-content{
+    display:inline-block;
 
-.codebox{
-    position:relative;
+    text-align:left;
 
-    margin-top:10px;
+    padding:10px 13px;
+
+    border:
+        1px solid
+        rgba(139,92,246,.16);
+
+    background:
+        rgba(139,92,246,.07);
+
+    border-radius:12px;
 }
 
-pre{
-    background:#020304;
+/* ================= WELCOME ================= */
 
-    border:1px solid #171c23;
+.welcome{
+    max-width:720px;
 
-    border-radius:9px;
+    text-align:center;
 
-    padding:15px 50px 15px 15px;
+    margin:60px auto;
+}
 
-    color:#b8c2cf;
+.welcome-logo{
+    width:65px;
+    height:65px;
 
-    font-family:Consolas,"Courier New",monospace;
+    margin:
+        0
+        auto
+        18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:20px;
+
+    font-size:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #211332,
+            #0d0f14
+        );
+
+    border:
+        1px solid
+        rgba(167,139,250,.25);
+
+    box-shadow:
+        0 15px 50px
+        rgba(139,92,246,.13);
+}
+
+.welcome h2{
+    font-size:25px;
+
+    letter-spacing:-1px;
+
+    margin-bottom:10px;
+}
+
+.welcome p{
+    color:#707987;
 
     font-size:11px;
 
-    line-height:1.7;
-
-    overflow:auto;
-
-    white-space:pre-wrap;
+    line-height:1.8;
 }
 
-.copy{
-    position:absolute;
-    right:7px;
-    top:7px;
-
-    padding:5px 7px;
-
-    background:#0c0f14;
-
-    color:#687382;
-
-    border:1px solid #202631;
-
-    border-radius:6px;
-
-    cursor:pointer;
-
-    font-size:8px;
-    font-weight:bold;
-}
-
-/* SUGGESTIONS */
-
-.suggestions{
+.quick-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:7px;
 
-    margin-top:15px;
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:8px;
+
+    margin-top:25px;
 }
 
-.suggestion{
-    padding:11px;
+.quick{
+    text-align:left;
 
-    background:#090b0e;
+    padding:13px;
 
-    border:1px solid #171c23;
+    border:1px solid var(--border);
 
-    border-radius:8px;
+    background:#0d1015;
 
-    color:#707987;
+    border-radius:11px;
 
-    cursor:pointer;
+    color:#9199a6;
+
+    transition:.2s;
+}
+
+.quick:hover{
+    border-color:
+        rgba(139,92,246,.28);
+
+    background:#12151c;
+
+    transform:translateY(-1px);
+}
+
+.quick strong{
+    display:block;
+
+    color:#d1d5db;
 
     font-size:10px;
 
-    text-align:left;
+    margin-bottom:3px;
 }
 
-.suggestion:hover{
-    border-color:#3b3260;
+.quick span{
+    color:#5e6774;
+
+    font-size:8px;
+}
+
+/* ================= AI FORMATTING ================= */
+
+.message-content h2{
+    color:#fff;
+
+    font-size:18px;
+
+    margin:19px 0 8px;
+}
+
+.message-content h3{
+    color:#d7ccff;
+
+    font-size:14px;
+
+    margin:17px 0 7px;
+}
+
+.message-content p{
+    margin:5px 0;
+}
+
+.message-content ul,
+.message-content ol{
+    margin:
+        8px 0
+        10px
+        22px;
+}
+
+.message-content li{
+    margin:4px 0;
+}
+
+.message-content strong{
+    color:#fff;
+}
+
+.message-content code:not(pre code){
+    color:#c4b5fd;
+
+    background:#15121d;
+
+    border:1px solid #29213d;
+
+    padding:2px 5px;
+
+    border-radius:5px;
+
+    font-family:
+        Consolas,
+        monospace;
+}
+
+/* ================= CODE CARD ================= */
+
+.code-card{
+    margin:14px 0;
+
+    border:
+        1px solid
+        #282d38;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    background:#050609;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.25);
+}
+
+.code-top{
+    height:38px;
+
+    padding:
+        0
+        9px
+        0
+        12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:#0e1116;
+
+    border-bottom:
+        1px solid
+        #222731;
+}
+
+.code-title{
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:#8f98a6;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+}
+
+.python-dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#3776ab;
+}
+
+.code-tools{
+    display:flex;
+
+    gap:5px;
+}
+
+.code-action{
+    padding:5px 8px;
+
+    border-radius:6px;
+
+    border:1px solid #292e38;
+
+    background:#151820;
+
+    color:#9ca5b3;
+
+    font-size:8px;
+
+    font-weight:850;
+}
+
+.code-action:hover{
+    color:#fff;
+
+    background:#20242d;
+}
+
+.code-action.download{
     color:#c4b5fd;
 }
 
-/* MOBILE */
+.code{
+    margin:0;
 
-@media(max-width:800px){
+    padding:16px;
 
-    .layout{
+    overflow-x:auto;
+
+    color:#d7dce4;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size:11px;
+
+    line-height:1.75;
+
+    white-space:pre;
+}
+
+/* ================= COMPOSER ================= */
+
+.composer{
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    right:0;
+
+    padding:13px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(8,10,14,1),
+            rgba(8,10,14,.92)
+        );
+
+    backdrop-filter:blur(18px);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.composer-inner{
+    max-width:950px;
+
+    margin:auto;
+}
+
+.input-box{
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:7px;
+
+    padding:7px;
+
+    border-radius:14px;
+
+    border:
+        1px solid
+        #292e38;
+
+    background:#0d1015;
+
+    box-shadow:
+        0 10px 40px
+        rgba(0,0,0,.3);
+
+    transition:.2s;
+}
+
+.input-box:focus-within{
+    border-color:
+        rgba(139,92,246,.4);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(139,92,246,.07),
+        0 10px 40px
+        rgba(0,0,0,.3);
+}
+
+textarea{
+    flex:1;
+
+    min-height:43px;
+
+    max-height:150px;
+
+    resize:none;
+
+    border:0;
+
+    outline:0;
+
+    background:transparent;
+
+    color:#f5f7fb;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    padding:11px;
+}
+
+textarea::placeholder{
+    color:#535c69;
+}
+
+.send{
+    width:43px;
+    height:43px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #8b5cf6
+        );
+
+    color:white;
+
+    font-size:16px;
+
+    box-shadow:
+        0 7px 20px
+        rgba(124,58,237,.25);
+
+    transition:.2s;
+}
+
+.send:hover{
+    transform:translateY(-1px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(124,58,237,.35);
+}
+
+.send:disabled{
+    opacity:.45;
+
+    cursor:not-allowed;
+
+    transform:none;
+}
+
+.composer-bottom{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:
+        7px
+        3px
+        0;
+}
+
+.composer-hint{
+    color:#4f5865;
+
+    font-size:8px;
+}
+
+.model-badge{
+    color:#665d78;
+
+    font-size:8px;
+}
+
+/* ================= TYPING ================= */
+
+.typing{
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    height:25px;
+}
+
+.typing span{
+    width:6px;
+    height:6px;
+
+    background:#9b7df1;
+
+    border-radius:50%;
+
+    animation:
+        typing
+        .9s
+        infinite;
+}
+
+.typing span:nth-child(2){
+    animation-delay:.15s;
+}
+
+.typing span:nth-child(3){
+    animation-delay:.3s;
+}
+
+@keyframes typing{
+
+    0%,100%{
+        opacity:.2;
+        transform:translateY(0);
+    }
+
+    50%{
+        opacity:1;
+        transform:translateY(-4px);
+    }
+
+}
+
+/* ================= ERROR ================= */
+
+.error{
+    padding:12px;
+
+    border-radius:9px;
+
+    background:#1b0d11;
+
+    border:1px solid #51202c;
+
+    color:#fda4af;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:950px){
+
+    .workspace{
         grid-template-columns:1fr;
     }
 
@@ -496,1237 +1147,1379 @@ pre{
 
         overflow-x:auto;
 
-        gap:5px;
+        gap:4px;
 
         padding:7px;
     }
 
-    .side-title{
+    .side-label,
+    .side-divider{
         display:none;
     }
 
-    .topic{
-        white-space:nowrap;
+    .side-item{
         width:auto;
+
+        white-space:nowrap;
+
+        padding:
+            9px
+            11px;
     }
 
-    .chat{
-        min-height:650px;
+}
+
+@media(max-width:650px){
+
+    .header{
+        height:58px;
     }
 
-    .messages{
-        min-height:540px;
+    .header-inner{
+        padding:0 10px;
     }
 
-    .nav-right .top-btn:first-child{
-        display:none;
+    .app{
+        padding-top:58px;
+    }
+
+    .main{
+        padding:
+            0
+            7px
+            110px;
     }
 
     .hero{
-        padding-top:35px;
+        min-height:230px;
+
+        padding:
+            35px
+            5px
+            25px;
     }
-}
 
-@media(max-width:500px){
+    .hero h1{
+        font-size:41px;
 
-    h1{
-        font-size:40px;
-        letter-spacing:-2px;
+        letter-spacing:-3px;
     }
 
     .hero p{
-        font-size:12px;
+        font-size:10px;
     }
 
-    .suggestions{
-        grid-template-columns:1fr;
+    .brand-sub{
+        display:none;
     }
 
-    .download{
-        display:block;
+    .header-btn{
+        padding:0 8px;
+    }
+
+    .chat{
+        border-radius:13px;
+
+        min-height:700px;
     }
 
     .messages{
-        padding:13px;
+        height:
+            calc(100vh - 260px);
+
+        min-height:560px;
+
+        padding:
+            18px
+            11px
+            140px;
     }
 
-    .msg-text{
+    .message{
+        gap:8px;
+    }
+
+    .message-avatar{
+        width:30px;
+        height:30px;
+
+        min-width:30px;
+    }
+
+    .message-content{
         font-size:11px;
     }
+
+    .quick-grid{
+        grid-template-columns:1fr;
+    }
+
+    .welcome{
+        margin:35px auto;
+    }
+
+    .welcome h2{
+        font-size:20px;
+    }
+
+    .code{
+        font-size:9px;
+    }
+
+    .code-action{
+        padding:5px 6px;
+
+        font-size:7px;
+    }
+
+    .code-title{
+        font-size:7px;
+    }
+
+    .composer{
+        padding:8px;
+    }
+
+    .composer-hint{
+        display:none;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<div class="nav">
+<header class="header">
 
-<div class="brand">
-<div class="logo">🐍</div>
-<span>Python Practical AI</span>
-</div>
+<div class="header-inner">
 
-<div class="nav-right">
+    <div class="brand">
 
-<button class="top-btn" onclick="clearChat()">
-CLEAR
-</button>
+        <div class="brand-icon">
+            🐍
+        </div>
 
-<button class="top-btn download" onclick="downloadNotes()">
-📥 DOWNLOAD
-</button>
+        <div>
 
-</div>
+            <div class="brand-name">
+                Python Practical AI
+            </div>
+
+            <div class="brand-sub">
+                Application Level Exam Assistant
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <button
+            class="header-btn"
+            onclick="newChat()">
+
+            ＋ NEW CHAT
+
+        </button>
+
+
+        <button
+            class="header-btn primary"
+            onclick="downloadChat()">
+
+            ↓ DOWNLOAD
+
+        </button>
+
+    </div>
 
 </div>
 
 </header>
 
 
+<!-- =====================================================
+     APP
+===================================================== -->
+
+<div class="app">
+
+<main class="main">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero">
 
-<div class="badge">
-PYTHON PRACTICAL • EXAM TOMORROW
-</div>
+    <div class="hero-badge">
 
-<h1>
-Python Practical<br>
-<span class="gradient">AI Study Assistant</span>
-</h1>
+        <span class="pulse"></span>
 
-<p>
-Ask application-level Python practical questions like
-Hospital Management, Student Management, Employee Management,
-Bank Management, Library Management and more.
-</p>
+        REAL AI • PYTHON PRACTICAL
+
+    </div>
+
+
+    <h1>
+
+        Your Python<br>
+
+        <span>Practical AI</span>
+
+    </h1>
+
+
+    <p>
+
+        Ask any application-level Python practical question.
+        Get AIM, algorithm, complete code, sample output,
+        explanation and viva questions automatically.
+
+    </p>
 
 </section>
 
 
-<div class="search-area">
+<!-- =====================================================
+     WORKSPACE
+===================================================== -->
 
-<div class="search">
-
-<div class="search-icon">⌕</div>
-
-<input
-id="question"
-type="text"
-placeholder="Ask: create hospital management program..."
->
-
-<button class="ask" onclick="askAI()">
-ASK
-</button>
-
-</div>
-
-</div>
+<div class="workspace">
 
 
-<div class="container">
-
-<div class="layout">
-
-
-<!-- SIDEBAR -->
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
 
 <aside class="sidebar">
 
-<div class="side-title">
-Practice Topics
-</div>
+    <div class="side-label">
+        PRACTICALS
+    </div>
 
-<button class="topic active"
-onclick="askTopic('student')">
-🎓 Student Management
-</button>
 
-<button class="topic"
-onclick="askTopic('hospital')">
-🏥 Hospital Management
-</button>
+    <button
+        class="side-item active"
+        onclick="quickAsk(
+        'Create a Student Management System in Python using list and dictionary with add, display, search, update and delete')">
 
-<button class="topic"
-onclick="askTopic('employee')">
-👨‍💼 Employee Management
-</button>
+        🎓 Student Management
 
-<button class="topic"
-onclick="askTopic('bank')">
-🏦 Bank Management
-</button>
+    </button>
 
-<button class="topic"
-onclick="askTopic('library')">
-📚 Library Management
-</button>
 
-<button class="topic"
-onclick="askTopic('shop')">
-🛒 Shop Management
-</button>
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Create a complete Hospital Management System in Python with patient add, search, update and delete')">
 
-<button class="topic"
-onclick="askTopic('hotel')">
-🏨 Hotel Management
-</button>
+        🏥 Hospital Management
 
-<button class="topic"
-onclick="askTopic('inventory')">
-📦 Inventory Management
-</button>
+    </button>
 
-<button class="topic"
-onclick="askTopic('marks')">
-📊 Student Marks
-</button>
 
-<button class="topic"
-onclick="askTopic('employee_salary')">
-💰 Salary Calculator
-</button>
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Create an Employee Management System in Python')">
 
-<button class="topic"
-onclick="askTopic('attendance')">
-✅ Attendance
-</button>
+        👨‍💼 Employee Management
 
-<button class="topic"
-onclick="askTopic('bus')">
-🚌 Bus Reservation
-</button>
+    </button>
 
-<button class="topic"
-onclick="askTopic('billing')">
-🧾 Billing System
-</button>
 
-<button class="topic"
-onclick="askTopic('contact')">
-📱 Contact Book
-</button>
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Create a Bank Management System in Python with deposit, withdraw and balance')">
 
-<button class="topic"
-onclick="askTopic('result')">
-📝 Result System
-</button>
+        🏦 Bank Management
+
+    </button>
+
+
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Create a Library Management System in Python')">
+
+        📚 Library Management
+
+    </button>
+
+
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Create a Shop Billing System in Python')">
+
+        🛒 Shop Billing
+
+    </button>
+
+
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Create a Hotel Management System in Python')">
+
+        🏨 Hotel Management
+
+    </button>
+
+
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Create an Inventory Management System in Python')">
+
+        📦 Inventory
+
+    </button>
+
+
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Create a Bus Reservation System in Python')">
+
+        🚌 Bus Reservation
+
+    </button>
+
+
+    <div class="side-divider"></div>
+
+
+    <div class="side-label">
+        PYTHON BASICS
+    </div>
+
+
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Explain Python list with simple practical examples')">
+
+        📋 List
+
+    </button>
+
+
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Explain Python dictionary with a practical example')">
+
+        🗂 Dictionary
+
+    </button>
+
+
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Explain Python functions with a simple practical example')">
+
+        ⚙️ Functions
+
+    </button>
+
+
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Explain Python for loop and while loop for practical exam')">
+
+        🔁 Loops
+
+    </button>
+
+
+    <button
+        class="side-item"
+        onclick="quickAsk(
+        'Explain if elif else with practical example')">
+
+        🔀 Conditions
+
+    </button>
 
 </aside>
 
 
-<!-- CHAT -->
+<!-- =====================================================
+     CHAT
+===================================================== -->
 
 <section class="chat">
 
-<div class="chat-head">
 
-<div class="chat-title">
-Python Practical Assistant
-</div>
+<!-- CHAT HEADER -->
 
-<div class="status">
-● Offline Study Mode
-</div>
+<div class="chat-header">
 
-</div>
+    <div class="chat-info">
 
-
-<div class="messages" id="messages">
+        <div class="ai-avatar">
+            🤖
+        </div>
 
 
-<div class="message">
+        <div>
 
-<div class="avatar">
-🤖
-</div>
+            <div class="chat-name">
+                Python Practical AI
+            </div>
 
-<div class="msg-body">
 
-<div class="msg-name">
-PYTHON ASSISTANT
-</div>
+            <div class="chat-status">
 
-<div class="msg-text">Hi! 👋
+                <span class="status-dot"></span>
 
-Ask me an application-level Python practical question.
+                Ready
 
-Examples:
+            </div>
 
-• Hospital Management
-• Student Management
-• Employee Management
-• Bank Management
-• Library Management
-• Shop Billing
-• Hotel Management
-• Inventory Management
-• Marks / Result
-• Attendance
-• Contact Book
+        </div>
 
-I will give you:
-1. Simple explanation
-2. Algorithm
-3. Full Python code
-4. Sample output
-5. Important viva points</div>
+    </div>
 
-<div class="suggestions">
 
-<button class="suggestion"
-onclick="askTopic('hospital')">
-Create Hospital Management
-</button>
+    <div class="chat-actions">
 
-<button class="suggestion"
-onclick="askTopic('student')">
-Create Student Management
-</button>
+        <button
+            class="icon-btn"
+            title="Clear chat"
+            onclick="clearMessages()">
 
-<button class="suggestion"
-onclick="askTopic('bank')">
-Create Bank Management
-</button>
+            ⌫
 
-<button class="suggestion"
-onclick="askTopic('library')">
-Create Library Management
-</button>
+        </button>
+
+    </div>
 
 </div>
 
-</div>
+
+<!-- =====================================================
+     MESSAGES
+===================================================== -->
+
+<div
+    class="messages"
+    id="messages">
+
+
+<!-- WELCOME -->
+
+<div
+    class="welcome"
+    id="welcome">
+
+    <div class="welcome-logo">
+        🐍
+    </div>
+
+
+    <h2>
+        What are you preparing today?
+    </h2>
+
+
+    <p>
+
+        Ask naturally.
+        You don't need to select a topic.
+        The AI will understand your practical question
+        and generate an exam-ready answer.
+
+    </p>
+
+
+    <div class="quick-grid">
+
+
+        <button
+            class="quick"
+            onclick="quickAsk(
+            'Create a complete Hospital Management System in Python using list and dictionary')">
+
+            <strong>
+                🏥 Hospital Management
+            </strong>
+
+            <span>
+                Patient add, search, update and delete
+            </span>
+
+        </button>
+
+
+        <button
+            class="quick"
+            onclick="quickAsk(
+            'Create a Student Management System in Python with add, display, search, update and delete')">
+
+            <strong>
+                🎓 Student Management
+            </strong>
+
+            <span>
+                Complete menu-driven program
+            </span>
+
+        </button>
+
+
+        <button
+            class="quick"
+            onclick="quickAsk(
+            'Create an Employee Management System in Python with salary calculation')">
+
+            <strong>
+                👨‍💼 Employee Management
+            </strong>
+
+            <span>
+                Employee records and salary
+            </span>
+
+        </button>
+
+
+        <button
+            class="quick"
+            onclick="quickAsk(
+            'Give me 10 application-level Python practical questions with simple answers')">
+
+            <strong>
+                🔥 Exam Practice
+            </strong>
+
+            <span>
+                Application-level questions
+            </span>
+
+        </button>
+
+    </div>
 
 </div>
 
+</div>
+
+
+<!-- =====================================================
+     COMPOSER
+===================================================== -->
+
+<div class="composer">
+
+<div class="composer-inner">
+
+
+    <div class="input-box">
+
+
+        <textarea
+            id="prompt"
+            rows="1"
+            placeholder="Ask anything about your Python practical exam..."
+            autocomplete="off"></textarea>
+
+
+        <button
+            class="send"
+            id="sendBtn"
+            onclick="sendMessage()">
+
+            ↑
+
+        </button>
+
+
+    </div>
+
+
+    <div class="composer-bottom">
+
+        <div class="composer-hint">
+
+            Enter = send
+            &nbsp; • &nbsp;
+            Shift + Enter = new line
+
+        </div>
+
+
+        <div class="model-badge">
+
+            AI Python Tutor
+
+        </div>
+
+    </div>
+
+
+</div>
 
 </div>
 
 </section>
 
 </div>
+
+</main>
 
 </div>
 
 
 <script>
 
-/* =====================================================
-   QUESTION DATABASE
-===================================================== */
+/* =========================================================
+   BACKEND URL
+   =========================================================
 
-const DATA = {
+   IMPORTANT:
 
-student: {
-title:"Student Management System",
+   After you deploy your server.js, replace this with
+   your backend URL.
 
-explanation:
-"Student Management System stores and manages student details such as name, roll number and marks. We can add, display, search and calculate results.",
+   Example:
 
-code:`students = []
+   https://python-ai-backend.onrender.com/api/chat
 
-while True:
-    print("\\n1. Add Student")
-    print("2. Display Students")
-    print("3. Search Student")
-    print("4. Exit")
+========================================================= */
 
-    choice = input("Enter choice: ")
+const API_URL =
+    "https://YOUR-BACKEND-URL.com/api/chat";
 
-    if choice == "1":
-        roll = input("Enter roll number: ")
-        name = input("Enter name: ")
-        mark = float(input("Enter mark: "))
 
-        students.append({
-            "roll": roll,
-            "name": name,
-            "mark": mark
-        })
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-        print("Student added successfully.")
+const messages =
+    document.getElementById("messages");
 
-    elif choice == "2":
-        for s in students:
-            print("Roll:", s["roll"])
-            print("Name:", s["name"])
-            print("Mark:", s["mark"])
-            print("----------------")
+const promptInput =
+    document.getElementById("prompt");
 
-    elif choice == "3":
-        roll = input("Enter roll number: ")
+const sendBtn =
+    document.getElementById("sendBtn");
 
-        found = False
 
-        for s in students:
-            if s["roll"] == roll:
-                print("Name:", s["name"])
-                print("Mark:", s["mark"])
-                found = True
+let chatHistory = [];
 
-        if not found:
-            print("Student not found.")
+let lastAssistantText = "";
 
-    elif choice == "4":
-        break
 
-    else:
-        print("Invalid choice.")`
-},
+/* =========================================================
+   TEXTAREA AUTO RESIZE
+========================================================= */
 
-hospital:{
-title:"Hospital Management System",
+promptInput.addEventListener(
+    "input",
+    function(){
 
-explanation:
-"Hospital Management System stores patient information. A simple practical program can add patients, display patients and search patients using patient ID.",
+        this.style.height = "auto";
 
-code:`patients = []
+        this.style.height =
+            Math.min(
+                this.scrollHeight,
+                150
+            ) + "px";
 
-while True:
-    print("\\n1. Add Patient")
-    print("2. Display Patients")
-    print("3. Search Patient")
-    print("4. Exit")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-        pid = input("Enter patient ID: ")
-        name = input("Enter patient name: ")
-        age = input("Enter age: ")
-        disease = input("Enter disease: ")
-
-        patients.append({
-            "id": pid,
-            "name": name,
-            "age": age,
-            "disease": disease
-        })
-
-        print("Patient added.")
-
-    elif choice == "2":
-        for p in patients:
-            print("\\nPatient ID:", p["id"])
-            print("Name:", p["name"])
-            print("Age:", p["age"])
-            print("Disease:", p["disease"])
-
-    elif choice == "3":
-        pid = input("Enter patient ID: ")
-
-        for p in patients:
-            if p["id"] == pid:
-                print("Patient found")
-                print(p)
-                break
-        else:
-            print("Patient not found.")
-
-    elif choice == "4":
-        break
-
-    else:
-        print("Invalid choice.")`
-},
-
-employee:{
-title:"Employee Management System",
-
-explanation:
-"Employee Management stores employee ID, name, department and salary. The menu allows adding, displaying and searching employees.",
-
-code:`employees = []
-
-while True:
-    print("\\n1. Add Employee")
-    print("2. Display Employees")
-    print("3. Search Employee")
-    print("4. Exit")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-        eid = input("Enter employee ID: ")
-        name = input("Enter name: ")
-        dept = input("Enter department: ")
-        salary = float(input("Enter salary: "))
-
-        employees.append({
-            "id": eid,
-            "name": name,
-            "dept": dept,
-            "salary": salary
-        })
-
-        print("Employee added.")
-
-    elif choice == "2":
-        for e in employees:
-            print(e)
-
-    elif choice == "3":
-        eid = input("Enter employee ID: ")
-
-        for e in employees:
-            if e["id"] == eid:
-                print(e)
-                break
-        else:
-            print("Employee not found.")
-
-    elif choice == "4":
-        break
-
-    else:
-        print("Invalid choice.")`
-},
-
-bank:{
-title:"Bank Management System",
-
-explanation:
-"Bank Management can maintain an account balance and provide deposit, withdrawal and balance-checking operations.",
-
-code:`balance = 0
-
-while True:
-    print("\\n1. Deposit")
-    print("2. Withdraw")
-    print("3. Check Balance")
-    print("4. Exit")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-        amount = float(input("Enter deposit amount: "))
-        balance += amount
-        print("Amount deposited.")
-
-    elif choice == "2":
-        amount = float(input("Enter withdrawal amount: "))
-
-        if amount <= balance:
-            balance -= amount
-            print("Withdrawal successful.")
-        else:
-            print("Insufficient balance.")
-
-    elif choice == "3":
-        print("Current balance:", balance)
-
-    elif choice == "4":
-        break
-
-    else:
-        print("Invalid choice.")`
-},
-
-library:{
-title:"Library Management System",
-
-explanation:
-"Library Management keeps track of books. A simple program can add books, display books and search for a book.",
-
-code:`books = []
-
-while True:
-    print("\\n1. Add Book")
-    print("2. Display Books")
-    print("3. Search Book")
-    print("4. Exit")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-        book_id = input("Enter book ID: ")
-        title = input("Enter book title: ")
-        author = input("Enter author: ")
-
-        books.append({
-            "id": book_id,
-            "title": title,
-            "author": author
-        })
-
-        print("Book added.")
-
-    elif choice == "2":
-        for book in books:
-            print(book)
-
-    elif choice == "3":
-        title = input("Enter title: ")
-
-        for book in books:
-            if book["title"].lower() == title.lower():
-                print("Book found:", book)
-                break
-        else:
-            print("Book not found.")
-
-    elif choice == "4":
-        break
-
-    else:
-        print("Invalid choice.")`
-},
-
-shop:{
-title:"Shop Billing System",
-
-explanation:
-"Shop Billing calculates the total price of products. The program accepts item name, quantity and price.",
-
-code:`items = []
-total = 0
-
-while True:
-    name = input("Enter item name (done to finish): ")
-
-    if name.lower() == "done":
-        break
-
-    quantity = int(input("Enter quantity: "))
-    price = float(input("Enter price: "))
-
-    amount = quantity * price
-
-    items.append((name, quantity, price, amount))
-
-    total += amount
-
-print("\\n----- BILL -----")
-
-for item in items:
-    print(item[0], "x", item[1], "=", item[3])
-
-print("Total:", total)`
-},
-
-hotel:{
-title:"Hotel Management System",
-
-explanation:
-"Hotel Management can store guest details and room information. A simple practical program can add guests and display bookings.",
-
-code:`guests = []
-
-while True:
-    print("\\n1. Add Guest")
-    print("2. Display Guests")
-    print("3. Exit")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-        room = input("Enter room number: ")
-        name = input("Enter guest name: ")
-        days = int(input("Enter number of days: "))
-
-        guests.append({
-            "room": room,
-            "name": name,
-            "days": days
-        })
-
-        print("Booking added.")
-
-    elif choice == "2":
-        for g in guests:
-            print(g)
-
-    elif choice == "3":
-        break
-
-    else:
-        print("Invalid choice.")`
-},
-
-inventory:{
-title:"Inventory Management System",
-
-explanation:
-"Inventory Management stores product names and quantities. We can add stock, display stock and search products.",
-
-code:`inventory = {}
-
-while True:
-    print("\\n1. Add Product")
-    print("2. Display Inventory")
-    print("3. Search Product")
-    print("4. Exit")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-        name = input("Enter product name: ")
-        quantity = int(input("Enter quantity: "))
-
-        inventory[name] = inventory.get(name, 0) + quantity
-
-        print("Product added.")
-
-    elif choice == "2":
-        for name, quantity in inventory.items():
-            print(name, ":", quantity)
-
-    elif choice == "3":
-        name = input("Enter product name: ")
-
-        if name in inventory:
-            print("Quantity:", inventory[name])
-        else:
-            print("Product not found.")
-
-    elif choice == "4":
-        break
-
-    else:
-        print("Invalid choice.")`
-},
-
-marks:{
-title:"Student Mark and Grade Program",
-
-explanation:
-"This program accepts marks, calculates total and average, and gives a grade using if-elif conditions.",
-
-code:`name = input("Enter student name: ")
-
-m1 = float(input("Enter mark 1: "))
-m2 = float(input("Enter mark 2: "))
-m3 = float(input("Enter mark 3: "))
-
-total = m1 + m2 + m3
-average = total / 3
-
-print("Name:", name)
-print("Total:", total)
-print("Average:", average)
-
-if average >= 90:
-    grade = "A+"
-elif average >= 80:
-    grade = "A"
-elif average >= 70:
-    grade = "B"
-elif average >= 60:
-    grade = "C"
-elif average >= 50:
-    grade = "D"
-else:
-    grade = "F"
-
-print("Grade:", grade)`
-},
-
-employee_salary:{
-title:"Employee Salary Calculator",
-
-explanation:
-"This program calculates gross salary using basic salary and allowances.",
-
-code:`name = input("Enter employee name: ")
-
-basic = float(input("Enter basic salary: "))
-hra = float(input("Enter HRA: "))
-da = float(input("Enter DA: "))
-
-gross = basic + hra + da
-
-print("\\nEmployee:", name)
-print("Basic Salary:", basic)
-print("HRA:", hra)
-print("DA:", da)
-print("Gross Salary:", gross)`
-},
-
-attendance:{
-title:"Student Attendance System",
-
-explanation:
-"This program stores student attendance and calculates the attendance percentage.",
-
-code:`name = input("Enter student name: ")
-
-total_days = int(input("Enter total working days: "))
-present_days = int(input("Enter present days: "))
-
-percentage = (present_days / total_days) * 100
-
-print("Student:", name)
-print("Attendance:", percentage, "%")
-
-if percentage >= 75:
-    print("Eligible")
-else:
-    print("Not Eligible")`
-},
-
-bus:{
-title:"Bus Reservation System",
-
-explanation:
-"This program demonstrates a simple reservation system using a list of available seats.",
-
-code:`seats = [1, 2, 3, 4, 5]
-
-while True:
-    print("\\nAvailable seats:", seats)
-
-    print("1. Book Seat")
-    print("2. Exit")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-
-        seat = int(input("Enter seat number: "))
-
-        if seat in seats:
-            seats.remove(seat)
-            print("Seat booked successfully.")
-        else:
-            print("Seat is not available.")
-
-    elif choice == "2":
-        break
-
-    else:
-        print("Invalid choice.")`
-},
-
-billing:{
-title:"Electricity Billing System",
-
-explanation:
-"This program calculates an electricity bill based on units consumed.",
-
-code:`units = float(input("Enter units consumed: "))
-
-if units <= 100:
-    bill = units * 2
-elif units <= 200:
-    bill = (100 * 2) + ((units - 100) * 3)
-else:
-    bill = (100 * 2) + (100 * 3) + ((units - 200) * 5)
-
-print("Units:", units)
-print("Electricity Bill:", bill)`
-},
-
-contact:{
-title:"Contact Book",
-
-explanation:
-"Contact Book stores names and phone numbers using a dictionary.",
-
-code:`contacts = {}
-
-while True:
-    print("\\n1. Add Contact")
-    print("2. Display Contacts")
-    print("3. Search Contact")
-    print("4. Exit")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-        name = input("Enter name: ")
-        phone = input("Enter phone: ")
-
-        contacts[name] = phone
-
-        print("Contact saved.")
-
-    elif choice == "2":
-        for name, phone in contacts.items():
-            print(name, ":", phone)
-
-    elif choice == "3":
-        name = input("Enter name: ")
-
-        if name in contacts:
-            print("Phone:", contacts[name])
-        else:
-            print("Contact not found.")
-
-    elif choice == "4":
-        break
-
-    else:
-        print("Invalid choice.")`
-},
-
-result:{
-title:"Student Result System",
-
-explanation:
-"This program calculates total, average and pass/fail status for a student.",
-
-code:`name = input("Enter student name: ")
-
-marks = []
-
-for i in range(3):
-    mark = float(input("Enter mark: "))
-    marks.append(mark)
-
-total = sum(marks)
-average = total / len(marks)
-
-print("\\nStudent:", name)
-print("Marks:", marks)
-print("Total:", total)
-print("Average:", average)
-
-if all(mark >= 40 for mark in marks):
-    print("Result: PASS")
-else:
-    print("Result: FAIL")`
-}
-
-};
-
-
-/* =====================================================
-   ANSWER GENERATOR
-===================================================== */
-
-function answer(key){
-
-    const data = DATA[key];
-
-    if(!data) return;
-
-    addUser(data.title);
-
-    setTimeout(function(){
-
-        addBot(
-`# ${data.title}
-
-Simple Explanation:
-${data.explanation}
-
-Python Program:
-
-${data.code}
-
-Exam Tip:
-Understand the menu, variables, list/dictionary, loop, if-else and input/output. You can explain each part to the examiner.`
-        );
-
-    },250);
-
-}
-
-
-/* =====================================================
-   ASK TOPIC
-===================================================== */
-
-function askTopic(key){
-
-    answer(key);
-
-}
-
-
-/* =====================================================
-   ADD USER
-===================================================== */
-
-function addUser(text){
-
-    const messages =
-        document.getElementById("messages");
-
-    const div =
-        document.createElement("div");
-
-    div.className="message user";
-
-    div.innerHTML=`
-        <div class="avatar">👤</div>
-        <div class="msg-body">
-            <div class="msg-name">YOU</div>
-            <div class="msg-text"></div>
-        </div>
-    `;
-
-    div.querySelector(".msg-text").textContent=text;
-
-    messages.appendChild(div);
-
-    scrollBottom();
-}
-
-
-/* =====================================================
-   ADD BOT
-===================================================== */
-
-function addBot(text){
-
-    const messages =
-        document.getElementById("messages");
-
-    const div =
-        document.createElement("div");
-
-    div.className="message";
-
-    div.innerHTML=`
-        <div class="avatar">🤖</div>
-
-        <div class="msg-body">
-
-            <div class="msg-name">
-                PYTHON ASSISTANT
-            </div>
-
-            <div class="msg-text"></div>
-
-        </div>
-    `;
-
-    div.querySelector(".msg-text").textContent=text;
-
-    messages.appendChild(div);
-
-    scrollBottom();
-
-}
-
-
-/* =====================================================
-   SMART QUESTION MATCHING
-===================================================== */
-
-function askAI(){
-
-    const input =
-        document.getElementById("question");
-
-    const q =
-        input.value.toLowerCase().trim();
-
-    if(!q){
-        return;
     }
+);
 
-    input.value="";
 
-    const keywords = {
+/* =========================================================
+   ENTER SEND
+========================================================= */
 
-        hospital:[
-            "hospital",
-            "patient",
-            "doctor",
-            "medical"
-        ],
+promptInput.addEventListener(
+    "keydown",
+    function(e){
 
-        student:[
-            "student",
-            "student management",
-            "students"
-        ],
+        if(
+            e.key === "Enter" &&
+            !e.shiftKey
+        ){
 
-        employee:[
-            "employee",
-            "employee management",
-            "staff"
-        ],
+            e.preventDefault();
 
-        bank:[
-            "bank",
-            "banking",
-            "account",
-            "deposit",
-            "withdraw"
-        ],
-
-        library:[
-            "library",
-            "book",
-            "books"
-        ],
-
-        shop:[
-            "shop",
-            "billing",
-            "bill",
-            "shopping"
-        ],
-
-        hotel:[
-            "hotel",
-            "room",
-            "guest"
-        ],
-
-        inventory:[
-            "inventory",
-            "stock",
-            "product"
-        ],
-
-        marks:[
-            "mark",
-            "marks",
-            "grade"
-        ],
-
-        employee_salary:[
-            "salary",
-            "gross salary",
-            "hra",
-            "da"
-        ],
-
-        attendance:[
-            "attendance",
-            "present",
-            "absent"
-        ],
-
-        bus:[
-            "bus",
-            "reservation",
-            "seat"
-        ],
-
-        contact:[
-            "contact",
-            "phone book",
-            "contact book"
-        ],
-
-        result:[
-            "result",
-            "pass fail",
-            "pass/fail"
-        ]
-
-    };
-
-    let found=null;
-
-    for(const key in keywords){
-
-        for(const word of keywords[key]){
-
-            if(q.includes(word)){
-
-                found=key;
-                break;
-
-            }
+            sendMessage();
 
         }
 
-        if(found) break;
-
     }
-
-    if(found){
-
-        answer(found);
-
-        return;
-
-    }
+);
 
 
-    /* BASIC PYTHON QUESTIONS */
+/* =========================================================
+   QUICK ASK
+========================================================= */
 
-    if(
-        q.includes("list") ||
-        q.includes("array")
-    ){
+function quickAsk(text){
 
-        addUser(input.value || q);
+    promptInput.value = text;
 
-        addBot(
-`Python List
+    promptInput.dispatchEvent(
+        new Event("input")
+    );
 
-A list stores multiple values in one variable.
+    sendMessage();
 
-Example:
-
-numbers = [10, 20, 30, 40]
-
-print(numbers)
-
-Common operations:
-
-numbers.append(50)
-numbers.remove(20)
-numbers.pop()
-len(numbers)
-
-Exam point:
-Lists are ordered and changeable.`
-        );
-
-        return;
-
-    }
-
-
-    if(
-        q.includes("tuple")
-    ){
-
-        addUser(q);
-
-        addBot(
-`Python Tuple
-
-A tuple stores multiple values but cannot normally be changed after creation.
-
-Example:
-
-data = (10, 20, 30)
-
-print(data)
-
-Tuple is useful when data should remain fixed.`
-        );
-
-        return;
-
-    }
-
-
-    if(
-        q.includes("dictionary") ||
-        q.includes("dict")
-    ){
-
-        addUser(q);
-
-        addBot(
-`Python Dictionary
-
-A dictionary stores data as key-value pairs.
-
-Example:
-
-student = {
-    "name": "Rahul",
-    "mark": 85
 }
 
-print(student["name"])
-print(student["mark"])
 
-Useful for management-system programs.`
+/* =========================================================
+   SEND MESSAGE
+========================================================= */
+
+async function sendMessage(){
+
+    const text =
+        promptInput.value.trim();
+
+
+    if(!text){
+        return;
+    }
+
+
+    addUserMessage(text);
+
+
+    promptInput.value = "";
+
+    promptInput.style.height = "auto";
+
+
+    sendBtn.disabled = true;
+
+
+    const typingId =
+        addTyping();
+
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                        message:text,
+
+                        history:
+                            chatHistory
+
+                    })
+
+                }
+            );
+
+
+        let data;
+
+        try{
+
+            data =
+                await response.json();
+
+        }catch{
+
+            data = {};
+
+        }
+
+
+        removeTyping(typingId);
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.error ||
+                "AI server error."
+            );
+
+        }
+
+
+        const answer =
+            data.answer ||
+            "No AI answer received.";
+
+
+        chatHistory.push({
+
+            role:"user",
+
+            content:text
+
+        });
+
+
+        chatHistory.push({
+
+            role:"assistant",
+
+            content:answer
+
+        });
+
+
+        /*
+        Keep only recent messages
+        in browser memory.
+        */
+
+        if(
+            chatHistory.length > 20
+        ){
+
+            chatHistory =
+                chatHistory.slice(-20);
+
+        }
+
+
+        lastAssistantText =
+            answer;
+
+
+        addAssistantMessage(answer);
+
+
+    }catch(error){
+
+        removeTyping(typingId);
+
+
+        addError(
+            error.message ||
+            "Unable to connect to AI."
+        );
+
+    }
+
+
+    sendBtn.disabled = false;
+
+    promptInput.focus();
+
+}
+
+
+/* =========================================================
+   ADD USER MESSAGE
+========================================================= */
+
+function addUserMessage(text){
+
+    removeWelcome();
+
+
+    const wrapper =
+        document.createElement("div");
+
+
+    wrapper.className =
+        "message user";
+
+
+    wrapper.innerHTML = `
+
+        <div class="message-avatar">
+            👤
+        </div>
+
+        <div class="message-body">
+
+            <div class="message-name">
+                YOU
+            </div>
+
+            <div class="message-content"></div>
+
+        </div>
+
+    `;
+
+
+    wrapper.querySelector(
+        ".message-content"
+    ).textContent = text;
+
+
+    messages.appendChild(wrapper);
+
+
+    scrollBottom();
+
+}
+
+
+/* =========================================================
+   ADD AI MESSAGE
+========================================================= */
+
+function addAssistantMessage(text){
+
+    const wrapper =
+        document.createElement("div");
+
+
+    wrapper.className =
+        "message";
+
+
+    wrapper.innerHTML = `
+
+        <div class="message-avatar">
+            🤖
+        </div>
+
+        <div class="message-body">
+
+            <div class="message-name">
+                PYTHON PRACTICAL AI
+            </div>
+
+            <div class="message-content"></div>
+
+        </div>
+
+    `;
+
+
+    const content =
+        wrapper.querySelector(
+            ".message-content"
+        );
+
+
+    content.innerHTML =
+        renderAI(text);
+
+
+    messages.appendChild(wrapper);
+
+
+    attachCodeButtons(wrapper);
+
+
+    scrollBottom();
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(str){
+
+    return str
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   SIMPLE AI MARKDOWN RENDERER
+========================================================= */
+
+function renderAI(text){
+
+    const codeBlocks = [];
+
+
+    /*
+    Find Python code blocks.
+    */
+
+    text =
+        text.replace(
+            /```(?:python|py)?\s*([\s\S]*?)```/gi,
+            function(_,code){
+
+                const id =
+                    "code_" +
+                    Math.random()
+                        .toString(36)
+                        .slice(2,10);
+
+
+                codeBlocks.push({
+
+                    id:id,
+
+                    code:code.trim()
+
+                });
+
+
+                return (
+                    "@@CODE_" +
+                    id +
+                    "@@"
+                );
+
+            }
+        );
+
+
+    let html =
+        escapeHTML(text);
+
+
+    /* HEADINGS */
+
+    html =
+        html.replace(
+            /^### (.+)$/gm,
+            "<h3>$1</h3>"
+        );
+
+
+    html =
+        html.replace(
+            /^## (.+)$/gm,
+            "<h2>$1</h2>"
+        );
+
+
+    html =
+        html.replace(
+            /^# (.+)$/gm,
+            "<h2>$1</h2>"
+        );
+
+
+    /* BOLD */
+
+    html =
+        html.replace(
+            /\*\*(.*?)\*\*/g,
+            "<strong>$1</strong>"
+        );
+
+
+    /* INLINE CODE */
+
+    html =
+        html.replace(
+            /`([^`\n]+)`/g,
+            "<code>$1</code>"
+        );
+
+
+    /*
+    Numbered lists
+    */
+
+    html =
+        html.replace(
+            /^(\d+)\.\s(.+)$/gm,
+            "<li>$2</li>"
+        );
+
+
+    /*
+    Bullet lists
+    */
+
+    html =
+        html.replace(
+            /^[•*-]\s(.+)$/gm,
+            "<li>$1</li>"
+        );
+
+
+    /*
+    Paragraphs
+    */
+
+    html =
+        html.replace(
+            /\n\n+/g,
+            "</p><p>"
+        );
+
+
+    html =
+        "<p>" + html + "</p>";
+
+
+    /*
+    Restore code blocks.
+    */
+
+    codeBlocks.forEach(
+        function(block){
+
+            const safe =
+                escapeHTML(
+                    block.code
+                );
+
+
+            const codeHTML = `
+
+                <div class="code-card">
+
+                    <div class="code-top">
+
+                        <div class="code-title">
+
+                            <span
+                                class="python-dot">
+                            </span>
+
+                            PYTHON
+
+                        </div>
+
+
+                        <div class="code-tools">
+
+                            <button
+                                class="code-action copy-code"
+                                data-code-id="${block.id}">
+
+                                COPY
+
+                            </button>
+
+
+                            <button
+                                class="code-action download download-code"
+                                data-code-id="${block.id}">
+
+                                ↓ DOWNLOAD .PY
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <pre
+                        id="${block.id}"
+                        class="code">${safe}</pre>
+
+                </div>
+
+            `;
+
+
+            html =
+                html.replace(
+                    "@@CODE_" +
+                    block.id +
+                    "@@",
+                    codeHTML
+                );
+
+        }
+    );
+
+
+    return html;
+
+}
+
+
+/* =========================================================
+   CODE BUTTONS
+========================================================= */
+
+function attachCodeButtons(wrapper){
+
+    /*
+    COPY
+    */
+
+    wrapper
+        .querySelectorAll(
+            ".copy-code"
+        )
+        .forEach(
+            function(button){
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        const id =
+                            this.dataset.codeId;
+
+
+                        const code =
+                            document
+                                .getElementById(id)
+                                .textContent;
+
+
+                        navigator
+                            .clipboard
+                            .writeText(code)
+                            .then(
+                                () => {
+
+                                    const old =
+                                        this.textContent;
+
+
+                                    this.textContent =
+                                        "COPIED ✓";
+
+
+                                    setTimeout(
+                                        () => {
+
+                                            this.textContent =
+                                                old;
+
+                                        },
+                                        1200
+                                    );
+
+                                }
+                            );
+
+                    }
+                );
+
+            }
+        );
+
+
+    /*
+    DOWNLOAD PYTHON
+    */
+
+    wrapper
+        .querySelectorAll(
+            ".download-code"
+        )
+        .forEach(
+            function(button){
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        const id =
+                            this.dataset.codeId;
+
+
+                        const code =
+                            document
+                                .getElementById(id)
+                                .textContent;
+
+
+                        downloadFile(
+                            code,
+                            "python_practical.py",
+                            "text/x-python"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD FILE
+========================================================= */
+
+function downloadFile(
+    content,
+    filename,
+    type
+){
+
+    const blob =
+        new Blob(
+            [content],
+            {
+                type:type
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    a.href = url;
+
+    a.download = filename;
+
+
+    document.body.appendChild(a);
+
+
+    a.click();
+
+
+    a.remove();
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* =========================================================
+   DOWNLOAD COMPLETE CHAT
+========================================================= */
+
+function downloadChat(){
+
+    if(!lastAssistantText){
+
+        alert(
+            "Generate an AI answer first."
         );
 
         return;
@@ -1734,290 +2527,216 @@ Useful for management-system programs.`
     }
 
 
-    if(
-        q.includes("function")
-    ){
+    downloadFile(
 
-        addUser(q);
+        lastAssistantText,
 
-        addBot(
-`Python Function
+        "python_practical_answer.txt",
 
-A function is a reusable block of code.
+        "text/plain"
 
-Example:
-
-def add(a, b):
-    return a + b
-
-result = add(10, 20)
-
-print(result)
-
-Important keywords:
-def → creates a function
-return → sends a value back`
-        );
-
-        return;
-
-    }
-
-
-    if(
-        q.includes("loop") ||
-        q.includes("for loop") ||
-        q.includes("while")
-    ){
-
-        addUser(q);
-
-        addBot(
-`Python Loop
-
-For loop:
-
-for i in range(5):
-    print(i)
-
-While loop:
-
-i = 1
-
-while i <= 5:
-    print(i)
-    i += 1
-
-Loops are commonly used in practical management programs to repeatedly display menus or process records.`
-        );
-
-        return;
-
-    }
-
-
-    if(
-        q.includes("if") ||
-        q.includes("condition")
-    ){
-
-        addUser(q);
-
-        addBot(
-`Python if-else
-
-Example:
-
-mark = int(input("Enter mark: "))
-
-if mark >= 40:
-    print("Pass")
-else:
-    print("Fail")
-
-if-elif-else is useful when there are multiple conditions.`
-        );
-
-        return;
-
-    }
-
-
-    addUser(q);
-
-    addBot(
-`I can help you practise common Python practical programs.
-
-Try asking:
-
-• Hospital Management
-• Student Management
-• Employee Management
-• Bank Management
-• Library Management
-• Shop Billing
-• Hotel Management
-• Inventory Management
-• Student Marks
-• Attendance
-• Bus Reservation
-• Contact Book
-• Result System
-
-You can also ask:
-"Explain list"
-"Explain dictionary"
-"Explain loop"
-"Give function program"
-"Give simple menu program"`
     );
 
 }
 
 
-/* =====================================================
-   CLEAR
-===================================================== */
+/* =========================================================
+   TYPING INDICATOR
+========================================================= */
 
-function clearChat(){
+function addTyping(){
 
-    document.getElementById("messages").innerHTML="";
+    const id =
+        "typing_" +
+        Date.now();
+
+
+    const wrapper =
+        document.createElement("div");
+
+
+    wrapper.className =
+        "message";
+
+
+    wrapper.id = id;
+
+
+    wrapper.innerHTML = `
+
+        <div class="message-avatar">
+            🤖
+        </div>
+
+        <div class="message-body">
+
+            <div class="message-name">
+                PYTHON PRACTICAL AI
+            </div>
+
+            <div class="typing">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    messages.appendChild(wrapper);
+
+
+    scrollBottom();
+
+
+    return id;
 
 }
 
 
-/* =====================================================
-   ENTER KEY
-===================================================== */
+/* =========================================================
+   REMOVE TYPING
+========================================================= */
 
-document
-.getElementById("question")
-.addEventListener(
-    "keydown",
-    function(e){
+function removeTyping(id){
 
-        if(e.key==="Enter"){
+    const element =
+        document.getElementById(id);
 
-            askAI();
 
-        }
+    if(element){
+
+        element.remove();
 
     }
-);
+
+}
 
 
-/* =====================================================
+/* =========================================================
+   ERROR
+========================================================= */
+
+function addError(text){
+
+    const wrapper =
+        document.createElement("div");
+
+
+    wrapper.className =
+        "message";
+
+
+    wrapper.innerHTML = `
+
+        <div class="message-avatar">
+            ⚠️
+        </div>
+
+        <div class="message-body">
+
+            <div class="message-name">
+                CONNECTION ERROR
+            </div>
+
+            <div class="error"></div>
+
+        </div>
+
+    `;
+
+
+    wrapper.querySelector(
+        ".error"
+    ).textContent = text;
+
+
+    messages.appendChild(wrapper);
+
+
+    scrollBottom();
+
+}
+
+
+/* =========================================================
+   REMOVE WELCOME
+========================================================= */
+
+function removeWelcome(){
+
+    const welcome =
+        document.getElementById(
+            "welcome"
+        );
+
+
+    if(welcome){
+
+        welcome.remove();
+
+    }
+
+}
+
+
+/* =========================================================
+   CLEAR CHAT
+========================================================= */
+
+function clearMessages(){
+
+    messages.innerHTML = "";
+
+    chatHistory = [];
+
+    lastAssistantText = "";
+
+}
+
+
+/* =========================================================
+   NEW CHAT
+========================================================= */
+
+function newChat(){
+
+    clearMessages();
+
+    location.reload();
+
+}
+
+
+/* =========================================================
    SCROLL
-===================================================== */
+========================================================= */
 
 function scrollBottom(){
 
-    const messages =
-        document.getElementById("messages");
+    requestAnimationFrame(
+        function(){
 
-    messages.scrollTop =
-        messages.scrollHeight;
+            messages.scrollTop =
+                messages.scrollHeight;
 
-}
-
-
-/* =====================================================
-   DOWNLOAD STUDY NOTES
-===================================================== */
-
-function downloadNotes(){
-
-const notes = `PYTHON PRACTICAL EXAM
-APPLICATION LEVEL QUICK REVISION
-
-TOPICS
-
-1. Student Management
-2. Hospital Management
-3. Employee Management
-4. Bank Management
-5. Library Management
-6. Shop Billing
-7. Hotel Management
-8. Inventory Management
-9. Student Marks
-10. Salary Calculator
-11. Attendance
-12. Bus Reservation
-13. Contact Book
-14. Result System
-
-IMPORTANT PYTHON CONCEPTS
-
-LIST
-numbers = [10,20,30]
-
-APPEND
-numbers.append(40)
-
-DICTIONARY
-student = {"name":"Rahul","mark":80}
-
-IF
-if mark >= 40:
-    print("Pass")
-else:
-    print("Fail")
-
-FOR LOOP
-for i in range(5):
-    print(i)
-
-WHILE LOOP
-while condition:
-    print("Hello")
-
-FUNCTION
-def add(a,b):
-    return a+b
-
-MENU PROGRAM
-
-while True:
-    print("1. Add")
-    print("2. Display")
-    print("3. Exit")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-        print("Add")
-    elif choice == "2":
-        print("Display")
-    elif choice == "3":
-        break
-
-EXAM TIP
-
-Understand:
-input()
-print()
-variables
-list
-dictionary
-if-else
-for loop
-while loop
-functions
-append()
-len()
-sum()
-searching
-menu-driven programs
-`;
-
-const blob =
-new Blob(
-    [notes],
-    {type:"text/plain;charset=utf-8"}
-);
-
-const url =
-URL.createObjectURL(blob);
-
-const a =
-document.createElement("a");
-
-a.href=url;
-
-a.download="Python_Practical_Exam_Notes.txt";
-
-document.body.appendChild(a);
-
-a.click();
-
-a.remove();
-
-URL.revokeObjectURL(url);
+        }
+    );
 
 }
+
+
+/* =========================================================
+   START
+========================================================= */
+
+promptInput.focus();
 
 </script>
 
 </body>
-  </html>
+    </html>
