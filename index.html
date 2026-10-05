@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Python Practical AI Study Assistant</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#050607;
+    color:#e5e7eb;
+    font-family:Inter,Arial,sans-serif;
+    min-height:100vh;
+}
+
+::-webkit-scrollbar{
+    width:7px;
+}
+::-webkit-scrollbar-track{
+    background:#050607;
+}
+::-webkit-scrollbar-thumb{
+    background:#252a33;
+    border-radius:20px;
+}
+
+/* HEADER */
+
+header{
+    height:64px;
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    background:rgba(5,6,7,.94);
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid #171a20;
+}
+
+.nav{
+    max-width:1200px;
+    height:100%;
+    margin:auto;
+    padding:0 16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-weight:800;
+    font-size:15px;
+}
+
+.logo{
+    width:36px;
+    height:36px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:#111318;
+    border:1px solid #292e38;
+}
+
+.nav-right{
+    display:flex;
+    gap:7px;
+}
+
+button{
+    font-family:inherit;
+}
+
+.top-btn{
+    padding:8px 11px;
+
+    border:1px solid #20252e;
+    border-radius:8px;
+
+    background:#0b0d10;
+    color:#9ca3af;
+
+    font-size:11px;
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.top-btn:hover{
+    background:#151820;
+    color:#fff;
+}
+
+.download{
+    color:#a78bfa;
+    border-color:#352866;
+}
+
+/* HERO */
+
+.hero{
+    max-width:1200px;
+    margin:auto;
+    padding:45px 16px 25px;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:6px 10px;
+
+    background:#0d0b15;
+    border:1px solid #292044;
+
+    color:#a78bfa;
+
+    border-radius:20px;
+
+    font-size:9px;
+    font-weight:800;
+
+    margin-bottom:14px;
+}
+
+h1{
+    font-size:clamp(36px,6vw,68px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin-bottom:16px;
+}
+
+.gradient{
+    color:#a78bfa;
+}
+
+.hero p{
+    max-width:720px;
+
+    color:#69717e;
+
+    font-size:14px;
+    line-height:1.8;
+}
+
+/* SEARCH */
+
+.search-area{
+    max-width:1200px;
+    margin:auto;
+    padding:0 16px 18px;
+
+    position:sticky;
+    top:64px;
+    z-index:50;
+}
+
+.search{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    background:#090b0e;
+
+    border:1px solid #1b2028;
+    border-radius:12px;
+
+    padding:5px;
+
+    box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+
+.search-icon{
+    width:40px;
+    text-align:center;
+    color:#626b78;
+}
+
+#question{
+    width:100%;
+
+    border:0;
+    outline:0;
+
+    background:transparent;
+
+    color:#e5e7eb;
+
+    padding:12px 0;
+
+    font-size:13px;
+}
+
+#question::placeholder{
+    color:#444b56;
+}
+
+.ask{
+    padding:10px 15px;
+
+    border:0;
+    border-radius:9px;
+
+    background:#7c3aed;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:11px;
+    font-weight:800;
+}
+
+.ask:hover{
+    background:#8b5cf6;
+}
+
+/* MAIN */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 16px 60px;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:15px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    height:max-content;
+
+    position:sticky;
+    top:140px;
+
+    background:#080a0d;
+
+    border:1px solid #151a21;
+    border-radius:14px;
+
+    padding:12px;
+}
+
+.side-title{
+    color:#555e6b;
+    font-size:9px;
+    font-weight:800;
+    text-transform:uppercase;
+
+    padding:7px 9px;
+}
+
+.topic{
+    width:100%;
+
+    text-align:left;
+
+    padding:10px;
+
+    margin:2px 0;
+
+    border:1px solid transparent;
+    border-radius:8px;
+
+    background:transparent;
+    color:#858e9b;
+
+    cursor:pointer;
+
+    font-size:11px;
+}
+
+.topic:hover,
+.topic.active{
+    background:#10131a;
+    border-color:#202631;
+    color:#c4b5fd;
+}
+
+/* CHAT */
+
+.chat{
+    min-height:600px;
+
+    background:#07090c;
+
+    border:1px solid #151a21;
+    border-radius:14px;
+
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.chat-head{
+    padding:14px 16px;
+
+    border-bottom:1px solid #151a21;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.chat-title{
+    font-size:13px;
+    font-weight:800;
+}
+
+.status{
+    color:#6ee7b7;
+    font-size:9px;
+}
+
+.messages{
+    flex:1;
+
+    padding:18px;
+
+    min-height:500px;
+}
+
+.message{
+    display:flex;
+    gap:10px;
+
+    margin-bottom:18px;
+}
+
+.avatar{
+    width:30px;
+    height:30px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:#10131a;
+
+    border:1px solid #202631;
+
+    font-size:12px;
+}
+
+.msg-body{
+    flex:1;
+
+    min-width:0;
+}
+
+.msg-name{
+    color:#a78bfa;
+
+    font-size:10px;
+    font-weight:800;
+
+    margin-bottom:6px;
+}
+
+.user .msg-name{
+    color:#94a3b8;
+}
+
+.msg-text{
+    color:#aab3bf;
+
+    font-size:12px;
+
+    line-height:1.75;
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+}
+
+/* CODE */
+
+.codebox{
+    position:relative;
+
+    margin-top:10px;
+}
+
+pre{
+    background:#020304;
+
+    border:1px solid #171c23;
+
+    border-radius:9px;
+
+    padding:15px 50px 15px 15px;
+
+    color:#b8c2cf;
+
+    font-family:Consolas,"Courier New",monospace;
+
+    font-size:11px;
+
+    line-height:1.7;
+
+    overflow:auto;
+
+    white-space:pre-wrap;
+}
+
+.copy{
+    position:absolute;
+    right:7px;
+    top:7px;
+
+    padding:5px 7px;
+
+    background:#0c0f14;
+
+    color:#687382;
+
+    border:1px solid #202631;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:8px;
+    font-weight:bold;
+}
+
+/* SUGGESTIONS */
+
+.suggestions{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:7px;
+
+    margin-top:15px;
+}
+
+.suggestion{
+    padding:11px;
+
+    background:#090b0e;
+
+    border:1px solid #171c23;
+
+    border-radius:8px;
+
+    color:#707987;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+    text-align:left;
+}
+
+.suggestion:hover{
+    border-color:#3b3260;
+    color:#c4b5fd;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:static;
+
+        display:flex;
+
+        overflow-x:auto;
+
+        gap:5px;
+
+        padding:7px;
+    }
+
+    .side-title{
+        display:none;
+    }
+
+    .topic{
+        white-space:nowrap;
+        width:auto;
+    }
+
+    .chat{
+        min-height:650px;
+    }
+
+    .messages{
+        min-height:540px;
+    }
+
+    .nav-right .top-btn:first-child{
+        display:none;
+    }
+
+    .hero{
+        padding-top:35px;
+    }
+}
+
+@media(max-width:500px){
+
+    h1{
+        font-size:40px;
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:12px;
+    }
+
+    .suggestions{
+        grid-template-columns:1fr;
+    }
+
+    .download{
+        display:block;
+    }
+
+    .messages{
+        padding:13px;
+    }
+
+    .msg-text{
+        font-size:11px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="brand">
+<div class="logo">🐍</div>
+<span>Python Practical AI</span>
+</div>
+
+<div class="nav-right">
+
+<button class="top-btn" onclick="clearChat()">
+CLEAR
+</button>
+
+<button class="top-btn download" onclick="downloadNotes()">
+📥 DOWNLOAD
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="badge">
+PYTHON PRACTICAL • EXAM TOMORROW
+</div>
+
+<h1>
+Python Practical<br>
+<span class="gradient">AI Study Assistant</span>
+</h1>
+
+<p>
+Ask application-level Python practical questions like
+Hospital Management, Student Management, Employee Management,
+Bank Management, Library Management and more.
+</p>
+
+</section>
+
+
+<div class="search-area">
+
+<div class="search">
+
+<div class="search-icon">⌕</div>
+
+<input
+id="question"
+type="text"
+placeholder="Ask: create hospital management program..."
+>
+
+<button class="ask" onclick="askAI()">
+ASK
+</button>
+
+</div>
+
+</div>
+
+
+<div class="container">
+
+<div class="layout">
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="side-title">
+Practice Topics
+</div>
+
+<button class="topic active"
+onclick="askTopic('student')">
+🎓 Student Management
+</button>
+
+<button class="topic"
+onclick="askTopic('hospital')">
+🏥 Hospital Management
+</button>
+
+<button class="topic"
+onclick="askTopic('employee')">
+👨‍💼 Employee Management
+</button>
+
+<button class="topic"
+onclick="askTopic('bank')">
+🏦 Bank Management
+</button>
+
+<button class="topic"
+onclick="askTopic('library')">
+📚 Library Management
+</button>
+
+<button class="topic"
+onclick="askTopic('shop')">
+🛒 Shop Management
+</button>
+
+<button class="topic"
+onclick="askTopic('hotel')">
+🏨 Hotel Management
+</button>
+
+<button class="topic"
+onclick="askTopic('inventory')">
+📦 Inventory Management
+</button>
+
+<button class="topic"
+onclick="askTopic('marks')">
+📊 Student Marks
+</button>
+
+<button class="topic"
+onclick="askTopic('employee_salary')">
+💰 Salary Calculator
+</button>
+
+<button class="topic"
+onclick="askTopic('attendance')">
+✅ Attendance
+</button>
+
+<button class="topic"
+onclick="askTopic('bus')">
+🚌 Bus Reservation
+</button>
+
+<button class="topic"
+onclick="askTopic('billing')">
+🧾 Billing System
+</button>
+
+<button class="topic"
+onclick="askTopic('contact')">
+📱 Contact Book
+</button>
+
+<button class="topic"
+onclick="askTopic('result')">
+📝 Result System
+</button>
+
+</aside>
+
+
+<!-- CHAT -->
+
+<section class="chat">
+
+<div class="chat-head">
+
+<div class="chat-title">
+Python Practical Assistant
+</div>
+
+<div class="status">
+● Offline Study Mode
+</div>
+
+</div>
+
+
+<div class="messages" id="messages">
+
+
+<div class="message">
+
+<div class="avatar">
+🤖
+</div>
+
+<div class="msg-body">
+
+<div class="msg-name">
+PYTHON ASSISTANT
+</div>
+
+<div class="msg-text">Hi! 👋
+
+Ask me an application-level Python practical question.
+
+Examples:
+
+• Hospital Management
+• Student Management
+• Employee Management
+• Bank Management
+• Library Management
+• Shop Billing
+• Hotel Management
+• Inventory Management
+• Marks / Result
+• Attendance
+• Contact Book
+
+I will give you:
+1. Simple explanation
+2. Algorithm
+3. Full Python code
+4. Sample output
+5. Important viva points</div>
+
+<div class="suggestions">
+
+<button class="suggestion"
+onclick="askTopic('hospital')">
+Create Hospital Management
+</button>
+
+<button class="suggestion"
+onclick="askTopic('student')">
+Create Student Management
+</button>
+
+<button class="suggestion"
+onclick="askTopic('bank')">
+Create Bank Management
+</button>
+
+<button class="suggestion"
+onclick="askTopic('library')">
+Create Library Management
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   QUESTION DATABASE
+===================================================== */
+
+const DATA = {
+
+student: {
+title:"Student Management System",
+
+explanation:
+"Student Management System stores and manages student details such as name, roll number and marks. We can add, display, search and calculate results.",
+
+code:`students = []
+
+while True:
+    print("\\n1. Add Student")
+    print("2. Display Students")
+    print("3. Search Student")
+    print("4. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        roll = input("Enter roll number: ")
+        name = input("Enter name: ")
+        mark = float(input("Enter mark: "))
+
+        students.append({
+            "roll": roll,
+            "name": name,
+            "mark": mark
+        })
+
+        print("Student added successfully.")
+
+    elif choice == "2":
+        for s in students:
+            print("Roll:", s["roll"])
+            print("Name:", s["name"])
+            print("Mark:", s["mark"])
+            print("----------------")
+
+    elif choice == "3":
+        roll = input("Enter roll number: ")
+
+        found = False
+
+        for s in students:
+            if s["roll"] == roll:
+                print("Name:", s["name"])
+                print("Mark:", s["mark"])
+                found = True
+
+        if not found:
+            print("Student not found.")
+
+    elif choice == "4":
+        break
+
+    else:
+        print("Invalid choice.")`
+},
+
+hospital:{
+title:"Hospital Management System",
+
+explanation:
+"Hospital Management System stores patient information. A simple practical program can add patients, display patients and search patients using patient ID.",
+
+code:`patients = []
+
+while True:
+    print("\\n1. Add Patient")
+    print("2. Display Patients")
+    print("3. Search Patient")
+    print("4. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        pid = input("Enter patient ID: ")
+        name = input("Enter patient name: ")
+        age = input("Enter age: ")
+        disease = input("Enter disease: ")
+
+        patients.append({
+            "id": pid,
+            "name": name,
+            "age": age,
+            "disease": disease
+        })
+
+        print("Patient added.")
+
+    elif choice == "2":
+        for p in patients:
+            print("\\nPatient ID:", p["id"])
+            print("Name:", p["name"])
+            print("Age:", p["age"])
+            print("Disease:", p["disease"])
+
+    elif choice == "3":
+        pid = input("Enter patient ID: ")
+
+        for p in patients:
+            if p["id"] == pid:
+                print("Patient found")
+                print(p)
+                break
+        else:
+            print("Patient not found.")
+
+    elif choice == "4":
+        break
+
+    else:
+        print("Invalid choice.")`
+},
+
+employee:{
+title:"Employee Management System",
+
+explanation:
+"Employee Management stores employee ID, name, department and salary. The menu allows adding, displaying and searching employees.",
+
+code:`employees = []
+
+while True:
+    print("\\n1. Add Employee")
+    print("2. Display Employees")
+    print("3. Search Employee")
+    print("4. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        eid = input("Enter employee ID: ")
+        name = input("Enter name: ")
+        dept = input("Enter department: ")
+        salary = float(input("Enter salary: "))
+
+        employees.append({
+            "id": eid,
+            "name": name,
+            "dept": dept,
+            "salary": salary
+        })
+
+        print("Employee added.")
+
+    elif choice == "2":
+        for e in employees:
+            print(e)
+
+    elif choice == "3":
+        eid = input("Enter employee ID: ")
+
+        for e in employees:
+            if e["id"] == eid:
+                print(e)
+                break
+        else:
+            print("Employee not found.")
+
+    elif choice == "4":
+        break
+
+    else:
+        print("Invalid choice.")`
+},
+
+bank:{
+title:"Bank Management System",
+
+explanation:
+"Bank Management can maintain an account balance and provide deposit, withdrawal and balance-checking operations.",
+
+code:`balance = 0
+
+while True:
+    print("\\n1. Deposit")
+    print("2. Withdraw")
+    print("3. Check Balance")
+    print("4. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        amount = float(input("Enter deposit amount: "))
+        balance += amount
+        print("Amount deposited.")
+
+    elif choice == "2":
+        amount = float(input("Enter withdrawal amount: "))
+
+        if amount <= balance:
+            balance -= amount
+            print("Withdrawal successful.")
+        else:
+            print("Insufficient balance.")
+
+    elif choice == "3":
+        print("Current balance:", balance)
+
+    elif choice == "4":
+        break
+
+    else:
+        print("Invalid choice.")`
+},
+
+library:{
+title:"Library Management System",
+
+explanation:
+"Library Management keeps track of books. A simple program can add books, display books and search for a book.",
+
+code:`books = []
+
+while True:
+    print("\\n1. Add Book")
+    print("2. Display Books")
+    print("3. Search Book")
+    print("4. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        book_id = input("Enter book ID: ")
+        title = input("Enter book title: ")
+        author = input("Enter author: ")
+
+        books.append({
+            "id": book_id,
+            "title": title,
+            "author": author
+        })
+
+        print("Book added.")
+
+    elif choice == "2":
+        for book in books:
+            print(book)
+
+    elif choice == "3":
+        title = input("Enter title: ")
+
+        for book in books:
+            if book["title"].lower() == title.lower():
+                print("Book found:", book)
+                break
+        else:
+            print("Book not found.")
+
+    elif choice == "4":
+        break
+
+    else:
+        print("Invalid choice.")`
+},
+
+shop:{
+title:"Shop Billing System",
+
+explanation:
+"Shop Billing calculates the total price of products. The program accepts item name, quantity and price.",
+
+code:`items = []
+total = 0
+
+while True:
+    name = input("Enter item name (done to finish): ")
+
+    if name.lower() == "done":
+        break
+
+    quantity = int(input("Enter quantity: "))
+    price = float(input("Enter price: "))
+
+    amount = quantity * price
+
+    items.append((name, quantity, price, amount))
+
+    total += amount
+
+print("\\n----- BILL -----")
+
+for item in items:
+    print(item[0], "x", item[1], "=", item[3])
+
+print("Total:", total)`
+},
+
+hotel:{
+title:"Hotel Management System",
+
+explanation:
+"Hotel Management can store guest details and room information. A simple practical program can add guests and display bookings.",
+
+code:`guests = []
+
+while True:
+    print("\\n1. Add Guest")
+    print("2. Display Guests")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        room = input("Enter room number: ")
+        name = input("Enter guest name: ")
+        days = int(input("Enter number of days: "))
+
+        guests.append({
+            "room": room,
+            "name": name,
+            "days": days
+        })
+
+        print("Booking added.")
+
+    elif choice == "2":
+        for g in guests:
+            print(g)
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid choice.")`
+},
+
+inventory:{
+title:"Inventory Management System",
+
+explanation:
+"Inventory Management stores product names and quantities. We can add stock, display stock and search products.",
+
+code:`inventory = {}
+
+while True:
+    print("\\n1. Add Product")
+    print("2. Display Inventory")
+    print("3. Search Product")
+    print("4. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        name = input("Enter product name: ")
+        quantity = int(input("Enter quantity: "))
+
+        inventory[name] = inventory.get(name, 0) + quantity
+
+        print("Product added.")
+
+    elif choice == "2":
+        for name, quantity in inventory.items():
+            print(name, ":", quantity)
+
+    elif choice == "3":
+        name = input("Enter product name: ")
+
+        if name in inventory:
+            print("Quantity:", inventory[name])
+        else:
+            print("Product not found.")
+
+    elif choice == "4":
+        break
+
+    else:
+        print("Invalid choice.")`
+},
+
+marks:{
+title:"Student Mark and Grade Program",
+
+explanation:
+"This program accepts marks, calculates total and average, and gives a grade using if-elif conditions.",
+
+code:`name = input("Enter student name: ")
+
+m1 = float(input("Enter mark 1: "))
+m2 = float(input("Enter mark 2: "))
+m3 = float(input("Enter mark 3: "))
+
+total = m1 + m2 + m3
+average = total / 3
+
+print("Name:", name)
+print("Total:", total)
+print("Average:", average)
+
+if average >= 90:
+    grade = "A+"
+elif average >= 80:
+    grade = "A"
+elif average >= 70:
+    grade = "B"
+elif average >= 60:
+    grade = "C"
+elif average >= 50:
+    grade = "D"
+else:
+    grade = "F"
+
+print("Grade:", grade)`
+},
+
+employee_salary:{
+title:"Employee Salary Calculator",
+
+explanation:
+"This program calculates gross salary using basic salary and allowances.",
+
+code:`name = input("Enter employee name: ")
+
+basic = float(input("Enter basic salary: "))
+hra = float(input("Enter HRA: "))
+da = float(input("Enter DA: "))
+
+gross = basic + hra + da
+
+print("\\nEmployee:", name)
+print("Basic Salary:", basic)
+print("HRA:", hra)
+print("DA:", da)
+print("Gross Salary:", gross)`
+},
+
+attendance:{
+title:"Student Attendance System",
+
+explanation:
+"This program stores student attendance and calculates the attendance percentage.",
+
+code:`name = input("Enter student name: ")
+
+total_days = int(input("Enter total working days: "))
+present_days = int(input("Enter present days: "))
+
+percentage = (present_days / total_days) * 100
+
+print("Student:", name)
+print("Attendance:", percentage, "%")
+
+if percentage >= 75:
+    print("Eligible")
+else:
+    print("Not Eligible")`
+},
+
+bus:{
+title:"Bus Reservation System",
+
+explanation:
+"This program demonstrates a simple reservation system using a list of available seats.",
+
+code:`seats = [1, 2, 3, 4, 5]
+
+while True:
+    print("\\nAvailable seats:", seats)
+
+    print("1. Book Seat")
+    print("2. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+
+        seat = int(input("Enter seat number: "))
+
+        if seat in seats:
+            seats.remove(seat)
+            print("Seat booked successfully.")
+        else:
+            print("Seat is not available.")
+
+    elif choice == "2":
+        break
+
+    else:
+        print("Invalid choice.")`
+},
+
+billing:{
+title:"Electricity Billing System",
+
+explanation:
+"This program calculates an electricity bill based on units consumed.",
+
+code:`units = float(input("Enter units consumed: "))
+
+if units <= 100:
+    bill = units * 2
+elif units <= 200:
+    bill = (100 * 2) + ((units - 100) * 3)
+else:
+    bill = (100 * 2) + (100 * 3) + ((units - 200) * 5)
+
+print("Units:", units)
+print("Electricity Bill:", bill)`
+},
+
+contact:{
+title:"Contact Book",
+
+explanation:
+"Contact Book stores names and phone numbers using a dictionary.",
+
+code:`contacts = {}
+
+while True:
+    print("\\n1. Add Contact")
+    print("2. Display Contacts")
+    print("3. Search Contact")
+    print("4. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        name = input("Enter name: ")
+        phone = input("Enter phone: ")
+
+        contacts[name] = phone
+
+        print("Contact saved.")
+
+    elif choice == "2":
+        for name, phone in contacts.items():
+            print(name, ":", phone)
+
+    elif choice == "3":
+        name = input("Enter name: ")
+
+        if name in contacts:
+            print("Phone:", contacts[name])
+        else:
+            print("Contact not found.")
+
+    elif choice == "4":
+        break
+
+    else:
+        print("Invalid choice.")`
+},
+
+result:{
+title:"Student Result System",
+
+explanation:
+"This program calculates total, average and pass/fail status for a student.",
+
+code:`name = input("Enter student name: ")
+
+marks = []
+
+for i in range(3):
+    mark = float(input("Enter mark: "))
+    marks.append(mark)
+
+total = sum(marks)
+average = total / len(marks)
+
+print("\\nStudent:", name)
+print("Marks:", marks)
+print("Total:", total)
+print("Average:", average)
+
+if all(mark >= 40 for mark in marks):
+    print("Result: PASS")
+else:
+    print("Result: FAIL")`
+}
+
+};
+
+
+/* =====================================================
+   ANSWER GENERATOR
+===================================================== */
+
+function answer(key){
+
+    const data = DATA[key];
+
+    if(!data) return;
+
+    addUser(data.title);
+
+    setTimeout(function(){
+
+        addBot(
+`# ${data.title}
+
+Simple Explanation:
+${data.explanation}
+
+Python Program:
+
+${data.code}
+
+Exam Tip:
+Understand the menu, variables, list/dictionary, loop, if-else and input/output. You can explain each part to the examiner.`
+        );
+
+    },250);
+
+}
+
+
+/* =====================================================
+   ASK TOPIC
+===================================================== */
+
+function askTopic(key){
+
+    answer(key);
+
+}
+
+
+/* =====================================================
+   ADD USER
+===================================================== */
+
+function addUser(text){
+
+    const messages =
+        document.getElementById("messages");
+
+    const div =
+        document.createElement("div");
+
+    div.className="message user";
+
+    div.innerHTML=`
+        <div class="avatar">👤</div>
+        <div class="msg-body">
+            <div class="msg-name">YOU</div>
+            <div class="msg-text"></div>
+        </div>
+    `;
+
+    div.querySelector(".msg-text").textContent=text;
+
+    messages.appendChild(div);
+
+    scrollBottom();
+}
+
+
+/* =====================================================
+   ADD BOT
+===================================================== */
+
+function addBot(text){
+
+    const messages =
+        document.getElementById("messages");
+
+    const div =
+        document.createElement("div");
+
+    div.className="message";
+
+    div.innerHTML=`
+        <div class="avatar">🤖</div>
+
+        <div class="msg-body">
+
+            <div class="msg-name">
+                PYTHON ASSISTANT
+            </div>
+
+            <div class="msg-text"></div>
+
+        </div>
+    `;
+
+    div.querySelector(".msg-text").textContent=text;
+
+    messages.appendChild(div);
+
+    scrollBottom();
+
+}
+
+
+/* =====================================================
+   SMART QUESTION MATCHING
+===================================================== */
+
+function askAI(){
+
+    const input =
+        document.getElementById("question");
+
+    const q =
+        input.value.toLowerCase().trim();
+
+    if(!q){
+        return;
+    }
+
+    input.value="";
+
+    const keywords = {
+
+        hospital:[
+            "hospital",
+            "patient",
+            "doctor",
+            "medical"
+        ],
+
+        student:[
+            "student",
+            "student management",
+            "students"
+        ],
+
+        employee:[
+            "employee",
+            "employee management",
+            "staff"
+        ],
+
+        bank:[
+            "bank",
+            "banking",
+            "account",
+            "deposit",
+            "withdraw"
+        ],
+
+        library:[
+            "library",
+            "book",
+            "books"
+        ],
+
+        shop:[
+            "shop",
+            "billing",
+            "bill",
+            "shopping"
+        ],
+
+        hotel:[
+            "hotel",
+            "room",
+            "guest"
+        ],
+
+        inventory:[
+            "inventory",
+            "stock",
+            "product"
+        ],
+
+        marks:[
+            "mark",
+            "marks",
+            "grade"
+        ],
+
+        employee_salary:[
+            "salary",
+            "gross salary",
+            "hra",
+            "da"
+        ],
+
+        attendance:[
+            "attendance",
+            "present",
+            "absent"
+        ],
+
+        bus:[
+            "bus",
+            "reservation",
+            "seat"
+        ],
+
+        contact:[
+            "contact",
+            "phone book",
+            "contact book"
+        ],
+
+        result:[
+            "result",
+            "pass fail",
+            "pass/fail"
+        ]
+
+    };
+
+    let found=null;
+
+    for(const key in keywords){
+
+        for(const word of keywords[key]){
+
+            if(q.includes(word)){
+
+                found=key;
+                break;
+
+            }
+
+        }
+
+        if(found) break;
+
+    }
+
+    if(found){
+
+        answer(found);
+
+        return;
+
+    }
+
+
+    /* BASIC PYTHON QUESTIONS */
+
+    if(
+        q.includes("list") ||
+        q.includes("array")
+    ){
+
+        addUser(input.value || q);
+
+        addBot(
+`Python List
+
+A list stores multiple values in one variable.
+
+Example:
+
+numbers = [10, 20, 30, 40]
+
+print(numbers)
+
+Common operations:
+
+numbers.append(50)
+numbers.remove(20)
+numbers.pop()
+len(numbers)
+
+Exam point:
+Lists are ordered and changeable.`
+        );
+
+        return;
+
+    }
+
+
+    if(
+        q.includes("tuple")
+    ){
+
+        addUser(q);
+
+        addBot(
+`Python Tuple
+
+A tuple stores multiple values but cannot normally be changed after creation.
+
+Example:
+
+data = (10, 20, 30)
+
+print(data)
+
+Tuple is useful when data should remain fixed.`
+        );
+
+        return;
+
+    }
+
+
+    if(
+        q.includes("dictionary") ||
+        q.includes("dict")
+    ){
+
+        addUser(q);
+
+        addBot(
+`Python Dictionary
+
+A dictionary stores data as key-value pairs.
+
+Example:
+
+student = {
+    "name": "Rahul",
+    "mark": 85
+}
+
+print(student["name"])
+print(student["mark"])
+
+Useful for management-system programs.`
+        );
+
+        return;
+
+    }
+
+
+    if(
+        q.includes("function")
+    ){
+
+        addUser(q);
+
+        addBot(
+`Python Function
+
+A function is a reusable block of code.
+
+Example:
+
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+
+print(result)
+
+Important keywords:
+def → creates a function
+return → sends a value back`
+        );
+
+        return;
+
+    }
+
+
+    if(
+        q.includes("loop") ||
+        q.includes("for loop") ||
+        q.includes("while")
+    ){
+
+        addUser(q);
+
+        addBot(
+`Python Loop
+
+For loop:
+
+for i in range(5):
+    print(i)
+
+While loop:
+
+i = 1
+
+while i <= 5:
+    print(i)
+    i += 1
+
+Loops are commonly used in practical management programs to repeatedly display menus or process records.`
+        );
+
+        return;
+
+    }
+
+
+    if(
+        q.includes("if") ||
+        q.includes("condition")
+    ){
+
+        addUser(q);
+
+        addBot(
+`Python if-else
+
+Example:
+
+mark = int(input("Enter mark: "))
+
+if mark >= 40:
+    print("Pass")
+else:
+    print("Fail")
+
+if-elif-else is useful when there are multiple conditions.`
+        );
+
+        return;
+
+    }
+
+
+    addUser(q);
+
+    addBot(
+`I can help you practise common Python practical programs.
+
+Try asking:
+
+• Hospital Management
+• Student Management
+• Employee Management
+• Bank Management
+• Library Management
+• Shop Billing
+• Hotel Management
+• Inventory Management
+• Student Marks
+• Attendance
+• Bus Reservation
+• Contact Book
+• Result System
+
+You can also ask:
+"Explain list"
+"Explain dictionary"
+"Explain loop"
+"Give function program"
+"Give simple menu program"`
+    );
+
+}
+
+
+/* =====================================================
+   CLEAR
+===================================================== */
+
+function clearChat(){
+
+    document.getElementById("messages").innerHTML="";
+
+}
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+document
+.getElementById("question")
+.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key==="Enter"){
+
+            askAI();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   SCROLL
+===================================================== */
+
+function scrollBottom(){
+
+    const messages =
+        document.getElementById("messages");
+
+    messages.scrollTop =
+        messages.scrollHeight;
+
+}
+
+
+/* =====================================================
+   DOWNLOAD STUDY NOTES
+===================================================== */
+
+function downloadNotes(){
+
+const notes = `PYTHON PRACTICAL EXAM
+APPLICATION LEVEL QUICK REVISION
+
+TOPICS
+
+1. Student Management
+2. Hospital Management
+3. Employee Management
+4. Bank Management
+5. Library Management
+6. Shop Billing
+7. Hotel Management
+8. Inventory Management
+9. Student Marks
+10. Salary Calculator
+11. Attendance
+12. Bus Reservation
+13. Contact Book
+14. Result System
+
+IMPORTANT PYTHON CONCEPTS
+
+LIST
+numbers = [10,20,30]
+
+APPEND
+numbers.append(40)
+
+DICTIONARY
+student = {"name":"Rahul","mark":80}
+
+IF
+if mark >= 40:
+    print("Pass")
+else:
+    print("Fail")
+
+FOR LOOP
+for i in range(5):
+    print(i)
+
+WHILE LOOP
+while condition:
+    print("Hello")
+
+FUNCTION
+def add(a,b):
+    return a+b
+
+MENU PROGRAM
+
+while True:
+    print("1. Add")
+    print("2. Display")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        print("Add")
+    elif choice == "2":
+        print("Display")
+    elif choice == "3":
+        break
+
+EXAM TIP
+
+Understand:
+input()
+print()
+variables
+list
+dictionary
+if-else
+for loop
+while loop
+functions
+append()
+len()
+sum()
+searching
+menu-driven programs
+`;
+
+const blob =
+new Blob(
+    [notes],
+    {type:"text/plain;charset=utf-8"}
+);
+
+const url =
+URL.createObjectURL(blob);
+
+const a =
+document.createElement("a");
+
+a.href=url;
+
+a.download="Python_Practical_Exam_Notes.txt";
+
+document.body.appendChild(a);
+
+a.click();
+
+a.remove();
+
+URL.revokeObjectURL(url);
+
+}
+
+</script>
+
+</body>
+  </html>
