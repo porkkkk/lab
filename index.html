@@ -1,0 +1,4545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Python Practical Lab</title>
+
+<meta name="theme-color" content="#07090d">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color:#f5f7fb;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(124,92,255,.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 100% 30%,
+            rgba(72,134,255,.08),
+            transparent 28%
+        ),
+        #07090d;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+    --bg:#07090d;
+    --panel:#0d1118;
+    --panel2:#111722;
+
+    --border:rgba(255,255,255,.08);
+    --border2:rgba(255,255,255,.13);
+
+    --text:#f5f7fb;
+    --muted:#929aaa;
+
+    --purple:#7c5cff;
+    --purple2:#a17fff;
+
+    --green:#35d39a;
+    --blue:#55a7ff;
+    --orange:#ffae62;
+    --red:#ff6077;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    height:72px;
+
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 25px;
+
+    background:
+        rgba(7,9,13,.84);
+
+    border-bottom:
+        1px solid var(--border);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+}
+
+
+.brand{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.logo{
+
+    width:43px;
+    height:43px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+    font-size:17px;
+    font-weight:900;
+
+    box-shadow:
+        0 12px 35px
+        rgba(124,92,255,.3);
+
+}
+
+
+.brand-title{
+
+    font-size:16px;
+    font-weight:800;
+
+}
+
+
+.brand-sub{
+
+    margin-top:2px;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+}
+
+
+.header-actions{
+
+    display:flex;
+    gap:8px;
+
+}
+
+
+.header-btn{
+
+    height:38px;
+
+    padding:0 13px;
+
+    border:
+        1px solid var(--border2);
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:#dfe3eb;
+
+    font-size:11px;
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+.header-btn:hover{
+
+    background:
+        rgba(255,255,255,.08);
+
+}
+
+
+.menu-btn{
+
+    display:none;
+
+    width:40px;
+    height:40px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:white;
+
+    font-size:19px;
+
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.layout{
+
+    display:flex;
+
+    min-height:
+        calc(100vh - 72px);
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar{
+
+    width:280px;
+
+    flex-shrink:0;
+
+    height:
+        calc(100vh - 72px);
+
+    position:sticky;
+    top:72px;
+
+    overflow-y:auto;
+
+    padding:20px 15px;
+
+    background:
+        rgba(10,13,19,.75);
+
+    border-right:
+        1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+}
+
+
+.sidebar-title{
+
+    color:#747c8c;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+
+    margin:
+        3px 8px 12px;
+
+}
+
+
+.nav{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+
+.nav-item{
+
+    width:100%;
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    padding:11px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:11px;
+
+    background:transparent;
+
+    color:#aeb5c2;
+
+    text-align:left;
+
+    cursor:pointer;
+
+}
+
+
+.nav-item:hover{
+
+    background:
+        rgba(255,255,255,.045);
+
+    color:white;
+
+}
+
+
+.nav-number{
+
+    width:30px;
+    height:30px;
+
+    flex-shrink:0;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:9px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    font-size:10px;
+    font-weight:900;
+
+}
+
+
+.nav-content{
+
+    min-width:0;
+
+}
+
+
+.nav-title{
+
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+
+    font-size:11px;
+    font-weight:800;
+
+}
+
+
+.nav-sub{
+
+    margin-top:2px;
+
+    color:#687080;
+
+    font-size:9px;
+
+}
+
+
+.sidebar-box{
+
+    margin-top:25px;
+
+    padding:14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
+.progress-line{
+
+    display:flex;
+    justify-content:space-between;
+
+    color:#9199a9;
+
+    font-size:10px;
+
+    margin-bottom:8px;
+
+}
+
+
+.progress{
+
+    height:5px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#1b2029;
+
+}
+
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+    transition:.3s;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main{
+
+    flex:1;
+
+    min-width:0;
+
+    padding:
+        34px 30px 60px;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    width:min(1100px,100%);
+
+    margin:
+        0 auto 25px;
+
+}
+
+
+.badge{
+
+    display:inline-flex;
+    align-items:center;
+
+    gap:7px;
+
+    padding:7px 11px;
+
+    border:
+        1px solid
+        rgba(124,92,255,.25);
+
+    border-radius:999px;
+
+    background:
+        rgba(124,92,255,.08);
+
+    color:#c0b2ff;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:.8px;
+
+}
+
+
+.badge-dot{
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 12px var(--green);
+
+}
+
+
+.hero h1{
+
+    margin-top:16px;
+
+    font-size:
+        clamp(31px,5vw,50px);
+
+    line-height:1.02;
+
+    letter-spacing:-2px;
+
+}
+
+
+.hero h1 span{
+
+    color:var(--purple2);
+
+}
+
+
+.hero p{
+
+    max-width:720px;
+
+    margin-top:13px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.toolbar{
+
+    width:min(1100px,100%);
+
+    margin:
+        0 auto 15px;
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.search{
+
+    flex:1;
+
+    min-width:200px;
+
+    height:45px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.035);
+
+}
+
+
+.search-icon{
+
+    margin-right:8px;
+
+    color:#747c8b;
+
+}
+
+
+.search input{
+
+    width:100%;
+
+    border:0;
+    outline:0;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:12px;
+
+}
+
+
+.search input::placeholder{
+
+    color:#656d7c;
+
+}
+
+
+.tool-btn{
+
+    height:45px;
+
+    padding:0 13px;
+
+    border:
+        1px solid var(--border2);
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:#d9dde5;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+}
+
+
+.tool-btn:hover{
+
+    background:
+        rgba(255,255,255,.08);
+
+}
+
+
+.tool-btn.primary{
+
+    border-color:transparent;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+    color:white;
+
+}
+
+
+/* =========================================================
+   PROGRAM CONTAINER
+========================================================= */
+
+.programs{
+
+    width:min(1100px,100%);
+
+    margin:0 auto;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:11px;
+
+}
+
+
+/* =========================================================
+   PROGRAM CARD
+========================================================= */
+
+.program{
+
+    overflow:hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.015)
+        );
+
+    transition:.2s;
+
+}
+
+
+.program:hover{
+
+    border-color:
+        rgba(255,255,255,.13);
+
+}
+
+
+.program.open{
+
+    border-color:
+        rgba(124,92,255,.30);
+
+}
+
+
+/* =========================================================
+   PROGRAM HEADER
+========================================================= */
+
+.program-header{
+
+    min-height:78px;
+
+    display:flex;
+    align-items:center;
+
+    gap:13px;
+
+    padding:14px 16px;
+
+    cursor:pointer;
+
+}
+
+
+.number{
+
+    width:45px;
+    height:45px;
+
+    flex-shrink:0;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+        rgba(124,92,255,.10);
+
+    border:
+        1px solid
+        rgba(124,92,255,.18);
+
+    color:#bcaeff;
+
+    font-size:12px;
+
+    font-weight:900;
+
+}
+
+
+.program.open .number{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+}
+
+
+.program-info{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+
+.program-title{
+
+    font-size:14px;
+
+    font-weight:850;
+
+    line-height:1.4;
+
+}
+
+
+.program-desc{
+
+    margin-top:4px;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:1.5;
+
+}
+
+
+.arrow{
+
+    width:34px;
+    height:34px;
+
+    flex-shrink:0;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:9px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:#8991a1;
+
+    font-size:20px;
+
+    transition:.25s;
+
+}
+
+
+.program.open .arrow{
+
+    transform:rotate(90deg);
+
+    color:white;
+
+    background:
+        rgba(124,92,255,.15);
+
+}
+
+
+/* =========================================================
+   PROGRAM BODY
+========================================================= */
+
+.program-body{
+
+    display:none;
+
+    padding:
+        0 16px 20px;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.program.open .program-body{
+
+    display:block;
+
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.tabs{
+
+    display:flex;
+
+    gap:5px;
+
+    overflow-x:auto;
+
+    padding:
+        14px 0 12px;
+
+}
+
+
+.tabs::-webkit-scrollbar{
+
+    height:0;
+
+}
+
+
+.tab{
+
+    flex-shrink:0;
+
+    padding:
+        8px 11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:8px;
+
+    background:
+        rgba(255,255,255,.03);
+
+    color:#858d9d;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+}
+
+
+.tab.active{
+
+    color:white;
+
+    border-color:
+        rgba(124,92,255,.30);
+
+    background:
+        rgba(124,92,255,.15);
+
+}
+
+
+/* =========================================================
+   TAB CONTENT
+========================================================= */
+
+.tab-content{
+
+    display:none;
+
+}
+
+
+.tab-content.active{
+
+    display:block;
+
+}
+
+
+.section-heading{
+
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    margin:
+        10px 0 9px;
+
+    color:#e6e8ed;
+
+    font-size:11px;
+
+    font-weight:900;
+
+}
+
+
+.section-icon{
+
+    width:25px;
+    height:25px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:7px;
+
+    background:
+        rgba(124,92,255,.12);
+
+    color:#bbaeff;
+
+    font-size:9px;
+
+}
+
+
+.box{
+
+    padding:15px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    background:
+        rgba(0,0,0,.14);
+
+    color:#b8bfca;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+}
+
+
+/* =========================================================
+   ALGORITHM
+========================================================= */
+
+.steps{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:9px;
+
+}
+
+
+.step{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+.step-no{
+
+    width:24px;
+    height:24px;
+
+    min-width:24px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:7px;
+
+    background:
+        rgba(124,92,255,.12);
+
+    color:#bbaeff;
+
+    font-size:9px;
+
+    font-weight:900;
+
+}
+
+
+.step-text{
+
+    padding-top:2px;
+
+}
+
+
+/* =========================================================
+   CODE
+========================================================= */
+
+.code-box{
+
+    overflow:hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    background:#080a0f;
+
+}
+
+
+.code-header{
+
+    min-height:43px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:8px;
+
+    padding:
+        7px 9px 7px 13px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:#10131a;
+
+}
+
+
+.code-title{
+
+    color:#959eae;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:.8px;
+
+}
+
+
+.code-actions{
+
+    display:flex;
+
+    gap:5px;
+
+}
+
+
+.code-btn{
+
+    padding:7px 9px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:7px;
+
+    background:#191d25;
+
+    color:#cdd2db;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+}
+
+
+.code-btn:hover{
+
+    background:#252a34;
+
+    color:white;
+
+}
+
+
+.code-btn.download{
+
+    color:#c5b7ff;
+
+    border-color:
+        rgba(124,92,255,.25);
+
+    background:
+        rgba(124,92,255,.10);
+
+}
+
+
+.code-scroll{
+
+    max-height:480px;
+
+    overflow:auto;
+
+}
+
+
+pre{
+
+    margin:0;
+
+    padding:16px;
+
+    color:#dce0e7;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size:11px;
+
+    line-height:1.7;
+
+    white-space:pre;
+
+}
+
+
+/* =========================================================
+   OUTPUT
+========================================================= */
+
+.output{
+
+    padding:15px;
+
+    border:
+        1px solid
+        rgba(53,211,154,.15);
+
+    border-radius:13px;
+
+    background:
+        rgba(53,211,154,.035);
+
+    color:#b9e9d9;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size:11px;
+
+    line-height:1.7;
+
+    white-space:pre-wrap;
+
+}
+
+
+/* =========================================================
+   VIVA
+========================================================= */
+
+.viva{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+
+.viva-item{
+
+    padding:12px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
+.question{
+
+    color:#e9ebf0;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    line-height:1.5;
+
+}
+
+
+.answer{
+
+    margin-top:5px;
+
+    color:#8e96a6;
+
+    font-size:11px;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.program-actions{
+
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-top:17px;
+    padding-top:14px;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.bottom-btn{
+
+    min-height:37px;
+
+    padding:
+        0 11px;
+
+    border:
+        1px solid var(--border2);
+
+    border-radius:9px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:#cdd2db;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+}
+
+
+.bottom-btn:hover{
+
+    background:
+        rgba(255,255,255,.08);
+
+}
+
+
+.bottom-btn.primary{
+
+    color:white;
+
+    border-color:transparent;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple2)
+        );
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+    bottom:25px;
+
+    z-index:500;
+
+    transform:
+        translate(-50%,20px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    padding:
+        11px 16px;
+
+    border:
+        1px solid var(--border2);
+
+    border-radius:11px;
+
+    background:#171b24;
+
+    color:white;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.45);
+
+    transition:.25s;
+
+}
+
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:760px){
+
+    .header{
+
+        height:64px;
+
+        padding:
+            0 12px;
+
+    }
+
+
+    .menu-btn{
+
+        display:block;
+
+    }
+
+
+    .brand{
+
+        gap:8px;
+
+    }
+
+
+    .logo{
+
+        width:37px;
+        height:37px;
+
+        border-radius:11px;
+
+        font-size:14px;
+
+    }
+
+
+    .brand-title{
+
+        font-size:13px;
+
+    }
+
+
+    .brand-sub{
+
+        font-size:9px;
+
+    }
+
+
+    .header-btn{
+
+        display:none;
+
+    }
+
+
+    .layout{
+
+        min-height:
+            calc(100vh - 64px);
+
+    }
+
+
+    .sidebar{
+
+        position:fixed;
+
+        z-index:300;
+
+        top:64px;
+
+        left:-290px;
+
+        width:280px;
+
+        height:
+            calc(100vh - 64px);
+
+        transition:.25s;
+
+        box-shadow:
+            25px 0 70px
+            rgba(0,0,0,.6);
+
+    }
+
+
+    .sidebar.open{
+
+        left:0;
+
+    }
+
+
+    .overlay{
+
+        display:none;
+
+        position:fixed;
+
+        z-index:250;
+
+        inset:64px 0 0;
+
+        background:
+            rgba(0,0,0,.58);
+
+    }
+
+
+    .overlay.show{
+
+        display:block;
+
+    }
+
+
+    .main{
+
+        padding:
+            25px 11px 45px;
+
+    }
+
+
+    .hero{
+
+        margin-bottom:20px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:31px;
+
+        letter-spacing:-1.3px;
+
+    }
+
+
+    .hero p{
+
+        font-size:12px;
+
+    }
+
+
+    .toolbar{
+
+        gap:7px;
+
+    }
+
+
+    .search{
+
+        flex-basis:100%;
+
+    }
+
+
+    .tool-btn{
+
+        flex:1;
+
+        padding:0 7px;
+
+    }
+
+
+    .program-header{
+
+        padding:
+            12px;
+
+        min-height:73px;
+
+    }
+
+
+    .number{
+
+        width:39px;
+        height:39px;
+
+        border-radius:11px;
+
+    }
+
+
+    .program-title{
+
+        font-size:12px;
+
+    }
+
+
+    .program-desc{
+
+        font-size:10px;
+
+    }
+
+
+    .program-body{
+
+        padding:
+            0 11px 16px;
+
+    }
+
+
+    .box{
+
+        font-size:11px;
+
+    }
+
+
+    pre{
+
+        font-size:10px;
+
+        padding:13px;
+
+    }
+
+
+    .code-header{
+
+        align-items:flex-start;
+
+    }
+
+
+    .code-actions{
+
+        flex-wrap:wrap;
+
+        justify-content:flex-end;
+
+    }
+
+
+    .program-actions{
+
+        display:grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .bottom-btn{
+
+        width:100%;
+
+    }
+
+}
+
+
+@media(max-width:390px){
+
+    .hero h1{
+
+        font-size:28px;
+
+    }
+
+
+    .program-title{
+
+        font-size:11px;
+
+    }
+
+
+    .arrow{
+
+        width:29px;
+        height:29px;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   SIMPLE + RESPONSIVE FINAL OVERRIDES
+========================================================= */
+
+html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    -webkit-tap-highlight-color:transparent;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    touch-action:manipulation;
+}
+
+.sidebar{
+    scrollbar-width:thin;
+}
+
+.sidebar::-webkit-scrollbar{
+    width:5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:rgba(255,255,255,.12);
+    border-radius:20px;
+}
+
+.main{
+    width:100%;
+}
+
+.hero p{
+    max-width:760px;
+}
+
+.toolbar{
+    align-items:stretch;
+}
+
+.search,
+.tool-btn{
+    min-height:44px;
+}
+
+.program-header{
+    user-select:none;
+    -webkit-user-select:none;
+}
+
+.program-body{
+    min-width:0;
+}
+
+.tab-content{
+    min-width:0;
+}
+
+.box,
+.code-box,
+pre{
+    max-width:100%;
+}
+
+pre{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    white-space:pre;
+}
+
+.code-header{
+    gap:10px;
+}
+
+.code-actions button,
+.program-actions button,
+.bottom-btn{
+    min-height:40px;
+}
+
+@media(max-width:760px){
+    .header{
+        position:sticky;
+        height:60px;
+        padding:0 10px;
+    }
+
+    .layout{
+        min-height:calc(100vh - 60px);
+    }
+
+    .menu-btn{
+        width:38px;
+        height:38px;
+        display:grid;
+        place-items:center;
+        padding:0;
+        flex-shrink:0;
+    }
+
+    .brand{
+        min-width:0;
+        flex:1;
+    }
+
+    .brand-title{
+        max-width:180px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+
+    .brand-sub{
+        white-space:nowrap;
+    }
+
+    .sidebar{
+        top:60px;
+        height:calc(100dvh - 60px);
+        width:min(290px,86vw);
+        left:calc(-1 * min(290px,86vw) - 10px);
+        padding:16px 12px 24px;
+    }
+
+    .sidebar.open{
+        left:0;
+    }
+
+    .overlay{
+        inset:60px 0 0;
+    }
+
+    .main{
+        padding:22px 10px 40px;
+    }
+
+    .hero{
+        margin-bottom:17px;
+    }
+
+    .badge{
+        font-size:8px;
+        padding:6px 9px;
+    }
+
+    .hero h1{
+        margin-top:12px;
+        font-size:clamp(27px,9vw,36px);
+        line-height:1.06;
+        letter-spacing:-1.2px;
+    }
+
+    .hero p{
+        margin-top:10px;
+        font-size:11px;
+        line-height:1.6;
+    }
+
+    .toolbar{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px;
+        margin-bottom:12px;
+    }
+
+    .search{
+        grid-column:1 / -1;
+        min-width:0;
+        width:100%;
+        height:44px;
+    }
+
+    .tool-btn{
+        width:100%;
+        height:42px;
+        min-width:0;
+        padding:0 8px;
+        font-size:9px;
+    }
+
+    .programs{
+        gap:8px;
+    }
+
+    .program{
+        border-radius:14px;
+    }
+
+    .program-header{
+        min-height:68px;
+        padding:10px;
+        gap:9px;
+    }
+
+    .number{
+        width:38px;
+        height:38px;
+        border-radius:10px;
+        font-size:10px;
+    }
+
+    .program-title{
+        font-size:12px;
+        line-height:1.3;
+    }
+
+    .program-desc{
+        margin-top:3px;
+        font-size:9px;
+        line-height:1.35;
+    }
+
+    .arrow{
+        width:30px;
+        height:30px;
+        border-radius:8px;
+        font-size:17px;
+    }
+
+    .program-body{
+        padding:0 10px 14px;
+    }
+
+    .tabs{
+        gap:4px;
+        padding:10px 0;
+        margin:0 -1px;
+    }
+
+    .tab{
+        min-height:34px;
+        padding:7px 9px;
+        font-size:8px;
+    }
+
+    .section-heading{
+        font-size:10px;
+        margin:9px 0 7px;
+    }
+
+    .box{
+        font-size:10px;
+        line-height:1.65;
+        padding:11px;
+    }
+
+    ol,
+    ul{
+        padding-left:20px;
+    }
+
+    pre{
+        font-size:9.5px;
+        line-height:1.55;
+        padding:11px;
+        border-radius:10px;
+    }
+
+    .code-header{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .code-actions{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:6px;
+    }
+
+    .code-actions button,
+    .program-actions button,
+    .bottom-btn{
+        width:100%;
+        min-height:40px;
+        font-size:9px;
+    }
+
+    .program-actions{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px;
+    }
+
+    .toast{
+        left:10px !important;
+        right:10px !important;
+        bottom:16px !important;
+        width:auto !important;
+        text-align:center;
+    }
+}
+
+@media(max-width:390px){
+    .brand-title{
+        max-width:145px;
+        font-size:12px;
+    }
+
+    .brand-sub{
+        font-size:8px;
+    }
+
+    .main{
+        padding-left:8px;
+        padding-right:8px;
+    }
+
+    .program-header{
+        padding:9px;
+    }
+
+    .program-title{
+        font-size:11px;
+    }
+
+    .program-desc{
+        font-size:8.5px;
+    }
+
+    .number{
+        width:35px;
+        height:35px;
+    }
+
+    .arrow{
+        width:28px;
+        height:28px;
+    }
+}
+
+@media(min-width:761px) and (max-width:1000px){
+    .sidebar{
+        width:230px;
+    }
+
+    .main{
+        padding-left:20px;
+        padding-right:20px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header class="header">
+
+    <div class="brand">
+
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()"
+        >
+            ☰
+        </button>
+
+        <div class="logo">
+            Py
+        </div>
+
+        <div>
+
+            <div class="brand-title">
+                Python Practical Lab
+            </div>
+
+            <div class="brand-sub">
+                Practical Exam Assistant
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <button
+            class="header-btn"
+            onclick="downloadAllCode()"
+        >
+            ↓ Download All Code
+        </button>
+
+        <button
+            class="header-btn"
+            onclick="downloadAllSteps()"
+        >
+            ↓ Download All Steps
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =======================================================
+     LAYOUT
+======================================================= -->
+
+<div class="layout">
+
+
+<!-- =======================================================
+     SIDEBAR
+======================================================= -->
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+    <div class="sidebar-title">
+        Practical Programs
+    </div>
+
+
+    <div
+        class="nav"
+        id="navigation"
+    ></div>
+
+
+    <div class="sidebar-box">
+
+        <div class="progress-line">
+
+            <span>
+                Completed
+            </span>
+
+            <span id="progressText">
+                0 / 5
+            </span>
+
+        </div>
+
+        <div class="progress">
+
+            <div
+                class="progress-bar"
+                id="progressBar"
+            ></div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="toggleMenu()"
+></div>
+
+
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
+<main class="main">
+
+
+<section class="hero">
+
+    <div class="badge">
+
+        <span class="badge-dot"></span>
+
+        PYTHON PRACTICAL EXAM
+
+    </div>
+
+
+    <h1>
+
+        Python Practical
+        <span>Programs</span>
+
+    </h1>
+
+
+    <p>
+
+        Complete practical answers with AIM,
+        algorithm, Python program, sample output,
+        viva questions and answers. Copy or download
+        the code directly from your phone or computer.
+        Downloads contain either code only or steps only; sample output is never included in downloads.
+
+    </p>
+
+</section>
+
+
+<!-- =======================================================
+     TOOLBAR
+======================================================= -->
+
+<div class="toolbar">
+
+    <div class="search">
+
+        <span class="search-icon">
+            ⌕
+        </span>
+
+        <input
+            id="search"
+            type="text"
+            placeholder="Search programs..."
+            oninput="searchPrograms()"
+        >
+
+    </div>
+
+
+    <button
+        class="tool-btn"
+        onclick="expandAll()"
+    >
+        Expand All
+    </button>
+
+
+    <button
+        class="tool-btn"
+        onclick="collapseAll()"
+    >
+        Collapse
+    </button>
+
+
+    <button
+        class="tool-btn primary"
+        onclick="downloadAllSteps()"
+    >
+        Download All
+    </button>
+
+</div>
+
+
+<!-- =======================================================
+     PROGRAMS
+======================================================= -->
+
+<section
+    class="programs"
+    id="programs"
+></section>
+
+
+</main>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<script>
+
+/* =========================================================
+   PROGRAM DATA
+
+   Based on the supplied screenshots.
+========================================================= */
+
+const programs = [
+
+/* =======================================================
+   PROGRAM 5
+======================================================= */
+
+{
+    id:5,
+
+    title:
+        "Dictionary Operations",
+
+    description:
+        "Store, update, and retrieve student marks using dictionary.",
+
+    aim:
+        "To store, update, and retrieve student marks using a Python dictionary.",
+
+    steps:[
+        "Start the program.",
+        "Create an empty dictionary to store student names and marks.",
+        "Read the number of students.",
+        "Enter each student's name and mark.",
+        "Store the student name as the key and mark as the value.",
+        "Display the student marks stored in the dictionary.",
+        "Ask for a student name and retrieve the mark.",
+        "Update the mark of an existing student.",
+        "Display the updated dictionary.",
+        "Stop the program."
+    ],
+
+    code:
+`# Program 5
+# Dictionary Operations
+# Store, update and retrieve student marks
+
+students = {}
+
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+
+    name = input("Enter student name: ")
+
+    mark = int(input("Enter mark: "))
+
+    students[name] = mark
+
+
+print("\\nStudent Marks:")
+
+print(students)
+
+
+search_name = input(
+    "\\nEnter student name to retrieve mark: "
+)
+
+
+if search_name in students:
+
+    print(
+        "Mark:",
+        students[search_name]
+    )
+
+else:
+
+    print("Student not found")
+
+
+update_name = input(
+    "\\nEnter student name to update mark: "
+)
+
+
+if update_name in students:
+
+    new_mark = int(
+        input("Enter new mark: ")
+    )
+
+    students[update_name] = new_mark
+
+    print(
+        "Mark updated successfully"
+    )
+
+else:
+
+    print("Student not found")
+
+
+print("\\nUpdated Student Marks:")
+
+print(students)`,
+
+    output:
+`Enter number of students: 3
+
+Enter student name: Arun
+Enter mark: 85
+
+Enter student name: Rahul
+Enter mark: 90
+
+Enter student name: Anu
+Enter mark: 95
+
+Student Marks:
+{'Arun': 85, 'Rahul': 90, 'Anu': 95}
+
+Enter student name to retrieve mark: Rahul
+
+Mark: 90
+
+Enter student name to update mark: Arun
+
+Enter new mark: 92
+
+Mark updated successfully
+
+Updated Student Marks:
+{'Arun': 92, 'Rahul': 90, 'Anu': 95}`,
+
+    viva:[
+        [
+            "What is a dictionary in Python?",
+            "A dictionary is a collection of key-value pairs."
+        ],
+        [
+            "How do you create an empty dictionary?",
+            "Using {} or dict()."
+        ],
+        [
+            "How are values retrieved from a dictionary?",
+            "Values are retrieved using their corresponding keys."
+        ],
+        [
+            "Can dictionary values be changed?",
+            "Yes. Dictionary values are mutable."
+        ],
+        [
+            "Can dictionary keys be duplicated?",
+            "No. Dictionary keys must be unique."
+        ],
+        [
+            "What is a key-value pair?",
+            "A key identifies a value stored in the dictionary."
+        ],
+        [
+            "Which operator checks whether a key exists?",
+            "The in operator."
+        ],
+        [
+            "Can a dictionary store marks?",
+            "Yes. Student names can be keys and marks can be values."
+        ]
+    ]
+},
+
+
+/* =======================================================
+   PROGRAM 7
+======================================================= */
+
+{
+    id:7,
+
+    title:
+        "Exception Handling",
+
+    description:
+        "Safe file reading and writing using try-except block.",
+
+    aim:
+        "To perform safe file reading and writing using the try-except block.",
+
+    steps:[
+        "Start the program.",
+        "Use a try block for file operations.",
+        "Get the file name from the user.",
+        "Open the file in write mode.",
+        "Write data into the file.",
+        "Open the file in read mode.",
+        "Read and display the contents.",
+        "Use except to handle errors.",
+        "Display an appropriate error message.",
+        "Stop the program."
+    ],
+
+    code:
+`# Program 7
+# Exception Handling
+# Safe file reading and writing
+
+try:
+
+    filename = input(
+        "Enter file name: "
+    )
+
+
+    # Write data to the file
+
+    with open(
+        filename,
+        "w"
+    ) as file:
+
+        data = input(
+            "Enter data to write: "
+        )
+
+        file.write(data)
+
+
+    print(
+        "Data written successfully."
+    )
+
+
+    # Read data from the file
+
+    with open(
+        filename,
+        "r"
+    ) as file:
+
+        content = file.read()
+
+
+    print(
+        "\\nFile contents:"
+    )
+
+    print(content)
+
+
+except FileNotFoundError:
+
+    print(
+        "Error: File not found."
+    )
+
+
+except PermissionError:
+
+    print(
+        "Error: Permission denied."
+    )
+
+
+except Exception as e:
+
+    print(
+        "Error:",
+        e
+    )`,
+
+    output:
+`Enter file name: student.txt
+
+Enter data to write: Python Practical
+
+Data written successfully.
+
+File contents:
+Python Practical`,
+
+    viva:[
+        [
+            "What is exception handling?",
+            "It is a method of handling runtime errors without terminating the program unexpectedly."
+        ],
+        [
+            "Which keyword is used to handle exceptions?",
+            "The except keyword."
+        ],
+        [
+            "What is the purpose of try?",
+            "The try block contains code that may produce an exception."
+        ],
+        [
+            "What is the purpose of except?",
+            "It contains the code used to handle an exception."
+        ],
+        [
+            "What is FileNotFoundError?",
+            "It occurs when a requested file cannot be found."
+        ],
+        [
+            "What is PermissionError?",
+            "It occurs when the program does not have the required permission."
+        ],
+        [
+            "Can one try block have multiple except blocks?",
+            "Yes."
+        ],
+        [
+            "Why is exception handling useful?",
+            "It makes programs safer and prevents unexpected termination."
+        ]
+    ]
+},
+
+
+/* =======================================================
+   PROGRAM 8
+======================================================= */
+
+{
+    id:8,
+
+    title:
+        "GUI Application",
+
+    description:
+        "Create patient registration form and display entered data.",
+
+    aim:
+        "To create a patient registration form using Python GUI and display the entered data.",
+
+    steps:[
+        "Import the tkinter module.",
+        "Create the main GUI window.",
+        "Set the title and size of the window.",
+        "Create labels for patient details.",
+        "Create Entry widgets to receive patient information.",
+        "Create a Register button.",
+        "Read the values entered by the user.",
+        "Check whether all fields are filled.",
+        "Display the patient details.",
+        "Run the GUI using mainloop()."
+    ],
+
+    code:
+`# Program 8
+# GUI Application
+# Patient Registration Form
+
+import tkinter as tk
+from tkinter import messagebox
+
+
+def register_patient():
+
+    name = name_entry.get()
+
+    age = age_entry.get()
+
+    phone = phone_entry.get()
+
+    disease = disease_entry.get()
+
+
+    if (
+        name == ""
+        or age == ""
+        or phone == ""
+        or disease == ""
+    ):
+
+        messagebox.showwarning(
+            "Warning",
+            "Please enter all details"
+        )
+
+        return
+
+
+    result = (
+        "Patient Registered Successfully\\n\\n"
+        "Name: " + name + "\\n"
+        "Age: " + age + "\\n"
+        "Phone: " + phone + "\\n"
+        "Disease: " + disease
+    )
+
+
+    output_label.config(
+        text=result
+    )
+
+
+root = tk.Tk()
+
+
+root.title(
+    "Patient Registration"
+)
+
+
+root.geometry(
+    "420x420"
+)
+
+
+title = tk.Label(
+    root,
+    text="Patient Registration Form",
+    font=("Arial", 18, "bold")
+)
+
+title.pack(
+    pady=20
+)
+
+
+tk.Label(
+    root,
+    text="Patient Name"
+).pack()
+
+
+name_entry = tk.Entry(
+    root,
+    width=35
+)
+
+name_entry.pack(
+    pady=5
+)
+
+
+tk.Label(
+    root,
+    text="Age"
+).pack()
+
+
+age_entry = tk.Entry(
+    root,
+    width=35
+)
+
+age_entry.pack(
+    pady=5
+)
+
+
+tk.Label(
+    root,
+    text="Phone"
+).pack()
+
+
+phone_entry = tk.Entry(
+    root,
+    width=35
+)
+
+phone_entry.pack(
+    pady=5
+)
+
+
+tk.Label(
+    root,
+    text="Disease"
+).pack()
+
+
+disease_entry = tk.Entry(
+    root,
+    width=35
+)
+
+disease_entry.pack(
+    pady=5
+)
+
+
+register_button = tk.Button(
+    root,
+    text="Register Patient",
+    command=register_patient
+)
+
+register_button.pack(
+    pady=15
+)
+
+
+output_label = tk.Label(
+    root,
+    text="",
+    justify="left"
+)
+
+output_label.pack(
+    pady=10
+)
+
+
+root.mainloop()`,
+
+    output:
+`Patient Registration Form
+
+Patient Name: Arun
+Age: 20
+Phone: 9876543210
+Disease: Fever
+
+After clicking Register Patient:
+
+Patient Registered Successfully
+
+Name: Arun
+Age: 20
+Phone: 9876543210
+Disease: Fever`,
+
+    viva:[
+        [
+            "What is GUI?",
+            "GUI stands for Graphical User Interface."
+        ],
+        [
+            "Which module is used to create the GUI?",
+            "The tkinter module."
+        ],
+        [
+            "What is an Entry widget?",
+            "It is used to accept single-line input from the user."
+        ],
+        [
+            "What is a Label?",
+            "A Label displays text or information in the GUI."
+        ],
+        [
+            "What is a Button?",
+            "A Button performs an action when clicked."
+        ],
+        [
+            "What is mainloop()?",
+            "It starts the tkinter event loop and keeps the GUI running."
+        ],
+        [
+            "What does get() do?",
+            "It retrieves the value entered in an Entry widget."
+        ],
+        [
+            "What is messagebox?",
+            "It displays message, warning or error dialog boxes."
+        ]
+    ]
+},
+
+
+/* =======================================================
+   PROGRAM 9
+======================================================= */
+
+{
+    id:9,
+
+    title:
+        "System Information Script",
+
+    description:
+        "Collect and display system information for forensic analysis.",
+
+    aim:
+        "To collect and display system information useful for forensic analysis.",
+
+    steps:[
+        "Start the program.",
+        "Import the required Python modules.",
+        "Collect the operating system name.",
+        "Collect the operating system release and version.",
+        "Collect the machine architecture.",
+        "Collect processor information.",
+        "Collect the hostname.",
+        "Collect the IP address.",
+        "Collect the current username.",
+        "Display all collected information.",
+        "Stop the program."
+    ],
+
+    code:
+`# Program 9
+# System Information Script
+# Collect system information for forensic analysis
+
+import platform
+import socket
+import getpass
+
+
+print("=" * 50)
+
+print(
+    "SYSTEM INFORMATION"
+)
+
+print("=" * 50)
+
+
+print(
+    "Operating System :",
+    platform.system()
+)
+
+
+print(
+    "OS Release       :",
+    platform.release()
+)
+
+
+print(
+    "OS Version       :",
+    platform.version()
+)
+
+
+print(
+    "Machine          :",
+    platform.machine()
+)
+
+
+print(
+    "Processor        :",
+    platform.processor()
+)
+
+
+hostname = socket.gethostname()
+
+
+print(
+    "Hostname         :",
+    hostname
+)
+
+
+try:
+
+    ip_address = socket.gethostbyname(
+        hostname
+    )
+
+    print(
+        "IP Address       :",
+        ip_address
+    )
+
+except:
+
+    print(
+        "IP Address       : Not available"
+    )
+
+
+print(
+    "Current User     :",
+    getpass.getuser()
+)
+
+
+print("=" * 50)`,
+
+    output:
+`==================================================
+SYSTEM INFORMATION
+==================================================
+Operating System : Windows
+OS Release       : 11
+OS Version       : ...
+Machine          : AMD64
+Processor        : ...
+Hostname         : DESKTOP-PC
+IP Address       : 192.168.1.10
+Current User     : Student
+==================================================
+
+Note:
+Actual system information depends on
+the computer where the program is executed.`,
+
+    viva:[
+        [
+            "What is system information?",
+            "It is information about the operating system, hardware, network and user environment."
+        ],
+        [
+            "Which module is used for operating system information?",
+            "The platform module."
+        ],
+        [
+            "What does platform.system() return?",
+            "It returns the operating system name."
+        ],
+        [
+            "What does platform.machine() return?",
+            "It returns the machine architecture."
+        ],
+        [
+            "Which module is used for hostname?",
+            "The socket module."
+        ],
+        [
+            "What does socket.gethostname() return?",
+            "It returns the hostname of the computer."
+        ],
+        [
+            "Which module gets the current username?",
+            "The getpass module."
+        ],
+        [
+            "Why is system information useful in forensic analysis?",
+            "It helps identify the system environment involved in an investigation."
+        ]
+    ]
+},
+
+
+/* =======================================================
+   PROGRAM 10
+======================================================= */
+
+{
+    id:10,
+
+    title:
+        "Log File Analysis",
+
+    description:
+        'Extract and display lines containing "error" from log files.',
+
+    aim:
+        'To extract and display lines containing the word "error" from a log file.',
+
+    steps:[
+        "Start the program.",
+        "Get the log file name from the user.",
+        "Open the log file in read mode.",
+        "Read the file line by line.",
+        "Convert each line to lowercase.",
+        'Check whether the word "error" is present.',
+        "Display the matching line.",
+        "Display a message if no matching line is found.",
+        "Handle file-related exceptions.",
+        "Stop the program."
+    ],
+
+    code:
+`# Program 10
+# Log File Analysis
+# Extract and display lines containing "error"
+
+try:
+
+    filename = input(
+        "Enter log file name: "
+    )
+
+
+    with open(
+        filename,
+        "r"
+    ) as file:
+
+
+        print(
+            "\\nLines containing 'error':"
+        )
+
+        print(
+            "-" * 50
+        )
+
+
+        found = False
+
+
+        for line in file:
+
+            if "error" in line.lower():
+
+                print(
+                    line.strip()
+                )
+
+                found = True
+
+
+        if not found:
+
+            print(
+                "No lines containing "
+                "'error' found."
+            )
+
+
+except FileNotFoundError:
+
+    print(
+        "Error: Log file not found."
+    )
+
+
+except PermissionError:
+
+    print(
+        "Error: Permission denied."
+    )
+
+
+except Exception as e:
+
+    print(
+        "Error:",
+        e
+    )`,
+
+    output:
+`Enter log file name: system.log
+
+Lines containing 'error':
+--------------------------------------------------
+2026-10-05 ERROR Database connection failed
+2026-10-05 ERROR File not found
+2026-10-05 Error: Authentication failed
+
+Note:
+The actual output depends on the contents
+of the selected log file.`,
+
+    viva:[
+        [
+            "What is a log file?",
+            "A log file stores records of events or activities generated by a system or application."
+        ],
+        [
+            "What is log file analysis?",
+            "It is the process of examining log records to find useful events, errors or suspicious activity."
+        ],
+        [
+            "Why is error searching useful?",
+            "It helps quickly identify errors and failures in a log file."
+        ],
+        [
+            "Which function is used to open a file?",
+            "The open() function."
+        ],
+        [
+            "Why is the file opened using read mode?",
+            "Because the program only needs to read the existing log contents."
+        ],
+        [
+            "What does lower() do?",
+            "It converts a string to lowercase."
+        ],
+        [
+            "Why is lower() used here?",
+            "It allows ERROR, Error and error to be matched."
+        ],
+        [
+            "What does strip() do?",
+            "It removes unnecessary whitespace such as newline characters from the beginning and end of a string."
+        ]
+    ]
+}
+
+];
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let openPrograms = new Set();
+
+let completed =
+    JSON.parse(
+        localStorage.getItem(
+            "python_lab_completed"
+        ) || "[]"
+    );
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const programsBox =
+    document.getElementById("programs");
+
+const navigation =
+    document.getElementById("navigation");
+
+const search =
+    document.getElementById("search");
+
+const sidebar =
+    document.getElementById("sidebar");
+
+const overlay =
+    document.getElementById("overlay");
+
+const progressText =
+    document.getElementById("progressText");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+
+/* =========================================================
+   INITIAL
+========================================================= */
+
+renderPrograms();
+
+renderNavigation();
+
+updateProgress();
+
+
+/* =========================================================
+   RENDER PROGRAMS
+========================================================= */
+
+function renderPrograms(){
+
+    const query =
+        search.value
+            .trim()
+            .toLowerCase();
+
+
+    programsBox.innerHTML = "";
+
+
+    programs.forEach(program=>{
+
+        const searchable = (
+            program.title +
+            " " +
+            program.description +
+            " " +
+            program.aim
+        ).toLowerCase();
+
+
+        if(
+            query &&
+            !searchable.includes(query)
+        ){
+
+            return;
+
+        }
+
+
+        programsBox.appendChild(
+            createProgram(program)
+        );
+
+    });
+
+
+    if(
+        !programsBox.children.length
+    ){
+
+        programsBox.innerHTML = `
+            <div class="box">
+                No program found.
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   CREATE PROGRAM
+========================================================= */
+
+function createProgram(program){
+
+    const card =
+        document.createElement("article");
+
+
+    card.className =
+        "program";
+
+
+    card.id =
+        "program-" + program.id;
+
+
+    if(
+        openPrograms.has(program.id)
+    ){
+
+        card.classList.add("open");
+
+    }
+
+
+    card.innerHTML = `
+
+        <div
+            class="program-header"
+            onclick="
+                toggleProgram(${program.id})
+            "
+        >
+
+            <div class="number">
+
+                ${program.id}
+
+            </div>
+
+
+            <div class="program-info">
+
+                <div class="program-title">
+
+                    ${escapeHTML(
+                        program.title
+                    )}
+
+                </div>
+
+
+                <div class="program-desc">
+
+                    ${escapeHTML(
+                        program.description
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <div class="arrow">
+
+                ›
+
+            </div>
+
+        </div>
+
+
+        <div class="program-body">
+
+
+            <!-- TABS -->
+
+            <div class="tabs">
+
+                <button
+                    class="tab active"
+                    onclick="
+                        changeTab(
+                            event,
+                            ${program.id},
+                            'aim'
+                        )
+                    "
+                >
+                    AIM
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="
+                        changeTab(
+                            event,
+                            ${program.id},
+                            'algorithm'
+                        )
+                    "
+                >
+                    ALGORITHM
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="
+                        changeTab(
+                            event,
+                            ${program.id},
+                            'code'
+                        )
+                    "
+                >
+                    CODE
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="
+                        changeTab(
+                            event,
+                            ${program.id},
+                            'output'
+                        )
+                    "
+                >
+                    OUTPUT
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="
+                        changeTab(
+                            event,
+                            ${program.id},
+                            'viva'
+                        )
+                    "
+                >
+                    VIVA
+                </button>
+
+            </div>
+
+
+            <!-- AIM -->
+
+            <div
+                class="tab-content active"
+                data-tab="aim"
+            >
+
+                <div class="section-heading">
+
+                    <span class="section-icon">
+                        A
+                    </span>
+
+                    AIM
+
+                </div>
+
+
+                <div class="box">
+
+                    ${escapeHTML(
+                        program.aim
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <!-- ALGORITHM -->
+
+            <div
+                class="tab-content"
+                data-tab="algorithm"
+            >
+
+                <div class="section-heading">
+
+                    <span class="section-icon">
+                        1
+                    </span>
+
+                    ALGORITHM / STEPS
+
+                </div>
+
+
+                <div class="box">
+
+                    <div class="steps">
+
+                        ${
+                            program.steps
+                                .map(
+                                    (step,index)=>`
+
+                                    <div class="step">
+
+                                        <div class="step-no">
+                                            ${index+1}
+                                        </div>
+
+                                        <div class="step-text">
+                                            ${escapeHTML(step)}
+                                        </div>
+
+                                    </div>
+
+                                `
+                                )
+                                .join("")
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CODE -->
+
+            <div
+                class="tab-content"
+                data-tab="code"
+            >
+
+                <div class="section-heading">
+
+                    <span class="section-icon">
+                        &lt;/&gt;
+                    </span>
+
+                    PYTHON PROGRAM
+
+                </div>
+
+
+                <div class="code-box">
+
+                    <div class="code-header">
+
+                        <span class="code-title">
+                            PYTHON 3
+                        </span>
+
+
+                        <div class="code-actions">
+
+                            <button
+                                class="code-btn"
+                                onclick="
+                                    copyCode(
+                                        ${program.id}
+                                    )
+                                "
+                            >
+                                COPY
+                            </button>
+
+
+                            <button
+                                class="code-btn download"
+                                onclick="
+                                    downloadCode(
+                                        ${program.id}
+                                    )
+                                "
+                            >
+                                DOWNLOAD .PY
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="code-scroll">
+
+                        <pre>${escapeHTML(
+                            program.code
+                        )}</pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- OUTPUT -->
+
+            <div
+                class="tab-content"
+                data-tab="output"
+            >
+
+                <div class="section-heading">
+
+                    <span class="section-icon">
+                        ▶
+                    </span>
+
+                    SAMPLE OUTPUT
+
+                </div>
+
+
+                <div class="output">
+
+                    ${escapeHTML(
+                        program.output
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <!-- VIVA -->
+
+            <div
+                class="tab-content"
+                data-tab="viva"
+            >
+
+                <div class="section-heading">
+
+                    <span class="section-icon">
+                        ?
+                    </span>
+
+                    VIVA QUESTIONS & ANSWERS
+
+                </div>
+
+
+                <div class="viva">
+
+                    ${
+                        program.viva
+                            .map(
+                                (item,index)=>`
+
+                                <div class="viva-item">
+
+                                    <div class="question">
+
+                                        Q${index+1}.
+                                        ${escapeHTML(
+                                            item[0]
+                                        )}
+
+                                    </div>
+
+                                    <div class="answer">
+
+                                        Answer:
+                                        ${escapeHTML(
+                                            item[1]
+                                        )}
+
+                                    </div>
+
+                                </div>
+
+                            `
+                            )
+                            .join("")
+                    }
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="program-actions">
+
+                <button
+                    class="bottom-btn primary"
+                    onclick="
+                        downloadCode(
+                            ${program.id}
+                        )
+                    "
+                >
+                    ↓ Download .PY
+                </button>
+
+
+                <button
+                    class="bottom-btn"
+                    onclick="
+                        copyCode(
+                            ${program.id}
+                        )
+                    "
+                >
+                    Copy Code
+                </button>
+
+
+                <button
+                    class="bottom-btn"
+                    onclick="
+                        downloadSteps(
+                            ${program.id}
+                        )
+                >
+                    ↓ Download Steps
+                </button>
+
+
+                <button
+                    class="bottom-btn"
+                    onclick="
+                        markComplete(
+                            ${program.id}
+                        )
+                    "
+                >
+                    ${
+                        completed.includes(
+                            program.id
+                        )
+                        ? "✓ Completed"
+                        : "Mark Complete"
+                    }
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function renderNavigation(){
+
+    navigation.innerHTML = "";
+
+
+    programs.forEach(program=>{
+
+        const button =
+            document.createElement("button");
+
+
+        button.className =
+            "nav-item";
+
+
+        button.innerHTML = `
+
+            <div class="nav-number">
+
+                ${program.id}
+
+            </div>
+
+
+            <div class="nav-content">
+
+                <div class="nav-title">
+
+                    ${escapeHTML(
+                        program.title
+                    )}
+
+                </div>
+
+
+                <div class="nav-sub">
+
+                    ${
+                        completed.includes(
+                            program.id
+                        )
+                        ? "✓ Completed"
+                        : "Practical"
+                    }
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        button.onclick = ()=>{
+
+            const target =
+                document.getElementById(
+                    "program-" +
+                    program.id
+                );
+
+
+            if(!target) return;
+
+
+            if(
+                !openPrograms.has(
+                    program.id
+                )
+            ){
+
+                openPrograms.add(
+                    program.id
+                );
+
+                renderPrograms();
+
+            }
+
+
+            setTimeout(()=>{
+
+                const element =
+                    document.getElementById(
+                        "program-" +
+                        program.id
+                    );
+
+
+                if(element){
+
+                    element.scrollIntoView({
+                        behavior:"smooth",
+                        block:"center"
+                    });
+
+                }
+
+            },50);
+
+
+            closeMenu();
+
+        };
+
+
+        navigation.appendChild(
+            button
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   TOGGLE PROGRAM
+========================================================= */
+
+function toggleProgram(id){
+
+    if(
+        openPrograms.has(id)
+    ){
+
+        openPrograms.delete(id);
+
+    }
+    else{
+
+        openPrograms.add(id);
+
+    }
+
+
+    renderPrograms();
+
+}
+
+
+/* =========================================================
+   CHANGE TAB
+========================================================= */
+
+function changeTab(
+    event,
+    id,
+    tabName
+){
+
+    event.stopPropagation();
+
+
+    const program =
+        document.getElementById(
+            "program-" + id
+        );
+
+
+    if(!program) return;
+
+
+    program
+        .querySelectorAll(".tab")
+        .forEach(tab=>{
+            tab.classList.remove(
+                "active"
+            );
+        });
+
+
+    event.currentTarget
+        .classList.add("active");
+
+
+    program
+        .querySelectorAll(
+            ".tab-content"
+        )
+        .forEach(content=>{
+
+            content.classList.remove(
+                "active"
+            );
+
+
+            if(
+                content.dataset.tab ===
+                tabName
+            ){
+
+                content.classList.add(
+                    "active"
+                );
+
+            }
+
+        });
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchPrograms(){
+
+    renderPrograms();
+
+}
+
+
+/* =========================================================
+   EXPAND ALL
+========================================================= */
+
+function expandAll(){
+
+    programs.forEach(
+        program=>{
+            openPrograms.add(
+                program.id
+            );
+        }
+    );
+
+
+    renderPrograms();
+
+    toast(
+        "All programs expanded"
+    );
+
+}
+
+
+/* =========================================================
+   COLLAPSE ALL
+========================================================= */
+
+function collapseAll(){
+
+    openPrograms.clear();
+
+    renderPrograms();
+
+    toast(
+        "All programs collapsed"
+    );
+
+}
+
+
+/* =========================================================
+   COPY CODE
+========================================================= */
+
+async function copyCode(id){
+
+    const program =
+        programs.find(
+            p=>p.id===id
+        );
+
+
+    if(!program) return;
+
+
+    try{
+
+        await navigator.clipboard.writeText(
+            program.code
+        );
+
+
+        toast(
+            "Program " +
+            id +
+            " code copied"
+        );
+
+    }
+    catch(error){
+
+        toast(
+            "Copy failed"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   DOWNLOAD CODE - CODE ONLY
+========================================================= */
+
+function downloadCode(id){
+
+    const program =
+        programs.find(
+            p=>p.id===id
+        );
+
+    if(!program) return;
+
+    downloadFile(
+        "program_" +
+        String(id).padStart(2,"0") +
+        ".py",
+        program.code,
+        "text/x-python"
+    );
+
+    toast(
+        "Python code downloaded"
+    );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD STEPS - STEPS ONLY, NO OUTPUT
+========================================================= */
+
+function downloadSteps(id){
+
+    const program =
+        programs.find(
+            p=>p.id===id
+        );
+
+    if(!program) return;
+
+    let text = "";
+
+    text +=
+        "PYTHON PRACTICAL LAB\n";
+
+    text +=
+        "PROGRAM " +
+        program.id +
+        " - " +
+        program.title +
+        "\n";
+
+    text +=
+        "=".repeat(70) +
+        "\n\n";
+
+    text += "AIM\n";
+    text += program.aim + "\n\n";
+
+    text += "ALGORITHM / STEPS\n";
+    text += "-".repeat(70) + "\n";
+
+    program.steps.forEach(
+        (step,index)=>{
+            text +=
+                (index + 1) +
+                ". " +
+                step +
+                "\n";
+        }
+    );
+
+    /* IMPORTANT:
+       No sample output and no viva are included here. */
+
+    downloadFile(
+        "program_" +
+        String(id).padStart(2,"0") +
+        "_steps.txt",
+        text,
+        "text/plain"
+    );
+
+    toast(
+        "Steps downloaded - output excluded"
+    );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD ALL CODE - CODE ONLY
+========================================================= */
+
+function downloadAllCode(){
+
+    let text =
+        "# PYTHON PRACTICAL LAB\n";
+
+    text +=
+        "# ALL PROGRAM CODE ONLY\n\n";
+
+    programs.forEach(
+        program=>{
+
+            text +=
+                "\n" +
+                "# ==================================================\n";
+
+            text +=
+                "# PROGRAM " +
+                program.id +
+                " - " +
+                program.title +
+                "\n";
+
+            text +=
+                "# ==================================================\n\n";
+
+            text +=
+                program.code +
+                "\n\n";
+        }
+    );
+
+    downloadFile(
+        "python_practical_all_code.py",
+        text,
+        "text/x-python"
+    );
+
+    toast(
+        "All Python code downloaded"
+    );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD ALL STEPS - STEPS ONLY, NO OUTPUT
+========================================================= */
+
+function downloadAllSteps(){
+
+    let text =
+        "PYTHON PRACTICAL LAB\n";
+
+    text +=
+        "ALL PROGRAM STEPS ONLY\n";
+
+    text +=
+        "=".repeat(70) +
+        "\n";
+
+    programs.forEach(
+        program=>{
+
+            text +=
+                "\n\nPROGRAM " +
+                program.id +
+                " - " +
+                program.title +
+                "\n";
+
+            text +=
+                "=".repeat(70) +
+                "\n\n";
+
+            text += "AIM\n";
+            text +=
+                program.aim +
+                "\n\n";
+
+            text +=
+                "ALGORITHM / STEPS\n";
+
+            program.steps.forEach(
+                (step,index)=>{
+                    text +=
+                        (index + 1) +
+                        ". " +
+                        step +
+                        "\n";
+                }
+            );
+
+            /* No code, no sample output and no viva here. */
+        }
+    );
+
+    downloadFile(
+        "python_practical_all_steps.txt",
+        text,
+        "text/plain"
+    );
+
+    toast(
+        "All steps downloaded - output excluded"
+    );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD HELPER
+========================================================= */
+
+function downloadFile(
+    filename,
+    content,
+    type
+){
+
+    const blob =
+        new Blob(
+            [content],
+            {type:type}
+        );
+
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.href = url;
+
+    link.download = filename;
+
+
+    document.body.appendChild(
+        link
+    );
+
+
+    link.click();
+
+
+    link.remove();
+
+
+    URL.revokeObjectURL(
+        url
+    );
+
+}
+
+
+/* =========================================================
+   MARK COMPLETE
+========================================================= */
+
+function markComplete(id){
+
+    const index =
+        completed.indexOf(id);
+
+
+    if(index === -1){
+
+        completed.push(id);
+
+        toast(
+            "Program marked complete"
+        );
+
+    }
+    else{
+
+        completed.splice(
+            index,
+            1
+        );
+
+        toast(
+            "Program marked incomplete"
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "python_lab_completed",
+        JSON.stringify(
+            completed
+        )
+    );
+
+
+    renderPrograms();
+
+    renderNavigation();
+
+    updateProgress();
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function updateProgress(){
+
+    const total =
+        programs.length;
+
+
+    const done =
+        completed.length;
+
+
+    const percentage =
+        total
+        ? (done / total) * 100
+        : 0;
+
+
+    progressText.textContent =
+        done + " / " + total;
+
+
+    progressBar.style.width =
+        percentage + "%";
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu(){
+
+    sidebar.classList.toggle(
+        "open"
+    );
+
+    overlay.classList.toggle(
+        "show"
+    );
+
+}
+
+
+function closeMenu(){
+
+    sidebar.classList.remove(
+        "open"
+    );
+
+    overlay.classList.remove(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer;
+
+
+function toast(message){
+
+    const element =
+        document.getElementById(
+            "toast"
+        );
+
+
+    element.textContent =
+        message;
+
+
+    element.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            ()=>{
+                element.classList.remove(
+                    "show"
+                );
+            },
+            1800
+        );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   KEYBOARD SEARCH
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event=>{
+
+        if(
+            event.ctrlKey &&
+            event.key.toLowerCase() === "k"
+        ){
+
+            event.preventDefault();
+
+            search.focus();
+
+        }
+
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeMenu();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
