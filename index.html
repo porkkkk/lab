@@ -1,20 +1,2899 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Python Practical Lab</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#080a0f;color:#f5f5f5}.top{position:sticky;top:0;z-index:20;height:64px;background:#0d1017;border-bottom:1px solid #252a34;display:flex;align-items:center;justify-content:space-between;padding:0 18px}.brand{display:flex;align-items:center;gap:10px}.logo{width:38px;height:38px;border-radius:10px;background:#7658e8;display:grid;place-items:center;font-weight:bold}.sub{font-size:11px;color:#8992a2;margin-top:3px}.top button,.tool button,.action button{background:#141922;border:1px solid #2b313d;color:#fff;border-radius:8px;padding:10px 12px;font-weight:bold;font-size:11px;cursor:pointer}.top button:hover,.tool button:hover,.action button:hover{border-color:#7658e8}.menu{display:none}.layout{display:flex}.side{width:245px;position:fixed;left:0;top:64px;bottom:0;overflow:auto;background:#0b0e14;border-right:1px solid #252a34;padding:15px}.side h3{font-size:10px;color:#858e9d}.nav button{width:100%;border:0;background:transparent;color:#adb5c3;text-align:left;padding:9px;border-radius:8px;cursor:pointer}.nav button:hover{background:#151a22;color:#fff}.main{margin-left:245px;width:calc(100% - 245px);padding:30px 22px}.wrap{max-width:1000px;margin:auto}.hero h1{font-size:45px;margin:10px 0}.hero h1 span{color:#9b83f4}.hero p{color:#8e97a7;font-size:13px}.badge{font-size:10px;color:#bdb0ff}.tool{display:grid;grid-template-columns:1fr auto auto auto;gap:7px;margin:20px 0}.search{background:#10141b;border:1px solid #2a303a;border-radius:9px;padding:0 12px;display:flex;align-items:center}.search input{width:100%;height:40px;background:none;border:0;outline:0;color:#fff}.card{border:1px solid #252a34;background:#0f131a;border-radius:12px;margin:9px 0;overflow:hidden}.head{display:flex;align-items:center;padding:13px;gap:10px}.num{width:38px;height:38px;border-radius:9px;background:#211b40;color:#c8baff;display:grid;place-items:center;font-weight:bold;font-size:11px}.headmain{flex:1;cursor:pointer}.title{font-size:13px;font-weight:bold}.desc{font-size:10px;color:#7e8797;margin-top:4px}.arrow{background:#171c25;border:0;color:white;width:32px;height:32px;border-radius:7px;cursor:pointer;font-size:18px}.body{display:none;border-top:1px solid #252a34;padding:12px}.card.open .body{display:block}.tabs{display:flex;gap:6px;overflow:auto;margin-bottom:12px}.tab{white-space:nowrap;background:#141922;border:1px solid #2b313d;color:#9ca5b4;border-radius:7px;padding:8px 10px;font-size:10px;cursor:pointer}.tab.active{background:#211b40;color:#fff;border-color:#7658e8}.pane{display:none}.pane.active{display:block}.label{font-size:10px;font-weight:bold;margin:8px 0}.box{background:#090c11;border:1px solid #252a34;border-radius:8px;padding:12px;font-size:11px;line-height:1.6;color:#bfc6d1}.steps{display:grid;gap:7px}.step{display:flex;gap:8px;font-size:11px;color:#bbc2ce}.sn{width:21px;height:21px;background:#211b40;color:#c8baff;border-radius:5px;display:grid;place-items:center;flex:none;font-size:9px;font-weight:bold}.code{background:#080a0f;border:1px solid #252a34;border-radius:8px;overflow:hidden}.codebar{background:#141922;padding:7px 9px;display:flex;justify-content:space-between;align-items:center}.codebar span{font-size:9px;color:#8992a2}.codebar button{background:#211b40;color:white;border:1px solid #493d7c;border-radius:6px;padding:6px 8px;font-size:9px;cursor:pointer}pre{margin:0;padding:13px;overflow:auto;max-height:450px;color:#dce2eb;font:11px/1.55 Consolas,monospace}.actions{display:flex;gap:6px;margin-top:12px}.actions button{flex:1}.done{background:#7658e8!important;border-color:#7658e8!important}.viva{display:grid;gap:6px}.v{border:1px solid #252a34;border-radius:7px;padding:9px;background:#12161e}.q{font-size:10px;font-weight:bold}.a{font-size:10px;color:#8f98a8;margin-top:3px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#191e27;border:1px solid #333b48;padding:10px 14px;border-radius:8px;display:none;font-size:10px;z-index:50}.progress{margin-top:20px;padding:12px;border:1px solid #252a34;border-radius:9px;font-size:10px;color:#9da6b5}.bar{height:5px;background:#252a34;border-radius:10px;margin-top:7px;overflow:hidden}.fill{height:100%;width:0;background:#7658e8}.overlay{display:none}@media(max-width:760px){.top{height:58px;padding:0 10px}.menu{display:block!important}.top-actions{display:none}.side{top:58px;left:-280px;width:270px;transition:.2s;z-index:30}.side.open{left:0}.overlay.show{display:block;position:fixed;inset:58px 0 0;background:#0008;z-index:25}.main{margin-left:0;width:100%;padding:20px 8px}.hero h1{font-size:31px}.hero p{font-size:11px}.tool{grid-template-columns:1fr 1fr}.search{grid-column:1/-1}.tool button{font-size:9px;padding:9px 7px}.head{padding:10px}.title{font-size:11px}.desc{font-size:9px}.actions{display:grid;grid-template-columns:1fr 1fr}.actions button:last-child{grid-column:1/-1}.codebar{gap:5px;flex-wrap:wrap}pre{font-size:10px}}</style></head><body>
-<header class="top"><div class="brand"><button class="menu" onclick="menu()">☰</button><div class="logo">Py</div><div><b>Python Practical Lab</b><div class="sub">Easy Exam Study</div></div></div><div class="top-actions"><button onclick="allCode()">↓ All Code</button> <button onclick="allSteps()">↓ All Steps</button></div></header>
-<div class="overlay" id="overlay" onclick="menu()"></div><aside class="side" id="side"><h3>PROGRAMS</h3><div class="nav" id="nav"></div><div class="progress"><div id="pt">Completed: 0 / 5</div><div class="bar"><div class="fill" id="fill"></div></div></div></aside>
-<main class="main"><div class="wrap"><section class="hero"><div class="badge">● PYTHON PRACTICAL EXAM</div><h1>Python <span>Programs</span></h1><p>Simple programs for practical exam study. Read the AIM, steps, code, output and viva questions.</p></section>
-<div class="tool"><div class="search">⌕ <input id="search" placeholder="Search program..." oninput="search()"></div><button onclick="expand()">Expand All</button><button onclick="collapse()">Collapse</button><button onclick="allCode()">All Code</button></div>
-<div id="list"></div></div></main><div class="toast" id="toast"></div>
-<script>const programs=[{"id": 5, "title": "Dictionary Operations", "desc": "Create, update and retrieve student marks.", "aim": "To create a dictionary and store student marks.", "steps": ["Create a dictionary.", "Store student names and marks.", "Display the stored marks.", "Update Pranav’s mark.", "Add a new student.", "Retrieve a student mark.", "Display the updated dictionary."], "code": "# Create a dictionary and store student marks\nstudents = {\n    \"Pranav\": 85,\n    \"Sidharth\": 78,\n    \"Sinan\": 90\n}\n\n# Display the stored marks\nprint(\"Student Marks:\")\nprint(students)\n\n# Update Pranav's mark\nstudents[\"Pranav\"] = 95\n\n# Add a new student\nstudents[\"Akash\"] = 82\n\n# Display the updated dictionary\nprint(\"\\nAfter updating:\")\nprint(students)\n\n# Retrieve Pranav's mark\nprint(\"\\nSinan's mark:\", students[\"Sinan\"])\n\n# Retrieve Akash's mark\nprint(\"Sidhart's mark:\", students[\"Sidharth\"])", "output": "Student Marks:\n{...}\n\nAfter updating:\n{...}\n\nSinan's mark: 90\nSidhart's mark: 78", "viva": [["What is a dictionary?", "A collection of key-value pairs."], ["How do you add a value?", "Use a new key with a value."], ["How do you update a value?", "Assign a new value to an existing key."]]}, {"id": 7, "title": "File Handling with Exception", "desc": "Write and read student details safely.", "aim": "To write and read a file using exception handling.", "steps": ["Open student.txt in write mode.", "Write name and mark.", "Close the file.", "Open the file in read mode.", "Read and display the data.", "Handle file and other errors."], "code": "try:\n    file = open(\"student.txt\", \"w\")\n\n    file.write(\"Name: Pranav\\n\")\n    file.write(\"Mark: 85\\n\")\n\n    file.close()\n\n    file = open(\"student.txt\", \"r\")\n\n    data = file.read()\n\n    print(data)\n\n    file.close()\n\nexcept FileNotFoundError:\n    print(\"File not found\")\n\nexcept Exception as e:\n    print(\"Error:\", e)", "output": "Name: Pranav\nMark: 85", "viva": [["What is exception handling?", "Handling runtime errors without stopping the program unexpectedly."], ["Which block handles an error?", "except block."], ["What does open() do?", "It opens a file."]]}, {"id": 8, "title": "Patient Registration GUI", "desc": "Create a simple patient registration form.", "aim": "To create a patient registration GUI using Tkinter.", "steps": ["Import tkinter.", "Create the main window.", "Create labels and input boxes.", "Get patient details.", "Create a Register button.", "Display the entered details.", "Run the GUI using mainloop()."], "code": "import tkinter as tk\n\ndef register():\n    name = name_entry.get()\n    age = age_entry.get()\n    disease = disease_entry.get()\n\n    result.config(\n        text=\"Name: \" + name +\n        \"\\nAge: \" + age +\n        \"\\nDisease: \" + disease\n    )\n\nwindow = tk.Tk()\nwindow.title(\"Patient Registration\")\nwindow.geometry(\"350x300\")\n\ntk.Label(window, text=\"Patient Registration\").pack()\n\ntk.Label(window, text=\"Name\").pack()\nname_entry = tk.Entry(window)\nname_entry.pack()\n\ntk.Label(window, text=\"Age\").pack()\nage_entry = tk.Entry(window)\nage_entry.pack()\n\ntk.Label(window, text=\"Disease\").pack()\ndisease_entry = tk.Entry(window)\ndisease_entry.pack()\n\ntk.Button(window, text=\"Register\", command=register).pack()\n\nresult = tk.Label(window, text=\"\")\nresult.pack()\n\nwindow.mainloop()", "output": "Patient Registration\nName: Pranav\nAge: 20\nDisease: Fever", "viva": [["What is GUI?", "Graphical User Interface."], ["Which module is used?", "tkinter."], ["What is Entry?", "It accepts user input."], ["What is mainloop()?", "It keeps the GUI running."]]}, {"id": 9, "title": "System Information", "desc": "Display basic computer system information.", "aim": "To display basic system information using Python.", "steps": ["Import platform and socket.", "Display the operating system.", "Display OS version.", "Display machine type.", "Display processor.", "Display hostname.", "Display IP address."], "code": "import platform\nimport socket\n\nprint(\"System Information\")\nprint(\"-------------------\")\n\nprint(\"Operating System:\", platform.system())\nprint(\"OS Version:\", platform.version())\nprint(\"Machine:\", platform.machine())\nprint(\"Processor:\", platform.processor())\n\nprint(\"Hostname:\", socket.gethostname())\nprint(\"IP Address:\", socket.gethostbyname(socket.gethostname()))", "output": "System Information\n-------------------\nOperating System: Windows\nOS Version: ...\nMachine: AMD64\nProcessor: ...\nHostname: DESKTOP-PC\nIP Address: 192.168.1.10", "viva": [["Which module gives OS information?", "platform."], ["Which module gives hostname?", "socket."], ["What does platform.system() return?", "The operating system name."], ["What does socket.gethostname() return?", "The computer hostname."]]}, {"id": 10, "title": "Log File Analysis", "desc": "Find lines containing the word error in a log file.", "aim": "To find error messages in a log file.", "steps": ["Open the log file.", "Read the file line by line.", "Convert each line to lowercase.", "Check for the word error.", "Print matching lines.", "Handle a missing file error."], "code": "try:\n    file = open(\"log.txt\", \"r\")\n\n    for line in file:\n        if \"error\" in line.lower():\n            print(line.strip())\n\n    file.close()\n\nexcept FileNotFoundError:\n    print(\"Log file not found\")", "output": "2026-10-05 ERROR Database connection failed\n2026-10-05 ERROR File not found", "viva": [["What is a log file?", "A file that stores system or application events."], ["Why use lower()?", "To find Error, ERROR and error equally."], ["Which function opens a file?", "open()."], ["What happens if the file is missing?", "FileNotFoundError is handled."]]}];const completed=new Set();
-function esc(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-function render(){document.getElementById('nav').innerHTML=programs.map(p=>`<button onclick="openP(${p.id})"><b>${p.id}</b> — ${esc(p.title)}</button>`).join('');document.getElementById('list').innerHTML=programs.map(p=>`<article class="card" id="p${p.id}"><div class="head"><div class="num">${p.id}</div><div class="headmain" onclick="toggle(${p.id})"><div class="title">${esc(p.title)}</div><div class="desc">${esc(p.desc)}</div></div><button class="arrow" onclick="toggle(${p.id})">›</button></div><div class="body"><div class="tabs"><button class="tab active" onclick="showTab(event,${p.id},'aim')">AIM</button><button class="tab" onclick="showTab(event,${p.id},'steps')">STEPS</button><button class="tab" onclick="showTab(event,${p.id},'code')">CODE</button><button class="tab" onclick="showTab(event,${p.id},'output')">OUTPUT</button><button class="tab" onclick="showTab(event,${p.id},'viva')">VIVA</button></div><div class="pane active" id="aim${p.id}"><div class="label">AIM</div><div class="box">${esc(p.aim)}</div></div><div class="pane" id="steps${p.id}"><div class="label">ALGORITHM / STEPS</div><div class="steps">${p.steps.map((s,i)=>`<div class="step"><span class="sn">${i+1}</span><span>${esc(s)}</span></div>`).join('')}</div></div><div class="pane" id="code${p.id}"><div class="label">PYTHON CODE</div><div class="code"><div class="codebar"><span>program_${p.id}.py</span><button onclick="copy(${p.id})">COPY CODE</button></div><pre id="codeText${p.id}">${esc(p.code)}</pre></div></div><div class="pane" id="output${p.id}"><div class="label">SAMPLE OUTPUT</div><div class="box">${esc(p.output)}</div></div><div class="pane" id="viva${p.id}"><div class="label">VIVA QUESTIONS</div><div class="viva">${p.viva.map(v=>`<div class="v"><div class="q">Q. ${esc(v[0])}</div><div class="a">Ans: ${esc(v[1])}</div></div>`).join('')}</div></div><div class="actions"><button onclick="downloadCode(${p.id})">↓ Code</button><button onclick="downloadSteps(${p.id})">↓ Steps</button><button onclick="done(${p.id})">✓ Mark Done</button></div></div></article>`).join('')}
-function toggle(id){document.getElementById('p'+id).classList.toggle('open')}function openP(id){closeMenu();let e=document.getElementById('p'+id);e.classList.add('open');setTimeout(()=>e.scrollIntoView({behavior:'smooth',block:'start'}),30)}function expand(){document.querySelectorAll('.card').forEach(e=>e.classList.add('open'))}function collapse(){document.querySelectorAll('.card').forEach(e=>e.classList.remove('open'))}
-function showTab(ev,id,name){ev.stopPropagation();let b=document.getElementById('p'+id);b.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));ev.currentTarget.classList.add('active');b.querySelectorAll('.pane').forEach(x=>x.classList.remove('active'));document.getElementById(name+id).classList.add('active')}
-function search(){let q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('.card').forEach(c=>{let ok=c.innerText.toLowerCase().includes(q);c.style.display=ok?'block':'none';if(q&&ok)c.classList.add('open')})}
-function copy(id){let p=programs.find(x=>x.id===id);if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(p.code).then(()=>toast('Code copied'))}else{let t=document.createElement('textarea');t.value=p.code;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();toast('Code copied')}}
-function file(name,text,type){let blob=new Blob([text],{type:type||'text/plain'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500)}
-function downloadCode(id){let p=programs.find(x=>x.id===id);file('program_'+id+'.py',p.code,'text/x-python');toast('Code downloaded')}
-function downloadSteps(id){let p=programs.find(x=>x.id===id),t='PROGRAM '+p.id+' - '+p.title+'\n\nAIM\n'+p.aim+'\n\nSTEPS\n';p.steps.forEach((s,i)=>t+=(i+1)+'. '+s+'\n');file('program_'+id+'_steps.txt',t);toast('Steps downloaded')}
-function allCode(){let t='# PYTHON PRACTICAL LAB - ALL CODE\n\n';programs.forEach(p=>t+='\n# PROGRAM '+p.id+' - '+p.title+'\n\n'+p.code.trim()+'\n');file('python_practical_all_code.py',t,'text/x-python');toast('All code downloaded')}
-function allSteps(){let t='PYTHON PRACTICAL LAB - ALL STEPS\n\n';programs.forEach(p=>{t+='PROGRAM '+p.id+' - '+p.title+'\n\nAIM\n'+p.aim+'\n\nSTEPS\n';p.steps.forEach((s,i)=>t+=(i+1)+'. '+s+'\n');t+='\n-------------------------\n\n'});file('python_practical_all_steps.txt',t);toast('All steps downloaded')}
-function done(id){completed.add(id);document.getElementById('pt').textContent='Completed: '+completed.size+' / '+programs.length;document.getElementById('fill').style.width=(completed.size/programs.length*100)+'%';toast('Program marked done')}
-function toast(m){let t=document.getElementById('toast');t.textContent=m;t.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display='none',1500)}function menu(){document.getElementById('side').classList.toggle('open');document.getElementById('overlay').classList.toggle('show')}function closeMenu(){document.getElementById('side').classList.remove('open');document.getElementById('overlay').classList.remove('show')}render();</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Python Practical Lab</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080a0f;
+    color:#f5f5f5;
+    min-height:100vh;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top{
+    position:sticky;
+    top:0;
+    z-index:100;
+    height:64px;
+    background:#0d1017;
+    border-bottom:1px solid #252a34;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    background:#ffffff;
+    color:#000000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:800;
+}
+
+.brand-text h1{
+    font-size:18px;
+    line-height:1.1;
+}
+
+.brand-text p{
+    font-size:11px;
+    color:#8d95a5;
+    margin-top:3px;
+}
+
+.top-actions{
+    display:flex;
+    gap:8px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.btn{
+    background:#171b24;
+    color:#fff;
+    border:1px solid #303644;
+    border-radius:8px;
+    padding:9px 12px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.btn:hover{
+    background:#222735;
+}
+
+.btn.primary{
+    background:#fff;
+    color:#000;
+    border-color:#fff;
+}
+
+.btn.success{
+    background:#142b1c;
+    border-color:#28663d;
+    color:#7df0a5;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.layout{
+    display:flex;
+    min-height:calc(100vh - 64px);
+}
+
+.sidebar{
+    width:245px;
+    background:#0b0e14;
+    border-right:1px solid #252a34;
+    padding:18px 12px;
+    position:sticky;
+    top:64px;
+    height:calc(100vh - 64px);
+    overflow-y:auto;
+}
+
+.sidebar-title{
+    color:#777f91;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+    margin:8px 10px 10px;
+}
+
+.side-item{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:transparent;
+    color:#b8bfcc;
+    border:1px solid transparent;
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:4px;
+    text-align:left;
+    font-size:13px;
+}
+
+.side-item:hover{
+    background:#151923;
+    color:#fff;
+}
+
+.side-item.active{
+    background:#191e28;
+    border-color:#303744;
+    color:#fff;
+}
+
+.side-num{
+    width:25px;
+    height:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:6px;
+    background:#202530;
+    color:#fff;
+    font-size:11px;
+    font-weight:800;
+}
+
+.progress-box{
+    margin:20px 8px;
+    padding:12px;
+    background:#11151d;
+    border:1px solid #252a34;
+    border-radius:10px;
+}
+
+.progress-title{
+    display:flex;
+    justify-content:space-between;
+    color:#aeb5c3;
+    font-size:11px;
+    margin-bottom:8px;
+}
+
+.progress-bar{
+    height:6px;
+    background:#252a34;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#fff;
+    transition:.3s;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    flex:1;
+    min-width:0;
+    padding:25px;
+}
+
+.hero{
+    background:#0e1219;
+    border:1px solid #252a34;
+    border-radius:14px;
+    padding:25px;
+    margin-bottom:18px;
+}
+
+.hero h2{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.hero p{
+    color:#9098a8;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.toolbar{
+    display:grid;
+    grid-template-columns:1fr auto auto auto;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.search{
+    width:100%;
+    background:#0e1219;
+    border:1px solid #2a303b;
+    color:#fff;
+    border-radius:9px;
+    padding:12px 14px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#fff;
+}
+
+.filter-btn{
+    background:#11151d;
+    border:1px solid #2a303b;
+    color:#fff;
+    border-radius:9px;
+    padding:0 14px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.filter-btn:hover{
+    background:#1b202a;
+}
+
+/* =========================
+   PROGRAM CARD
+========================= */
+
+.program{
+    background:#0e1219;
+    border:1px solid #252a34;
+    border-radius:14px;
+    margin-bottom:16px;
+    overflow:hidden;
+}
+
+.program-head{
+    padding:17px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    cursor:pointer;
+}
+
+.program-head:hover{
+    background:#11151d;
+}
+
+.program-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+}
+
+.program-number{
+    width:42px;
+    height:42px;
+    min-width:42px;
+    border-radius:10px;
+    background:#1b202a;
+    border:1px solid #343b49;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:14px;
+    font-weight:800;
+}
+
+.program-title{
+    min-width:0;
+}
+
+.program-title h3{
+    font-size:16px;
+    margin-bottom:4px;
+}
+
+.program-title p{
+    font-size:11px;
+    color:#7f8797;
+}
+
+.program-actions{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.arrow{
+    width:28px;
+    height:28px;
+    border-radius:7px;
+    background:#191e27;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+}
+
+.program-body{
+    display:none;
+    border-top:1px solid #252a34;
+    padding:18px;
+}
+
+.program.open .program-body{
+    display:block;
+}
+
+.program.open .arrow{
+    transform:rotate(180deg);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.section{
+    margin-bottom:22px;
+}
+
+.section-title{
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.7px;
+    color:#d7dce5;
+    margin-bottom:9px;
+}
+
+.aim{
+    background:#11151d;
+    border:1px solid #252a34;
+    border-radius:9px;
+    padding:13px;
+    color:#aeb5c3;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.steps{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.step{
+    display:flex;
+    gap:9px;
+    background:#11151d;
+    border:1px solid #252a34;
+    padding:10px;
+    border-radius:8px;
+    color:#adb4c1;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.step-num{
+    width:23px;
+    height:23px;
+    min-width:23px;
+    background:#222833;
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:11px;
+    font-weight:bold;
+}
+
+/* =========================
+   CODE
+========================= */
+
+.code-box{
+    background:#05070a;
+    border:1px solid #282e39;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.code-head{
+    height:42px;
+    background:#11151d;
+    border-bottom:1px solid #282e39;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 10px;
+}
+
+.code-label{
+    color:#858d9d;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.code-actions{
+    display:flex;
+    gap:6px;
+}
+
+.small-btn{
+    background:#1b2029;
+    color:#fff;
+    border:1px solid #303744;
+    border-radius:6px;
+    padding:6px 9px;
+    font-size:10px;
+    font-weight:700;
+}
+
+.small-btn:hover{
+    background:#282e39;
+}
+
+pre{
+    margin:0;
+    padding:16px;
+    overflow-x:auto;
+    color:#e5e9ef;
+    font-family:"Courier New",monospace;
+    font-size:12px;
+    line-height:1.6;
+    white-space:pre;
+}
+
+.output{
+    background:#05070a;
+    border:1px solid #282e39;
+    border-radius:10px;
+    padding:15px;
+    overflow-x:auto;
+}
+
+.output pre{
+    padding:0;
+    color:#9de5b4;
+}
+
+/* =========================
+   VIVA
+========================= */
+
+.viva{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.viva-item{
+    background:#11151d;
+    border:1px solid #252a34;
+    border-radius:8px;
+    padding:11px;
+}
+
+.question{
+    color:#fff;
+    font-weight:bold;
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+.answer{
+    color:#929aaa;
+    font-size:12px;
+    line-height:1.5;
+}
+
+/* =========================
+   BOTTOM ACTIONS
+========================= */
+
+.bottom-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:20px;
+    padding-top:18px;
+    border-top:1px solid #252a34;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu{
+    display:none;
+    width:36px;
+    height:36px;
+    background:#171b24;
+    border:1px solid #303644;
+    color:#fff;
+    border-radius:8px;
+    font-size:18px;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:999;
+    background:#fff;
+    color:#000;
+    padding:11px 15px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:bold;
+    box-shadow:0 10px 35px rgba(0,0,0,.4);
+    transform:translateY(100px);
+    opacity:0;
+    transition:.25s;
+}
+
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .sidebar{
+        position:fixed;
+        left:-270px;
+        top:64px;
+        width:250px;
+        z-index:90;
+        transition:.25s;
+        box-shadow:10px 0 30px rgba(0,0,0,.4);
+    }
+
+    .sidebar.show{
+        left:0;
+    }
+
+    .mobile-menu{
+        display:block;
+    }
+
+    .top{
+        padding:0 10px;
+    }
+
+    .top-actions .btn:nth-child(2){
+        display:none;
+    }
+
+    .main{
+        padding:15px;
+    }
+
+    .toolbar{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .search{
+        grid-column:1/-1;
+    }
+}
+
+@media(max-width:600px){
+
+    .top{
+        height:58px;
+    }
+
+    .sidebar{
+        top:58px;
+        height:calc(100vh - 58px);
+    }
+
+    .brand-text h1{
+        font-size:15px;
+    }
+
+    .brand-text p{
+        display:none;
+    }
+
+    .logo{
+        width:34px;
+        height:34px;
+        font-size:17px;
+    }
+
+    .top-actions{
+        display:none;
+    }
+
+    .main{
+        padding:10px;
+    }
+
+    .hero{
+        padding:18px;
+    }
+
+    .hero h2{
+        font-size:22px;
+    }
+
+    .hero p{
+        font-size:12px;
+    }
+
+    .toolbar{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .filter-btn{
+        padding:10px 7px;
+    }
+
+    .program-head{
+        padding:12px;
+    }
+
+    .program-info{
+        gap:8px;
+    }
+
+    .program-number{
+        width:35px;
+        height:35px;
+        min-width:35px;
+    }
+
+    .program-title h3{
+        font-size:13px;
+    }
+
+    .program-title p{
+        font-size:10px;
+    }
+
+    .program-actions .btn{
+        display:none;
+    }
+
+    .program-body{
+        padding:12px;
+    }
+
+    pre{
+        font-size:11px;
+    }
+
+    .bottom-actions{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .bottom-actions .btn{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     TOP
+========================= -->
+
+<header class="top">
+
+    <div class="brand">
+
+        <button class="mobile-menu" onclick="toggleSidebar()">
+            ☰
+        </button>
+
+        <div class="logo">
+            PY
+        </div>
+
+        <div class="brand-text">
+            <h1>Python Practical Lab</h1>
+            <p>Easy Exam Study</p>
+        </div>
+
+    </div>
+
+    <div class="top-actions">
+
+        <button class="btn" onclick="downloadAllSteps()">
+            ↓ All Steps
+        </button>
+
+        <button class="btn primary" onclick="downloadAllCode()">
+            ↓ All Code
+        </button>
+
+    </div>
+
+</header>
+
+
+<div class="layout">
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-title">
+        PROGRAMS
+    </div>
+
+    <button class="side-item active" onclick="openProgram(5)">
+        <span class="side-num">5</span>
+        Dictionary
+    </button>
+
+    <button class="side-item" onclick="openProgram(7)">
+        <span class="side-num">7</span>
+        Exception Handling
+    </button>
+
+    <button class="side-item" onclick="openProgram(8)">
+        <span class="side-num">8</span>
+        GUI
+    </button>
+
+    <button class="side-item" onclick="openProgram(9)">
+        <span class="side-num">9</span>
+        System Information
+    </button>
+
+    <button class="side-item" onclick="openProgram(10)">
+        <span class="side-num">10</span>
+        Log Analysis
+    </button>
+
+
+    <div class="progress-box">
+
+        <div class="progress-title">
+            <span>Progress</span>
+            <span id="progressText">0 / 5</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="main">
+
+    <section class="hero">
+
+        <h2>Python Practical Programs</h2>
+
+        <p>
+            Learn the programs easily for your practical exam.
+            Each program contains AIM, steps, complete Python code,
+            sample output and viva questions.
+        </p>
+
+    </section>
+
+
+    <!-- TOOLBAR -->
+
+    <div class="toolbar">
+
+        <input
+            type="text"
+            class="search"
+            id="searchInput"
+            placeholder="Search program..."
+            oninput="searchPrograms()"
+        >
+
+        <button class="filter-btn" onclick="expandAll()">
+            Expand All
+        </button>
+
+        <button class="filter-btn" onclick="collapseAll()">
+            Collapse All
+        </button>
+
+        <button class="filter-btn" onclick="downloadAllCode()">
+            All Code
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         PROGRAM 5
+    ========================= -->
+
+    <section class="program" id="program5">
+
+        <div class="program-head" onclick="toggleProgram(5)">
+
+            <div class="program-info">
+
+                <div class="program-number">
+                    5
+                </div>
+
+                <div class="program-title">
+                    <h3>Dictionary Operations</h3>
+                    <p>Create, update and display student marks</p>
+                </div>
+
+            </div>
+
+            <div class="program-actions">
+
+                <button
+                    class="btn success"
+                    onclick="event.stopPropagation(); markDone(5)"
+                    id="done5"
+                >
+                    ✓ Mark Done
+                </button>
+
+                <div class="arrow">
+                    ▼
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-body">
+
+            <!-- AIM -->
+
+            <div class="section">
+
+                <div class="section-title">
+                    AIM
+                </div>
+
+                <div class="aim">
+                    To create a dictionary of student marks and perform
+                    operations such as adding, updating and displaying
+                    student details.
+                </div>
+
+            </div>
+
+
+            <!-- STEPS -->
+
+            <div class="section">
+
+                <div class="section-title">
+                    STEPS / ALGORITHM
+                </div>
+
+                <div class="steps">
+
+                    <div class="step">
+                        <span class="step-num">1</span>
+                        <span>Create an empty dictionary named students.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">2</span>
+                        <span>Enter the number of students.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">3</span>
+                        <span>Enter each student's name and mark.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">4</span>
+                        <span>Store the name and mark in the dictionary.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">5</span>
+                        <span>Display the student details.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">6</span>
+                        <span>Enter a student name and update the mark.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">7</span>
+                        <span>Display the updated details.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">8</span>
+                        <span>Display the selected student's mark.</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CODE -->
+
+            <div class="section">
+
+                <div class="section-title">
+                    PYTHON CODE
+                </div>
+
+                <div class="code-box">
+
+                    <div class="code-head">
+
+                        <span class="code-label">
+                            dictionary.py
+                        </span>
+
+                        <div class="code-actions">
+
+                            <button
+                                class="small-btn"
+                                onclick="copyCode(5)"
+                            >
+                                COPY
+                            </button>
+
+                            <button
+                                class="small-btn"
+                                onclick="downloadCode(5)"
+                            >
+                                DOWNLOAD .PY
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <pre id="code5">students = {}
+
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+    name = input("Enter student name: ")
+    mark = int(input("Enter mark: "))
+    students[name] = mark
+
+print("\nStudent Details:")
+print(students)
+
+name = input("\nEnter student name to update: ")
+mark = int(input("Enter new mark: "))
+students[name] = mark
+
+print("\nUpdated Details:")
+print(students)
+
+name = {}
+print("Mark:", students[name])</pre>
+
+                </div>
+
+            </div>
+
+
+            <!-- SAMPLE OUTPUT -->
+
+            <div class="section">
+
+                <div class="section-title">
+                    SAMPLE OUTPUT
+                </div>
+
+                <div class="output">
+
+<pre>Enter number of students: 2
+Enter student name: Arun
+Enter mark: 80
+Enter student name: Rahul
+Enter mark: 90
+
+Student Details:
+{'Arun': 80, 'Rahul': 90}
+
+Enter student name to update: Arun
+Enter new mark: 95
+
+Updated Details:
+{'Arun': 95, 'Rahul': 90}</pre>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIVA -->
+
+            <div class="section">
+
+                <div class="section-title">
+                    VIVA QUESTIONS
+                </div>
+
+                <div class="viva">
+
+                    <div class="viva-item">
+                        <div class="question">
+                            1. What is a dictionary?
+                        </div>
+                        <div class="answer">
+                            A dictionary stores data using key-value pairs.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            2. How do you create an empty dictionary?
+                        </div>
+                        <div class="answer">
+                            Using students = {}.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            3. How do you update a value?
+                        </div>
+                        <div class="answer">
+                            Use dictionary[key] = new_value.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            4. Can dictionary keys be duplicated?
+                        </div>
+                        <div class="answer">
+                            No. Keys must be unique.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bottom-actions">
+
+                <button
+                    class="btn"
+                    onclick="downloadSteps(5)"
+                >
+                    ↓ Download Steps
+                </button>
+
+                <button
+                    class="btn primary"
+                    onclick="downloadCode(5)"
+                >
+                    ↓ Download Code
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROGRAM 7
+    ========================= -->
+
+    <section class="program" id="program7">
+
+        <div class="program-head" onclick="toggleProgram(7)">
+
+            <div class="program-info">
+
+                <div class="program-number">
+                    7
+                </div>
+
+                <div class="program-title">
+                    <h3>Exception Handling and File Operations</h3>
+                    <p>Write and read student data safely</p>
+                </div>
+
+            </div>
+
+            <div class="program-actions">
+
+                <button
+                    class="btn success"
+                    onclick="event.stopPropagation(); markDone(7)"
+                    id="done7"
+                >
+                    ✓ Mark Done
+                </button>
+
+                <div class="arrow">
+                    ▼
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-body">
+
+            <div class="section">
+
+                <div class="section-title">
+                    AIM
+                </div>
+
+                <div class="aim">
+                    To demonstrate file handling and exception handling
+                    using try and except blocks.
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    STEPS / ALGORITHM
+                </div>
+
+                <div class="steps">
+
+                    <div class="step">
+                        <span class="step-num">1</span>
+                        <span>Start the try block.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">2</span>
+                        <span>Open student.txt in write mode.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">3</span>
+                        <span>Write student name and mark.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">4</span>
+                        <span>Close the file.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">5</span>
+                        <span>Open the file in read mode.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">6</span>
+                        <span>Read and display the contents.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">7</span>
+                        <span>Handle file errors using except.</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    PYTHON CODE
+                </div>
+
+                <div class="code-box">
+
+                    <div class="code-head">
+
+                        <span class="code-label">
+                            try.py
+                        </span>
+
+                        <div class="code-actions">
+
+                            <button
+                                class="small-btn"
+                                onclick="copyCode(7)"
+                            >
+                                COPY
+                            </button>
+
+                            <button
+                                class="small-btn"
+                                onclick="downloadCode(7)"
+                            >
+                                DOWNLOAD .PY
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <pre id="code7">try:
+    file = open("student.txt", "w")
+
+    file.write("Name: Pranav\n")
+    file.write("Mark: 85\n")
+
+    file.close()
+
+    file = open("student.txt", "r")
+
+    data = file.read()
+
+    print(data)
+
+    file.close()
+
+except FileNotFoundError:
+    print("File not found")
+
+except Exception as e:
+    print("Error:", e)</pre>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    SAMPLE OUTPUT
+                </div>
+
+                <div class="output">
+
+<pre>Name: Pranav
+Mark: 85</pre>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    VIVA QUESTIONS
+                </div>
+
+                <div class="viva">
+
+                    <div class="viva-item">
+                        <div class="question">
+                            1. What is exception handling?
+                        </div>
+                        <div class="answer">
+                            It is used to handle errors during program execution.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            2. Which block is used to handle exceptions?
+                        </div>
+                        <div class="answer">
+                            The except block.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            3. What does open() do?
+                        </div>
+                        <div class="answer">
+                            It opens a file.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            4. What is FileNotFoundError?
+                        </div>
+                        <div class="answer">
+                            It occurs when the requested file is not found.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bottom-actions">
+
+                <button
+                    class="btn"
+                    onclick="downloadSteps(7)"
+                >
+                    ↓ Download Steps
+                </button>
+
+                <button
+                    class="btn primary"
+                    onclick="downloadCode(7)"
+                >
+                    ↓ Download Code
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROGRAM 8
+    ========================= -->
+
+    <section class="program" id="program8">
+
+        <div class="program-head" onclick="toggleProgram(8)">
+
+            <div class="program-info">
+
+                <div class="program-number">
+                    8
+                </div>
+
+                <div class="program-title">
+                    <h3>Patient Registration GUI</h3>
+                    <p>Simple graphical user interface using Tkinter</p>
+                </div>
+
+            </div>
+
+            <div class="program-actions">
+
+                <button
+                    class="btn success"
+                    onclick="event.stopPropagation(); markDone(8)"
+                    id="done8"
+                >
+                    ✓ Mark Done
+                </button>
+
+                <div class="arrow">
+                    ▼
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-body">
+
+            <div class="section">
+
+                <div class="section-title">
+                    AIM
+                </div>
+
+                <div class="aim">
+                    To create a simple patient registration GUI using
+                    Python Tkinter.
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    STEPS / ALGORITHM
+                </div>
+
+                <div class="steps">
+
+                    <div class="step">
+                        <span class="step-num">1</span>
+                        <span>Import tkinter.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">2</span>
+                        <span>Create the register function.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">3</span>
+                        <span>Get values from the entry boxes.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">4</span>
+                        <span>Create the main window.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">5</span>
+                        <span>Add labels and entry boxes.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">6</span>
+                        <span>Add the Register button.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">7</span>
+                        <span>Display the entered patient details.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">8</span>
+                        <span>Run the main loop.</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    PYTHON CODE
+                </div>
+
+                <div class="code-box">
+
+                    <div class="code-head">
+
+                        <span class="code-label">
+                            GUi.py
+                        </span>
+
+                        <div class="code-actions">
+
+                            <button
+                                class="small-btn"
+                                onclick="copyCode(8)"
+                            >
+                                COPY
+                            </button>
+
+                            <button
+                                class="small-btn"
+                                onclick="downloadCode(8)"
+                            >
+                                DOWNLOAD .PY
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <pre id="code8">import tkinter as tk
+
+def register():
+    name = name_entry.get()
+    age = age_entry.get()
+    disease = disease_entry.get()
+
+    result.config(
+        text="Name: " + name +
+        "\nAge: " + age +
+        "\nDisease: " + disease
+    )
+
+window = tk.Tk()
+window.title("Patient Registration")
+window.geometry("350x300")
+
+tk.Label(window, text="Patient Registration").pack()
+
+tk.Label(window, text="Name").pack()
+name_entry = tk.Entry(window)
+name_entry.pack()
+
+tk.Label(window, text="Age").pack()
+age_entry = tk.Entry(window)
+age_entry.pack()
+
+tk.Label(window, text="Disease").pack()
+disease_entry = tk.Entry(window)
+disease_entry.pack()
+
+tk.Button(window, text="Register", command=register).pack()
+
+result = tk.Label(window, text="")
+result.pack()
+
+window.mainloop()</pre>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    SAMPLE OUTPUT
+                </div>
+
+                <div class="output">
+
+<pre>Patient Registration
+
+Name
+[ Pranav ]
+
+Age
+[ 20 ]
+
+Disease
+[ Fever ]
+
+[ Register ]
+
+Name: Pranav
+Age: 20
+Disease: Fever</pre>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    VIVA QUESTIONS
+                </div>
+
+                <div class="viva">
+
+                    <div class="viva-item">
+                        <div class="question">
+                            1. What is Tkinter?
+                        </div>
+                        <div class="answer">
+                            Tkinter is Python's standard GUI library.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            2. What is Entry?
+                        </div>
+                        <div class="answer">
+                            Entry is used to accept text input from the user.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            3. What does mainloop() do?
+                        </div>
+                        <div class="answer">
+                            It keeps the GUI application running.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            4. What is a Button?
+                        </div>
+                        <div class="answer">
+                            A Button performs an action when clicked.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bottom-actions">
+
+                <button
+                    class="btn"
+                    onclick="downloadSteps(8)"
+                >
+                    ↓ Download Steps
+                </button>
+
+                <button
+                    class="btn primary"
+                    onclick="downloadCode(8)"
+                >
+                    ↓ Download Code
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROGRAM 9
+    ========================= -->
+
+    <section class="program" id="program9">
+
+        <div class="program-head" onclick="toggleProgram(9)">
+
+            <div class="program-info">
+
+                <div class="program-number">
+                    9
+                </div>
+
+                <div class="program-title">
+                    <h3>System Information</h3>
+                    <p>Display operating system and network information</p>
+                </div>
+
+            </div>
+
+            <div class="program-actions">
+
+                <button
+                    class="btn success"
+                    onclick="event.stopPropagation(); markDone(9)"
+                    id="done9"
+                >
+                    ✓ Mark Done
+                </button>
+
+                <div class="arrow">
+                    ▼
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-body">
+
+            <div class="section">
+
+                <div class="section-title">
+                    AIM
+                </div>
+
+                <div class="aim">
+                    To display basic system information using the
+                    platform and socket modules.
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    STEPS / ALGORITHM
+                </div>
+
+                <div class="steps">
+
+                    <div class="step">
+                        <span class="step-num">1</span>
+                        <span>Import platform module.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">2</span>
+                        <span>Import socket module.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">3</span>
+                        <span>Display the operating system.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">4</span>
+                        <span>Display OS version.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">5</span>
+                        <span>Display machine and processor information.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">6</span>
+                        <span>Get the hostname.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">7</span>
+                        <span>Get the IP address.</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    PYTHON CODE
+                </div>
+
+                <div class="code-box">
+
+                    <div class="code-head">
+
+                        <span class="code-label">
+                            file.py
+                        </span>
+
+                        <div class="code-actions">
+
+                            <button
+                                class="small-btn"
+                                onclick="copyCode(9)"
+                            >
+                                COPY
+                            </button>
+
+                            <button
+                                class="small-btn"
+                                onclick="downloadCode(9)"
+                            >
+                                DOWNLOAD .PY
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <pre id="code9">import platform
+import socket
+
+print("System Information")
+print("-------------------")
+
+print("Operating System:", platform.system())
+print("OS Version:", platform.version())
+print("Machine:", platform.machine())
+print("Processor:", platform.processor())
+
+print("Hostname:", socket.gethostname())
+print("IP Address:", socket.gethostbyname(socket.gethostname()))</pre>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    SAMPLE OUTPUT
+                </div>
+
+                <div class="output">
+
+<pre>System Information
+-------------------
+Operating System: Windows
+OS Version: 10.0
+Machine: AMD64
+Processor: Intel Processor
+Hostname: COMPUTER
+IP Address: 192.168.1.5</pre>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    VIVA QUESTIONS
+                </div>
+
+                <div class="viva">
+
+                    <div class="viva-item">
+                        <div class="question">
+                            1. What is platform?
+                        </div>
+                        <div class="answer">
+                            Platform provides information about the system.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            2. What is socket?
+                        </div>
+                        <div class="answer">
+                            Socket provides networking-related information.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            3. How do you get hostname?
+                        </div>
+                        <div class="answer">
+                            Using socket.gethostname().
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            4. How do you get the IP address?
+                        </div>
+                        <div class="answer">
+                            Using socket.gethostbyname().
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bottom-actions">
+
+                <button
+                    class="btn"
+                    onclick="downloadSteps(9)"
+                >
+                    ↓ Download Steps
+                </button>
+
+                <button
+                    class="btn primary"
+                    onclick="downloadCode(9)"
+                >
+                    ↓ Download Code
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROGRAM 10
+    ========================= -->
+
+    <section class="program" id="program10">
+
+        <div class="program-head" onclick="toggleProgram(10)">
+
+            <div class="program-info">
+
+                <div class="program-number">
+                    10
+                </div>
+
+                <div class="program-title">
+                    <h3>Log File Analysis</h3>
+                    <p>Find error messages from a log file</p>
+                </div>
+
+            </div>
+
+            <div class="program-actions">
+
+                <button
+                    class="btn success"
+                    onclick="event.stopPropagation(); markDone(10)"
+                    id="done10"
+                >
+                    ✓ Mark Done
+                </button>
+
+                <div class="arrow">
+                    ▼
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-body">
+
+            <div class="section">
+
+                <div class="section-title">
+                    AIM
+                </div>
+
+                <div class="aim">
+                    To read a log file and display lines containing
+                    error messages.
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    STEPS / ALGORITHM
+                </div>
+
+                <div class="steps">
+
+                    <div class="step">
+                        <span class="step-num">1</span>
+                        <span>Start the try block.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">2</span>
+                        <span>Open log.txt in read mode.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">3</span>
+                        <span>Read the file line by line.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">4</span>
+                        <span>Check whether the word error is present.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">5</span>
+                        <span>Display the error lines.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">6</span>
+                        <span>Close the file.</span>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-num">7</span>
+                        <span>Handle FileNotFoundError.</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    PYTHON CODE
+                </div>
+
+                <div class="code-box">
+
+                    <div class="code-head">
+
+                        <span class="code-label">
+                            log.py
+                        </span>
+
+                        <div class="code-actions">
+
+                            <button
+                                class="small-btn"
+                                onclick="copyCode(10)"
+                            >
+                                COPY
+                            </button>
+
+                            <button
+                                class="small-btn"
+                                onclick="downloadCode(10)"
+                            >
+                                DOWNLOAD .PY
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <pre id="code10">try:
+    file = open("log.txt", "r")
+
+    for line in file:
+        if "error" in line.lower():
+            print(line.strip())
+
+    file.close()
+
+except FileNotFoundError:
+    print("Log file not found")</pre>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    SAMPLE OUTPUT
+                </div>
+
+                <div class="output">
+
+<pre>Error: Login failed
+Error: Database connection failed</pre>
+
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    VIVA QUESTIONS
+                </div>
+
+                <div class="viva">
+
+                    <div class="viva-item">
+                        <div class="question">
+                            1. What is a log file?
+                        </div>
+                        <div class="answer">
+                            A log file stores records of events or activities.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            2. What does lower() do?
+                        </div>
+                        <div class="answer">
+                            It converts text to lowercase.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            3. Why use strip()?
+                        </div>
+                        <div class="answer">
+                            It removes extra whitespace and newline characters.
+                        </div>
+                    </div>
+
+                    <div class="viva-item">
+                        <div class="question">
+                            4. Which exception is handled?
+                        </div>
+                        <div class="answer">
+                            FileNotFoundError.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="bottom-actions">
+
+                <button
+                    class="btn"
+                    onclick="downloadSteps(10)"
+                >
+                    ↓ Download Steps
+                </button>
+
+                <button
+                    class="btn primary"
+                    onclick="downloadCode(10)"
+                >
+                    ↓ Download Code
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+    Copied!
+</div>
+
+
+<script>
+
+/* =========================================================
+   PROGRAM DATA
+========================================================= */
+
+const programs = {
+
+    5: {
+        name: "Dictionary Operations",
+        filename: "dictionary.py",
+
+        code: `students = {}
+
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+    name = input("Enter student name: ")
+    mark = int(input("Enter mark: "))
+    students[name] = mark
+
+print("\\nStudent Details:")
+print(students)
+
+name = input("\\nEnter student name to update: ")
+mark = int(input("Enter new mark: "))
+students[name] = mark
+
+print("\\nUpdated Details:")
+print(students)
+
+name = {}
+print("Mark:", students[name])`,
+
+        steps: [
+            "Create an empty dictionary named students.",
+            "Enter the number of students.",
+            "Enter each student's name and mark.",
+            "Store the name and mark in the dictionary.",
+            "Display the student details.",
+            "Enter a student name and update the mark.",
+            "Display the updated details.",
+            "Display the selected student's mark."
+        ]
+    },
+
+
+    7: {
+        name: "Exception Handling and File Operations",
+        filename: "try.py",
+
+        code: `try:
+    file = open("student.txt", "w")
+
+    file.write("Name: Pranav\\n")
+    file.write("Mark: 85\\n")
+
+    file.close()
+
+    file = open("student.txt", "r")
+
+    data = file.read()
+
+    print(data)
+
+    file.close()
+
+except FileNotFoundError:
+    print("File not found")
+
+except Exception as e:
+    print("Error:", e)`,
+
+        steps: [
+            "Start the try block.",
+            "Open student.txt in write mode.",
+            "Write student name and mark.",
+            "Close the file.",
+            "Open the file in read mode.",
+            "Read and display the contents.",
+            "Handle file errors using except."
+        ]
+    },
+
+
+    8: {
+        name: "Patient Registration GUI",
+        filename: "GUi.py",
+
+        code: `import tkinter as tk
+
+def register():
+    name = name_entry.get()
+    age = age_entry.get()
+    disease = disease_entry.get()
+
+    result.config(
+        text="Name: " + name +
+        "\\nAge: " + age +
+        "\\nDisease: " + disease
+    )
+
+window = tk.Tk()
+window.title("Patient Registration")
+window.geometry("350x300")
+
+tk.Label(window, text="Patient Registration").pack()
+
+tk.Label(window, text="Name").pack()
+name_entry = tk.Entry(window)
+name_entry.pack()
+
+tk.Label(window, text="Age").pack()
+age_entry = tk.Entry(window)
+age_entry.pack()
+
+tk.Label(window, text="Disease").pack()
+disease_entry = tk.Entry(window)
+disease_entry.pack()
+
+tk.Button(window, text="Register", command=register).pack()
+
+result = tk.Label(window, text="")
+result.pack()
+
+window.mainloop()`,
+
+        steps: [
+            "Import tkinter.",
+            "Create the register function.",
+            "Get values from the entry boxes.",
+            "Create the main window.",
+            "Add labels and entry boxes.",
+            "Add the Register button.",
+            "Display the entered patient details.",
+            "Run the main loop."
+        ]
+    },
+
+
+    9: {
+        name: "System Information",
+        filename: "file.py",
+
+        code: `import platform
+import socket
+
+print("System Information")
+print("-------------------")
+
+print("Operating System:", platform.system())
+print("OS Version:", platform.version())
+print("Machine:", platform.machine())
+print("Processor:", platform.processor())
+
+print("Hostname:", socket.gethostname())
+print("IP Address:", socket.gethostbyname(socket.gethostname()))`,
+
+        steps: [
+            "Import platform module.",
+            "Import socket module.",
+            "Display the operating system.",
+            "Display OS version.",
+            "Display machine and processor information.",
+            "Get the hostname.",
+            "Get the IP address."
+        ]
+    },
+
+
+    10: {
+        name: "Log File Analysis",
+        filename: "log.py",
+
+        code: `try:
+    file = open("log.txt", "r")
+
+    for line in file:
+        if "error" in line.lower():
+            print(line.strip())
+
+    file.close()
+
+except FileNotFoundError:
+    print("Log file not found")`,
+
+        steps: [
+            "Start the try block.",
+            "Open log.txt in read mode.",
+            "Read the file line by line.",
+            "Check whether the word error is present.",
+            "Display the error lines.",
+            "Close the file.",
+            "Handle FileNotFoundError."
+        ]
+    }
+
+};
+
+
+/* =========================================================
+   TOGGLE SIDEBAR
+========================================================= */
+
+function toggleSidebar(){
+
+    const sidebar = document.getElementById("sidebar");
+
+    sidebar.classList.toggle("show");
+
+}
+
+
+/* =========================================================
+   TOGGLE PROGRAM
+========================================================= */
+
+function toggleProgram(id){
+
+    const program = document.getElementById("program" + id);
+
+    if(!program){
+        return;
+    }
+
+    program.classList.toggle("open");
+
+}
+
+
+/* =========================================================
+   OPEN PROGRAM
+========================================================= */
+
+function openProgram(id){
+
+    const program = document.getElementById("program" + id);
+
+    if(!program){
+        return;
+    }
+
+    document.querySelectorAll(".program").forEach(function(item){
+        item.classList.remove("open");
+    });
+
+    program.classList.add("open");
+
+    document.querySelectorAll(".side-item").forEach(function(item){
+        item.classList.remove("active");
+    });
+
+    const sideItems = document.querySelectorAll(".side-item");
+
+    sideItems.forEach(function(item){
+
+        if(item.textContent.trim().startsWith(String(id))){
+            item.classList.add("active");
+        }
+
+    });
+
+    program.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+    if(window.innerWidth <= 900){
+        document.getElementById("sidebar").classList.remove("show");
+    }
+
+}
+
+
+/* =========================================================
+   EXPAND ALL
+========================================================= */
+
+function expandAll(){
+
+    document.querySelectorAll(".program").forEach(function(program){
+        program.classList.add("open");
+    });
+
+}
+
+
+/* =========================================================
+   COLLAPSE ALL
+========================================================= */
+
+function collapseAll(){
+
+    document.querySelectorAll(".program").forEach(function(program){
+        program.classList.remove("open");
+    });
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchPrograms(){
+
+    const input =
+        document.getElementById("searchInput").value
+        .toLowerCase()
+        .trim();
+
+    document.querySelectorAll(".program").forEach(function(program){
+
+        const text = program.innerText.toLowerCase();
+
+        if(text.includes(input)){
+            program.style.display = "";
+        }
+        else{
+            program.style.display = "none";
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   COPY CODE
+========================================================= */
+
+function copyCode(id){
+
+    const data = programs[id];
+
+    if(!data){
+        return;
+    }
+
+    const code = data.code;
+
+    if(navigator.clipboard){
+
+        navigator.clipboard.writeText(code)
+        .then(function(){
+
+            showToast("Code copied!");
+
+        })
+        .catch(function(){
+
+            fallbackCopy(code);
+
+        });
+
+    }
+    else{
+
+        fallbackCopy(code);
+
+    }
+
+}
+
+
+/* =========================================================
+   FALLBACK COPY
+========================================================= */
+
+function fallbackCopy(text){
+
+    const textarea = document.createElement("textarea");
+
+    textarea.value = text;
+
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+    textarea.select();
+
+    try{
+
+        document.execCommand("copy");
+
+        showToast("Code copied!");
+
+    }
+    catch(error){
+
+        showToast("Copy failed");
+
+    }
+
+    document.body.removeChild(textarea);
+
+}
+
+
+/* =========================================================
+   DOWNLOAD FILE
+========================================================= */
+
+function downloadFile(filename, content){
+
+    const blob = new Blob(
+        [content],
+        {
+            type:"text/plain;charset=utf-8"
+        }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = filename;
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    setTimeout(function(){
+
+        URL.revokeObjectURL(url);
+
+    },1000);
+
+}
+
+
+/* =========================================================
+   DOWNLOAD INDIVIDUAL CODE
+========================================================= */
+
+function downloadCode(id){
+
+    const data = programs[id];
+
+    if(!data){
+        return;
+    }
+
+    downloadFile(
+        data.filename,
+        data.code
+    );
+
+    showToast("Python file downloaded");
+
+}
+
+
+/* =========================================================
+   DOWNLOAD INDIVIDUAL STEPS
+========================================================= */
+
+function downloadSteps(id){
+
+    const data = programs[id];
+
+    if(!data){
+        return;
+    }
+
+    let content = "";
+
+    content += "PYTHON PRACTICAL\n";
+    content += "================\n\n";
+
+    content += "PROGRAM " + id + "\n";
+    content += data.name + "\n\n";
+
+    content += "STEPS / ALGORITHM\n";
+    content += "-----------------\n";
+
+    data.steps.forEach(function(step,index){
+
+        content += (index + 1) + ". " + step + "\n";
+
+    });
+
+    downloadFile(
+        "program_" + id + "_steps.txt",
+        content
+    );
+
+    showToast("Steps downloaded");
+
+}
+
+
+/* =========================================================
+   DOWNLOAD ALL CODE
+========================================================= */
+
+function downloadAllCode(){
+
+    let content = "";
+
+    content += "PYTHON PRACTICAL - ALL PROGRAMS\n";
+    content += "================================\n\n";
+
+    Object.keys(programs).forEach(function(id){
+
+        const data = programs[id];
+
+        content += "\n";
+        content += "========================================\n";
+        content += "PROGRAM " + id + " - " + data.name + "\n";
+        content += "========================================\n\n";
+
+        content += data.code;
+
+        content += "\n\n";
+
+    });
+
+    downloadFile(
+        "python_practical_all_code.py",
+        content
+    );
+
+    showToast("All code downloaded");
+
+}
+
+
+/* =========================================================
+   DOWNLOAD ALL STEPS
+========================================================= */
+
+function downloadAllSteps(){
+
+    let content = "";
+
+    content += "PYTHON PRACTICAL - ALL STEPS\n";
+    content += "============================\n\n";
+
+    Object.keys(programs).forEach(function(id){
+
+        const data = programs[id];
+
+        content += "\n";
+        content += "========================================\n";
+        content += "PROGRAM " + id + " - " + data.name + "\n";
+        content += "========================================\n\n";
+
+        content += "STEPS / ALGORITHM\n";
+        content += "-----------------\n";
+
+        data.steps.forEach(function(step,index){
+
+            content += (index + 1) + ". " + step + "\n";
+
+        });
+
+        content += "\n";
+
+    });
+
+    downloadFile(
+        "python_practical_all_steps.txt",
+        content
+    );
+
+    showToast("All steps downloaded");
+
+}
+
+
+/* =========================================================
+   MARK DONE
+========================================================= */
+
+const completed = new Set();
+
+
+function markDone(id){
+
+    const button = document.getElementById("done" + id);
+
+    if(!button){
+        return;
+    }
+
+    if(completed.has(id)){
+
+        completed.delete(id);
+
+        button.textContent = "✓ Mark Done";
+
+        button.classList.remove("primary");
+
+    }
+    else{
+
+        completed.add(id);
+
+        button.textContent = "✓ Completed";
+
+        button.classList.add("primary");
+
+    }
+
+    updateProgress();
+
+}
+
+
+/* =========================================================
+   UPDATE PROGRESS
+========================================================= */
+
+function updateProgress(){
+
+    const total = Object.keys(programs).length;
+
+    const done = completed.size;
+
+    const percentage =
+        total === 0
+        ? 0
+        : Math.round((done / total) * 100);
+
+    document.getElementById("progressText").textContent =
+        done + " / " + total;
+
+    document.getElementById("progressFill").style.width =
+        percentage + "%";
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer = null;
+
+
+function showToast(message){
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },1800);
+
+}
+
+
+/* =========================================================
+   KEYBOARD SHORTCUT
+========================================================= */
+
+document.addEventListener("keydown", function(event){
+
+    if(event.key === "/" && document.activeElement.tagName !== "INPUT"){
+
+        event.preventDefault();
+
+        document.getElementById("searchInput").focus();
+
+    }
+
+});
+
+
+/* =========================================================
+   CLOSE MOBILE SIDEBAR WHEN CLICKING MAIN
+========================================================= */
+
+document.querySelector(".main").addEventListener("click", function(){
+
+    if(window.innerWidth <= 900){
+
+        document.getElementById("sidebar").classList.remove("show");
+
+    }
+
+});
+
+
+/* =========================================================
+   INITIAL
+========================================================= */
+
+updateProgress();
+
+</script>
+
+</body>
+  </html>
