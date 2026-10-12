@@ -1,838 +1,703 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CYBER//2050 | AI Cyber Security Study Hub</title>
+<title>Python Practical Study Hub</title>
+
 <style>
 :root {
-  --bg:#070914;
-  --panel:#11182d;
-  --text:#edf4ff;
-  --muted:#a3b0ca;
-  --cyan:#5cf4ff;
-  --purple:#a28aff;
-  --pink:#ff70c8;
-  --green:#baff75;
-  --line:#293651;
+    --bg:#080d18;
+    --card:#111a2b;
+    --inner:#19243a;
+    --text:#f1f5ff;
+    --muted:#a2aec5;
+    --accent:#818cff;
+    --green:#5ce1a3;
+    --border:#293651;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:radial-gradient(ellipse at top left,#343a7938,transparent 40%),var(--bg);
-  color:var(--text);
-  font:15px/1.7 system-ui,Arial,sans-serif;
+* { box-sizing:border-box; }
+body {
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial,sans-serif;
+    line-height:1.6;
 }
-button,input,select{font:inherit}
-button{cursor:pointer}
-a{color:inherit}
-.wrap{max-width:1250px;margin:auto;padding:0 22px}
-header{
-  position:sticky;top:0;z-index:10;
-  background:#070914ed;backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line)
+button,input { font:inherit; }
+button { cursor:pointer; }
+header {
+    padding:30px 18px;
+    background:linear-gradient(135deg,#152747,#332557,#0c1424);
+    border-bottom:1px solid var(--border);
 }
-nav{
-  min-height:70px;display:flex;justify-content:space-between;
-  align-items:center;gap:15px;flex-wrap:wrap
+.container { max-width:1050px; margin:auto; }
+.tag {
+    color:var(--green);
+    background:#18372f;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
 }
-.logo{font-size:22px;font-weight:950;letter-spacing:2px}
-.logo span{color:var(--cyan)}
-.logo small{display:block;font-size:9px;color:var(--muted)}
-.links{display:flex;gap:15px;flex-wrap:wrap}
-.links a{text-decoration:none;color:var(--muted);font-size:13px}
-.links a:hover{color:var(--cyan)}
-.hero{
-  padding:65px 0 40px;display:grid;
-  grid-template-columns:1.4fr .6fr;gap:25px;align-items:center
+h1 { font-size:clamp(27px,5vw,42px); margin:15px 0 5px; }
+header p,.muted,.small { color:var(--muted); }
+.stats {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:22px;
 }
-.tagline{
-  color:var(--cyan);font-size:11px;font-weight:bold;
-  letter-spacing:3px;text-transform:uppercase
+.stat {
+    padding:12px;
+    background:#ffffff09;
+    border:1px solid #384665;
+    border-radius:12px;
 }
-h1{font-size:clamp(42px,7vw,75px);line-height:1;
-  letter-spacing:-3px;margin:18px 0}
-.gradient{
-  background:linear-gradient(90deg,var(--cyan),var(--purple),var(--pink));
-  color:transparent;background-clip:text
+.stat strong { display:block; font-size:23px; }
+nav {
+    position:sticky;
+    top:0;
+    z-index:5;
+    background:#080d18ed;
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    padding:12px;
 }
-.muted{color:var(--muted)}
-.btn{
-  padding:10px 15px;border:1px solid var(--line);
-  background:#151e35;color:var(--text);border-radius:10px;
-  font-weight:bold
+.navinner {
+    max-width:1050px;
+    margin:auto;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
 }
-.btn:hover{border-color:var(--cyan)}
-.primary{background:linear-gradient(100deg,var(--cyan),var(--purple));color:#07101b;border:0}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.hero-card,.card,.panel{
-  background:linear-gradient(145deg,#151e35,#0c1122);
-  border:1px solid var(--line);border-radius:19px;padding:22px
+.btn {
+    border:1px solid var(--border);
+    background:var(--inner);
+    color:white;
+    padding:9px 13px;
+    border-radius:9px;
 }
-.hero-card{text-align:center;border-color:#5cf4ff55}
-.orb{
-  height:100px;width:100px;border-radius:50%;margin:5px auto 20px;
-  background:radial-gradient(circle at 30% 25%,white,var(--cyan) 20%,#5556df 55%,#101124);
-  box-shadow:0 0 45px #5cf4ff55
+.btn.primary { background:var(--accent); border-color:var(--accent); }
+main { max-width:1050px; margin:auto; padding:20px 14px 45px; }
+.search {
+    width:100%;
+    padding:14px;
+    background:var(--card);
+    color:white;
+    border:1px solid var(--border);
+    border-radius:11px;
+    outline:none;
 }
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
-.stat{background:#080d1c;border:1px solid var(--line);border-radius:11px;padding:10px}
-.stat b{display:block;font-size:22px;color:var(--cyan)}
-.stat small{font-size:9px;color:var(--muted)}
-section{padding:30px 0;scroll-margin-top:85px}
-.section-head{margin-bottom:20px}
-.section-head h2{font-size:32px;line-height:1.2;margin:6px 0}
-.toolbar{display:flex;gap:10px;margin:15px 0;flex-wrap:wrap}
-.toolbar input,.toolbar select{
-  padding:12px;background:#0d1428;color:var(--text);
-  border:1px solid var(--line);border-radius:10px
+h2.section { margin-top:25px; }
+.progress-bg {
+    height:8px;
+    background:#263149;
+    border-radius:20px;
+    overflow:hidden;
+    margin:10px 0 18px;
 }
-.toolbar input{flex:1;min-width:220px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.card{padding:21px;overflow-wrap:anywhere}
-.card:hover{border-color:#5cf4ff66}
-.card-top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.number{font-size:11px;color:var(--cyan);font-weight:900;letter-spacing:1px}
-.category{font-size:10px;color:var(--green);border:1px solid #baff7533;padding:3px 8px;border-radius:8px}
-.card h3{font-size:19px;line-height:1.4;margin:13px 0}
-.definition{
-  padding:12px;border-left:3px solid var(--cyan);
-  background:#5cf4ff0b;border-radius:0 9px 9px 0
+#progress {
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,var(--accent),var(--green));
+    transition:width .3s;
 }
-.card h4{color:var(--cyan);font-size:13px;margin:17px 0 5px}
-.card ol,.card ul{padding-left:22px}
-.card li{padding:4px 0;color:#e0e9fa}
-.conclusion{color:var(--green);font-weight:650;margin-top:15px}
-.memory{
-  background:#baff750a;border:1px solid #baff7524;
-  border-radius:10px;padding:11px;margin-top:14px;font-size:13px
+.card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    margin:15px 0;
+    overflow:hidden;
 }
-.memory b{color:var(--green)}
-.card-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.small-btn{
-  padding:7px 10px;border-radius:8px;background:#080e1d;
-  color:var(--text);border:1px solid var(--line);font-size:12px
+.cardhead { padding:17px 18px 5px; }
+.number { color:var(--green); font-size:12px; font-weight:bold; }
+.card h2 { margin:5px 0; font-size:21px; }
+.cardhead p { color:var(--muted); margin-top:4px; }
+.body { padding:8px 18px 18px; }
+.explain {
+    padding:12px;
+    background:#162a32;
+    border-left:3px solid var(--green);
+    border-radius:8px;
+    margin:12px 0;
 }
-.empty{display:none;padding:20px;color:var(--muted)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.big-memory{font-size:24px;font-weight:900;color:var(--cyan);line-height:1.4}
-.memory-list div{
-  margin:8px 0;padding:9px 11px;background:#090e20;
-  border:1px solid var(--line);border-radius:9px
+.explain strong { color:var(--green); }
+.memory {
+    padding:12px;
+    background:#292440;
+    border-radius:8px;
+    margin:12px 0;
 }
-.memory-list b{color:var(--pink)}
-.flash-card{
-  max-width:800px;margin:auto;min-height:230px;padding:30px;
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;cursor:pointer;
-  background:var(--panel);border:1px solid #5cf4ff55;border-radius:20px
+.codehead {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
 }
-.flash-card h3{font-size:27px;line-height:1.4}
-.flash-controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:15px}
-.bar{height:5px;background:#18223a;border-radius:9px;overflow:hidden}
-.bar span{display:block;height:100%;background:var(--cyan);width:0}
-.quiz{max-width:850px;margin:auto}
-.option{
-  display:block;width:100%;text-align:left;margin:9px 0;
-  padding:12px;border:1px solid var(--line);border-radius:10px;
-  background:#0b1122;color:var(--text)
+pre {
+    background:#070b13;
+    border:1px solid #263149;
+    padding:15px;
+    border-radius:10px;
+    overflow-x:auto;
+    color:#b9d7ff;
+    font-size:13px;
+    line-height:1.65;
+    white-space:pre;
 }
-.option:hover{border-color:var(--cyan)}
-.option.correct{border-color:var(--green);background:#baff7512}
-.option.wrong{border-color:var(--pink);background:#ff70c812}
-footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:12px}
-@media(max-width:800px){
-  .hero{grid-template-columns:1fr;padding-top:35px}
-  .grid,.two{grid-template-columns:1fr}
-  .links{gap:9px}
+.output {
+    background:#0c211c;
+    border:1px solid #23513f;
+    color:#a5f3cf;
+    padding:13px;
+    border-radius:9px;
+    white-space:pre-wrap;
+    font-family:monospace;
+    font-size:13px;
 }
-@media(max-width:480px){
-  .wrap{padding:0 13px}
-  h1{font-size:43px}
-  .section-head h2{font-size:27px}
-  .card{padding:16px}
+.check {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:13px;
 }
-@media print{
-  body{background:white;color:#111}
-  header,.actions,.toolbar,.card-buttons,.flash-controls,.quiz button{display:none!important}
-  .grid,.two{grid-template-columns:1fr 1fr}
-  .card,.panel,.hero-card{background:white;color:#111;border:1px solid #bbb;break-inside:avoid}
-  .card li,.muted{color:#222}
-  .hero{display:block;padding:10px}
-  .orb{display:none}
-  .gradient{color:#111}
+.check input { width:18px; height:18px; accent-color:var(--green); }
+#quizPanel {
+    display:none;
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:20px;
+    border-radius:15px;
+    margin-top:22px;
+}
+.option {
+    display:block;
+    width:100%;
+    text-align:left;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid var(--border);
+    background:var(--inner);
+    color:white;
+    border-radius:9px;
+}
+.option.correct { border-color:var(--green); background:#14382d; }
+.option.wrong { border-color:#ff7777; background:#402020; }
+#feedback { color:var(--green); }
+.hidden { display:none!important; }
+footer {
+    text-align:center;
+    padding:25px;
+    color:var(--muted);
+    border-top:1px solid var(--border);
+}
+@media(max-width:500px) {
+    .stats { grid-template-columns:1fr 1fr; }
+    .card h2 { font-size:19px; }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="wrap">
-<nav>
-  <div class="logo">CYBER<span>//2050</span>
-    <small>AI SECURITY LEARNING SYSTEM</small>
-  </div>
-  <div class="links">
-    <a href="#five">5 Marks</a>
-    <a href="#eight">8 Marks</a>
-    <a href="#memory">Memory Lab</a>
-    <a href="#flash">Flashcards</a>
-    <a href="#quiz">Quiz</a>
-  </div>
-</nav>
+<div class="container">
+<span class="tag">PYTHON • PRACTICAL EXAM</span>
+<h1>Python Practical Master</h1>
+<p>Learn all 10 programs in simple English. Read, remember, practise and revise.</p>
+
+<div class="stats">
+    <div class="stat"><strong>10</strong><span>Programs</span></div>
+    <div class="stat"><strong id="doneCount">0/10</strong><span>Completed</span></div>
+    <div class="stat"><strong>Easy</strong><span>Study Mode</span></div>
+</div>
 </div>
 </header>
 
-<main class="wrap">
-<section class="hero">
-<div>
-  <div class="tagline">Your personal exam command centre</div>
-  <h1>Learn it.<br><span class="gradient">Understand it.</span><br>Remember it.</h1>
-  <p class="muted">Complete AI for Cyber Security notes in simple English. Every answer is fully visible. Understand the concept, memorize the key points and practise for your exam.</p>
-  <div class="actions">
-    <a class="btn primary" href="#five">Start Studying ↓</a>
-    <a class="btn" href="#quiz">Test Yourself</a>
-    <button class="btn" onclick="window.print()">Print / Save PDF</button>
-  </div>
-  <div class="stats">
-    <div class="stat"><b>09</b><small>5-mark answers</small></div>
-    <div class="stat"><b>10</b><small>8-mark answers</small></div>
-    <div class="stat"><b>12</b><small>Flashcards</small></div>
-  </div>
+<nav>
+<div class="navinner">
+<button class="btn" onclick="scrollToTop()">🏠 Home</button>
+<button class="btn" onclick="showAll()">📚 All Programs</button>
+<button class="btn" onclick="toggleQuiz()">🧠 Quiz</button>
+<button class="btn" onclick="window.print()">🖨️ Print</button>
+<button class="btn primary" onclick="resetProgress()">↻ Reset</button>
 </div>
-<div class="hero-card">
-  <div class="orb"></div>
-  <h3>MISSION: PASS THE EXAM</h3>
-  <p class="muted">Simple language · Clear points · Memory tricks</p>
-  <div class="stats">
-    <div class="stat"><b>01</b><small>Understand</small></div>
-    <div class="stat"><b>02</b><small>Recall</small></div>
-    <div class="stat"><b>03</b><small>Practise</small></div>
-  </div>
-</div>
-</section>
+</nav>
 
-<section id="five">
-<div class="section-head">
-  <div class="tagline">Module 01 / Short answers</div>
-  <h2>5-Mark Answer Deck</h2>
-  <p class="muted">All answers are expanded automatically. Learn the definition, write the points in your own words and finish with the conclusion.</p>
-</div>
-<div class="toolbar">
-  <input id="search5" placeholder="Search 5-mark answers...">
-  <select id="filter5">
-    <option value="all">All topics</option>
-    <option value="auth">Authentication</option>
-    <option value="bio">Biometrics</option>
-    <option value="fraud">Fraud and AI</option>
-  </select>
-</div>
-<div class="grid" id="grid5"></div>
-<p class="empty" id="empty5">No matching answer found.</p>
-</section>
+<main>
+<input id="search" class="search" placeholder="🔍 Search: loop, list, file, patient..." oninput="filterCards()">
 
-<section id="eight">
-<div class="section-head">
-  <div class="tagline">Module 02 / Long answers</div>
-  <h2>8-Mark Answer Deck</h2>
-  <p class="muted">For 8 marks, write the definition, explain the points, add an example where useful, and finish with a conclusion.</p>
-</div>
-<div class="toolbar">
-  <input id="search8" placeholder="Search 8-mark answers...">
-  <select id="filter8">
-    <option value="all">All topics</option>
-    <option value="auth">Authentication</option>
-    <option value="bio">Biometrics</option>
-    <option value="fraud">Fraud and AI</option>
-  </select>
-</div>
-<div class="grid" id="grid8"></div>
-<p class="empty" id="empty8">No matching answer found.</p>
-</section>
+<h2 class="section">Your Learning Progress</h2>
+<div class="progress-bg"><div id="progress"></div></div>
+<p class="small">Tip: Read the aim, understand the code, and check the sample output.</p>
 
-<section id="memory">
-<div class="section-head">
-  <div class="tagline">Module 03 / Memory lab</div>
-  <h2>Remember with Patterns</h2>
-  <p class="muted">Memorize the short pattern first. Then expand every word into a full sentence.</p>
-</div>
-<div class="two">
-  <div class="panel">
-    <div class="tagline">Fraud model steps</div>
-    <div class="big-memory">C C F S T E O</div>
-    <p><b>Collect → Clean → Features → Split → Train → Evaluate → Optimize</b></p>
-    <div class="memory-list">
-      <div><b>C</b> — Collect transaction data</div>
-      <div><b>C</b> — Clean missing and duplicate data</div>
-      <div><b>F</b> — Find useful features</div>
-      <div><b>S</b> — Split training and testing data</div>
-      <div><b>T</b> — Train a model</div>
-      <div><b>E</b> — Evaluate the model</div>
-      <div><b>O</b> — Optimize and monitor</div>
-    </div>
-  </div>
-  <div class="panel">
-    <div class="tagline">Facial recognition</div>
-    <div class="big-memory">C D A E M D L</div>
-    <p><b>Capture → Detect → Align → Extract → Match → Decide → Liveness</b></p>
-    <div class="memory-list">
-      <div><b>C</b> — Capture the face</div>
-      <div><b>D</b> — Detect the face in the image</div>
-      <div><b>A</b> — Align the face</div>
-      <div><b>E</b> — Extract facial features</div>
-      <div><b>M</b> — Match the registered template</div>
-      <div><b>D</b> — Decide whether to allow or reject</div>
-      <div><b>L</b> — Check liveness</div>
-    </div>
-  </div>
-  <div class="panel">
-    <div class="tagline">Account reputation</div>
-    <div class="big-memory">LOGIN · DEVICE · IP · FAILURES · PLACE · HISTORY</div>
-    <p class="muted">Ask: Is this a normal login, from a known device and place, with normal behaviour? More unusual signals can mean higher risk.</p>
-  </div>
-  <div class="panel">
-    <div class="tagline">Keystroke recognition</div>
-    <div class="big-memory">HOLD · GAP · SPEED · RHYTHM</div>
-    <p class="muted">Dwell time means how long a key is held. Flight time means the interval between key events. Compare current typing with the registered pattern.</p>
-  </div>
-  <div class="panel">
-    <div class="tagline">Bagging versus boosting</div>
-    <div class="big-memory">BAG = TOGETHER<br>BOOST = STEP BY STEP</div>
-    <p class="muted">Bagging trains models independently and combines their answers. Boosting trains models one after another, focusing on earlier errors.</p>
-  </div>
-  <div class="panel">
-    <div class="tagline">MFA categories</div>
-    <div class="big-memory">KNOW + HAVE + ARE</div>
-    <p class="muted">Know = password or PIN. Have = phone or token. Are = fingerprint or face. MFA combines at least two different factor categories.</p>
-  </div>
-</div>
-</section>
+<div id="programs"></div>
 
-<section id="flash">
-<div class="section-head">
-  <div class="tagline">Module 04 / Active recall</div>
-  <h2>Flashcards</h2>
-  <p class="muted">Try to answer aloud before revealing the explanation.</p>
-</div>
-<div class="bar"><span id="flashProgress"></span></div>
-<div class="flash-card" id="flashCard" tabindex="0">
-  <div class="tagline" id="flashHint">QUESTION · THINK BEFORE REVEALING</div>
-  <h3 id="flashQuestion"></h3>
-</div>
-<div class="flash-controls">
-  <button class="btn" id="previousFlash">← Previous</button>
-  <button class="btn primary" id="flipFlash">Reveal Answer</button>
-  <button class="btn" id="nextFlash">Next →</button>
-  <button class="btn" id="shuffleFlash">Shuffle ↻</button>
-</div>
-<p class="muted" style="text-align:center" id="flashCount"></p>
-</section>
-
-<section id="quiz">
-<div class="section-head">
-  <div class="tagline">Module 05 / Test yourself</div>
-  <h2>Exam Practice Quiz</h2>
-  <p class="muted">Choose one answer, read the feedback and move to the next question.</p>
-</div>
-<div class="panel quiz">
-  <div class="card-top">
-    <span class="number" id="quizNumber">QUESTION 01</span>
-    <span class="number" id="quizScore">SCORE: 0</span>
-  </div>
-  <h3 id="quizQuestion"></h3>
-  <div id="quizOptions"></div>
-  <p class="muted" id="quizFeedback" aria-live="polite"></p>
-  <button class="btn primary" id="nextQuiz">Next Question →</button>
-</div>
-</section>
-
-<section>
-<div class="section-head">
-  <div class="tagline">Final revision</div>
-  <h2>Last-Minute Checklist</h2>
-  <p class="muted">Tick each item only when you can explain it without reading.</p>
-</div>
-<div class="panel" id="checklist">
-  <p><label><input type="checkbox"> <b>Authentication:</b> Strong passwords, account lockout and MFA.</label></p>
-  <p><label><input type="checkbox"> <b>Attacks:</b> Brute force, credential stuffing, password spraying, phishing and session hijacking.</label></p>
-  <p><label><input type="checkbox"> <b>Reputation:</b> Login, device, IP, failed attempts, geography and activity.</label></p>
-  <p><label><input type="checkbox"> <b>Biometrics:</b> Keystroke features and facial recognition steps.</label></p>
-  <p><label><input type="checkbox"> <b>Machine learning:</b> Fraud model steps, bagging and boosting.</label></p>
-  <p><label><input type="checkbox"> <b>Fraud AI:</b> Jupyter Notebook, IBM Watson and cloud AI.</label></p>
-  <button class="btn" onclick="document.querySelectorAll('#checklist input').forEach(x=>x.checked=false)">Reset Checklist</button>
-</div>
+<section id="quizPanel">
+<h2>🧠 Quick Revision Quiz</h2>
+<p class="muted">Choose the correct answer. There are 10 questions.</p>
+<div id="quizContent"></div>
+<p id="feedback"></p>
+<button class="btn primary" onclick="nextQuestion()" id="nextBtn">Next Question →</button>
+<button class="btn" onclick="restartQuiz()">Restart Quiz</button>
 </section>
 </main>
-<footer><div class="wrap"><b>CYBER//2050</b><p>Study loop: Read → Say it → Hide it → Recall it → Test it.</p><p>Single-file website · No server or API required.</p></div></footer>
+
+<footer>
+Python Practical Study Hub • Simple English • Learn by practising
+</footer>
 
 <script>
-const five = [
+const data = [
 {
-title:"List three distinguished categories of multi-factor authentication",
-cat:"auth",
-definition:"Multi-Factor Authentication (MFA) verifies a user's identity using two or more different authentication factors.",
-points:[
-"Something you know: a password, PIN or security answer.",
-"Something you have: a mobile phone, smart card, security token or OTP.",
-"Something you are: a fingerprint, face or iris.",
-"Example: logging in with a password and an authenticator-app code.",
-"MFA makes unauthorized access harder because one stolen factor may not be enough."
-],
-conclusion:"Conclusion: MFA adds another layer of security.",
-memory:"KNOW + HAVE + ARE"
+title:"Conditional Statement – Pass or Fail",
+aim:"Check whether a student passes or fails based on marks.",
+concept:"if and else",
+easy:"If marks are 40 or more, the student passes. Otherwise, the student fails.",
+malayalam:"Marks 40 അല്ലെങ്കിൽ അതിൽ കൂടുതൽ ആണെങ്കിൽ Pass. അല്ലെങ്കിൽ Fail.",
+memory:"Remember: if = condition, else = alternative.",
+code:`marks = int(input("Enter marks: "))
+
+if marks >= 40:
+    print("Pass")
+else:
+    print("Fail")`,
+output:`Enter marks: 75
+Pass`,
+questions:"What does >= mean?",
+answer:"Greater than or equal to"
 },
 {
-title:"List the methods used to prevent authentication abuse",
-cat:"auth",
-definition:"Authentication abuse occurs when an attacker misuses a login system to gain unauthorized access.",
-points:[
-"Strong passwords: use long and unique passwords.",
-"Multi-Factor Authentication: require an additional verification factor.",
-"Account lockout: temporarily restrict access after repeated failed logins.",
-"Rate limiting: restrict the number of login attempts.",
-"Anomaly detection: identify unusual devices, locations and behaviour.",
-"Secure sessions: protect session IDs and authentication tokens.",
-"User awareness: teach users to identify phishing attacks."
-],
-conclusion:"Conclusion: Multiple layers of protection help secure user accounts.",
-memory:"PASSWORD + MFA + LIMIT + MONITOR"
+title:"Loops – Print Numbers from 1 to 10",
+aim:"Print numbers from 1 to 10 using for and while loops.",
+concept:"for, while, range",
+easy:"A loop repeats a task. The for loop uses a sequence. The while loop continues while its condition is true.",
+malayalam:"ഒരേ ജോലി വീണ്ടും ചെയ്യാൻ Loop ഉപയോഗിക്കുന്നു.",
+memory:"range(1, 11) prints numbers from 1 to 10.",
+code:`print("For loop:")
+for i in range(1, 11):
+    print(i)
+
+print("While loop:")
+i = 1
+while i <= 10:
+    print(i)
+    i += 1`,
+output:`For loop:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+While loop:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10`,
+questions:"Which function helps generate a number sequence?",
+answer:"range()"
 },
 {
-title:"Importance of protecting user accounts",
-cat:"auth",
-definition:"Protecting user accounts is important for maintaining cybersecurity and privacy.",
-points:[
-"Prevents unauthorized access to accounts.",
-"Protects personal information such as names and contact details.",
-"Reduces financial loss from banking and payment fraud.",
-"Helps prevent identity theft and impersonation.",
-"Maintains privacy and user trust.",
-"Protects confidential organizational information."
-],
-conclusion:"Conclusion: Account protection supports privacy, trust and security.",
-memory:"ACCESS · PRIVACY · MONEY · IDENTITY · TRUST"
+title:"List Operations – Add, Remove and Display",
+aim:"Add, remove and display elements in a list.",
+concept:"append(), remove()",
+easy:"A list stores multiple values in one variable. append adds an item, and remove deletes a matching item.",
+malayalam:"List എന്നത് പല values സൂക്ഷിക്കുന്ന ഒരു collection ആണ്.",
+memory:"append = add. remove = delete.",
+code:`numbers = [10, 20, 30]
+
+numbers.append(40)
+print("After adding:", numbers)
+
+numbers.remove(20)
+print("After removing:", numbers)
+
+print("List:", numbers)`,
+output:`After adding: [10, 20, 30, 40]
+After removing: [10, 30, 40]
+List: [10, 30, 40]`,
+questions:"Which method adds an item to the end of a list?",
+answer:"append()"
 },
 {
-title:"Factors considered in account reputation scoring",
-cat:"auth",
-definition:"Account Reputation Scoring estimates how trustworthy or risky a user account is.",
-points:[
-"Login history: usual login times and locations.",
-"Device information: whether a device is recognized or new.",
-"IP address reputation: whether the IP is linked to suspicious activity.",
-"Failed login attempts: repeated incorrect passwords.",
-"Account activity: unusual downloads, uploads or access patterns.",
-"Geographical changes: unexpected logins from different regions.",
-"Previous security incidents and the sensitivity of accessed resources."
-],
-conclusion:"Conclusion: Combining these factors helps identify suspicious accounts.",
-memory:"LOGIN · DEVICE · IP · FAILURES · PLACE · HISTORY"
+title:"String Manipulation",
+aim:"Find string length, convert to uppercase and reverse a string.",
+concept:"len(), upper(), slicing",
+easy:"A string is text. len counts characters, upper converts to capital letters, and [::-1] reverses the text.",
+malayalam:"String എന്നത് text ആണ്. len length കണ്ടെത്തും; upper capital ആക്കും.",
+memory:"len = length, upper = capitals, [::-1] = reverse.",
+code:`text = input("Enter a string: ")
+
+print("Length:", len(text))
+print("Uppercase:", text.upper())
+print("Reverse:", text[::-1])`,
+output:`Enter a string: hello
+Length: 5
+Uppercase: HELLO
+Reverse: olleh`,
+questions:"Which function converts text to uppercase?",
+answer:"upper()"
 },
 {
-title:"Types of biometric authentication",
-cat:"bio",
-definition:"Biometric authentication verifies identity using physical or behavioural characteristics.",
-points:[
-"Fingerprint recognition uses fingerprint patterns.",
-"Facial recognition analyses facial features.",
-"Iris recognition uses patterns in the iris.",
-"Voice recognition analyses voice characteristics.",
-"Palm or hand recognition uses palm patterns or hand geometry.",
-"Keystroke dynamics analyses typing behaviour."
-],
-conclusion:"Biometrics is convenient, but accuracy and privacy must be considered.",
-memory:"FINGER · FACE · IRIS · VOICE · HAND · TYPING"
+title:"Dictionary – Student Marks",
+aim:"Store, update and retrieve student marks using a dictionary.",
+concept:"Key and value",
+easy:"A dictionary stores data as key-value pairs. A student's name can be the key and the marks the value.",
+malayalam:"Dictionary-യിൽ ഓരോ key-ക്കും ഒരു value ഉണ്ടായിരിക്കും.",
+memory:"marks['Arun'] = 90 updates Arun's marks.",
+code:`marks = {"Arun": 80, "Rahul": 75}
+
+print("Student marks:", marks)
+
+marks["Arun"] = 90
+print("Updated marks:", marks)
+
+name = input("Enter student name: ")
+print("Marks:", marks.get(name, "Student not found"))`,
+output:`Student marks: {'Arun': 80, 'Rahul': 75}
+Updated marks: {'Arun': 90, 'Rahul': 75}
+Enter student name: Arun
+Marks: 90`,
+questions:"What is used to identify a value in a dictionary?",
+answer:"Key"
 },
 {
-title:"How typing patterns are used to verify a user's identity",
-cat:"bio",
-definition:"Keystroke recognition, also called keystroke dynamics, identifies users through their typing behaviour.",
-points:[
-"Data collection: record the user's typing pattern.",
-"Typing speed: measure how quickly the user types.",
-"Dwell time: measure how long a key is held down.",
-"Flight time: measure the interval between successive key events.",
-"Pattern analysis: compare current features with the registered profile.",
-"Authentication decision: accept a match or flag a possible unauthorized user."
-],
-conclusion:"Example: a different typing rhythm may trigger additional verification.",
-memory:"COLLECT → MEASURE → COMPARE → DECIDE"
+title:"User-Defined Function – Sum of Two Numbers",
+aim:"Create a function to calculate the sum of two numbers.",
+concept:"def and return",
+easy:"A function is a reusable block of code. def creates the function and return sends the result back.",
+malayalam:"Function ഒരിക്കൽ എഴുതിയാൽ പല തവണ ഉപയോഗിക്കാം.",
+memory:"def creates a function. return gives the answer.",
+code:`def add(a, b):
+    return a + b
+
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
+
+print("Sum =", add(x, y))`,
+output:`Enter first number: 10
+Enter second number: 20
+Sum = 30`,
+questions:"Which keyword defines a function?",
+answer:"def"
 },
 {
-title:"Steps involved in analysing fraud data using Jupyter Notebook",
-cat:"fraud",
-definition:"Jupyter Notebook is an interactive tool for writing Python code, analysing data and displaying results.",
-points:[
-"Import libraries such as Pandas, NumPy, Matplotlib and Scikit-learn.",
-"Load the fraud dataset, for example from a CSV file.",
-"Explore columns, rows, data types and missing values.",
-"Clean data by handling missing values and duplicates.",
-"Visualize data using graphs to identify suspicious patterns.",
-"Prepare data by selecting features and splitting training/testing sets.",
-"Train a machine learning model.",
-"Evaluate using accuracy, precision, recall and F1-score."
-],
-conclusion:"Conclusion: Jupyter Notebook makes fraud data analysis easier through interactive Python programming.",
-memory:"IMPORT → LOAD → CLEAN → EXPLORE → TRAIN → TEST"
+title:"Exception Handling – File Reading and Writing",
+aim:"Read and write a file safely using try-except.",
+concept:"try and except",
+easy:"The try block runs the code. The except block handles an error if something goes wrong.",
+malayalam:"Program-ൽ error വന്നാലും അത് handle ചെയ്യാൻ try-except ഉപയോഗിക്കുന്നു.",
+memory:"try = attempt. except = handle the error.",
+code:`try:
+    with open("sample.txt", "w") as f:
+        f.write("Hello Python")
+
+    with open("sample.txt", "r") as f:
+        print(f.read())
+
+except Exception as e:
+    print("Error:", e)`,
+output:`Hello Python`,
+questions:"Which block handles an exception?",
+answer:"except"
 },
 {
-title:"Role of machine learning algorithms in detecting fraudulent activities",
-cat:"fraud",
-definition:"Machine learning identifies suspicious transactions by learning patterns from historical data.",
-points:[
-"Data collection: collect transaction amounts, times, locations and device details.",
-"Pattern learning: learn differences between genuine and fraudulent activities.",
-"Classification: classify transactions as genuine or fraudulent.",
-"Anomaly detection: identify transactions that differ from normal behaviour.",
-"Real-time detection: analyse large numbers of transactions quickly.",
-"Prediction: identify potentially fraudulent activity.",
-"Continuous improvement: retrain models using new data."
-],
-conclusion:"Examples include Logistic Regression, Decision Trees, Random Forest, SVM, XGBoost and Isolation Forest.",
-memory:"DATA → LEARN → DETECT → EVALUATE → UPDATE"
+title:"GUI – Patient Registration Form",
+aim:"Create a patient form and display the entered details.",
+concept:"Tkinter, Label, Entry, Button",
+easy:"Tkinter creates a window. Label displays text, Entry accepts input, and Button performs an action.",
+malayalam:"GUI എന്നത് buttons, boxes, windows പോലുള്ള visual interface ആണ്.",
+memory:"Label = text, Entry = input, Button = action.",
+code:`import tkinter as tk
+from tkinter import messagebox
+
+def register():
+    name = entry1.get()
+    age = entry2.get()
+    disease = entry3.get()
+
+    messagebox.showinfo(
+        "Patient Details",
+        f"Name: {name}\\nAge: {age}\\nDisease: {disease}"
+    )
+
+root = tk.Tk()
+root.title("Patient Registration")
+root.geometry("300x250")
+
+tk.Label(root, text="Patient Name").pack()
+entry1 = tk.Entry(root)
+entry1.pack()
+
+tk.Label(root, text="Age").pack()
+entry2 = tk.Entry(root)
+entry2.pack()
+
+tk.Label(root, text="Disease").pack()
+entry3 = tk.Entry(root)
+entry3.pack()
+
+tk.Button(root, text="Register", command=register).pack(pady=10)
+
+root.mainloop()`,
+output:`A window opens with patient name, age and disease fields.
+Click Register to display the entered details.`,
+questions:"Which Python library is used for this GUI?",
+answer:"Tkinter"
 },
 {
-title:"Effectiveness of boosting techniques",
-cat:"fraud",
-definition:"Boosting is an ensemble machine learning technique that combines models trained one after another.",
-points:[
-"The first model makes predictions.",
-"Each new model focuses on errors made by previous models.",
-"Later models attempt to correct remaining errors.",
-"Predictions from multiple models are combined.",
-"Boosting can improve accuracy and identify complex fraud patterns.",
-"Examples include AdaBoost, Gradient Boosting and XGBoost.",
-"Boosting may overfit noisy data and require careful tuning."
-],
-conclusion:"Conclusion: Boosting can improve performance by learning from earlier mistakes.",
-memory:"BOOSTING = MODELS LEARN STEP BY STEP"
+title:"System Information – Forensic Analysis",
+aim:"Collect and display system details for forensic analysis.",
+concept:"platform and os modules",
+easy:"The platform module provides operating system and Python details. The os module provides operating-system functions.",
+malayalam:"Computer-ന്റെ system details കണ്ടെത്താൻ ഈ program ഉപയോഗിക്കുന്നു.",
+memory:"platform = system details. os = operating system functions.",
+code:`import platform
+import os
+
+print("System:", platform.system())
+print("Computer Name:", platform.node())
+print("Processor:", platform.processor())
+print("Operating System:", platform.platform())
+print("Python Version:", platform.python_version())
+print("Current Directory:", os.getcwd())`,
+output:`System: Windows
+Computer Name: MY-PC
+Processor: [processor information]
+Operating System: [operating system details]
+Python Version: 3.x.x
+Current Directory: [current directory]
+
+Note: Results depend on your computer.`,
+questions:"Which module provides operating system details?",
+answer:"platform"
+},
+{
+title:'Log File Analysis – Find "Error"',
+aim:"Extract and display lines containing the word error from a log file.",
+concept:"File handling and if",
+easy:"The program reads each line and checks whether the word error appears. lower() makes the search case-insensitive.",
+malayalam:"Log file-ൽ error ഉള്ള lines മാത്രം കണ്ടെത്തി display ചെയ്യുന്നു.",
+memory:"lower() handles ERROR, Error and error in the same way.",
+code:`filename = input("Enter log file name: ")
+
+try:
+    with open(filename, "r") as file:
+        for line in file:
+            if "error" in line.lower():
+                print(line.strip())
+
+except FileNotFoundError:
+    print("File not found")`,
+output:`Example log file:
+INFO: Program started
+ERROR: Login failed
+INFO: User connected
+Error: File missing
+
+Output:
+ERROR: Login failed
+Error: File missing`,
+questions:"Which method removes spaces and newline characters at the ends?",
+answer:"strip()"
 }
 ];
 
-const eight = [
-{
-title:"Analyse the role of strong passwords, account lockout and MFA in preventing authentication abuse",
-cat:"auth",
-definition:"Authentication abuse is the misuse of login systems to gain unauthorized access.",
-points:[
-"Strong passwords: use long and unique passwords and avoid personal information.",
-"Password managers can create and store unique passwords.",
-"Secure password storage: use salted password hashing.",
-"Account lockout: temporarily block an account after repeated failed attempts.",
-"Rate limiting and progressive delays slow automated password guessing.",
-"MFA requires two or more factors, such as a password and authenticator code.",
-"Monitoring detects unusual devices, locations and login patterns.",
-"User awareness helps people recognize phishing attacks."
-],
-conclusion:"Conclusion: Strong passwords, lockout or rate limiting, MFA and monitoring work together. Lockout must be designed carefully so attackers cannot easily block genuine users.",
-memory:"PASSWORD + SLOW ATTACKS + SECOND FACTOR + MONITOR"
-},
-{
-title:"Different types of authentication abuse and their effects",
-cat:"auth",
-definition:"Authentication abuse targets the identity-verification process to gain unauthorized access.",
-points:[
-"Brute-force attack: repeatedly guesses passwords until one works.",
-"Credential stuffing: tests stolen username-password combinations on other websites.",
-"Password spraying: tries a few common passwords against many accounts.",
-"Phishing: tricks users into entering credentials on fake websites.",
-"Session hijacking: steals or misuses a session token.",
-"Credential theft: obtains passwords through malware, unsafe storage or data breaches.",
-"Effects include account compromise, personal data theft, financial loss and identity theft.",
-"Organizations may face data damage, service disruption and reputational harm."
-],
-conclusion:"Conclusion: Unique passwords, MFA, rate limiting and monitoring reduce these risks.",
-memory:"BRUTE FORCE · STUFFING · SPRAYING · PHISHING · SESSION"
-},
-{
-title:"Account reputation scoring",
-cat:"auth",
-definition:"Account reputation scoring assigns a trust or risk score based on behaviour, history and contextual signals.",
-points:[
-"Signal collection: gather login events, device details, IP addresses and account activity.",
-"Feature extraction: calculate useful features such as login frequency and location changes.",
-"Risk evaluation: assess risk using rules or a machine learning model.",
-"Score aggregation: combine signals using weights or a model.",
-"Risk classification: group accounts into low, medium, high or critical risk.",
-"Security decision: allow access, request MFA, block access or send an alert.",
-"Factors include login history, device, IP reputation, failed attempts and unusual downloads.",
-"Monitor and update the system as normal behaviour and attacks change."
-],
-conclusion:"Example: a new device, unusual location, repeated failures and a large download may increase risk.",
-memory:"COLLECT → FEATURES → SCORE → CLASSIFY → RESPOND"
-},
-{
-title:"Steps involved in keystroke recognition",
-cat:"bio",
-definition:"Keystroke recognition, also called keystroke dynamics, verifies a user through their typing behaviour.",
-points:[
-"Registration: collect typing samples from the genuine user.",
-"Data collection: record key-down and key-up events and timing.",
-"Feature extraction: calculate dwell time, flight time, speed and rhythm.",
-"Preprocessing: organize measurements and handle incomplete data.",
-"Model creation: learn the user's normal typing pattern.",
-"Comparison: compare current typing features with the registered profile.",
-"Decision: accept a match or request additional verification.",
-"Continuous monitoring: repeat checks during a session if supported."
-],
-conclusion:"Typing can vary with fatigue, keyboard and device, so natural variation must be considered.",
-memory:"REGISTER → COLLECT → EXTRACT → COMPARE → DECIDE"
-},
-{
-title:"Identify the types of keystroke features",
-cat:"bio",
-definition:"Keystroke features are measurements of typing behaviour used to distinguish users.",
-points:[
-"Dwell time: time between pressing and releasing a key.",
-"Flight time: interval between consecutive key events.",
-"Typing speed: characters or words typed during a period.",
-"Inter-key latency: time between successive keystrokes.",
-"Typing rhythm: the user's repeated timing pattern.",
-"Digraph or bigram timing: timing for a pair of consecutive keys.",
-"Trigraph timing: timing involving three consecutive keys.",
-"Error and correction patterns: mistakes, backspaces and corrections."
-],
-conclusion:"Conclusion: Timing, speed and rhythm help build a typing profile, but behaviour naturally varies.",
-memory:"HOLD · GAP · SPEED · RHYTHM · PAIRS · ERRORS"
-},
-{
-title:"Steps involved in facial recognition",
-cat:"bio",
-definition:"Facial recognition identifies or verifies a person by analysing facial features.",
-points:[
-"Enrollment: capture and register the user's face.",
-"Image capture: take an image during login.",
-"Face detection: locate the face in the image.",
-"Face alignment: adjust position and orientation.",
-"Feature extraction: convert facial characteristics into a numerical representation called an embedding.",
-"Face matching: compare the new embedding with the registered template.",
-"Decision: accept or reject based on a similarity threshold.",
-"Liveness detection: check whether the input is live rather than a photo or replay."
-],
-conclusion:"Limitations include lighting, camera quality, privacy, bias and presentation attacks.",
-memory:"CAPTURE → DETECT → ALIGN → EXTRACT → MATCH → DECIDE → LIVENESS"
-},
-{
-title:"Bagging techniques",
-cat:"fraud",
-definition:"Bagging means Bootstrap Aggregating. It combines independently trained models to improve stability and reduce variance.",
-points:[
-"Create multiple datasets by random sampling with replacement.",
-"Train a separate model on each sampled dataset.",
-"Train the models independently.",
-"Let each model predict whether a transaction is fraudulent.",
-"Combine predictions using majority voting or averaging.",
-"Select the final prediction from the combined result.",
-"Random Forest is a popular example using many decision trees.",
-"Bagging can reduce variance and overfitting, although improvement is not guaranteed for every dataset."
-],
-conclusion:"Example: if 7 of 10 trees predict fraud, majority voting predicts fraud.",
-memory:"SAMPLE → TRAIN INDEPENDENTLY → VOTE"
-},
-{
-title:"Steps involved in developing a basic fraud detection model using machine learning",
-cat:"fraud",
-definition:"A fraud detection model learns from transaction data to identify suspicious activities.",
-points:[
-"Data collection: gather transaction amount, time, location, payment method, device details and fraud labels.",
-"Data cleaning: handle missing values, duplicates and inconsistent entries.",
-"Feature selection: choose information useful for fraud detection.",
-"Data splitting: separate training and testing data.",
-"Model training: train Random Forest, Logistic Regression or XGBoost.",
-"Testing: evaluate the model on data it has not seen.",
-"Evaluation: measure precision, recall, F1-score and accuracy.",
-"Optimization and deployment: improve the model and monitor new fraud patterns."
-],
-conclusion:"Conclusion: Good data, suitable evaluation and ongoing monitoring are essential.",
-memory:"COLLECT → CLEAN → FEATURES → SPLIT → TRAIN → TEST → IMPROVE"
-},
-{
-title:"Role of IBM Watson in analysing data for fraud detection",
-cat:"fraud",
-definition:"IBM Watson is an AI platform with data analysis, machine learning, natural language processing and predictive analytics capabilities.",
-points:[
-"Data processing: work with historical transaction data.",
-"Pattern identification: examine features associated with fraud.",
-"Machine learning: support models trained on historical examples.",
-"Predictive analytics: estimate whether a transaction may be fraudulent.",
-"Risk assessment: identify transactions that need further investigation.",
-"Automation: support repeatable data analysis workflows.",
-"Decision support: provide results analysts can use to investigate suspicious cases.",
-"Jupyter Notebook can complement the workflow with Python, cleaning, charts and model evaluation."
-],
-conclusion:"Conclusion: AI tools support fraud analysis, but results depend on data quality, model validation and security controls.",
-memory:"DATA → PATTERNS → MODEL → PREDICTION → REVIEW"
-},
-{
-title:"Role of cloud AI solutions in fraud prevention",
-cat:"fraud",
-definition:"Cloud AI combines cloud computing, artificial intelligence and machine learning to detect and reduce fraud.",
-points:[
-"Real-time detection: analyse transactions quickly and flag suspicious behaviour.",
-"Scalability: process large amounts of data as transaction volumes grow.",
-"Machine learning: learn patterns from genuine and fraudulent transactions.",
-"Predictive analytics: estimate fraud risk.",
-"Behavioural biometrics: analyse typing, mouse movement, scrolling and swipe behaviour.",
-"Graph analysis: find relationships between accounts sharing devices, phone numbers, IPs or bank details.",
-"Document analysis: identify possible tampering in identity documents.",
-"Automated alerts: flag transactions for verification, blocking or investigation."
-],
-conclusion:"Applications include banking, online payments, e-commerce, account takeover, insurance and loan fraud. Limitations include false positives, privacy risks and the need to secure cloud access.",
-memory:"FAST · SCALE · LEARN · PREDICT · LINK · ALERT"
-}
-];
+const completed = new Set();
+const root = document.getElementById("programs");
 
-function escapeHTML(text){
-  return String(text).replace(/[&<>"']/g, c => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  })[c]);
-}
-
-function renderCards(data, mark, gridId, searchId, filterId, emptyId){
-  const search = document.getElementById(searchId);
-  const filter = document.getElementById(filterId);
-  function update(){
-    const term = search.value.toLowerCase().trim();
-    const cat = filter.value;
-    const matches = data.map((q,i)=>({q,i})).filter(({q}) =>
-      (cat === "all" || q.cat === cat) &&
-      (q.title+" "+q.definition+" "+q.points.join(" ")+" "+q.memory)
-        .toLowerCase().includes(term)
-    );
-    document.getElementById(gridId).innerHTML = matches.map(({q,i}) => `
-      <article class="card">
-        <div class="card-top">
-          <span class="number">${mark} MARK · ${String(i+1).padStart(2,"0")}</span>
-          <span class="category">${q.cat==="auth"?"AUTHENTICATION":q.cat==="bio"?"BIOMETRICS":"FRAUD & AI"}</span>
+function renderPrograms() {
+    root.innerHTML = data.map((p,i) => `
+    <article class="card" data-search="${(p.title+" "+p.aim+" "+p.concept+" "+p.easy+" "+p.malayalam).toLowerCase()}">
+        <div class="cardhead">
+            <span class="number">PROGRAM ${String(i+1).padStart(2,"0")} / 10</span>
+            <h2>${p.title}</h2>
+            <p><strong>Aim:</strong> ${p.aim}</p>
         </div>
-        <h3>${escapeHTML(q.title)}</h3>
-        <div class="definition"><b>Definition:</b> ${escapeHTML(q.definition)}</div>
-        <h4>Answer points</h4>
-        <ol>${q.points.map(p=>`<li>${escapeHTML(p)}</li>`).join("")}</ol>
-        <p class="conclusion">${escapeHTML(q.conclusion)}</p>
-        <div class="memory"><b>MEMORY HOOK:</b> ${escapeHTML(q.memory)}</div>
-        <div class="card-buttons">
-          <button class="small-btn" onclick="copyAnswer(${mark},${i})">Copy answer</button>
+        <div class="body">
+            <div class="explain">
+                <strong>Simple Explanation</strong><br>
+                ${p.easy}
+            </div>
+            <p><strong>Concept:</strong> ${p.concept}</p>
+            <div class="memory"><strong>Malayalam hint:</strong><br>${p.malayalam}<br><br><strong>Remember:</strong> ${p.memory}</div>
+            <div class="codehead">
+                <strong>Python Code</strong>
+                <button class="btn" onclick="copyCode(${i},this)">📋 Copy Code</button>
+            </div>
+            <pre id="code${i}"></pre>
+            <strong>Sample Output</strong>
+            <div class="output"></div>
+            <div class="actions">
+                <button class="btn" onclick="toggleCode(${i},this)">Hide Code</button>
+                <button class="btn" onclick="copyCode(${i},this)">Copy for Revision</button>
+            </div>
+            <label class="check">
+                <input type="checkbox" onchange="markDone(${i},this)">
+                I have studied this program
+            </label>
         </div>
-      </article>
-    `).join("");
-    document.getElementById(emptyId).style.display = matches.length ? "none" : "block";
-  }
-  search.addEventListener("input",update);
-  filter.addEventListener("change",update);
-  update();
-}
-renderCards(five,5,"grid5","search5","filter5","empty5");
-renderCards(eight,8,"grid8","search8","filter8","empty8");
+    </article>`).join("");
 
-function copyAnswer(mark,index){
-  const q=(mark===5?five:eight)[index];
-  const text=q.title+"\nDefinition: "+q.definition+"\n"+
-    q.points.map((p,i)=>(i+1)+". "+p).join("\n")+
-    "\n"+q.conclusion+"\nMemory hook: "+q.memory;
-  const area=document.createElement("textarea");
-  area.value=text;document.body.appendChild(area);area.select();
-  try{document.execCommand("copy");alert("Answer copied!")}
-  catch(e){alert("Select the answer text and copy it manually.")}
-  area.remove();
+    data.forEach((p,i) => {
+        document.getElementById("code"+i).textContent = p.code;
+        root.children[i].querySelector(".output").textContent = p.output;
+    });
 }
 
-const flashcards=[
-["What are the three MFA categories?","Something you know (password/PIN), something you have (phone/token), and something you are (biometric)."],
-["What is dwell time?","The time a key remains pressed down."],
-["What is flight time?","The interval between successive key events."],
-["What does account reputation scoring estimate?","Account trust or risk based on login, device, IP and behaviour signals."],
-["What does bagging do?","Trains models independently on sampled datasets and combines predictions."],
-["What does boosting do?","Trains models sequentially; later models focus on earlier errors."],
-["What are the fraud ML steps?","Collect, clean, select features, split, train, evaluate and optimize."],
-["What is a face embedding?","A numerical representation of facial features used for comparison."],
-["Name three fraud algorithms.","Logistic Regression, Random Forest and XGBoost. Isolation Forest can detect anomalies."],
-["What is Jupyter Notebook used for?","Python coding, data cleaning, analysis, charts and model testing."],
-["Name two authentication abuse types.","Brute force, credential stuffing, password spraying, phishing or session hijacking."],
-["Why use cloud AI for fraud prevention?","It can scale and analyse large datasets quickly, but still needs security and monitoring."]
+function copyCode(i,button) {
+    const code = data[i].code;
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(code).then(() => {
+            const old = button.textContent;
+            button.textContent = "✓ Copied!";
+            setTimeout(() => button.textContent = old,1200);
+        }).catch(() => fallbackCopy(code));
+    } else {
+        fallbackCopy(code);
+    }
+}
+
+function fallbackCopy(text) {
+    const area = document.createElement("textarea");
+    area.value = text;
+    document.body.appendChild(area);
+    area.select();
+    try { document.execCommand("copy"); alert("Code copied!"); }
+    catch(e) { alert("Select and copy the code manually."); }
+    area.remove();
+}
+
+function toggleCode(i,button) {
+    const pre = document.getElementById("code"+i);
+    pre.classList.toggle("hidden");
+    button.textContent = pre.classList.contains("hidden") ? "Show Code" : "Hide Code";
+}
+
+function markDone(i,checkbox) {
+    if (checkbox.checked) completed.add(i);
+    else completed.delete(i);
+    updateProgress();
+}
+
+function updateProgress() {
+    document.getElementById("doneCount").textContent = completed.size+"/10";
+    document.getElementById("progress").style.width = (completed.size/10*100)+"%";
+}
+
+function resetProgress() {
+    if (!confirm("Reset all study progress?")) return;
+    completed.clear();
+    document.querySelectorAll(".check input").forEach(x => x.checked=false);
+    updateProgress();
+}
+
+function filterCards() {
+    const term = document.getElementById("search").value.toLowerCase();
+    document.querySelectorAll(".card").forEach(card => {
+        card.classList.toggle("hidden",!card.dataset.search.includes(term));
+    });
+}
+
+function showAll() {
+    document.getElementById("search").value="";
+    filterCards();
+    document.getElementById("quizPanel").style.display="none";
+    scrollToTop();
+}
+
+function scrollToTop() {
+    window.scrollTo({top:0,behavior:"smooth"});
+}
+
+const quiz = [
+    {q:"Which statement checks a condition?",o:["for","if","def","import"],a:1},
+    {q:"Which function generates a number sequence?",o:["input()","print()","range()","len()"],a:2},
+    {q:"Which method adds an item to a list?",o:["append()","upper()","strip()","get()"],a:0},
+    {q:"Which function counts characters?",o:["range()","len()","add()","type()"],a:1},
+    {q:"A dictionary stores data as...",o:["Only numbers","Key-value pairs","Only strings","Files"],a:1},
+    {q:"Which keyword defines a function?",o:["if","try","def","for"],a:2},
+    {q:"Which block handles exceptions?",o:["else","except","while","return"],a:1},
+    {q:"Which library is used for the patient GUI?",o:["Tkinter","Counter","Random","Math"],a:0},
+    {q:"Which module gives platform information?",o:["platform","turtle","json","time"],a:0},
+    {q:"Which method removes surrounding whitespace?",o:["append()","upper()","strip()","range()"],a:2}
 ];
 
-let flashIndex=0,flipped=false,flashOrder=flashcards.map((_,i)=>i);
-function drawFlash(){
-  const q=flashcards[flashOrder[flashIndex]];
-  document.getElementById("flashQuestion").textContent=flipped?q[1]:q[0];
-  document.getElementById("flashHint").textContent=flipped?"ANSWER · TAP TO RETURN":"QUESTION · THINK BEFORE REVEALING";
-  document.getElementById("flashCount").textContent=`Card ${flashIndex+1} of ${flashOrder.length}`;
-  document.getElementById("flashProgress").style.width=((flashIndex+1)/flashOrder.length*100)+"%";
-  document.getElementById("flipFlash").textContent=flipped?"Show question":"Reveal Answer";
-}
-function flipFlash(){flipped=!flipped;drawFlash()}
-document.getElementById("flashCard").onclick=flipFlash;
-document.getElementById("flashCard").onkeydown=e=>{
-  if(e.key==="Enter"||e.key===" "){e.preventDefault();flipFlash()}
-};
-document.getElementById("flipFlash").onclick=flipFlash;
-document.getElementById("previousFlash").onclick=()=>{
-  flashIndex=(flashIndex-1+flashOrder.length)%flashOrder.length;
-  flipped=false;drawFlash();
-};
-document.getElementById("nextFlash").onclick=()=>{
-  flashIndex=(flashIndex+1)%flashOrder.length;flipped=false;drawFlash();
-};
-document.getElementById("shuffleFlash").onclick=()=>{
-  flashOrder.sort(()=>Math.random()-.5);flashIndex=0;flipped=false;drawFlash();
-};
-drawFlash();
+let qi=0, score=0, answered=false;
 
-const questions=[
-["Which set contains the three common MFA factor categories?",["Know, have, are","Name, age, address","Email, phone, username","Password, username, email"],0,"Know=password/PIN; have=phone/token; are=biometrics."],
-["What does account reputation scoring estimate?",["Internet speed","Account trust or risk","Screen brightness","File size"],1,"It uses login, device, IP and behaviour signals."],
-["How long a key is pressed is called…",["Flight time","Dwell time","Login time","Refresh time"],1,"Dwell time measures how long a key stays pressed."],
-["Which is an example of bagging?",["Random Forest","A single password","Face alignment","Account lockout"],0,"Random Forest combines multiple decision trees."],
-["In boosting, later models focus on…",["Screen colour","Earlier model errors","Deleting all data","Only the first example"],1,"Boosting trains sequentially to correct earlier errors."],
-["What comes before training a fraud model?",["Deploy immediately","Prepare and split data","Forget the labels","Stop evaluation"],1,"Collect and clean data, select features and split it before training."],
-["What does facial alignment do?",["Moves a payment","Normalizes face position","Creates a password","Measures typing speed"],1,"Alignment makes facial comparisons more consistent."],
-["Which tool is interactive for Python data analysis?",["Jupyter Notebook","Account lockout","Hardware key","Firewall cable"],0,"Jupyter runs code cells and can display tables and charts."],
-["Credential stuffing uses…",["Typing rhythm","Stolen username-password pairs reused elsewhere","Face embedding","Random file names"],1,"Attackers test credentials exposed in previous breaches."],
-["A key benefit of cloud AI fraud systems is…",["Zero risk forever","Scalable analysis of large volumes","No security needed","Perfect accuracy"],1,"Cloud AI can scale quickly but still needs security and monitoring."]
-];
-let qi=0,score=0,answered=false,finished=false;
-function drawQuiz(){
-  const q=questions[qi];finished=false;answered=false;
-  document.getElementById("quizNumber").textContent=`QUESTION ${qi+1} / ${questions.length}`;
-  document.getElementById("quizQuestion").textContent=q[0];
-  document.getElementById("quizScore").textContent="SCORE: "+score;
-  document.getElementById("quizFeedback").textContent="";
-  document.getElementById("nextQuiz").textContent=qi===questions.length-1?"See Result":"Next Question →";
-  document.getElementById("quizOptions").innerHTML=q[1].map((o,i)=>
-    `<button class="option" data-index="${i}">${String.fromCharCode(65+i)}. ${escapeHTML(o)}</button>`
-  ).join("");
-  document.querySelectorAll(".option").forEach(b=>b.onclick=()=>answerQuiz(+b.dataset.index));
+function toggleQuiz() {
+    const panel=document.getElementById("quizPanel");
+    panel.style.display=panel.style.display==="block"?"none":"block";
+    if(panel.style.display==="block") {
+        renderQuestion();
+        panel.scrollIntoView({behavior:"smooth"});
+    }
 }
-function answerQuiz(choice){
-  if(answered)return;
-  answered=true;const q=questions[qi];
-  document.querySelectorAll(".option").forEach((b,i)=>{
-    b.disabled=true;
-    if(i===q[2])b.classList.add("correct");
-    if(i===choice&&i!==q[2])b.classList.add("wrong");
-  });
-  if(choice===q[2])score++;
-  document.getElementById("quizScore").textContent="SCORE: "+score;
-  document.getElementById("quizFeedback").textContent=
-    (choice===q[2]?"Correct! ":"Not quite. ")+q[3];
+
+function renderQuestion() {
+    answered=false;
+    document.getElementById("feedback").textContent="";
+    document.getElementById("nextBtn").textContent=qi===quiz.length-1?"See Result →":"Next Question →";
+    const q=quiz[qi];
+    document.getElementById("quizContent").innerHTML=`
+        <p class="small">QUESTION ${qi+1} OF ${quiz.length} • SCORE ${score}</p>
+        <h3>${q.q}</h3>
+        ${q.o.map((o,i)=>`<button class="option" onclick="chooseAnswer(${i},this)">${String.fromCharCode(65+i)}. ${o}</button>`).join("")}
+    `;
 }
-document.getElementById("nextQuiz").onclick=()=>{
-  if(finished){qi=0;score=0;drawQuiz();return}
-  if(!answered){document.getElementById("quizFeedback").textContent="Choose an answer first.";return}
-  if(qi<questions.length-1){qi++;drawQuiz();return}
-  finished=true;
-  document.getElementById("quizNumber").textContent="MISSION COMPLETE";
-  document.getElementById("quizQuestion").textContent=
-    `You scored ${score}/${questions.length} (${Math.round(score/questions.length*100)}%).`;
-  document.getElementById("quizOptions").innerHTML="";
-  document.getElementById("quizFeedback").textContent=
-    score>=8?"Excellent! Review difficult topics and try again.":"Good practice. Review the memory hooks and retry.";
-  document.getElementById("nextQuiz").textContent="Restart Quiz ↻";
-};
-drawQuiz();
+
+function chooseAnswer(i,button) {
+    if(answered) return;
+    answered=true;
+    const q=quiz[qi];
+    document.querySelectorAll(".option")[q.a].classList.add("correct");
+    if(i===q.a) {
+        score++;
+        document.getElementById("feedback").textContent="Correct! Well done.";
+    } else {
+        button.classList.add("wrong");
+        document.getElementById("feedback").textContent="Not quite. The correct answer is "+q.o[q.a]+".";
+    }
+}
+
+function nextQuestion() {
+    if(!answered) {
+        document.getElementById("feedback").textContent="Choose an answer first.";
+        return;
+    }
+    if(qi<quiz.length-1) {
+        qi++;
+        renderQuestion();
+    } else {
+        document.getElementById("quizContent").innerHTML=
+            `<h3>Your Score: ${score}/${quiz.length}</h3>
+             <p>${score>=8?"Excellent!":"Good effort! Revise the programs and try again."}</p>`;
+        document.getElementById("feedback").textContent="Quiz completed.";
+        document.getElementById("nextBtn").style.display="none";
+    }
+}
+
+function restartQuiz() {
+    qi=0; score=0; answered=false;
+    document.getElementById("nextBtn").style.display="inline-block";
+    renderQuestion();
+}
+
+renderPrograms();
 </script>
+
 </body>
-</html>
+  </html>
