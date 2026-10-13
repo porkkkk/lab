@@ -3,198 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Python Practical Study Hub</title>
+<title>Python Practical Sets 1–10</title>
 
 <style>
-:root {
-    --bg:#080d18;
-    --card:#111a2b;
-    --inner:#19243a;
-    --text:#f1f5ff;
-    --muted:#a2aec5;
-    --accent:#818cff;
-    --green:#5ce1a3;
-    --border:#293651;
+:root{
+ --bg:#080d18;--card:#111a2b;--inner:#19243a;
+ --text:#f1f5ff;--muted:#a6b2c9;--accent:#818cff;
+ --green:#5ce1a3;--border:#293651;
 }
-* { box-sizing:border-box; }
-body {
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:Arial,sans-serif;
-    line-height:1.6;
+*{box-sizing:border-box}
+body{
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:Arial,sans-serif;line-height:1.6
 }
-button,input { font:inherit; }
-button { cursor:pointer; }
-header {
-    padding:30px 18px;
-    background:linear-gradient(135deg,#152747,#332557,#0c1424);
-    border-bottom:1px solid var(--border);
+header{
+ padding:28px 16px;
+ background:linear-gradient(135deg,#172b50,#38235b,#0c1424);
+ border-bottom:1px solid var(--border)
 }
-.container { max-width:1050px; margin:auto; }
-.tag {
-    color:var(--green);
-    background:#18372f;
-    padding:5px 10px;
-    border-radius:20px;
-    font-size:12px;
+.container{max-width:1050px;margin:auto}
+h1{font-size:clamp(27px,5vw,42px);margin:12px 0}
+.muted{color:var(--muted)}
+nav{
+ position:sticky;top:0;z-index:5;background:#080d18f2;
+ border-bottom:1px solid var(--border);padding:10px
 }
-h1 { font-size:clamp(27px,5vw,42px); margin:15px 0 5px; }
-header p,.muted,.small { color:var(--muted); }
-.stats {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin-top:22px;
+.navinner{
+ max-width:1050px;margin:auto;display:flex;gap:8px;flex-wrap:wrap
 }
-.stat {
-    padding:12px;
-    background:#ffffff09;
-    border:1px solid #384665;
-    border-radius:12px;
+button,input{font:inherit}
+button{cursor:pointer}
+.btn{
+ padding:9px 13px;border-radius:9px;color:var(--text);
+ background:var(--inner);border:1px solid var(--border)
 }
-.stat strong { display:block; font-size:23px; }
-nav {
-    position:sticky;
-    top:0;
-    z-index:5;
-    background:#080d18ed;
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--border);
-    padding:12px;
+.btn.primary{background:var(--accent);color:white}
+main{max-width:1050px;margin:auto;padding:18px 14px 45px}
+.search{
+ width:100%;padding:14px;background:var(--card);color:white;
+ border:1px solid var(--border);border-radius:11px;outline:none
 }
-.navinner {
-    max-width:1050px;
-    margin:auto;
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
+.setnav{
+ display:flex;gap:7px;flex-wrap:wrap;margin:17px 0
 }
-.btn {
-    border:1px solid var(--border);
-    background:var(--inner);
-    color:white;
-    padding:9px 13px;
-    border-radius:9px;
+.setnav button.active{background:var(--accent);border-color:var(--accent)}
+.setcard{
+ background:var(--card);border:1px solid var(--border);
+ border-radius:15px;margin:18px 0;overflow:hidden
 }
-.btn.primary { background:var(--accent); border-color:var(--accent); }
-main { max-width:1050px; margin:auto; padding:20px 14px 45px; }
-.search {
-    width:100%;
-    padding:14px;
-    background:var(--card);
-    color:white;
-    border:1px solid var(--border);
-    border-radius:11px;
-    outline:none;
+.sethead{padding:17px 18px;background:#ffffff04}
+.badge{
+ color:var(--green);font-size:12px;font-weight:bold;
+ letter-spacing:1px
 }
-h2.section { margin-top:25px; }
-.progress-bg {
-    height:8px;
-    background:#263149;
-    border-radius:20px;
-    overflow:hidden;
-    margin:10px 0 18px;
+.sethead h2{margin:5px 0;font-size:23px}
+.program{padding:18px;border-top:1px solid var(--border)}
+.program h3{margin:0 0 9px;font-size:18px}
+.explain{
+ background:#162a32;border-left:3px solid var(--green);
+ padding:12px;border-radius:7px;margin:12px 0
 }
-#progress {
-    height:100%;
-    width:0%;
-    background:linear-gradient(90deg,var(--accent),var(--green));
-    transition:width .3s;
+.memory{background:#292440;padding:12px;border-radius:8px;margin:12px 0}
+.codehead{
+ display:flex;justify-content:space-between;align-items:center;
+ gap:8px;flex-wrap:wrap
 }
-.card {
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:15px;
-    margin:15px 0;
-    overflow:hidden;
+pre{
+ white-space:pre;overflow-x:auto;background:#070b13;
+ border:1px solid #293651;border-radius:9px;padding:14px;
+ color:#b9d7ff;font-size:13px;line-height:1.65
 }
-.cardhead { padding:17px 18px 5px; }
-.number { color:var(--green); font-size:12px; font-weight:bold; }
-.card h2 { margin:5px 0; font-size:21px; }
-.cardhead p { color:var(--muted); margin-top:4px; }
-.body { padding:8px 18px 18px; }
-.explain {
-    padding:12px;
-    background:#162a32;
-    border-left:3px solid var(--green);
-    border-radius:8px;
-    margin:12px 0;
+.output{
+ white-space:pre-wrap;overflow-wrap:anywhere;background:#0c211c;
+ border:1px solid #23513f;border-radius:9px;padding:12px;
+ color:#a5f3cf;font-family:monospace;font-size:13px
 }
-.explain strong { color:var(--green); }
-.memory {
-    padding:12px;
-    background:#292440;
-    border-radius:8px;
-    margin:12px 0;
+.small{font-size:13px;color:var(--muted)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.hidden{display:none!important}
+footer{
+ text-align:center;color:var(--muted);
+ padding:25px;border-top:1px solid var(--border)
 }
-.codehead {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:8px;
-    flex-wrap:wrap;
+@media(max-width:500px){
+ .sethead h2{font-size:20px}
+ pre{font-size:12px;padding:11px}
 }
-pre {
-    background:#070b13;
-    border:1px solid #263149;
-    padding:15px;
-    border-radius:10px;
-    overflow-x:auto;
-    color:#b9d7ff;
-    font-size:13px;
-    line-height:1.65;
-    white-space:pre;
-}
-.output {
-    background:#0c211c;
-    border:1px solid #23513f;
-    color:#a5f3cf;
-    padding:13px;
-    border-radius:9px;
-    white-space:pre-wrap;
-    font-family:monospace;
-    font-size:13px;
-}
-.check {
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin-top:13px;
-}
-.check input { width:18px; height:18px; accent-color:var(--green); }
-#quizPanel {
-    display:none;
-    background:var(--card);
-    border:1px solid var(--border);
-    padding:20px;
-    border-radius:15px;
-    margin-top:22px;
-}
-.option {
-    display:block;
-    width:100%;
-    text-align:left;
-    padding:12px;
-    margin:8px 0;
-    border:1px solid var(--border);
-    background:var(--inner);
-    color:white;
-    border-radius:9px;
-}
-.option.correct { border-color:var(--green); background:#14382d; }
-.option.wrong { border-color:#ff7777; background:#402020; }
-#feedback { color:var(--green); }
-.hidden { display:none!important; }
-footer {
-    text-align:center;
-    padding:25px;
-    color:var(--muted);
-    border-top:1px solid var(--border);
-}
-@media(max-width:500px) {
-    .stats { grid-template-columns:1fr 1fr; }
-    .card h2 { font-size:19px; }
+@media print{
+ nav,.search,.setnav,.actions,footer{display:none!important}
+ body{background:white;color:black}
+ .setcard{break-inside:avoid;border:1px solid #aaa;background:white}
+ .program{break-inside:avoid}
+ pre,.output,.explain,.memory{color:black;background:#f5f5f5}
+ .setcard,.program{border-color:#aaa}
 }
 </style>
 </head>
@@ -203,231 +104,77 @@ footer {
 
 <header>
 <div class="container">
-<span class="tag">PYTHON • PRACTICAL EXAM</span>
+<span class="badge">PYTHON PRACTICAL EXAM</span>
 <h1>Python Practical Master</h1>
-<p>Learn all 10 programs in simple English. Read, remember, practise and revise.</p>
-
-<div class="stats">
-    <div class="stat"><strong>10</strong><span>Programs</span></div>
-    <div class="stat"><strong id="doneCount">0/10</strong><span>Completed</span></div>
-    <div class="stat"><strong>Easy</strong><span>Study Mode</span></div>
-</div>
+<p class="muted">
+Sets 1–10 · 20 programs · Simple English · Malayalam hints ·
+Full code · Sample outputs
+</p>
 </div>
 </header>
 
 <nav>
 <div class="navinner">
-<button class="btn" onclick="scrollToTop()">🏠 Home</button>
-<button class="btn" onclick="showAll()">📚 All Programs</button>
-<button class="btn" onclick="toggleQuiz()">🧠 Quiz</button>
-<button class="btn" onclick="window.print()">🖨️ Print</button>
-<button class="btn primary" onclick="resetProgress()">↻ Reset</button>
+<button class="btn primary" onclick="selectSet(0)">All Sets</button>
+<button class="btn" onclick="window.print()">Print / Save PDF</button>
+<button class="btn" onclick="scrollToTop()">Home ↑</button>
 </div>
 </nav>
 
 <main>
-<input id="search" class="search" placeholder="🔍 Search: loop, list, file, patient..." oninput="filterCards()">
+<input id="search" class="search"
+placeholder="Search programs: marks, patient, loop, list, file..."
+oninput="render()">
 
-<h2 class="section">Your Learning Progress</h2>
-<div class="progress-bg"><div id="progress"></div></div>
-<p class="small">Tip: Read the aim, understand the code, and check the sample output.</p>
+<div class="setnav" id="setnav"></div>
 
-<div id="programs"></div>
+<p class="small">
+Study tip: First read the aim, then understand the code, and finally
+practise writing it without looking.
+</p>
 
-<section id="quizPanel">
-<h2>🧠 Quick Revision Quiz</h2>
-<p class="muted">Choose the correct answer. There are 10 questions.</p>
-<div id="quizContent"></div>
-<p id="feedback"></p>
-<button class="btn primary" onclick="nextQuestion()" id="nextBtn">Next Question →</button>
-<button class="btn" onclick="restartQuiz()">Restart Quiz</button>
-</section>
+<div id="content"></div>
 </main>
 
 <footer>
-Python Practical Study Hub • Simple English • Learn by practising
+Python Practical Master · Study one program at a time
 </footer>
 
 <script>
-const data = [
+const sets = [
 {
-title:"Conditional Statement – Pass or Fail",
-aim:"Check whether a student passes or fails based on marks.",
-concept:"if and else",
-easy:"If marks are 40 or more, the student passes. Otherwise, the student fails.",
-malayalam:"Marks 40 അല്ലെങ്കിൽ അതിൽ കൂടുതൽ ആണെങ്കിൽ Pass. അല്ലെങ്കിൽ Fail.",
-memory:"Remember: if = condition, else = alternative.",
+title:"Set 1",
+programs:[
+{
+title:"Student Management — Pass or Fail",
+aim:"Use if, elif and else to determine whether a student passes or fails based on marks.",
+explain:"The program reads marks. Marks of 40 or above mean Pass. Marks from 0 to 39 mean Fail. Invalid marks are rejected.",
+mal:"if, elif, else ഉപയോഗിച്ച് marks പരിശോധിക്കുന്നു. 40 അല്ലെങ്കിൽ അതിൽ കൂടുതൽ Pass; അതിൽ കുറവാണെങ്കിൽ Fail.",
+memory:"if = first condition. elif = another condition. else = remaining case.",
 code:`marks = int(input("Enter marks: "))
 
-if marks >= 40:
+if marks < 0 or marks > 100:
+    print("Invalid marks")
+elif marks >= 40:
     print("Pass")
 else:
     print("Fail")`,
 output:`Enter marks: 75
-Pass`,
-questions:"What does >= mean?",
-answer:"Greater than or equal to"
+Pass`
 },
 {
-title:"Loops – Print Numbers from 1 to 10",
-aim:"Print numbers from 1 to 10 using for and while loops.",
-concept:"for, while, range",
-easy:"A loop repeats a task. The for loop uses a sequence. The while loop continues while its condition is true.",
-malayalam:"ഒരേ ജോലി വീണ്ടും ചെയ്യാൻ Loop ഉപയോഗിക്കുന്നു.",
-memory:"range(1, 11) prints numbers from 1 to 10.",
-code:`print("For loop:")
-for i in range(1, 11):
-    print(i)
-
-print("While loop:")
-i = 1
-while i <= 10:
-    print(i)
-    i += 1`,
-output:`For loop:
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-
-While loop:
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10`,
-questions:"Which function helps generate a number sequence?",
-answer:"range()"
-},
-{
-title:"List Operations – Add, Remove and Display",
-aim:"Add, remove and display elements in a list.",
-concept:"append(), remove()",
-easy:"A list stores multiple values in one variable. append adds an item, and remove deletes a matching item.",
-malayalam:"List എന്നത് പല values സൂക്ഷിക്കുന്ന ഒരു collection ആണ്.",
-memory:"append = add. remove = delete.",
-code:`numbers = [10, 20, 30]
-
-numbers.append(40)
-print("After adding:", numbers)
-
-numbers.remove(20)
-print("After removing:", numbers)
-
-print("List:", numbers)`,
-output:`After adding: [10, 20, 30, 40]
-After removing: [10, 30, 40]
-List: [10, 30, 40]`,
-questions:"Which method adds an item to the end of a list?",
-answer:"append()"
-},
-{
-title:"String Manipulation",
-aim:"Find string length, convert to uppercase and reverse a string.",
-concept:"len(), upper(), slicing",
-easy:"A string is text. len counts characters, upper converts to capital letters, and [::-1] reverses the text.",
-malayalam:"String എന്നത് text ആണ്. len length കണ്ടെത്തും; upper capital ആക്കും.",
-memory:"len = length, upper = capitals, [::-1] = reverse.",
-code:`text = input("Enter a string: ")
-
-print("Length:", len(text))
-print("Uppercase:", text.upper())
-print("Reverse:", text[::-1])`,
-output:`Enter a string: hello
-Length: 5
-Uppercase: HELLO
-Reverse: olleh`,
-questions:"Which function converts text to uppercase?",
-answer:"upper()"
-},
-{
-title:"Dictionary – Student Marks",
-aim:"Store, update and retrieve student marks using a dictionary.",
-concept:"Key and value",
-easy:"A dictionary stores data as key-value pairs. A student's name can be the key and the marks the value.",
-malayalam:"Dictionary-യിൽ ഓരോ key-ക്കും ഒരു value ഉണ്ടായിരിക്കും.",
-memory:"marks['Arun'] = 90 updates Arun's marks.",
-code:`marks = {"Arun": 80, "Rahul": 75}
-
-print("Student marks:", marks)
-
-marks["Arun"] = 90
-print("Updated marks:", marks)
-
-name = input("Enter student name: ")
-print("Marks:", marks.get(name, "Student not found"))`,
-output:`Student marks: {'Arun': 80, 'Rahul': 75}
-Updated marks: {'Arun': 90, 'Rahul': 75}
-Enter student name: Arun
-Marks: 90`,
-questions:"What is used to identify a value in a dictionary?",
-answer:"Key"
-},
-{
-title:"User-Defined Function – Sum of Two Numbers",
-aim:"Create a function to calculate the sum of two numbers.",
-concept:"def and return",
-easy:"A function is a reusable block of code. def creates the function and return sends the result back.",
-malayalam:"Function ഒരിക്കൽ എഴുതിയാൽ പല തവണ ഉപയോഗിക്കാം.",
-memory:"def creates a function. return gives the answer.",
-code:`def add(a, b):
-    return a + b
-
-x = int(input("Enter first number: "))
-y = int(input("Enter second number: "))
-
-print("Sum =", add(x, y))`,
-output:`Enter first number: 10
-Enter second number: 20
-Sum = 30`,
-questions:"Which keyword defines a function?",
-answer:"def"
-},
-{
-title:"Exception Handling – File Reading and Writing",
-aim:"Read and write a file safely using try-except.",
-concept:"try and except",
-easy:"The try block runs the code. The except block handles an error if something goes wrong.",
-malayalam:"Program-ൽ error വന്നാലും അത് handle ചെയ്യാൻ try-except ഉപയോഗിക്കുന്നു.",
-memory:"try = attempt. except = handle the error.",
-code:`try:
-    with open("sample.txt", "w") as f:
-        f.write("Hello Python")
-
-    with open("sample.txt", "r") as f:
-        print(f.read())
-
-except Exception as e:
-    print("Error:", e)`,
-output:`Hello Python`,
-questions:"Which block handles an exception?",
-answer:"except"
-},
-{
-title:"GUI – Patient Registration Form",
-aim:"Create a patient form and display the entered details.",
-concept:"Tkinter, Label, Entry, Button",
-easy:"Tkinter creates a window. Label displays text, Entry accepts input, and Button performs an action.",
-malayalam:"GUI എന്നത് buttons, boxes, windows പോലുള്ള visual interface ആണ്.",
-memory:"Label = text, Entry = input, Button = action.",
+title:"Patient Registration — GUI",
+aim:"Create a GUI form to register patient details and display the entered data.",
+explain:"Tkinter creates a window. Entry boxes accept patient details. Clicking Register displays the details.",
+mal:"Tkinter ഉപയോഗിച്ച് patient details നൽകാനുള്ള form ഉണ്ടാക്കുന്നു.",
+memory:"Label = text. Entry = input box. Button = action.",
 code:`import tkinter as tk
 from tkinter import messagebox
 
 def register():
-    name = entry1.get()
-    age = entry2.get()
-    disease = entry3.get()
+    name = name_box.get()
+    age = age_box.get()
+    disease = disease_box.get()
 
     messagebox.showinfo(
         "Patient Details",
@@ -436,62 +183,68 @@ def register():
 
 root = tk.Tk()
 root.title("Patient Registration")
-root.geometry("300x250")
 
 tk.Label(root, text="Patient Name").pack()
-entry1 = tk.Entry(root)
-entry1.pack()
+name_box = tk.Entry(root)
+name_box.pack()
 
 tk.Label(root, text="Age").pack()
-entry2 = tk.Entry(root)
-entry2.pack()
+age_box = tk.Entry(root)
+age_box.pack()
 
 tk.Label(root, text="Disease").pack()
-entry3 = tk.Entry(root)
-entry3.pack()
+disease_box = tk.Entry(root)
+disease_box.pack()
 
-tk.Button(root, text="Register", command=register).pack(pady=10)
+tk.Button(root, text="Register",
+          command=register).pack()
 
 root.mainloop()`,
-output:`A window opens with patient name, age and disease fields.
-Click Register to display the entered details.`,
-questions:"Which Python library is used for this GUI?",
-answer:"Tkinter"
+output:`A window opens.
+Enter patient name, age and disease.
+Click Register to display the details.
+
+Requires Python with Tkinter installed.`
+}
+]
 },
 {
-title:"System Information – Forensic Analysis",
-aim:"Collect and display system details for forensic analysis.",
-concept:"platform and os modules",
-easy:"The platform module provides operating system and Python details. The os module provides operating-system functions.",
-malayalam:"Computer-ന്റെ system details കണ്ടെത്താൻ ഈ program ഉപയോഗിക്കുന്നു.",
-memory:"platform = system details. os = operating system functions.",
-code:`import platform
-import os
+title:"Set 2",
+programs:[
+{
+title:"Railway Reservation — Seat Numbers",
+aim:"Use for and while loops to display seat numbers from 1 to 10.",
+explain:"The for loop displays numbers using range. The while loop repeats until the number becomes greater than 10.",
+mal:"for, while എന്നീ loops ഉപയോഗിച്ച് seat numbers 1 മുതൽ 10 വരെ കാണിക്കുന്നു.",
+memory:"range(1, 11) gives 1 to 10. i += 1 increases the number.",
+code:`print("Using for loop:")
+for seat in range(1, 11):
+    print("Seat:", seat)
 
-print("System:", platform.system())
-print("Computer Name:", platform.node())
-print("Processor:", platform.processor())
-print("Operating System:", platform.platform())
-print("Python Version:", platform.python_version())
-print("Current Directory:", os.getcwd())`,
-output:`System: Windows
-Computer Name: MY-PC
-Processor: [processor information]
-Operating System: [operating system details]
-Python Version: 3.x.x
-Current Directory: [current directory]
+print("Using while loop:")
+seat = 1
+while seat <= 10:
+    print("Seat:", seat)
+    seat += 1`,
+output:`Using for loop:
+Seat: 1
+Seat: 2
+Seat: 3
+...
+Seat: 10
 
-Note: Results depend on your computer.`,
-questions:"Which module provides operating system details?",
-answer:"platform"
+Using while loop:
+Seat: 1
+Seat: 2
+...
+Seat: 10`
 },
 {
-title:'Log File Analysis – Find "Error"',
-aim:"Extract and display lines containing the word error from a log file.",
-concept:"File handling and if",
-easy:"The program reads each line and checks whether the word error appears. lower() makes the search case-insensitive.",
-malayalam:"Log file-ൽ error ഉള്ള lines മാത്രം കണ്ടെത്തി display ചെയ്യുന്നു.",
-memory:"lower() handles ERROR, Error and error in the same way.",
+title:"Digital Forensics — Log Error Analysis",
+aim:"Read a log file and display lines containing the word error.",
+explain:"The program reads each line, converts it to lowercase, and prints lines containing error. Create sample.log first.",
+mal:"Log file-ൽ error ഉള്ള വരികൾ മാത്രം കണ്ടെത്തി കാണിക്കുന്നു.",
+memory:"lower() ignores uppercase/lowercase differences. strip() removes the newline at the end.",
 code:`filename = input("Enter log file name: ")
 
 try:
@@ -502,202 +255,559 @@ try:
 
 except FileNotFoundError:
     print("File not found")`,
-output:`Example log file:
-INFO: Program started
+output:`Example file sample.log:
+INFO: System started
 ERROR: Login failed
-INFO: User connected
-Error: File missing
+Warning: Low memory
+Disk error detected
 
-Output:
+Enter log file name: sample.log
+
 ERROR: Login failed
-Error: File missing`,
-questions:"Which method removes spaces and newline characters at the ends?",
-answer:"strip()"
+Disk error detected`
+}
+]
+},
+{
+title:"Set 3",
+programs:[
+{
+title:"Library Management — Book List",
+aim:"Add, remove and display book titles using list operations.",
+explain:"A list stores multiple book titles. append adds a book, remove deletes a book, and print displays the list.",
+mal:"List-ൽ പുസ്തകങ്ങളുടെ പേരുകൾ സൂക്ഷിക്കുന്നു. append ചേർക്കാനും remove നീക്കാനും ഉപയോഗിക്കുന്നു.",
+memory:"append = add. remove = delete. [] = list.",
+code:`books = ["Python", "Java", "C++"]
+
+print("Books:", books)
+
+books.append("HTML")
+print("After adding:", books)
+
+books.remove("Java")
+print("After removing:", books)`,
+output:`Books: ['Python', 'Java', 'C++']
+After adding: ['Python', 'Java', 'C++', 'HTML']
+After removing: ['Python', 'C++', 'HTML']`
+},
+{
+title:"Digital Forensics — System Information",
+aim:"Collect and display system details for forensic analysis.",
+explain:"The platform module provides computer and operating-system information. The os module gives the current directory.",
+mal:"Computer name, operating system, Python version എന്നിവ കാണിക്കുന്നു.",
+memory:"platform = system details. os.getcwd() = current directory.",
+code:`import platform
+import os
+
+print("System:", platform.system())
+print("Computer Name:", platform.node())
+print("Operating System:", platform.platform())
+print("Python Version:", platform.python_version())
+print("Current Directory:", os.getcwd())`,
+output:`System: Windows
+Computer Name: MY-PC
+Operating System: Windows-...
+Python Version: 3.x.x
+Current Directory: [current folder]
+
+Actual values depend on the computer.`
+}
+]
+},
+{
+title:"Set 4",
+programs:[
+{
+title:"Employee Management — String Operations",
+aim:"Find the length, uppercase and reverse an employee's name.",
+explain:"len counts characters, upper converts the name to uppercase, and slicing [::-1] reverses the name.",
+mal:"len length കണ്ടെത്തുന്നു. upper capital letters ആക്കുന്നു. [::-1] പേര് reverse ചെയ്യുന്നു.",
+memory:"len = length. upper = capitals. [::-1] = reverse.",
+code:`name = input("Enter employee name: ")
+
+print("Length:", len(name))
+print("Uppercase:", name.upper())
+print("Reverse:", name[::-1])`,
+output:`Enter employee name: Rahul
+Length: 5
+Uppercase: RAHUL
+Reverse: luhaR`
+},
+{
+title:"File Handling — Exception Handling",
+aim:"Read and write a file safely using try-except.",
+explain:"The program writes text to a file and then reads it. The except block handles errors.",
+mal:"try block code പ്രവർത്തിപ്പിക്കുന്നു. Error വന്നാൽ except അത് handle ചെയ്യുന്നു.",
+memory:"w = write. r = read. try = attempt. except = handle error.",
+code:`try:
+    with open("sample.txt", "w") as file:
+        file.write("Hello Python")
+
+    with open("sample.txt", "r") as file:
+        print(file.read())
+
+except OSError as e:
+    print("File error:", e)`,
+output:`Hello Python`
+}
+]
+},
+{
+title:"Set 5",
+programs:[
+{
+title:"Student Marks — Dictionary",
+aim:"Store, update and retrieve student marks using a dictionary.",
+explain:"A dictionary stores key-value pairs. Student names are keys and marks are values.",
+mal:"Dictionary-ൽ student name key ആയും marks value ആയും സൂക്ഷിക്കുന്നു.",
+memory:"{} = dictionary. get() = retrieve. Assign a new value to update.",
+code:`marks = {
+    "Anu": 80,
+    "Rahul": 75
+}
+
+print("Original:", marks)
+
+marks["Anu"] = 95
+print("Updated:", marks)
+
+name = input("Enter student name: ")
+print("Marks:", marks.get(name, "Not found"))`,
+output:`Original: {'Anu': 80, 'Rahul': 75}
+Updated: {'Anu': 95, 'Rahul': 75}
+Enter student name: Anu
+Marks: 95`
+},
+{
+title:"Patient Registration — GUI",
+aim:"Create a GUI form to register patient details and display the data.",
+explain:"This program uses Tkinter labels, entry boxes, and a button to collect and display patient details.",
+mal:"Patient details input ചെയ്ത് button അമർത്തുമ്പോൾ വിവരങ്ങൾ കാണിക്കുന്നു.",
+memory:"get() reads entry-box text. mainloop() keeps the window open.",
+code:`import tkinter as tk
+from tkinter import messagebox
+
+def register():
+    name = name_box.get()
+    age = age_box.get()
+    disease = disease_box.get()
+
+    messagebox.showinfo(
+        "Patient",
+        f"Name: {name}\\nAge: {age}\\nDisease: {disease}"
+    )
+
+root = tk.Tk()
+root.title("Patient Registration")
+
+tk.Label(root, text="Name").pack()
+name_box = tk.Entry(root)
+name_box.pack()
+
+tk.Label(root, text="Age").pack()
+age_box = tk.Entry(root)
+age_box.pack()
+
+tk.Label(root, text="Disease").pack()
+disease_box = tk.Entry(root)
+disease_box.pack()
+
+tk.Button(root, text="Register",
+          command=register).pack()
+
+root.mainloop()`,
+output:`Enter the patient details in the GUI.
+Click Register to see the entered information.
+
+Requires Python with Tkinter installed.`
+}
+]
+},
+{
+title:"Set 6",
+programs:[
+{
+title:"Library Management — Book IDs",
+aim:"Use for and while loops to display book IDs from 1 to 10.",
+explain:"Both loops display ten book IDs. The while loop needs an increment to avoid running forever.",
+mal:"1 മുതൽ 10 വരെ book ID-കൾ രണ്ട് loops ഉപയോഗിച്ച് കാണിക്കുന്നു.",
+memory:"for uses range(1, 11). while uses a condition and i += 1.",
+code:`print("Using for loop:")
+for book_id in range(1, 11):
+    print("Book ID:", book_id)
+
+print("Using while loop:")
+book_id = 1
+while book_id <= 10:
+    print("Book ID:", book_id)
+    book_id += 1`,
+output:`Using for loop:
+Book ID: 1
+Book ID: 2
+...
+Book ID: 10
+
+Using while loop:
+Book ID: 1
+Book ID: 2
+...
+Book ID: 10`
+},
+{
+title:"Preliminary Digital Forensics — System Details",
+aim:"Collect basic system information for preliminary digital forensic analysis.",
+explain:"This script displays the operating system, computer name, machine architecture, Python version and current directory.",
+mal:"Forensic analysis തുടങ്ങുന്നതിന് മുമ്പ് basic system details ശേഖരിക്കുന്നു.",
+memory:"platform module collects computer details. os.getcwd() returns the working folder.",
+code:`import platform
+import os
+
+print("Computer:", platform.node())
+print("System:", platform.system())
+print("Release:", platform.release())
+print("Architecture:", platform.machine())
+print("Python:", platform.python_version())
+print("Directory:", os.getcwd())`,
+output:`Computer: MY-PC
+System: Windows
+Release: [system release]
+Architecture: [machine architecture]
+Python: 3.x.x
+Directory: [working directory]
+
+Actual values depend on the system.`
+}
+]
+},
+{
+title:"Set 7",
+programs:[
+{
+title:"Employee Management — Bonus Eligibility",
+aim:"Use if, elif and else to determine bonus eligibility based on years of service.",
+explain:"Employees with 10 or more years receive a 20% bonus rate. Employees with 5–9 years receive 10%. Others receive no bonus.",
+mal:"10 വർഷമോ അതിൽ കൂടുതലോ service ഉണ്ടെങ്കിൽ 20%; 5 മുതൽ 9 വർഷം വരെ 10%; അതിൽ കുറവാണെങ്കിൽ bonus ഇല്ല.",
+memory:"if checks the first condition, elif checks the next, else handles the remaining case.",
+code:`years = int(input("Years of service: "))
+
+if years < 0:
+    print("Invalid service years")
+elif years >= 10:
+    print("Bonus rate: 20%")
+elif years >= 5:
+    print("Bonus rate: 10%")
+else:
+    print("No bonus")`,
+output:`Years of service: 7
+Bonus rate: 10%
+
+Note: Bonus rates are example rules for this program.`
+},
+{
+title:"Digital Forensics — Error Log Analysis",
+aim:"Extract log lines containing error for digital forensic investigation.",
+explain:"The program reads the specified file and prints matching lines without changing the original log file.",
+mal:"Log file വായിച്ച് error ഉള്ള വരികൾ മാത്രം display ചെയ്യുന്നു.",
+memory:"for line in file checks each line. 'error' in line.lower() finds different letter cases.",
+code:`filename = input("Enter log file: ")
+
+try:
+    with open(filename, "r") as file:
+        for line in file:
+            if "error" in line.lower():
+                print(line.strip())
+
+except FileNotFoundError:
+    print("Log file not found")
+except OSError as e:
+    print("File error:", e)`,
+output:`Enter log file: system.log
+ERROR: Access denied
+File error: Disk read error`
+}
+]
+},
+{
+title:"Set 8",
+programs:[
+{
+title:"Railway Reservation — Passenger List",
+aim:"Add, remove and display passenger names using list operations.",
+explain:"The list stores passenger names. append adds a passenger and remove deletes a passenger.",
+mal:"Passenger names list-ൽ സൂക്ഷിക്കുന്നു. append ചേർക്കുകയും remove നീക്കുകയും ചെയ്യുന്നു.",
+memory:"append = add passenger. remove = remove passenger.",
+code:`passengers = ["Anu", "Rahul", "Maya"]
+
+print("Passengers:", passengers)
+
+passengers.append("Arun")
+print("After booking:", passengers)
+
+passengers.remove("Rahul")
+print("After cancellation:", passengers)`,
+output:`Passengers: ['Anu', 'Rahul', 'Maya']
+After booking: ['Anu', 'Rahul', 'Maya', 'Arun']
+After cancellation: ['Anu', 'Maya', 'Arun']`
+},
+{
+title:"File Handling — Safe Read and Write",
+aim:"Use exception handling for safe file reading and writing.",
+explain:"The program creates a file, writes text, then reads it. OSError handles common file-operation errors.",
+mal:"File read/write സമയത്ത് error വന്നാൽ try-except ഉപയോഗിച്ച് handle ചെയ്യുന്നു.",
+memory:"'w' writes. 'r' reads. with automatically closes the file.",
+code:`try:
+    with open("notes.txt", "w") as file:
+        file.write("Practical examination")
+
+    with open("notes.txt", "r") as file:
+        content = file.read()
+        print(content)
+
+except OSError as e:
+    print("File error:", e)`,
+output:`Practical examination`
+}
+]
+},
+{
+title:"Set 9",
+programs:[
+{
+title:"Hospital Management — Patient Name",
+aim:"Find the length, uppercase and reverse a patient's name.",
+explain:"The program reads the patient's name and uses len(), upper(), and [::-1] to manipulate the string.",
+mal:"Patient name-ന്റെ length, uppercase, reverse എന്നിവ കാണിക്കുന്നു.",
+memory:"len() = length. upper() = uppercase. [::-1] = reverse.",
+code:`name = input("Enter patient name: ")
+
+print("Length:", len(name))
+print("Uppercase:", name.upper())
+print("Reverse:", name[::-1])`,
+output:`Enter patient name: Meera
+Length: 5
+Uppercase: MEERA
+Reverse: areeM`
+},
+{
+title:"Employee Registration — GUI",
+aim:"Create a GUI form to register employee details and display them.",
+explain:"The form collects an employee's name, ID and department. Clicking Register shows the entered data.",
+mal:"Employee name, ID, department എന്നിവ form-ൽ നൽകി Register അമർത്തുന്നു.",
+memory:"Entry.get() reads user input. messagebox.showinfo() displays the details.",
+code:`import tkinter as tk
+from tkinter import messagebox
+
+def register():
+    name = name_box.get()
+    emp_id = id_box.get()
+    dept = dept_box.get()
+
+    messagebox.showinfo(
+        "Employee Details",
+        f"Name: {name}\\nID: {emp_id}\\nDepartment: {dept}"
+    )
+
+root = tk.Tk()
+root.title("Employee Registration")
+
+tk.Label(root, text="Employee Name").pack()
+name_box = tk.Entry(root)
+name_box.pack()
+
+tk.Label(root, text="Employee ID").pack()
+id_box = tk.Entry(root)
+id_box.pack()
+
+tk.Label(root, text="Department").pack()
+dept_box = tk.Entry(root)
+dept_box.pack()
+
+tk.Button(root, text="Register",
+          command=register).pack()
+
+root.mainloop()`,
+output:`A registration window opens.
+Enter employee details and click Register.
+
+Requires Python with Tkinter installed.`
+}
+]
+},
+{
+title:"Set 10",
+programs:[
+{
+title:"Employee Management — Salary Dictionary",
+aim:"Store, update and retrieve employee salaries using a dictionary.",
+explain:"The dictionary stores employee names and salaries. Assigning a new value updates a salary, and get() retrieves it.",
+mal:"Employee name key ആയും salary value ആയും സൂക്ഷിക്കുന്നു. Dictionary ഉപയോഗിച്ച് salary update ചെയ്യാം.",
+memory:"Key = employee name. Value = salary. get() retrieves the salary.",
+code:`salaries = {
+    "Anu": 25000,
+    "Rahul": 30000
+}
+
+print("Original:", salaries)
+
+salaries["Anu"] = 28000
+print("Updated:", salaries)
+
+name = input("Enter employee name: ")
+print("Salary:", salaries.get(name, "Not found"))`,
+output:`Original: {'Anu': 25000, 'Rahul': 30000}
+Updated: {'Anu': 28000, 'Rahul': 30000}
+Enter employee name: Anu
+Salary: 28000`
+},
+{
+title:"Digital Forensic Investigation — Log Analysis",
+aim:"Analyse a log file, extract lines containing error and display the results.",
+explain:"The program reads a log file one line at a time. It displays matching lines and handles missing files and other file errors.",
+mal:"Log file-ൽ error എന്ന വാക്ക് ഉള്ള വരികൾ കണ്ടെത്തി display ചെയ്യുന്നു.",
+memory:"open() opens the file. lower() ignores case. strip() removes line-ending whitespace.",
+code:`filename = input("Enter log file name: ")
+
+try:
+    with open(filename, "r") as file:
+        found = False
+
+        for line in file:
+            if "error" in line.lower():
+                print(line.strip())
+                found = True
+
+        if not found:
+            print("No error lines found")
+
+except FileNotFoundError:
+    print("Log file not found")
+except OSError as e:
+    print("File error:", e)`,
+output:`Enter log file name: system.log
+ERROR: Invalid login
+Disk error detected
+
+The output depends on the contents of the log file.`
+}
+]
 }
 ];
 
-const completed = new Set();
-const root = document.getElementById("programs");
+let selectedSet = 0;
 
-function renderPrograms() {
-    root.innerHTML = data.map((p,i) => `
-    <article class="card" data-search="${(p.title+" "+p.aim+" "+p.concept+" "+p.easy+" "+p.malayalam).toLowerCase()}">
-        <div class="cardhead">
-            <span class="number">PROGRAM ${String(i+1).padStart(2,"0")} / 10</span>
-            <h2>${p.title}</h2>
-            <p><strong>Aim:</strong> ${p.aim}</p>
-        </div>
-        <div class="body">
-            <div class="explain">
-                <strong>Simple Explanation</strong><br>
-                ${p.easy}
-            </div>
-            <p><strong>Concept:</strong> ${p.concept}</p>
-            <div class="memory"><strong>Malayalam hint:</strong><br>${p.malayalam}<br><br><strong>Remember:</strong> ${p.memory}</div>
-            <div class="codehead">
-                <strong>Python Code</strong>
-                <button class="btn" onclick="copyCode(${i},this)">📋 Copy Code</button>
-            </div>
-            <pre id="code${i}"></pre>
-            <strong>Sample Output</strong>
-            <div class="output"></div>
-            <div class="actions">
-                <button class="btn" onclick="toggleCode(${i},this)">Hide Code</button>
-                <button class="btn" onclick="copyCode(${i},this)">Copy for Revision</button>
-            </div>
-            <label class="check">
-                <input type="checkbox" onchange="markDone(${i},this)">
-                I have studied this program
-            </label>
-        </div>
-    </article>`).join("");
-
-    data.forEach((p,i) => {
-        document.getElementById("code"+i).textContent = p.code;
-        root.children[i].querySelector(".output").textContent = p.output;
-    });
+function escapeHTML(text) {
+ return String(text).replace(/[&<>"']/g, c => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[c]));
 }
 
-function copyCode(i,button) {
-    const code = data[i].code;
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(code).then(() => {
-            const old = button.textContent;
-            button.textContent = "✓ Copied!";
-            setTimeout(() => button.textContent = old,1200);
-        }).catch(() => fallbackCopy(code));
-    } else {
-        fallbackCopy(code);
-    }
+function selectSet(n) {
+ selectedSet = n;
+ document.querySelectorAll("#setnav button").forEach((b,i)=>{
+  b.classList.toggle("active",i===n);
+ });
+ render();
 }
 
-function fallbackCopy(text) {
-    const area = document.createElement("textarea");
-    area.value = text;
-    document.body.appendChild(area);
-    area.select();
-    try { document.execCommand("copy"); alert("Code copied!"); }
-    catch(e) { alert("Select and copy the code manually."); }
-    area.remove();
+function renderNav() {
+ const nav = document.getElementById("setnav");
+ nav.innerHTML = `<button class="btn active" onclick="selectSet(0)">All Sets</button>` +
+ sets.map((s,i)=>
+ `<button class="btn" onclick="selectSet(${i+1})">${s.title}</button>`
+ ).join("");
 }
 
-function toggleCode(i,button) {
-    const pre = document.getElementById("code"+i);
-    pre.classList.toggle("hidden");
-    button.textContent = pre.classList.contains("hidden") ? "Show Code" : "Hide Code";
+function render() {
+ const term = document.getElementById("search").value.toLowerCase();
+ const container = document.getElementById("content");
+ const list = sets.map((set,si)=>({...set,index:si}))
+ .filter(set=>selectedSet===0 || set.index===selectedSet-1);
+
+ let html = "";
+ list.forEach(set=>{
+  const matches = set.programs.map((p,pi)=>({...p,pi}))
+   .filter(p=>(set.title+" "+p.title+" "+p.aim+" "+p.explain+" "+p.malayalam+" "+p.code).toLowerCase().includes(term));
+
+  if(!matches.length) return;
+
+  html += `<section class="setcard">
+   <div class="sethead">
+    <span class="badge">PRACTICAL ${set.index+1} / 10</span>
+    <h2>${set.title}</h2>
+    <p class="muted">${matches.length} program${matches.length>1?"s":""}</p>
+   </div>`;
+
+  matches.forEach((p)=>{
+   const id = "code-"+set.index+"-"+p.pi;
+   html += `<article class="program">
+    <span class="badge">PROGRAM ${p.pi+1}</span>
+    <h3>${p.title}</h3>
+    <p><strong>Aim:</strong> ${p.aim}</p>
+    <div class="explain">
+     <strong>Simple Explanation</strong><br>${p.explain}
+    </div>
+    <div class="memory">
+     <strong>Malayalam Hint / Memory Trick</strong><br>${p.malayalam}
+     <br><br><strong>Remember:</strong> ${p.memory}
+    </div>
+    <div class="codehead">
+     <strong>Python Code</strong>
+     <button class="btn" onclick="copyCode('${id}',this)">Copy Code</button>
+    </div>
+    <pre id="${id}">${escapeHTML(p.code)}</pre>
+    <strong>Sample Output</strong>
+    <div class="output">${escapeHTML(p.output)}</div>
+    <div class="actions">
+     <button class="btn" onclick="toggleCode('${id}',this)">Hide Code</button>
+     <button class="btn" onclick="copyCode('${id}',this)">Copy for Revision</button>
+    </div>
+   </article>`;
+  });
+  html += `</section>`;
+ });
+
+ container.innerHTML = html || "<p>No matching programs. Try another search.</p>";
 }
 
-function markDone(i,checkbox) {
-    if (checkbox.checked) completed.add(i);
-    else completed.delete(i);
-    updateProgress();
+async function copyCode(id,button) {
+ const code = document.getElementById(id).textContent;
+ try {
+  if(navigator.clipboard && window.isSecureContext) {
+   await navigator.clipboard.writeText(code);
+  } else {
+   throw new Error("Clipboard unavailable");
+  }
+  const old = button.textContent;
+  button.textContent = "Copied!";
+  setTimeout(()=>button.textContent=old,1200);
+ } catch(e) {
+  const area=document.createElement("textarea");
+  area.value=code;
+  document.body.appendChild(area);
+  area.select();
+  try {
+   document.execCommand("copy");
+   alert("Code copied!");
+  } catch(err) {
+   alert("Please select and copy the code manually.");
+  }
+  area.remove();
+ }
 }
 
-function updateProgress() {
-    document.getElementById("doneCount").textContent = completed.size+"/10";
-    document.getElementById("progress").style.width = (completed.size/10*100)+"%";
-}
-
-function resetProgress() {
-    if (!confirm("Reset all study progress?")) return;
-    completed.clear();
-    document.querySelectorAll(".check input").forEach(x => x.checked=false);
-    updateProgress();
-}
-
-function filterCards() {
-    const term = document.getElementById("search").value.toLowerCase();
-    document.querySelectorAll(".card").forEach(card => {
-        card.classList.toggle("hidden",!card.dataset.search.includes(term));
-    });
-}
-
-function showAll() {
-    document.getElementById("search").value="";
-    filterCards();
-    document.getElementById("quizPanel").style.display="none";
-    scrollToTop();
+function toggleCode(id,button) {
+ const pre=document.getElementById(id);
+ pre.classList.toggle("hidden");
+ button.textContent=pre.classList.contains("hidden")?"Show Code":"Hide Code";
 }
 
 function scrollToTop() {
-    window.scrollTo({top:0,behavior:"smooth"});
+ window.scrollTo({top:0,behavior:"smooth"});
 }
 
-const quiz = [
-    {q:"Which statement checks a condition?",o:["for","if","def","import"],a:1},
-    {q:"Which function generates a number sequence?",o:["input()","print()","range()","len()"],a:2},
-    {q:"Which method adds an item to a list?",o:["append()","upper()","strip()","get()"],a:0},
-    {q:"Which function counts characters?",o:["range()","len()","add()","type()"],a:1},
-    {q:"A dictionary stores data as...",o:["Only numbers","Key-value pairs","Only strings","Files"],a:1},
-    {q:"Which keyword defines a function?",o:["if","try","def","for"],a:2},
-    {q:"Which block handles exceptions?",o:["else","except","while","return"],a:1},
-    {q:"Which library is used for the patient GUI?",o:["Tkinter","Counter","Random","Math"],a:0},
-    {q:"Which module gives platform information?",o:["platform","turtle","json","time"],a:0},
-    {q:"Which method removes surrounding whitespace?",o:["append()","upper()","strip()","range()"],a:2}
-];
-
-let qi=0, score=0, answered=false;
-
-function toggleQuiz() {
-    const panel=document.getElementById("quizPanel");
-    panel.style.display=panel.style.display==="block"?"none":"block";
-    if(panel.style.display==="block") {
-        renderQuestion();
-        panel.scrollIntoView({behavior:"smooth"});
-    }
-}
-
-function renderQuestion() {
-    answered=false;
-    document.getElementById("feedback").textContent="";
-    document.getElementById("nextBtn").textContent=qi===quiz.length-1?"See Result →":"Next Question →";
-    const q=quiz[qi];
-    document.getElementById("quizContent").innerHTML=`
-        <p class="small">QUESTION ${qi+1} OF ${quiz.length} • SCORE ${score}</p>
-        <h3>${q.q}</h3>
-        ${q.o.map((o,i)=>`<button class="option" onclick="chooseAnswer(${i},this)">${String.fromCharCode(65+i)}. ${o}</button>`).join("")}
-    `;
-}
-
-function chooseAnswer(i,button) {
-    if(answered) return;
-    answered=true;
-    const q=quiz[qi];
-    document.querySelectorAll(".option")[q.a].classList.add("correct");
-    if(i===q.a) {
-        score++;
-        document.getElementById("feedback").textContent="Correct! Well done.";
-    } else {
-        button.classList.add("wrong");
-        document.getElementById("feedback").textContent="Not quite. The correct answer is "+q.o[q.a]+".";
-    }
-}
-
-function nextQuestion() {
-    if(!answered) {
-        document.getElementById("feedback").textContent="Choose an answer first.";
-        return;
-    }
-    if(qi<quiz.length-1) {
-        qi++;
-        renderQuestion();
-    } else {
-        document.getElementById("quizContent").innerHTML=
-            `<h3>Your Score: ${score}/${quiz.length}</h3>
-             <p>${score>=8?"Excellent!":"Good effort! Revise the programs and try again."}</p>`;
-        document.getElementById("feedback").textContent="Quiz completed.";
-        document.getElementById("nextBtn").style.display="none";
-    }
-}
-
-function restartQuiz() {
-    qi=0; score=0; answered=false;
-    document.getElementById("nextBtn").style.display="inline-block";
-    renderQuestion();
-}
-
-renderPrograms();
+renderNav();
+render();
 </script>
 
 </body>
-  </html>
+    </html>
