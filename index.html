@@ -3,99 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Python Practical Sets 1–10</title>
+<title>Java Practical Master | 10 Sets</title>
 
 <style>
 :root{
- --bg:#080d18;--card:#111a2b;--inner:#19243a;
- --text:#f1f5ff;--muted:#a6b2c9;--accent:#818cff;
- --green:#5ce1a3;--border:#293651;
+  --bg:#080d18;
+  --card:#111a2b;
+  --panel:#19243a;
+  --text:#f1f5ff;
+  --muted:#a6b2c9;
+  --accent:#818cff;
+  --green:#5ce1a3;
+  --border:#293651;
 }
 *{box-sizing:border-box}
 body{
- margin:0;background:var(--bg);color:var(--text);
- font-family:Arial,sans-serif;line-height:1.6
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
 }
 header{
- padding:28px 16px;
- background:linear-gradient(135deg,#172b50,#38235b,#0c1424);
- border-bottom:1px solid var(--border)
+  padding:32px 16px;
+  background:linear-gradient(135deg,#142746,#352259,#0b1324);
+  border-bottom:1px solid var(--border);
 }
-.container{max-width:1050px;margin:auto}
-h1{font-size:clamp(27px,5vw,42px);margin:12px 0}
-.muted{color:var(--muted)}
+.container{max-width:1100px;margin:auto}
+h1{font-size:clamp(28px,5vw,44px);margin:10px 0}
+.muted,.small{color:var(--muted)}
 nav{
- position:sticky;top:0;z-index:5;background:#080d18f2;
- border-bottom:1px solid var(--border);padding:10px
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#080d18f5;
+  border-bottom:1px solid var(--border);
+  padding:10px;
 }
 .navinner{
- max-width:1050px;margin:auto;display:flex;gap:8px;flex-wrap:wrap
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
 }
 button,input{font:inherit}
 button{cursor:pointer}
 .btn{
- padding:9px 13px;border-radius:9px;color:var(--text);
- background:var(--inner);border:1px solid var(--border)
+  padding:9px 13px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:var(--panel);
+  color:white;
 }
-.btn.primary{background:var(--accent);color:white}
-main{max-width:1050px;margin:auto;padding:18px 14px 45px}
+.btn.primary{
+  background:var(--accent);
+  border-color:var(--accent);
+}
+.btn.green{
+  background:#176344;
+  border-color:#247d58;
+}
+main{max-width:1100px;margin:auto;padding:20px 14px 45px}
 .search{
- width:100%;padding:14px;background:var(--card);color:white;
- border:1px solid var(--border);border-radius:11px;outline:none
+  width:100%;
+  padding:14px;
+  background:var(--card);
+  color:white;
+  border:1px solid var(--border);
+  border-radius:11px;
+  outline:none;
 }
 .setnav{
- display:flex;gap:7px;flex-wrap:wrap;margin:17px 0
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin:17px 0;
 }
-.setnav button.active{background:var(--accent);border-color:var(--accent)}
+.setnav button.active{background:var(--accent)}
 .setcard{
- background:var(--card);border:1px solid var(--border);
- border-radius:15px;margin:18px 0;overflow:hidden
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:15px;
+  margin:18px 0;
+  overflow:hidden;
 }
 .sethead{padding:17px 18px;background:#ffffff04}
+.sethead h2{margin:5px 0}
 .badge{
- color:var(--green);font-size:12px;font-weight:bold;
- letter-spacing:1px
+  color:var(--green);
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:.7px;
 }
-.sethead h2{margin:5px 0;font-size:23px}
-.program{padding:18px;border-top:1px solid var(--border)}
-.program h3{margin:0 0 9px;font-size:18px}
-.explain{
- background:#162a32;border-left:3px solid var(--green);
- padding:12px;border-radius:7px;margin:12px 0
+.program{
+  padding:18px;
+  border-top:1px solid var(--border);
 }
-.memory{background:#292440;padding:12px;border-radius:8px;margin:12px 0}
+.program h3{margin:0 0 10px;font-size:19px}
+.box{
+  padding:12px;
+  border-radius:8px;
+  margin:12px 0;
+}
+.aim{background:#1b2740}
+.algorithm{
+  background:#152d26;
+  border-left:3px solid var(--green);
+}
+.steps{
+  background:#22203a;
+  border-left:3px solid var(--accent);
+}
+.memory{background:#292440}
+ol,ul{padding-left:24px}
+li{margin:4px 0}
 .codehead{
- display:flex;justify-content:space-between;align-items:center;
- gap:8px;flex-wrap:wrap
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
 }
 pre{
- white-space:pre;overflow-x:auto;background:#070b13;
- border:1px solid #293651;border-radius:9px;padding:14px;
- color:#b9d7ff;font-size:13px;line-height:1.65
+  white-space:pre;
+  overflow-x:auto;
+  background:#060a12;
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:14px;
+  color:#c0d9ff;
+  font-size:13px;
+  line-height:1.7;
 }
 .output{
- white-space:pre-wrap;overflow-wrap:anywhere;background:#0c211c;
- border:1px solid #23513f;border-radius:9px;padding:12px;
- color:#a5f3cf;font-family:monospace;font-size:13px
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  background:#0c211c;
+  border:1px solid #23513f;
+  border-radius:9px;
+  padding:13px;
+  color:#a5f3cf;
+  font-family:monospace;
+  font-size:13px;
 }
-.small{font-size:13px;color:var(--muted)}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .hidden{display:none!important}
-footer{
- text-align:center;color:var(--muted);
- padding:25px;border-top:1px solid var(--border)
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:10px;
+  margin:20px 0;
 }
+.stat{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:15px;
+}
+.stat strong{font-size:25px;display:block;color:var(--green)}
+footer{text-align:center;padding:25px;color:var(--muted)}
 @media(max-width:500px){
- .sethead h2{font-size:20px}
- pre{font-size:12px;padding:11px}
+  pre{font-size:12px;padding:10px}
+  .program{padding:13px}
 }
 @media print{
- nav,.search,.setnav,.actions,footer{display:none!important}
- body{background:white;color:black}
- .setcard{break-inside:avoid;border:1px solid #aaa;background:white}
- .program{break-inside:avoid}
- pre,.output,.explain,.memory{color:black;background:#f5f5f5}
- .setcard,.program{border-color:#aaa}
+  nav,.search,.setnav,.actions,footer{display:none!important}
+  body{background:white;color:black}
+  .setcard{break-inside:avoid;background:white;border:1px solid #aaa}
+  .program{break-inside:avoid;border-color:#aaa}
+  pre,.output,.box{color:black;background:#f4f4f4}
 }
 </style>
 </head>
@@ -104,128 +181,126 @@ footer{
 
 <header>
 <div class="container">
-<span class="badge">PYTHON PRACTICAL EXAM</span>
-<h1>Python Practical Master</h1>
-<p class="muted">
-Sets 1–10 · 20 programs · Simple English · Malayalam hints ·
-Full code · Sample outputs
-</p>
+  <span class="badge">JAVA PRACTICAL EXAM</span>
+  <h1>Java Practical Master</h1>
+  <p class="muted">
+    10 Sets · 10 Programs · Algorithms · Steps · Java Code · Output
+  </p>
+  <p class="muted">
+    Beginner-friendly explanations with Malayalam memory hints.
+  </p>
 </div>
 </header>
 
 <nav>
 <div class="navinner">
-<button class="btn primary" onclick="selectSet(0)">All Sets</button>
-<button class="btn" onclick="window.print()">Print / Save PDF</button>
-<button class="btn" onclick="scrollToTop()">Home ↑</button>
+  <button class="btn primary" onclick="selectSet(0)">All Sets</button>
+  <button class="btn green" onclick="downloadAllZip()">Download All Java ZIP</button>
+  <button class="btn" onclick="downloadAllText()">Download All Code TXT</button>
+  <button class="btn" onclick="window.print()">Print / Save PDF</button>
+  <button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Home ↑</button>
 </div>
 </nav>
 
 <main>
+
 <input id="search" class="search"
-placeholder="Search programs: marks, patient, loop, list, file..."
+placeholder="Search programs: marks, loops, GUI, HashMap, files..."
 oninput="render()">
 
-<div class="setnav" id="setnav"></div>
+<div class="stats">
+  <div class="stat"><strong>10</strong><span>Practical Sets</span></div>
+  <div class="stat"><strong>10</strong><span>Java Programs</span></div>
+  <div class="stat"><strong>100%</strong><span>Java Examples</span></div>
+</div>
+
+<div id="setnav" class="setnav"></div>
 
 <p class="small">
-Study tip: First read the aim, then understand the code, and finally
-practise writing it without looking.
+How to use: Read the aim, memorise the algorithm, study the code,
+then practise writing the code without looking.
 </p>
 
 <div id="content"></div>
 </main>
 
-<footer>
-Python Practical Master · Study one program at a time
-</footer>
+<footer>Java Practical Master · Learn · Practise · Revise</footer>
 
 <script>
-const sets = [
-{
-title:"Set 1",
-programs:[
-{
-title:"Student Management — Pass or Fail",
-aim:"Use if, elif and else to determine whether a student passes or fails based on marks.",
-explain:"The program reads marks. Marks of 40 or above mean Pass. Marks from 0 to 39 mean Fail. Invalid marks are rejected.",
-mal:"if, elif, else ഉപയോഗിച്ച് marks പരിശോധിക്കുന്നു. 40 അല്ലെങ്കിൽ അതിൽ കൂടുതൽ Pass; അതിൽ കുറവാണെങ്കിൽ Fail.",
-memory:"if = first condition. elif = another condition. else = remaining case.",
-code:`marks = int(input("Enter marks: "))
+const programs = [
 
-if marks < 0 or marks > 100:
-    print("Invalid marks")
-elif marks >= 40:
-    print("Pass")
-else:
-    print("Fail")`,
+{
+set:1,
+title:"Student Management — Pass or Fail",
+file:"Set01_StudentPassFail.java",
+aim:"Use conditional statements to determine whether a student passes or fails based on marks.",
+algorithm:[
+"Start the program.",
+"Read the student's marks.",
+"If marks are below 0 or above 100, display Invalid Marks.",
+"Otherwise, if marks are 40 or more, display Pass.",
+"Otherwise, display Fail.",
+"Stop the program."
+],
+steps:"1. Create a Scanner object. 2. Read marks. 3. Check the conditions using if, else if and else. 4. Display the result.",
+mal:"if, else if, else ഉപയോഗിച്ച് marks പരിശോധിക്കുന്നു. 40 അല്ലെങ്കിൽ അതിൽ കൂടുതൽ Pass; 40-ൽ കുറവാണെങ്കിൽ Fail.",
+memory:"if = first condition; else if = next condition; else = remaining case.",
+code:`import java.util.Scanner;
+
+public class Set01_StudentPassFail {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter marks: ");
+        int marks = sc.nextInt();
+
+        if (marks < 0 || marks > 100) {
+            System.out.println("Invalid marks");
+        } else if (marks >= 40) {
+            System.out.println("Pass");
+        } else {
+            System.out.println("Fail");
+        }
+
+        sc.close();
+    }
+}`,
 output:`Enter marks: 75
 Pass`
 },
+
 {
-title:"Patient Registration — GUI",
-aim:"Create a GUI form to register patient details and display the entered data.",
-explain:"Tkinter creates a window. Entry boxes accept patient details. Clicking Register displays the details.",
-mal:"Tkinter ഉപയോഗിച്ച് patient details നൽകാനുള്ള form ഉണ്ടാക്കുന്നു.",
-memory:"Label = text. Entry = input box. Button = action.",
-code:`import tkinter as tk
-from tkinter import messagebox
-
-def register():
-    name = name_box.get()
-    age = age_box.get()
-    disease = disease_box.get()
-
-    messagebox.showinfo(
-        "Patient Details",
-        f"Name: {name}\\nAge: {age}\\nDisease: {disease}"
-    )
-
-root = tk.Tk()
-root.title("Patient Registration")
-
-tk.Label(root, text="Patient Name").pack()
-name_box = tk.Entry(root)
-name_box.pack()
-
-tk.Label(root, text="Age").pack()
-age_box = tk.Entry(root)
-age_box.pack()
-
-tk.Label(root, text="Disease").pack()
-disease_box = tk.Entry(root)
-disease_box.pack()
-
-tk.Button(root, text="Register",
-          command=register).pack()
-
-root.mainloop()`,
-output:`A window opens.
-Enter patient name, age and disease.
-Click Register to display the details.
-
-Requires Python with Tkinter installed.`
-}
-]
-},
-{
-title:"Set 2",
-programs:[
-{
+set:2,
 title:"Railway Reservation — Seat Numbers",
-aim:"Use for and while loops to display seat numbers from 1 to 10.",
-explain:"The for loop displays numbers using range. The while loop repeats until the number becomes greater than 10.",
-mal:"for, while എന്നീ loops ഉപയോഗിച്ച് seat numbers 1 മുതൽ 10 വരെ കാണിക്കുന്നു.",
-memory:"range(1, 11) gives 1 to 10. i += 1 increases the number.",
-code:`print("Using for loop:")
-for seat in range(1, 11):
-    print("Seat:", seat)
+file:"Set02_SeatNumbers.java",
+aim:"Display seat numbers from 1 to 10 using for and while loops.",
+algorithm:[
+"Start the program.",
+"Use a for loop from 1 to 10 and display each seat number.",
+"Set the while-loop counter to 1.",
+"While the counter is 10 or less, display it and increment the counter.",
+"Stop the program."
+],
+steps:"1. Initialise the for loop. 2. Print the seat number. 3. Initialise the while counter. 4. Print and increment it.",
+mal:"for, while എന്നീ loops ഉപയോഗിച്ച് 1 മുതൽ 10 വരെ seat numbers കാണിക്കുന്നു.",
+memory:"for loop: for (int i=1; i<=10; i++). while loop: condition + increment.",
+code:`public class Set02_SeatNumbers {
+    public static void main(String[] args) {
+        System.out.println("Using for loop:");
 
-print("Using while loop:")
-seat = 1
-while seat <= 10:
-    print("Seat:", seat)
-    seat += 1`,
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Seat: " + i);
+        }
+
+        System.out.println("Using while loop:");
+
+        int i = 1;
+        while (i <= 10) {
+            System.out.println("Seat: " + i);
+            i++;
+        }
+    }
+}`,
 output:`Using for loop:
 Seat: 1
 Seat: 2
@@ -239,575 +314,618 @@ Seat: 2
 ...
 Seat: 10`
 },
+
 {
-title:"Digital Forensics — Log Error Analysis",
-aim:"Read a log file and display lines containing the word error.",
-explain:"The program reads each line, converts it to lowercase, and prints lines containing error. Create sample.log first.",
-mal:"Log file-ൽ error ഉള്ള വരികൾ മാത്രം കണ്ടെത്തി കാണിക്കുന്നു.",
-memory:"lower() ignores uppercase/lowercase differences. strip() removes the newline at the end.",
-code:`filename = input("Enter log file name: ")
-
-try:
-    with open(filename, "r") as file:
-        for line in file:
-            if "error" in line.lower():
-                print(line.strip())
-
-except FileNotFoundError:
-    print("File not found")`,
-output:`Example file sample.log:
-INFO: System started
-ERROR: Login failed
-Warning: Low memory
-Disk error detected
-
-Enter log file name: sample.log
-
-ERROR: Login failed
-Disk error detected`
-}
-]
-},
-{
-title:"Set 3",
-programs:[
-{
+set:3,
 title:"Library Management — Book List",
+file:"Set03_BookList.java",
 aim:"Add, remove and display book titles using list operations.",
-explain:"A list stores multiple book titles. append adds a book, remove deletes a book, and print displays the list.",
-mal:"List-ൽ പുസ്തകങ്ങളുടെ പേരുകൾ സൂക്ഷിക്കുന്നു. append ചേർക്കാനും remove നീക്കാനും ഉപയോഗിക്കുന്നു.",
-memory:"append = add. remove = delete. [] = list.",
-code:`books = ["Python", "Java", "C++"]
+algorithm:[
+"Start the program.",
+"Create an ArrayList containing book titles.",
+"Display the original list.",
+"Add a new title using add().",
+"Remove a title using remove().",
+"Display the updated list.",
+"Stop the program."
+],
+steps:"1. Import ArrayList. 2. Create the list. 3. Add a book. 4. Remove a book. 5. Display the results.",
+mal:"ArrayList ഉപയോഗിച്ച് book titles സൂക്ഷിക്കുന്നു. add() ചേർക്കാനും remove() നീക്കാനും ഉപയോഗിക്കുന്നു.",
+memory:"add() = add; remove() = delete; System.out.println() = display.",
+code:`import java.util.ArrayList;
 
-print("Books:", books)
+public class Set03_BookList {
+    public static void main(String[] args) {
+        ArrayList<String> books = new ArrayList<>();
 
-books.append("HTML")
-print("After adding:", books)
+        books.add("Python");
+        books.add("Java");
+        books.add("C++");
 
-books.remove("Java")
-print("After removing:", books)`,
-output:`Books: ['Python', 'Java', 'C++']
-After adding: ['Python', 'Java', 'C++', 'HTML']
-After removing: ['Python', 'C++', 'HTML']`
+        System.out.println("Books: " + books);
+
+        books.add("HTML");
+        System.out.println("After adding: " + books);
+
+        books.remove("Java");
+        System.out.println("After removing: " + books);
+    }
+}`,
+output:`Books: [Python, Java, C++]
+After adding: [Python, Java, C++, HTML]
+After removing: [Python, C++, HTML]`
 },
-{
-title:"Digital Forensics — System Information",
-aim:"Collect and display system details for forensic analysis.",
-explain:"The platform module provides computer and operating-system information. The os module gives the current directory.",
-mal:"Computer name, operating system, Python version എന്നിവ കാണിക്കുന്നു.",
-memory:"platform = system details. os.getcwd() = current directory.",
-code:`import platform
-import os
 
-print("System:", platform.system())
-print("Computer Name:", platform.node())
-print("Operating System:", platform.platform())
-print("Python Version:", platform.python_version())
-print("Current Directory:", os.getcwd())`,
-output:`System: Windows
-Computer Name: MY-PC
-Operating System: Windows-...
-Python Version: 3.x.x
-Current Directory: [current folder]
-
-Actual values depend on the computer.`
-}
-]
-},
 {
-title:"Set 4",
-programs:[
-{
+set:4,
 title:"Employee Management — String Operations",
-aim:"Find the length, uppercase and reverse an employee's name.",
-explain:"len counts characters, upper converts the name to uppercase, and slicing [::-1] reverses the name.",
-mal:"len length കണ്ടെത്തുന്നു. upper capital letters ആക്കുന്നു. [::-1] പേര് reverse ചെയ്യുന്നു.",
-memory:"len = length. upper = capitals. [::-1] = reverse.",
-code:`name = input("Enter employee name: ")
+file:"Set04_StringOperations.java",
+aim:"Find the length, convert to uppercase and reverse an employee's name.",
+algorithm:[
+"Start the program.",
+"Read the employee's name.",
+"Find its length using length().",
+"Convert the name to uppercase using toUpperCase().",
+"Reverse the name using StringBuilder.",
+"Display the results and stop."
+],
+steps:"1. Read a name. 2. Use length(). 3. Use toUpperCase(). 4. Use StringBuilder.reverse().",
+mal:"length() അക്ഷരങ്ങളുടെ എണ്ണം കണ്ടെത്തുന്നു. toUpperCase() capital letters ആക്കുന്നു. reverse() പേര് തിരിച്ചെഴുതുന്നു.",
+memory:"length = size; toUpperCase = capitals; reverse = reverse text.",
+code:`import java.util.Scanner;
 
-print("Length:", len(name))
-print("Uppercase:", name.upper())
-print("Reverse:", name[::-1])`,
+public class Set04_StringOperations {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter employee name: ");
+        String name = sc.nextLine();
+
+        System.out.println("Length: " + name.length());
+        System.out.println("Uppercase: " + name.toUpperCase());
+
+        String reversed = new StringBuilder(name)
+                              .reverse().toString();
+
+        System.out.println("Reverse: " + reversed);
+
+        sc.close();
+    }
+}`,
 output:`Enter employee name: Rahul
 Length: 5
 Uppercase: RAHUL
 Reverse: luhaR`
 },
+
 {
-title:"File Handling — Exception Handling",
-aim:"Read and write a file safely using try-except.",
-explain:"The program writes text to a file and then reads it. The except block handles errors.",
-mal:"try block code പ്രവർത്തിപ്പിക്കുന്നു. Error വന്നാൽ except അത് handle ചെയ്യുന്നു.",
-memory:"w = write. r = read. try = attempt. except = handle error.",
-code:`try:
-    with open("sample.txt", "w") as file:
-        file.write("Hello Python")
+set:5,
+title:"Student Marks — Dictionary Operations",
+file:"Set05_StudentMarks.java",
+aim:"Store, update and retrieve student marks using a Java HashMap.",
+algorithm:[
+"Start the program.",
+"Create a HashMap for student names and marks.",
+"Store initial marks using put().",
+"Update a student's marks using put() again.",
+"Retrieve marks using get().",
+"Stop the program."
+],
+steps:"1. Import HashMap. 2. Create the map. 3. Store marks. 4. Update marks. 5. Retrieve and display marks.",
+mal:"Java-യിൽ Python dictionary-ന് സമാനമായി HashMap ഉപയോഗിക്കുന്നു. put() store/update ചെയ്യുന്നു; get() marks കണ്ടെത്തുന്നു.",
+memory:"put() = store/update; get() = retrieve.",
+code:`import java.util.HashMap;
+import java.util.Scanner;
 
-    with open("sample.txt", "r") as file:
-        print(file.read())
+public class Set05_StudentMarks {
+    public static void main(String[] args) {
+        HashMap<String, Integer> marks = new HashMap<>();
 
-except OSError as e:
-    print("File error:", e)`,
-output:`Hello Python`
-}
-]
-},
-{
-title:"Set 5",
-programs:[
-{
-title:"Student Marks — Dictionary",
-aim:"Store, update and retrieve student marks using a dictionary.",
-explain:"A dictionary stores key-value pairs. Student names are keys and marks are values.",
-mal:"Dictionary-ൽ student name key ആയും marks value ആയും സൂക്ഷിക്കുന്നു.",
-memory:"{} = dictionary. get() = retrieve. Assign a new value to update.",
-code:`marks = {
-    "Anu": 80,
-    "Rahul": 75
-}
+        marks.put("Anu", 80);
+        marks.put("Rahul", 75);
 
-print("Original:", marks)
+        System.out.println("Original: " + marks);
 
-marks["Anu"] = 95
-print("Updated:", marks)
+        marks.put("Anu", 95);
+        System.out.println("Updated: " + marks);
 
-name = input("Enter student name: ")
-print("Marks:", marks.get(name, "Not found"))`,
-output:`Original: {'Anu': 80, 'Rahul': 75}
-Updated: {'Anu': 95, 'Rahul': 75}
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter student name: ");
+        String name = sc.nextLine();
+
+        if (marks.containsKey(name)) {
+            System.out.println("Marks: " + marks.get(name));
+        } else {
+            System.out.println("Student not found");
+        }
+
+        sc.close();
+    }
+}`,
+output:`Original: {Anu=80, Rahul=75}
+Updated: {Anu=95, Rahul=75}
 Enter student name: Anu
 Marks: 95`
 },
+
 {
-title:"Patient Registration — GUI",
-aim:"Create a GUI form to register patient details and display the data.",
-explain:"This program uses Tkinter labels, entry boxes, and a button to collect and display patient details.",
-mal:"Patient details input ചെയ്ത് button അമർത്തുമ്പോൾ വിവരങ്ങൾ കാണിക്കുന്നു.",
-memory:"get() reads entry-box text. mainloop() keeps the window open.",
-code:`import tkinter as tk
-from tkinter import messagebox
+set:6,
+title:"Sum of Two Numbers — User-Defined Method",
+file:"Set06_SumMethod.java",
+aim:"Use a user-defined method to calculate the sum of two numbers.",
+algorithm:[
+"Start the program.",
+"Read two numbers.",
+"Pass both numbers to a user-defined method.",
+"Add the numbers inside the method.",
+"Return the sum and display it.",
+"Stop the program."
+],
+steps:"1. Create a method named add(). 2. Pass two integer arguments. 3. Return their sum. 4. Call the method from main().",
+mal:"add() എന്ന user-defined method രണ്ട് numbers കൂട്ടുന്നു. return ഉപയോഗിച്ച് sum തിരികെ നൽകുന്നു.",
+memory:"Method = reusable code. Parameters = inputs. return = result.",
+code:`import java.util.Scanner;
 
-def register():
-    name = name_box.get()
-    age = age_box.get()
-    disease = disease_box.get()
+public class Set06_SumMethod {
+    static int add(int a, int b) {
+        return a + b;
+    }
 
-    messagebox.showinfo(
-        "Patient",
-        f"Name: {name}\\nAge: {age}\\nDisease: {disease}"
-    )
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-root = tk.Tk()
-root.title("Patient Registration")
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
 
-tk.Label(root, text="Name").pack()
-name_box = tk.Entry(root)
-name_box.pack()
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
 
-tk.Label(root, text="Age").pack()
-age_box = tk.Entry(root)
-age_box.pack()
+        int sum = add(a, b);
 
-tk.Label(root, text="Disease").pack()
-disease_box = tk.Entry(root)
-disease_box.pack()
+        System.out.println("Sum: " + sum);
 
-tk.Button(root, text="Register",
-          command=register).pack()
-
-root.mainloop()`,
-output:`Enter the patient details in the GUI.
-Click Register to see the entered information.
-
-Requires Python with Tkinter installed.`
-}
-]
+        sc.close();
+    }
+}`,
+output:`Enter first number: 10
+Enter second number: 20
+Sum: 30`
 },
-{
-title:"Set 6",
-programs:[
-{
-title:"Library Management — Book IDs",
-aim:"Use for and while loops to display book IDs from 1 to 10.",
-explain:"Both loops display ten book IDs. The while loop needs an increment to avoid running forever.",
-mal:"1 മുതൽ 10 വരെ book ID-കൾ രണ്ട് loops ഉപയോഗിച്ച് കാണിക്കുന്നു.",
-memory:"for uses range(1, 11). while uses a condition and i += 1.",
-code:`print("Using for loop:")
-for book_id in range(1, 11):
-    print("Book ID:", book_id)
 
-print("Using while loop:")
-book_id = 1
-while book_id <= 10:
-    print("Book ID:", book_id)
-    book_id += 1`,
-output:`Using for loop:
-Book ID: 1
-Book ID: 2
-...
-Book ID: 10
+{
+set:7,
+title:"File Handling — Exception Handling",
+file:"Set07_FileHandling.java",
+aim:"Read and write a file safely using exception handling.",
+algorithm:[
+"Start the program.",
+"Open a file for writing using Files.writeString().",
+"Write text to the file.",
+"Read the file using Files.readString().",
+"Display the file contents.",
+"Catch IOException if a file operation fails.",
+"Stop the program."
+],
+steps:"1. Import java.nio.file and java.io. 2. Create a Path. 3. Write text. 4. Read text. 5. Handle IOException.",
+mal:"try-catch ဖြင့် file errors ကို handle လုပ်ുന്നു. IOException വന്നാൽ error message കാണിക്കുന്നു.",
+memory:"writeString = write; readString = read; catch = handle exception.",
+code:`import java.nio.file.Files;
+import java.nio.file.Path;
+import java.io.IOException;
 
-Using while loop:
-Book ID: 1
-Book ID: 2
-...
-Book ID: 10`
+public class Set07_FileHandling {
+    public static void main(String[] args) {
+        Path path = Path.of("sample.txt");
+
+        try {
+            Files.writeString(path, "Hello Java");
+
+            String content = Files.readString(path);
+
+            System.out.println("File content: " + content);
+        } catch (IOException e) {
+            System.out.println("File error: " + e.getMessage());
+        }
+    }
+}`,
+output:`File content: Hello Java
+
+Requires Java 11 or later.`
 },
+
 {
-title:"Preliminary Digital Forensics — System Details",
-aim:"Collect basic system information for preliminary digital forensic analysis.",
-explain:"This script displays the operating system, computer name, machine architecture, Python version and current directory.",
-mal:"Forensic analysis തുടങ്ങുന്നതിന് മുമ്പ് basic system details ശേഖരിക്കുന്നു.",
-memory:"platform module collects computer details. os.getcwd() returns the working folder.",
-code:`import platform
-import os
+set:8,
+title:"Patient Registration — GUI Form",
+file:"Set08_PatientRegistration.java",
+aim:"Create a GUI form to register patient details and display the entered data.",
+algorithm:[
+"Start the program.",
+"Create a JFrame window.",
+"Add input fields for patient name, age and disease.",
+"Add a Register button.",
+"When clicked, read the entered values.",
+"Display the patient details in a message box.",
+"Stop when the window is closed."
+],
+steps:"1. Import Swing. 2. Create JFrame. 3. Add labels and text fields. 4. Add a button. 5. Display the data using JOptionPane.",
+mal:"Java Swing ഉപയോഗിച്ച് patient registration form ഉണ്ടാക്കുന്നു. Register അമർത്തുമ്പോൾ patient details കാണിക്കുന്നു.",
+memory:"JFrame = window; JTextField = input; JButton = button; JOptionPane = message.",
+code:`import javax.swing.*;
+import java.awt.*;
 
-print("Computer:", platform.node())
-print("System:", platform.system())
-print("Release:", platform.release())
-print("Architecture:", platform.machine())
-print("Python:", platform.python_version())
-print("Directory:", os.getcwd())`,
-output:`Computer: MY-PC
-System: Windows
-Release: [system release]
-Architecture: [machine architecture]
-Python: 3.x.x
-Directory: [working directory]
+public class Set08_PatientRegistration {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Patient Registration");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(350, 280);
+            frame.setLayout(new GridLayout(4, 2, 8, 8));
 
-Actual values depend on the system.`
-}
-]
-},
-{
-title:"Set 7",
-programs:[
-{
-title:"Employee Management — Bonus Eligibility",
-aim:"Use if, elif and else to determine bonus eligibility based on years of service.",
-explain:"Employees with 10 or more years receive a 20% bonus rate. Employees with 5–9 years receive 10%. Others receive no bonus.",
-mal:"10 വർഷമോ അതിൽ കൂടുതലോ service ഉണ്ടെങ്കിൽ 20%; 5 മുതൽ 9 വർഷം വരെ 10%; അതിൽ കുറവാണെങ്കിൽ bonus ഇല്ല.",
-memory:"if checks the first condition, elif checks the next, else handles the remaining case.",
-code:`years = int(input("Years of service: "))
+            JTextField name = new JTextField();
+            JTextField age = new JTextField();
+            JTextField disease = new JTextField();
+            JButton button = new JButton("Register");
 
-if years < 0:
-    print("Invalid service years")
-elif years >= 10:
-    print("Bonus rate: 20%")
-elif years >= 5:
-    print("Bonus rate: 10%")
-else:
-    print("No bonus")`,
-output:`Years of service: 7
-Bonus rate: 10%
+            frame.add(new JLabel("Patient Name:"));
+            frame.add(name);
+            frame.add(new JLabel("Age:"));
+            frame.add(age);
+            frame.add(new JLabel("Disease:"));
+            frame.add(disease);
+            frame.add(new JLabel(""));
+            frame.add(button);
 
-Note: Bonus rates are example rules for this program.`
-},
-{
-title:"Digital Forensics — Error Log Analysis",
-aim:"Extract log lines containing error for digital forensic investigation.",
-explain:"The program reads the specified file and prints matching lines without changing the original log file.",
-mal:"Log file വായിച്ച് error ഉള്ള വരികൾ മാത്രം display ചെയ്യുന്നു.",
-memory:"for line in file checks each line. 'error' in line.lower() finds different letter cases.",
-code:`filename = input("Enter log file: ")
+            button.addActionListener(e -> {
+                String details =
+                    "Name: " + name.getText()
+                    + "\\nAge: " + age.getText()
+                    + "\\nDisease: " + disease.getText();
 
-try:
-    with open(filename, "r") as file:
-        for line in file:
-            if "error" in line.lower():
-                print(line.strip())
+                JOptionPane.showMessageDialog(frame, details);
+            });
 
-except FileNotFoundError:
-    print("Log file not found")
-except OSError as e:
-    print("File error:", e)`,
-output:`Enter log file: system.log
-ERROR: Access denied
-File error: Disk read error`
-}
-]
-},
-{
-title:"Set 8",
-programs:[
-{
-title:"Railway Reservation — Passenger List",
-aim:"Add, remove and display passenger names using list operations.",
-explain:"The list stores passenger names. append adds a passenger and remove deletes a passenger.",
-mal:"Passenger names list-ൽ സൂക്ഷിക്കുന്നു. append ചേർക്കുകയും remove നീക്കുകയും ചെയ്യുന്നു.",
-memory:"append = add passenger. remove = remove passenger.",
-code:`passengers = ["Anu", "Rahul", "Maya"]
-
-print("Passengers:", passengers)
-
-passengers.append("Arun")
-print("After booking:", passengers)
-
-passengers.remove("Rahul")
-print("After cancellation:", passengers)`,
-output:`Passengers: ['Anu', 'Rahul', 'Maya']
-After booking: ['Anu', 'Rahul', 'Maya', 'Arun']
-After cancellation: ['Anu', 'Maya', 'Arun']`
-},
-{
-title:"File Handling — Safe Read and Write",
-aim:"Use exception handling for safe file reading and writing.",
-explain:"The program creates a file, writes text, then reads it. OSError handles common file-operation errors.",
-mal:"File read/write സമയത്ത് error വന്നാൽ try-except ഉപയോഗിച്ച് handle ചെയ്യുന്നു.",
-memory:"'w' writes. 'r' reads. with automatically closes the file.",
-code:`try:
-    with open("notes.txt", "w") as file:
-        file.write("Practical examination")
-
-    with open("notes.txt", "r") as file:
-        content = file.read()
-        print(content)
-
-except OSError as e:
-    print("File error:", e)`,
-output:`Practical examination`
-}
-]
-},
-{
-title:"Set 9",
-programs:[
-{
-title:"Hospital Management — Patient Name",
-aim:"Find the length, uppercase and reverse a patient's name.",
-explain:"The program reads the patient's name and uses len(), upper(), and [::-1] to manipulate the string.",
-mal:"Patient name-ന്റെ length, uppercase, reverse എന്നിവ കാണിക്കുന്നു.",
-memory:"len() = length. upper() = uppercase. [::-1] = reverse.",
-code:`name = input("Enter patient name: ")
-
-print("Length:", len(name))
-print("Uppercase:", name.upper())
-print("Reverse:", name[::-1])`,
-output:`Enter patient name: Meera
-Length: 5
-Uppercase: MEERA
-Reverse: areeM`
-},
-{
-title:"Employee Registration — GUI",
-aim:"Create a GUI form to register employee details and display them.",
-explain:"The form collects an employee's name, ID and department. Clicking Register shows the entered data.",
-mal:"Employee name, ID, department എന്നിവ form-ൽ നൽകി Register അമർത്തുന്നു.",
-memory:"Entry.get() reads user input. messagebox.showinfo() displays the details.",
-code:`import tkinter as tk
-from tkinter import messagebox
-
-def register():
-    name = name_box.get()
-    emp_id = id_box.get()
-    dept = dept_box.get()
-
-    messagebox.showinfo(
-        "Employee Details",
-        f"Name: {name}\\nID: {emp_id}\\nDepartment: {dept}"
-    )
-
-root = tk.Tk()
-root.title("Employee Registration")
-
-tk.Label(root, text="Employee Name").pack()
-name_box = tk.Entry(root)
-name_box.pack()
-
-tk.Label(root, text="Employee ID").pack()
-id_box = tk.Entry(root)
-id_box.pack()
-
-tk.Label(root, text="Department").pack()
-dept_box = tk.Entry(root)
-dept_box.pack()
-
-tk.Button(root, text="Register",
-          command=register).pack()
-
-root.mainloop()`,
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        });
+    }
+}`,
 output:`A registration window opens.
-Enter employee details and click Register.
-
-Requires Python with Tkinter installed.`
-}
-]
+Enter name, age and disease.
+Click Register to display the details.`
 },
+
 {
-title:"Set 10",
-programs:[
-{
-title:"Employee Management — Salary Dictionary",
-aim:"Store, update and retrieve employee salaries using a dictionary.",
-explain:"The dictionary stores employee names and salaries. Assigning a new value updates a salary, and get() retrieves it.",
-mal:"Employee name key ആയും salary value ആയും സൂക്ഷിക്കുന്നു. Dictionary ഉപയോഗിച്ച് salary update ചെയ്യാം.",
-memory:"Key = employee name. Value = salary. get() retrieves the salary.",
-code:`salaries = {
-    "Anu": 25000,
-    "Rahul": 30000
-}
+set:9,
+title:"Digital Forensics — System Information",
+file:"Set09_SystemInformation.java",
+aim:"Collect and display system details for forensic analysis.",
+algorithm:[
+"Start the program.",
+"Retrieve the operating system name.",
+"Retrieve the OS version and architecture.",
+"Retrieve the Java version and user name.",
+"Retrieve the current working directory.",
+"Display all details and stop."
+],
+steps:"1. Use System.getProperty(). 2. Read OS information. 3. Read Java version. 4. Read user directory. 5. Print the results.",
+mal:"System.getProperty() ഉപയോഗിച്ച് operating system, Java version, user name, current directory എന്നിവ കണ്ടെത്തുന്നു.",
+memory:"System.getProperty = system details; user.dir = current directory.",
+code:`public class Set09_SystemInformation {
+    public static void main(String[] args) {
+        System.out.println("Operating System: "
+            + System.getProperty("os.name"));
 
-print("Original:", salaries)
+        System.out.println("OS Version: "
+            + System.getProperty("os.version"));
 
-salaries["Anu"] = 28000
-print("Updated:", salaries)
+        System.out.println("Architecture: "
+            + System.getProperty("os.arch"));
 
-name = input("Enter employee name: ")
-print("Salary:", salaries.get(name, "Not found"))`,
-output:`Original: {'Anu': 25000, 'Rahul': 30000}
-Updated: {'Anu': 28000, 'Rahul': 30000}
-Enter employee name: Anu
-Salary: 28000`
+        System.out.println("Java Version: "
+            + System.getProperty("java.version"));
+
+        System.out.println("User Name: "
+            + System.getProperty("user.name"));
+
+        System.out.println("Current Directory: "
+            + System.getProperty("user.dir"));
+    }
+}`,
+output:`Operating System: Windows 11
+OS Version: [system version]
+Architecture: [system architecture]
+Java Version: [installed Java version]
+User Name: [current user]
+Current Directory: [working directory]
+
+Actual values depend on your computer.`
 },
+
 {
-title:"Digital Forensic Investigation — Log Analysis",
-aim:"Analyse a log file, extract lines containing error and display the results.",
-explain:"The program reads a log file one line at a time. It displays matching lines and handles missing files and other file errors.",
-mal:"Log file-ൽ error എന്ന വാക്ക് ഉള്ള വരികൾ കണ്ടെത്തി display ചെയ്യുന്നു.",
-memory:"open() opens the file. lower() ignores case. strip() removes line-ending whitespace.",
-code:`filename = input("Enter log file name: ")
+set:10,
+title:"Digital Forensics — Log File Error Analysis",
+file:"Set10_LogAnalysis.java",
+aim:"Read a log file, extract lines containing the word error, and display matching results.",
+algorithm:[
+"Start the program.",
+"Read the log file path from the user.",
+"Open the file using BufferedReader.",
+"Read each line one by one.",
+"Check whether the line contains error, ignoring letter case.",
+"Display matching lines.",
+"If there are no matches, display a message.",
+"Handle file errors using IOException.",
+"Stop the program."
+],
+steps:"1. Import file-reading classes. 2. Read the path. 3. Open the log file. 4. Check each line using toLowerCase().contains(\"error\"). 5. Display matches.",
+mal:"Log file വായിച്ച് error എന്ന വാക്കുള്ള lines മാത്രം കണ്ടെത്തുന്നു. Original log file മാറ്റുന്നില്ല.",
+memory:"BufferedReader = read lines; contains = search; toLowerCase = ignore case.",
+code:`import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Scanner;
 
-try:
-    with open(filename, "r") as file:
-        found = False
+public class Set10_LogAnalysis {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-        for line in file:
-            if "error" in line.lower():
-                print(line.strip())
-                found = True
+        System.out.print("Enter log file path: ");
+        String filename = sc.nextLine();
 
-        if not found:
-            print("No error lines found")
+        boolean found = false;
 
-except FileNotFoundError:
-    print("Log file not found")
-except OSError as e:
-    print("File error:", e)`,
-output:`Enter log file name: system.log
+        try (BufferedReader reader =
+                 Files.newBufferedReader(Path.of(filename))) {
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                if (line.toLowerCase().contains("error")) {
+                    System.out.println(line);
+                    found = true;
+                }
+            }
+
+            if (!found) {
+                System.out.println("No error lines found");
+            }
+
+        } catch (IOException e) {
+            System.out.println("File error: " + e.getMessage());
+        }
+
+        sc.close();
+    }
+}`,
+output:`Example log file:
+INFO: System started
 ERROR: Invalid login
+Warning: Low memory
 Disk error detected
 
-The output depends on the contents of the log file.`
+Output:
+ERROR: Invalid login
+Disk error detected`
 }
-]
-}
+
 ];
 
-let selectedSet = 0;
-
-function escapeHTML(text) {
- return String(text).replace(/[&<>"']/g, c => ({
+function esc(s){
+ return String(s).replace(/[&<>"']/g,c=>({
   "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
  }[c]));
 }
 
-function selectSet(n) {
- selectedSet = n;
+let selectedSet=0;
+
+function renderNav(){
+ const nav=document.getElementById("setnav");
+ nav.innerHTML=
+ `<button class="btn active" onclick="selectSet(0)">All Sets</button>`+
+ Array.from({length:10},(_,i)=>
+ `<button class="btn" onclick="selectSet(${i+1})">Set ${i+1}</button>`
+ ).join("");
+}
+
+function selectSet(n){
+ selectedSet=n;
  document.querySelectorAll("#setnav button").forEach((b,i)=>{
   b.classList.toggle("active",i===n);
  });
  render();
 }
 
-function renderNav() {
- const nav = document.getElementById("setnav");
- nav.innerHTML = `<button class="btn active" onclick="selectSet(0)">All Sets</button>` +
- sets.map((s,i)=>
- `<button class="btn" onclick="selectSet(${i+1})">${s.title}</button>`
- ).join("");
+function render(){
+ const term=document.getElementById("search").value.toLowerCase();
+ const content=document.getElementById("content");
+ let html="";
+
+ for(const p of programs){
+  if(selectedSet && p.set!==selectedSet) continue;
+
+  const searchable=[
+   p.title,p.aim,p.steps,p.mal,p.memory,p.code,
+   p.algorithm.join(" ")
+  ].join(" ").toLowerCase();
+
+  if(!searchable.includes(term)) continue;
+
+  const id="code-"+p.set;
+
+  html+=`
+  <section class="setcard">
+    <div class="sethead">
+      <span class="badge">PRACTICAL SET ${p.set} / 10</span>
+      <h2>${p.title}</h2>
+      <p class="muted">${p.file}</p>
+    </div>
+
+    <article class="program">
+      <div class="box aim">
+        <strong>AIM</strong><br>${p.aim}
+      </div>
+
+      <div class="box algorithm">
+        <strong>ALGORITHM</strong>
+        <ol>${p.algorithm.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>
+      </div>
+
+      <div class="box steps">
+        <strong>STEP-BY-STEP EXPLANATION</strong><br>
+        ${p.steps}
+      </div>
+
+      <div class="box memory">
+        <strong>MALAYALAM HINT / MEMORY TRICK</strong><br>
+        ${p.mal}<br><br>
+        <strong>Remember:</strong> ${p.memory}
+      </div>
+
+      <div class="codehead">
+        <strong>COMPLETE JAVA SOURCE CODE</strong>
+        <button class="btn" onclick="copyCode('${id}',this)">Copy Code</button>
+      </div>
+
+      <pre id="${id}">${esc(p.code)}</pre>
+
+      <strong>SAMPLE OUTPUT</strong>
+      <div class="output">${esc(p.output)}</div>
+
+      <div class="actions">
+        <button class="btn green" onclick="downloadJava(${p.set})">
+          Download .java
+        </button>
+        <button class="btn" onclick="toggleCode('${id}',this)">
+          Hide Code
+        </button>
+        <button class="btn" onclick="copyCode('${id}',this)">
+          Copy for Exam
+        </button>
+      </div>
+    </article>
+  </section>`;
+ }
+
+ content.innerHTML=html||"<p>No matching programs found. Try another search.</p>";
 }
 
-function render() {
- const term = document.getElementById("search").value.toLowerCase();
- const container = document.getElementById("content");
- const list = sets.map((set,si)=>({...set,index:si}))
- .filter(set=>selectedSet===0 || set.index===selectedSet-1);
-
- let html = "";
- list.forEach(set=>{
-  const matches = set.programs.map((p,pi)=>({...p,pi}))
-   .filter(p=>(set.title+" "+p.title+" "+p.aim+" "+p.explain+" "+p.malayalam+" "+p.code).toLowerCase().includes(term));
-
-  if(!matches.length) return;
-
-  html += `<section class="setcard">
-   <div class="sethead">
-    <span class="badge">PRACTICAL ${set.index+1} / 10</span>
-    <h2>${set.title}</h2>
-    <p class="muted">${matches.length} program${matches.length>1?"s":""}</p>
-   </div>`;
-
-  matches.forEach((p)=>{
-   const id = "code-"+set.index+"-"+p.pi;
-   html += `<article class="program">
-    <span class="badge">PROGRAM ${p.pi+1}</span>
-    <h3>${p.title}</h3>
-    <p><strong>Aim:</strong> ${p.aim}</p>
-    <div class="explain">
-     <strong>Simple Explanation</strong><br>${p.explain}
-    </div>
-    <div class="memory">
-     <strong>Malayalam Hint / Memory Trick</strong><br>${p.malayalam}
-     <br><br><strong>Remember:</strong> ${p.memory}
-    </div>
-    <div class="codehead">
-     <strong>Python Code</strong>
-     <button class="btn" onclick="copyCode('${id}',this)">Copy Code</button>
-    </div>
-    <pre id="${id}">${escapeHTML(p.code)}</pre>
-    <strong>Sample Output</strong>
-    <div class="output">${escapeHTML(p.output)}</div>
-    <div class="actions">
-     <button class="btn" onclick="toggleCode('${id}',this)">Hide Code</button>
-     <button class="btn" onclick="copyCode('${id}',this)">Copy for Revision</button>
-    </div>
-   </article>`;
-  });
-  html += `</section>`;
- });
-
- container.innerHTML = html || "<p>No matching programs. Try another search.</p>";
+function downloadFile(filename,text,mime){
+ const blob=new Blob([text],{type:mime});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ a.href=url;
+ a.download=filename;
+ document.body.appendChild(a);
+ a.click();
+ a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),1500);
 }
 
-async function copyCode(id,button) {
- const code = document.getElementById(id).textContent;
- try {
-  if(navigator.clipboard && window.isSecureContext) {
-   await navigator.clipboard.writeText(code);
-  } else {
-   throw new Error("Clipboard unavailable");
+function downloadJava(setNo){
+ const p=programs.find(x=>x.set===setNo);
+ if(!p)return;
+ downloadFile(p.file,p.code,"text/x-java-source;charset=utf-8");
+}
+
+function downloadAllText(){
+ const bundle=programs.map(p=>
+ "========================================\n"+
+ "SET "+p.set+": "+p.title+"\n"+
+ "FILE: "+p.file+"\n"+
+ "========================================\n\n"+
+ "AIM:\n"+p.aim+"\n\n"+
+ "ALGORITHM:\n"+
+ p.algorithm.map((s,i)=>(i+1)+". "+s).join("\n")+
+ "\n\nJAVA CODE:\n"+p.code+"\n\n"+
+ "SAMPLE OUTPUT:\n"+p.output+"\n\n"
+ ).join("\n\n");
+
+ downloadFile("All_Java_Practical_Programs.txt",bundle,"text/plain;charset=utf-8");
+}
+
+async function downloadAllZip(){
+ const button=event.currentTarget;
+ const original=button.textContent;
+ button.textContent="Preparing ZIP...";
+
+ try{
+  if(!window.JSZip){
+   await loadJSZip();
   }
-  const old = button.textContent;
-  button.textContent = "Copied!";
+
+  const zip=new JSZip();
+
+  for(const p of programs){
+   zip.file(p.file,p.code);
+  }
+
+  zip.file("README.txt",
+   "JAVA PRACTICAL MASTER\n\n"+
+   "This archive contains 10 standalone Java programs.\n"+
+   "Compile using: javac FileName.java\n"+
+   "Run using: java ClassName\n\n"+
+   "GUI program: Set08_PatientRegistration.java\n"+
+   "File handling: Set07_FileHandling.java\n"+
+   "Log analysis: Set10_LogAnalysis.java\n"+
+   "Set07 and Set10 use Java 11 or later.\n"
+  );
+
+  const blob=await zip.generateAsync({type:"blob"});
+  downloadFile("Java_Practical_All_10_Sets.zip",blob,"application/zip");
+
+ }catch(error){
+  alert("ZIP creation failed. Download All Code TXT instead.");
+ }finally{
+  button.textContent=original;
+ }
+}
+
+function loadJSZip(){
+ return new Promise((resolve,reject)=>{
+  if(window.JSZip){resolve();return;}
+  const script=document.createElement("script");
+  script.src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";
+  script.onload=resolve;
+  script.onerror=reject;
+  document.head.appendChild(script);
+ });
+}
+
+async function copyCode(id,button){
+ const code=document.getElementById(id).textContent;
+
+ try{
+  if(!navigator.clipboard||!window.isSecureContext)throw new Error();
+  await navigator.clipboard.writeText(code);
+  const old=button.textContent;
+  button.textContent="Copied!";
   setTimeout(()=>button.textContent=old,1200);
- } catch(e) {
+ }catch(e){
   const area=document.createElement("textarea");
   area.value=code;
   document.body.appendChild(area);
   area.select();
-  try {
+
+  try{
    document.execCommand("copy");
    alert("Code copied!");
-  } catch(err) {
-   alert("Please select and copy the code manually.");
+  }catch(err){
+   alert("Select the code and copy it manually.");
   }
+
   area.remove();
  }
 }
 
-function toggleCode(id,button) {
+function toggleCode(id,button){
  const pre=document.getElementById(id);
  pre.classList.toggle("hidden");
  button.textContent=pre.classList.contains("hidden")?"Show Code":"Hide Code";
 }
 
-function scrollToTop() {
- window.scrollTo({top:0,behavior:"smooth"});
-}
-
 renderNav();
 render();
 </script>
-
 </body>
-    </html>
+ </html>
