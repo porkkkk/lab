@@ -3,566 +3,537 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090d18">
-<title>Advanced Java Practical Index</title>
+<title>Easy Java Practical Lab</title>
 
 <style>
-:root{
-  --bg:#080c16;
-  --card:#111827;
-  --panel:#192337;
-  --border:#2a3852;
-  --text:#edf3ff;
-  --muted:#a1b0ca;
-  --accent:#8b8cff;
-  --green:#54e0a0;
-  --cyan:#65d9ff;
+:root {
+    --bg: #0b1020;
+    --card: #151d32;
+    --border: #293651;
+    --text: #f4f7ff;
+    --muted: #aab6ce;
+    --accent: #8b8cff;
+    --green: #55e6a5;
 }
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Inter,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.65;
+
+* {
+    box-sizing: border-box;
 }
-button,input,select{font:inherit}
-button{cursor:pointer}
-button:focus-visible,input:focus-visible{
-  outline:2px solid var(--cyan);
-  outline-offset:3px;
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
-.container{max-width:1200px;margin:auto;padding:0 18px}
-.hero{
-  padding:55px 0 38px;
-  background:
-    radial-gradient(ellipse at 15% 0%,#4540a04a,transparent 45%),
-    radial-gradient(ellipse at 90% 20%,#087c9e35,transparent 40%),
-    linear-gradient(135deg,#10192e,#090d18);
-  border-bottom:1px solid var(--border);
+
+button, input {
+    font: inherit;
 }
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  color:var(--green);
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:2px;
-  border:1px solid #54e0a044;
-  border-radius:30px;
-  padding:7px 12px;
+
+button {
+    cursor: pointer;
 }
-h1{
-  font-size:clamp(32px,6vw,58px);
-  line-height:1.1;
-  margin:20px 0 14px;
-  letter-spacing:-1.5px;
+
+header {
+    padding: 38px 20px;
+    background: linear-gradient(135deg, #24245a, #101b32, #063e4d);
+    text-align: center;
 }
-.gradient{
-  background:linear-gradient(90deg,#a7a2ff,#64dfff,#63edb0);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+
+header h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    margin: 10px 0;
 }
-.subtitle{color:var(--muted);max-width:700px}
-.hero-actions,.toolbar,.actions{
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap;
-  align-items:center;
+
+header p {
+    color: #d0d9ef;
 }
-.hero-actions{margin-top:25px}
-.btn{
-  background:var(--panel);
-  border:1px solid var(--border);
-  color:var(--text);
-  padding:10px 14px;
-  border-radius:10px;
-  transition:.2s;
+
+.gradient {
+    color: #74edc0;
 }
-.btn:hover{border-color:var(--accent);transform:translateY(-1px)}
-.btn.primary{
-  background:linear-gradient(135deg,#7979ed,#625ed1);
-  border-color:transparent;
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
 }
-.btn.success{
-  background:#124d39;
-  border-color:#24785a;
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 20px 0;
 }
-.btn.small{padding:7px 10px;font-size:13px}
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
-  padding:24px 0;
+
+.stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
 }
-.stat{
-  padding:17px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
+
+.stat strong {
+    display: block;
+    color: var(--green);
+    font-size: 25px;
 }
-.stat strong{
-  display:block;
-  font-size:27px;
-  color:var(--green);
+
+.stat span {
+    font-size: 13px;
+    color: var(--muted);
 }
-.stat span{font-size:13px;color:var(--muted)}
-.sticky{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:#080c16ed;
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  padding:12px 0;
+
+.toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #0b1020ee;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
 }
-.toolbar{max-width:1200px;margin:auto;padding:0 18px}
-.searchwrap{flex:1;min-width:200px}
-.search{
-  width:100%;
-  background:var(--card);
-  color:var(--text);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:12px 14px;
+
+.toolbar input {
+    flex: 1;
+    min-width: 180px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: white;
+    padding: 12px;
 }
-main{padding-top:22px;padding-bottom:60px}
-.section-heading{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:12px;
-  margin:25px 0 15px;
+
+.btn {
+    padding: 10px 14px;
+    background: #252f49;
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
 }
-.section-heading h2{margin:0;font-size:24px}
-.muted{color:var(--muted)}
-.small{font-size:13px;color:var(--muted)}
-.filters{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0 22px}
-.filter{
-  background:var(--card);
-  color:var(--muted);
-  border:1px solid var(--border);
-  border-radius:9px;
-  padding:8px 12px;
+
+.btn:hover {
+    border-color: var(--accent);
 }
-.filter.active{color:white;background:#35356d;border-color:var(--accent)}
-.index-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:13px;
+
+.primary {
+    background: #5553c7;
 }
-.index-card{
-  text-align:left;
-  color:var(--text);
-  padding:17px;
-  border-radius:14px;
-  background:var(--card);
-  border:1px solid var(--border);
-  min-width:0;
+
+.green {
+    background: #146044;
 }
-.index-card:hover{border-color:var(--accent)}
-.index-no{
-  color:var(--green);
-  font-weight:800;
-  font-size:12px;
-  letter-spacing:1px;
+
+h2 {
+    font-size: 24px;
 }
-.index-card h3{font-size:16px;line-height:1.45;margin:8px 0}
-.index-card p{font-size:12px;color:var(--muted);margin:0}
-.topic{color:var(--cyan)!important;margin-top:12px!important}
-.program{
-  margin:22px 0;
-  border:1px solid var(--border);
-  border-radius:16px;
-  overflow:hidden;
-  background:var(--card);
-  scroll-margin-top:100px;
+
+.muted {
+    color: var(--muted);
 }
-.program-head{
-  display:flex;
-  justify-content:space-between;
-  gap:14px;
-  padding:20px;
-  background:linear-gradient(120deg,#1a2942,#15172b);
-  border-bottom:1px solid var(--border);
+
+.index {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
 }
-.program-head h2{font-size:21px;line-height:1.4;margin:6px 0}
-.number{
-  flex-shrink:0;
-  display:grid;
-  place-items:center;
-  width:43px;height:43px;
-  border-radius:12px;
-  background:#454080;
-  font-size:18px;
-  font-weight:bold;
+
+.index button {
+    text-align: left;
+    color: white;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: 12px;
 }
-.program-body{padding:20px}
-.tag{
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1px;
-  color:var(--green);
+
+.index button:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
 }
-.box{
-  padding:15px;
-  border-radius:10px;
-  margin:14px 0;
-  overflow-wrap:anywhere;
+
+.index small {
+    color: var(--green);
 }
-.aim{background:#1a2538;border:1px solid #2b3d59}
-.algorithm{background:#102b25;border:1px solid #215540}
-.steps{background:#211f3b;border:1px solid #3b3569}
-.memory{background:#152832;border:1px solid #234553}
-.box h3{font-size:14px;margin:0 0 8px}
-.box ol,.box ul{margin:0;padding-left:22px}
-.box li{padding:3px 0}
-.code-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:22px;
+
+.index strong {
+    display: block;
+    margin-top: 7px;
 }
-pre{
-  margin:10px 0;
-  padding:17px;
-  border-radius:10px;
-  border:1px solid #29364d;
-  background:#060a12;
-  color:#b9d8ff;
-  font-size:13px;
-  line-height:1.75;
-  overflow:auto;
-  white-space:pre;
-  tab-size:4;
+
+.program {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin: 22px 0;
+    overflow: hidden;
+    scroll-margin-top: 75px;
 }
-.output{
-  background:#091e18;
-  border:1px solid #1c4a37;
-  border-radius:10px;
-  padding:15px;
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-  color:#9aefc5;
-  font-family:monospace;
-  font-size:13px;
+
+.program-title {
+    padding: 18px;
+    background: #1c2942;
+    border-bottom: 1px solid var(--border);
 }
-.note{
-  border-left:3px solid #e6b75a;
-  background:#292315;
-  padding:13px;
-  border-radius:6px;
-  color:#f3dfaa;
-  font-size:13px;
-  margin:15px 0;
+
+.program-title h3 {
+    margin: 5px 0;
+    font-size: 21px;
 }
-.actions{margin-top:15px}
-.hidden{display:none!important}
-.empty{
-  padding:35px;
-  border:1px dashed var(--border);
-  border-radius:12px;
-  text-align:center;
-  color:var(--muted);
+
+.program-title small {
+    color: var(--green);
 }
-footer{
-  padding:30px 15px;
-  text-align:center;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-  font-size:13px;
+
+.content {
+    padding: 18px;
 }
-@media(max-width:850px){
-  .index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.box {
+    margin: 13px 0;
+    padding: 14px;
+    border-radius: 9px;
+    background: #101a2b;
+    border-left: 3px solid var(--accent);
 }
-@media(max-width:560px){
-  .container{padding:0 13px}
-  .hero{padding:35px 0 25px}
-  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-  .stat{padding:12px}
-  .index-grid{grid-template-columns:1fr}
-  .toolbar{padding:0 10px}
-  .toolbar>.btn{font-size:12px;padding:9px}
-  .program-head,.program-body{padding:14px}
-  .program-head h2{font-size:18px}
-  pre{font-size:12px;padding:12px}
+
+.box h4 {
+    margin: 0 0 7px;
 }
-@media print{
-  body{background:white;color:black}
-  .hero,.sticky,.filters,.index-grid,.hero-actions,.actions,footer{display:none!important}
-  .program{break-inside:avoid;background:white;border:1px solid #aaa}
-  .program-head{background:#eee;color:black}
-  .program-body{padding:10px}
-  .box,pre,.output{background:white;color:black;border:1px solid #aaa}
+
+.algorithm {
+    border-left-color: var(--green);
+}
+
+.explain {
+    border-left-color: #ffcb70;
+}
+
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: #070b14;
+    color: #a8e6ff;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.output {
+    padding: 14px;
+    border-radius: 8px;
+    background: #08251b;
+    border: 1px solid #20583e;
+    color: #85f4b7;
+    font-family: monospace;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.note {
+    color: #ffdc91;
+    background: #332817;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 30px 15px;
+    border-top: 1px solid var(--border);
+}
+
+@media(max-width:750px) {
+    .index {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:480px) {
+    .index {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        gap: 7px;
+    }
+
+    .stat {
+        padding: 10px 5px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    .content {
+        padding: 12px;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    header, .toolbar, .index, .actions, footer {
+        display: none;
+    }
+
+    .program, .program-title, .box, pre, .output {
+        background: white;
+        color: black;
+        break-inside: avoid;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header class="hero">
-<div class="container">
-  <div class="eyebrow">✦ JAVA LAB · PRACTICAL RECORD</div>
-  <h1>Advanced <span class="gradient">Java Practical</span> Index</h1>
-  <p class="subtitle">
-    Your complete practical notebook in one interactive website.
-    Learn the algorithm, understand every step, practise Java programs
-    and download the source files whenever you need them.
-  </p>
-  <div class="hero-actions">
-    <button class="btn primary" onclick="goToPrograms()">Start Learning ↓</button>
-    <button class="btn success" onclick="downloadAllZip()">Download All Java ZIP</button>
-    <button class="btn" onclick="downloadAllText()">Download All TXT</button>
-  </div>
-  <p class="small">12 practicals · Complete Java code · Algorithms · Sample outputs</p>
-</div>
+<header>
+    <h1>Easy <span class="gradient">Java Lab</span></h1>
+    <p>12 Java Practicals | Simple Code | Easy Algorithms</p>
+    <p>Learn the logic. Remember the code. Prepare for exams.</p>
+
+    <button class="btn primary" onclick="goToIndex()">
+        Start Learning ↓
+    </button>
+
+    <button class="btn green" onclick="downloadAll()">
+        Download All Java
+    </button>
 </header>
 
 <div class="container">
-<div class="stats">
-  <div class="stat"><strong>12</strong><span>Practical programs</span></div>
-  <div class="stat"><strong>12</strong><span>Algorithms</span></div>
-  <div class="stat"><strong>12</strong><span>Java examples</span></div>
-  <div class="stat"><strong>ZIP</strong><span>Download source files</span></div>
-</div>
-</div>
 
-<div class="sticky">
-<div class="toolbar">
-  <div class="searchwrap">
-    <input id="search" class="search"
-      placeholder="Search: constructor, String, Vector, applet..."
-      oninput="renderPrograms()">
-  </div>
-  <button class="btn small" onclick="window.print()">Print / PDF</button>
-  <button class="btn small" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
-</div>
-</div>
+    <div class="stats">
+        <div class="stat">
+            <strong>12</strong>
+            <span>Practicals</span>
+        </div>
 
-<main class="container">
+        <div class="stat">
+            <strong>Easy</strong>
+            <span>Beginner Code</span>
+        </div>
 
-<div class="section-heading">
-  <div>
-    <h2>Practical Index</h2>
-    <p class="muted">Select any practical to open its complete program.</p>
-  </div>
-</div>
-
-<div class="filters" id="filters"></div>
-<div class="index-grid" id="indexGrid"></div>
-
-<div id="programSection">
-  <div class="section-heading">
-    <div>
-      <h2>Programs & Algorithms</h2>
-      <p class="muted">Aim → Algorithm → Steps → Java code → Output</p>
+        <div class="stat">
+            <strong>100%</strong>
+            <span>Study Focused</span>
+        </div>
     </div>
-    <button class="btn success" onclick="downloadAllZip()">Download Everything</button>
-  </div>
-  <div id="programs"></div>
-</div>
 
-</main>
+    <h2 id="indexHeading">📚 Practical Index</h2>
+    <p class="muted">Click a practical to open its code.</p>
+
+    <div class="toolbar">
+        <input
+            id="search"
+            placeholder="Search practical..."
+            oninput="render()"
+        >
+
+        <button class="btn" onclick="window.print()">
+            Print / PDF
+        </button>
+    </div>
+
+    <div class="index" id="index"></div>
+
+    <h2>💻 All Java Programs</h2>
+    <p class="muted">Every practical contains the aim, algorithm, simple code and output.</p>
+
+    <div id="programs"></div>
+
+</div>
 
 <footer>
-  ADVANCED JAVA PRACTICAL INDEX · 12 PROGRAMS<br>
-  Study the logic, practise the code, and understand the output.
+    EASY JAVA LAB<br>
+    Study one program at a time.
 </footer>
 
 <script>
-const data = [
+const programs = [
 
 {
-n:1,
-title:"Creation and Use of Classes and Objects",
-category:"OOP",
-file:"P01_ClassesObjects.java",
-aim:"Demonstrate the creation and use of classes and objects in Java.",
-algorithm:[
-"Start the program.",
-"Create a Student class with name and age.",
-"Create a display() method to print student details.",
-"Create an object of Student in main().",
-"Assign values and call the display() method.",
-"Stop the program."
+title: "Classes and Objects",
+file: "P01_ClassesObjects.java",
+aim: "To create a class and object in Java.",
+algorithm: [
+"Start.",
+"Create a Student class.",
+"Declare name and age.",
+"Create a display method.",
+"Create an object in main().",
+"Display the details.",
+"Stop."
 ],
-steps:"A class is a blueprint. An object is an instance of a class. The new keyword creates the object, and the object calls its methods.",
-hint:"Class = blueprint. Object = real instance. new = create object.",
-code:`class Student {
-    String name;
-    int age;
+explain: "Class is a blueprint. Object is created using new. The object calls the display() method.",
+code: `class Student {
+    String name = "Rahul";
+    int age = 20;
 
     void display() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
+        System.out.println(name);
+        System.out.println(age);
     }
 }
 
 public class P01_ClassesObjects {
     public static void main(String[] args) {
         Student s = new Student();
-
-        s.name = "Rahul";
-        s.age = 20;
-
         s.display();
     }
 }`,
-output:`Name: Rahul
-Age: 20`
+output: `Rahul
+20`
 },
 
 {
-n:2,
-title:"Program Illustrating Constructors",
-category:"OOP",
-file:"P02_Constructors.java",
-aim:"Develop a program that illustrates the use of constructors.",
-algorithm:[
-"Start the program.",
+title: "Constructors",
+file: "P02_Constructors.java",
+aim: "To demonstrate a constructor in Java.",
+algorithm: [
+"Start.",
 "Create an Employee class.",
-"Define a constructor that accepts a name and salary.",
-"Create an object using the new keyword.",
-"Display the employee details.",
-"Stop the program."
+"Define a constructor.",
+"Assign the name inside the constructor.",
+"Create an object.",
+"Display the name.",
+"Stop."
 ],
-steps:"A constructor has the same name as the class and has no return type. It runs automatically when an object is created.",
-hint:"Constructor name = class name. It runs automatically when new is used.",
-code:`class Employee {
+explain: "A constructor has the same name as its class. It runs automatically when an object is created.",
+code: `class Employee {
     String name;
-    double salary;
 
-    Employee(String n, double s) {
-        name = n;
-        salary = s;
+    Employee() {
+        name = "Anu";
     }
 
     void display() {
-        System.out.println("Name: " + name);
-        System.out.println("Salary: " + salary);
+        System.out.println(name);
     }
 }
 
 public class P02_Constructors {
     public static void main(String[] args) {
-        Employee e = new Employee("Anu", 25000);
-
+        Employee e = new Employee();
         e.display();
     }
 }`,
-output:`Name: Anu
-Salary: 25000.0`
+output: `Anu`
 },
 
 {
-n:3,
-title:"Method Overloading",
-category:"OOP",
-file:"P03_MethodOverloading.java",
-aim:"Create a Java program to demonstrate method overloading.",
-algorithm:[
-"Start the program.",
-"Create a class with multiple methods named add().",
-"Use different parameter lists for the methods.",
-"Call each overloaded method.",
-"Display the returned sums.",
-"Stop the program."
+title: "Method Overloading",
+file: "P03_MethodOverloading.java",
+aim: "To demonstrate method overloading.",
+algorithm: [
+"Start.",
+"Create two methods with the same name.",
+"Give them different parameters.",
+"Call both methods.",
+"Display the results.",
+"Stop."
 ],
-steps:"Method overloading means using the same method name with different parameter lists. Java chooses the correct method based on the arguments.",
-hint:"Same method name + different parameters = overloading.",
-code:`class Calculator {
-    int add(int a, int b) {
+explain: "Same method name with different parameters is called method overloading.",
+code: `class Add {
+    int sum(int a, int b) {
         return a + b;
     }
 
-    int add(int a, int b, int c) {
+    int sum(int a, int b, int c) {
         return a + b + c;
-    }
-
-    double add(double a, double b) {
-        return a + b;
     }
 }
 
 public class P03_MethodOverloading {
     public static void main(String[] args) {
-        Calculator c = new Calculator();
+        Add a = new Add();
 
-        System.out.println(c.add(10, 20));
-        System.out.println(c.add(10, 20, 30));
-        System.out.println(c.add(2.5, 3.5));
+        System.out.println(a.sum(10, 20));
+        System.out.println(a.sum(10, 20, 30));
     }
 }`,
-output:`30
-60
-6.0`
+output: `30
+60`
 },
 
 {
-n:4,
-title:"Various String Class Methods",
-category:"Strings",
-file:"P04_StringMethods.java",
-aim:"Develop an application utilizing various Java String class methods.",
-algorithm:[
-"Start the program.",
-"Create a string containing a sample name.",
-"Find its length using length().",
-"Convert it to uppercase and lowercase.",
-"Display the character at a given index.",
-"Check whether it contains a word.",
-"Display the results and stop."
+title: "String Class Methods",
+file: "P04_StringMethods.java",
+aim: "To demonstrate Java String methods.",
+algorithm: [
+"Start.",
+"Create a string.",
+"Find its length.",
+"Convert it to uppercase.",
+"Convert it to lowercase.",
+"Reverse it using a loop.",
+"Display the results."
 ],
-steps:"String methods help manipulate and examine text. String indexes start at zero. Java strings are immutable, so these methods return results rather than changing the original string.",
-hint:"length() = size. toUpperCase() = capitals. contains() = search. charAt() = character.",
-code:`public class P04_StringMethods {
+explain: "length() finds the number of characters. toUpperCase() converts letters to capitals. A loop can reverse the string.",
+code: `public class P04_StringMethods {
     public static void main(String[] args) {
-        String name = "Java Programming";
+        String name = "Java";
 
-        System.out.println("String: " + name);
         System.out.println("Length: " + name.length());
         System.out.println("Uppercase: " + name.toUpperCase());
         System.out.println("Lowercase: " + name.toLowerCase());
-        System.out.println("Character at index 0: "
-                           + name.charAt(0));
-        System.out.println("Contains Java: "
-                           + name.contains("Java"));
-        System.out.println("Replace: "
-                           + name.replace("Java", "Python"));
+
+        String reverse = "";
+
+        for (int i = name.length() - 1; i >= 0; i--) {
+            reverse = reverse + name.charAt(i);
+        }
+
+        System.out.println("Reverse: " + reverse);
     }
 }`,
-output:`String: Java Programming
-Length: 16
-Uppercase: JAVA PROGRAMMING
-Lowercase: java programming
-Character at index 0: J
-Contains Java: true
-Replace: Python Programming`
+output: `Length: 4
+Uppercase: JAVA
+Lowercase: java
+Reverse: avaJ`
 },
 
 {
-n:5,
-title:"Working with the Vector Class",
-category:"Collections",
-file:"P05_VectorClass.java",
-aim:"Implement a program to work with the Java Vector class.",
-algorithm:[
-"Start the program.",
-"Import java.util.Vector.",
-"Create a Vector of strings.",
-"Add elements using add().",
-"Display the Vector.",
-"Remove an element and display the updated Vector.",
-"Stop the program."
+title: "Vector Class",
+file: "P05_VectorClass.java",
+aim: "To demonstrate the Vector class.",
+algorithm: [
+"Start.",
+"Import Vector.",
+"Create a Vector.",
+"Add three elements.",
+"Display the elements.",
+"Remove one element.",
+"Display the updated Vector."
 ],
-steps:"Vector is a resizable collection. It can grow when elements are added. add() inserts an element, get() retrieves it, and remove() deletes it.",
-hint:"Vector = resizable collection. add = insert. get = retrieve. remove = delete.",
-code:`import java.util.Vector;
+explain: "Vector stores multiple values and can grow automatically. add() inserts values and remove() deletes values.",
+code: `import java.util.Vector;
 
 public class P05_VectorClass {
     public static void main(String[] args) {
@@ -572,52 +543,44 @@ public class P05_VectorClass {
         books.add("Python");
         books.add("C++");
 
-        System.out.println("Books: " + books);
-        System.out.println("First book: " + books.get(0));
+        System.out.println(books);
 
         books.remove("Python");
 
-        System.out.println("After removal: " + books);
-        System.out.println("Size: " + books.size());
+        System.out.println(books);
     }
 }`,
-output:`Books: [Java, Python, C++]
-First book: Java
-After removal: [Java, C++]
-Size: 2`
+output: `[Java, Python, C++]
+[Java, C++]`
 },
 
 {
-n:6,
-title:"Custom Packages for Modular Programming",
-category:"Packages",
-file:"P06_CustomPackages.zip",
-aim:"Create and use a custom Java package for modular programming.",
-algorithm:[
-"Create a folder named mypack.",
-"Create Message.java inside that folder.",
-"Declare package mypack at the beginning of Message.java.",
-"Create a public method in the Message class.",
-"Create P06_CustomPackages.java outside the mypack folder.",
-"Import mypack.Message.",
-"Create an object and call the method."
+title: "Custom Packages",
+file: "P06_CustomPackages.zip",
+aim: "To create and use a custom package.",
+algorithm: [
+"Create a package named mypack.",
+"Create a Message class inside the package.",
+"Create a method named display().",
+"Import the package class in the main program.",
+"Create an object.",
+"Call the display method."
 ],
-steps:"Packages group related classes. The package declaration must appear at the beginning of the source file. Compile the files from the project root.",
-hint:"package = organise classes. import = use a class from another package.",
-files:[
+explain: "A package groups related classes. The import keyword allows another class to use a public class from a package.",
+files: [
 {
-name:"mypack/Message.java",
-code:`package mypack;
+name: "mypack/Message.java",
+code: `package mypack;
 
 public class Message {
     public void display() {
-        System.out.println("Welcome to Java Package");
+        System.out.println("Hello Java");
     }
 }`
 },
 {
-name:"P06_CustomPackages.java",
-code:`import mypack.Message;
+name: "P06_CustomPackages.java",
+code: `import mypack.Message;
 
 public class P06_CustomPackages {
     public static void main(String[] args) {
@@ -627,611 +590,404 @@ public class P06_CustomPackages {
 }`
 }
 ],
-output:`Welcome to Java Package`,
-note:"The ZIP contains both source files in the correct folders. Extract it, open a terminal in the extracted project folder, and run: javac mypack/Message.java P06_CustomPackages.java followed by java P06_CustomPackages."
+output: `Hello Java`,
+note: "Compile from the project folder: javac mypack/Message.java P06_CustomPackages.java. Then run: java P06_CustomPackages."
 },
 
 {
-n:7,
-title:"Multiple Inheritance Through Interfaces",
-category:"Interfaces",
-file:"P07_MultipleInheritance.java",
-aim:"Demonstrate multiple inheritance through Java interfaces.",
-algorithm:[
-"Start the program.",
-"Create two interfaces with separate methods.",
-"Create a class that implements both interfaces.",
-"Implement all required methods.",
-"Create an object of the class.",
-"Call both methods and stop."
+title: "Multiple Inheritance Using Interfaces",
+file: "P07_MultipleInheritance.java",
+aim: "To demonstrate multiple inheritance using interfaces.",
+algorithm: [
+"Start.",
+"Create two interfaces.",
+"Declare one method in each interface.",
+"Implement both interfaces in a class.",
+"Create an object.",
+"Call both methods."
 ],
-steps:"Java does not allow a class to extend multiple classes. It allows a class to implement multiple interfaces.",
-hint:"implements connects a class to interfaces. One class can implement multiple interfaces.",
-code:`interface Printable {
-    void print();
-}
-
-interface Showable {
+explain: "Java does not support extending multiple classes, but a class can implement multiple interfaces.",
+code: `interface A {
     void show();
 }
 
-class Demo implements Printable, Showable {
-    public void print() {
-        System.out.println("Printing...");
+interface B {
+    void display();
+}
+
+class Test implements A, B {
+    public void show() {
+        System.out.println("Interface A");
     }
 
-    public void show() {
-        System.out.println("Showing...");
+    public void display() {
+        System.out.println("Interface B");
     }
 }
 
 public class P07_MultipleInheritance {
     public static void main(String[] args) {
-        Demo d = new Demo();
+        Test t = new Test();
 
-        d.print();
-        d.show();
+        t.show();
+        t.display();
     }
 }`,
-output:`Printing...
-Showing...`
+output: `Interface A
+Interface B`
 },
 
 {
-n:8,
-title:"Multithreading for Concurrent Execution",
-category:"Threads",
-file:"P08_Multithreading.java",
-aim:"Implement multithreading to perform concurrent execution of tasks.",
-algorithm:[
-"Start the program.",
-"Create a class that extends Thread.",
-"Override the run() method.",
-"Create two thread objects.",
-"Start both threads using start().",
-"Observe their interleaved output.",
-"Stop the program."
+title: "Multithreading",
+file: "P08_Multithreading.java",
+aim: "To demonstrate multithreading.",
+algorithm: [
+"Start.",
+"Create a class extending Thread.",
+"Override run().",
+"Print numbers inside run().",
+"Create a thread object.",
+"Call start().",
+"Stop."
 ],
-steps:"A thread is a separate path of execution. start() begins a new thread and invokes run(). The output order can change between runs.",
-hint:"run() = task code. start() = begin a new thread.",
-code:`class MyTask extends Thread {
-    private String taskName;
-
-    MyTask(String name) {
-        taskName = name;
-    }
-
+explain: "A thread performs a task independently. start() starts the thread and executes run().",
+code: `class MyThread extends Thread {
     public void run() {
         for (int i = 1; i <= 5; i++) {
-            System.out.println(taskName + ": " + i);
-
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                return;
-            }
+            System.out.println(i);
         }
     }
 }
 
 public class P08_Multithreading {
     public static void main(String[] args) {
-        MyTask t1 = new MyTask("Task A");
-        MyTask t2 = new MyTask("Task B");
-
-        t1.start();
-        t2.start();
+        MyThread t = new MyThread();
+        t.start();
     }
 }`,
-output:`Task A: 1
-Task B: 1
-Task A: 2
-Task B: 2
-...
-
-The order may vary because both threads run concurrently.`,
-note:"Thread output is not guaranteed to appear in a fixed order. That is normal."
+output: `1
+2
+3
+4
+5`
 },
 
 {
-n:9,
-title:"Simple Applet for GUI-Based Execution",
-category:"Applets",
-file:"P09_SimpleApplet.java",
-aim:"Develop a simple Java applet for graphical user interface execution.",
-algorithm:[
-"Import the Applet and Graphics classes.",
+title: "Simple Java Applet",
+file: "P09_SimpleApplet.java",
+aim: "To create a simple Java applet.",
+algorithm: [
+"Import Applet.",
+"Import Graphics.",
 "Create a class extending Applet.",
-"Override the paint() method.",
-"Use drawString() to display a message.",
-"Compile and execute in a compatible legacy Java environment."
+"Override paint().",
+"Display a message using drawString()."
 ],
-steps:"An applet is a small Java program designed to run inside an applet container. The paint() method draws content on the applet.",
-hint:"Applet = legacy embedded Java program. paint() = draw content.",
-code:`import java.applet.Applet;
+explain: "An applet is an old Java GUI program. paint() is used to draw text or graphics.",
+code: `import java.applet.Applet;
 import java.awt.Graphics;
 
 public class P09_SimpleApplet extends Applet {
     public void paint(Graphics g) {
-        g.drawString("Hello Java Applet", 50, 50);
+        g.drawString("Hello Java", 50, 50);
     }
 }`,
-output:`Hello Java Applet
-
-The applet displays this message in its graphical area.`,
-note:"Legacy practical: Java applets are obsolete and were removed from modern Java/browser workflows. This source is for syllabus study and compatible legacy environments, not a modern browser deployment."
+output: `Hello Java`,
+note: "Legacy syllabus program. Modern browsers do not support Java applets. Use a compatible legacy environment for practical execution."
 },
 
 {
-n:10,
-title:"Applet Interface Using Component Classes",
-category:"Applets",
-file:"P10_AppletComponents.java",
-aim:"Design an applet interface using component classes.",
-algorithm:[
-"Import Applet and AWT classes.",
-"Create a class extending Applet.",
-"Set a layout using FlowLayout.",
+title: "Applet Using Components",
+file: "P10_AppletComponents.java",
+aim: "To create an applet interface using components.",
+algorithm: [
+"Import Applet and AWT.",
+"Create an applet class.",
+"Set the layout.",
 "Create a Label, TextField and Button.",
-"Add the components to the applet.",
-"Display the interface in a compatible legacy applet container."
+"Add the components.",
+"Display the interface."
 ],
-steps:"AWT provides GUI components. Label displays text, TextField accepts input, and Button provides an action control.",
-hint:"Label = text. TextField = input. Button = clickable control.",
-code:`import java.applet.Applet;
+explain: "Label displays text. TextField accepts input. Button displays a clickable button.",
+code: `import java.applet.Applet;
 import java.awt.*;
 
 public class P10_AppletComponents extends Applet {
     public void init() {
         setLayout(new FlowLayout());
 
-        Label label = new Label("Enter Name:");
-        TextField field = new TextField(15);
-        Button button = new Button("Submit");
-
-        add(label);
-        add(field);
-        add(button);
+        add(new Label("Name:"));
+        add(new TextField(15));
+        add(new Button("Submit"));
     }
 }`,
-output:`Applet interface contains:
-Enter Name: [text field] [Submit]`,
-note:"Legacy applet example. Use a compatible old Java applet environment for execution. In modern Java, use a standalone AWT or Swing application instead."
+output: `Name: [TextField] [Submit]`,
+note: "This is a legacy applet example. For modern Java GUI programming, use AWT Frame or Swing JFrame."
 },
 
 {
-n:11,
-title:"Multiple Selection List Box in a GUI",
-category:"GUI",
-file:"P11_MultipleSelectionList.java",
-aim:"Demonstrate the use of a multiple-selection list box in a graphical interface.",
-algorithm:[
-"Import the AWT classes.",
+title: "Multiple Selection List Box",
+file: "P11_MultipleSelectionList.java",
+aim: "To demonstrate multiple selection in a GUI list.",
+algorithm: [
+"Import AWT classes.",
 "Create a Frame.",
-"Create a List that allows multiple selections.",
-"Add several course names to the list.",
-"Add the list to the frame.",
-"Display the frame.",
-"Allow the user to select multiple items."
+"Create a multiple-selection List.",
+"Add course names.",
+"Add a button.",
+"Display the window."
 ],
-steps:"The AWT List component can allow multiple selections when its constructor uses true. getSelectedItems() retrieves the selected values.",
-hint:"List(..., true) = multiple selection. getSelectedItems() = selected values.",
-code:`import java.awt.*;
-import java.awt.event.*;
+explain: "List stores selectable items. Passing true to List allows multiple selections.",
+code: `import java.awt.*;
 
 public class P11_MultipleSelectionList {
     public static void main(String[] args) {
-        Frame frame = new Frame("Select Courses");
-        frame.setLayout(new FlowLayout());
+        Frame f = new Frame("Course List");
 
-        List courses = new List(5, true);
+        List list = new List(5, true);
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
 
-        courses.add("Java");
-        courses.add("Python");
-        courses.add("C++");
-        courses.add("Networking");
-        courses.add("Cyber Security");
-
-        Button button = new Button("Show Selected");
-
-        button.addActionListener(e -> {
-            String[] selected = courses.getSelectedItems();
-
-            if (selected.length == 0) {
-                System.out.println("No selection");
-            } else {
-                System.out.println("Selected courses:");
-
-                for (String course : selected) {
-                    System.out.println(course);
-                }
-            }
-        });
-
-        frame.add(courses);
-        frame.add(button);
-
-        frame.setSize(350, 250);
-        frame.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                frame.dispose();
-            }
-        });
-
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        f.add(list);
+        f.setSize(300, 200);
+        f.setLayout(new FlowLayout());
+        f.setVisible(true);
     }
 }`,
-output:`A window opens with a list of courses.
-Select multiple courses.
-Click Show Selected to print the chosen items.`,
-note:"The selected courses are printed to the terminal where the program was started."
+output: `A window opens with Java, Python and C++.
+You can select more than one course.`,
+note: "Run this program on a computer with a graphical desktop. It will not open a window in a headless terminal."
 },
 
 {
-n:12,
-title:"File Handling — Read and Write Operations",
-category:"Files",
-file:"P12_FileHandling.java",
-aim:"Perform file handling operations including reading and writing.",
-algorithm:[
-"Import the required file classes.",
+title: "File Handling",
+file: "P12_FileHandling.java",
+aim: "To write and read a file in Java.",
+algorithm: [
+"Import file classes.",
 "Create a file path.",
-"Write text using Files.writeString().",
-"Read the contents using Files.readString().",
-"Display the contents.",
-"Handle IOException if a file operation fails.",
-"Stop the program."
+"Write text into the file.",
+"Read the text.",
+"Display the content.",
+"Handle file errors."
 ],
-steps:"Path identifies the file. writeString() writes text. readString() reads text. IOException handles file-operation failures.",
-hint:"writeString() = write file. readString() = read file. catch = handle errors.",
-code:`import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+explain: "File handling stores data in files. This program writes text into sample.txt and reads it back.",
+code: `import java.io.*;
 
 public class P12_FileHandling {
     public static void main(String[] args) {
-        Path path = Path.of("sample.txt");
-
         try {
-            Files.writeString(path, "Welcome to Java File Handling");
+            FileWriter w = new FileWriter("sample.txt");
+            w.write("Hello Java File");
+            w.close();
 
-            String content = Files.readString(path);
+            FileReader r = new FileReader("sample.txt");
+            int ch;
 
-            System.out.println("File content:");
-            System.out.println(content);
+            while ((ch = r.read()) != -1) {
+                System.out.print((char) ch);
+            }
+
+            r.close();
 
         } catch (IOException e) {
-            System.out.println("File error: " + e.getMessage());
+            System.out.println("File error");
         }
     }
 }`,
-output:`File content:
-Welcome to Java File Handling`,
-note:"This example uses Path.of(), Files.writeString() and Files.readString(), which require Java 11 or later."
+output: `Hello Java File`
 }
 
 ];
 
-let activeCategory="All";
-let searchTerm="";
-
-function escapeHTML(text){
-  return String(text).replace(/[&<>"']/g, function(c){
-    return {
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#39;"
-    }[c];
-  });
+function escapeHTML(text) {
+    return String(text).replace(/[&<>"']/g, function(c) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        }[c];
+    });
 }
 
-function codeFor(p){
-  if(p.files){
-    return p.files.map(f =>
-      "// ===== FILE: " + f.name + " =====\n" + f.code
-    ).join("\n\n");
-  }
-  return p.code;
+function getFiles(p) {
+    if (p.files) return p.files;
+
+    return [{
+        name: p.file,
+        code: p.code
+    }];
 }
 
-function filesFor(p){
-  if(p.files) return p.files;
-  return [{name:p.file,code:p.code}];
-}
+function render() {
+    const search = document.getElementById("search").value.toLowerCase();
 
-function renderFilters(){
-  const categories=["All",...new Set(data.map(p=>p.category))];
-  document.getElementById("filters").innerHTML=categories.map(c=>
-    `<button class="filter ${activeCategory===c?"active":""}"
-      onclick="setCategory('${c}')">${c}</button>`
-  ).join("");
-}
+    const filtered = programs.filter(p =>
+        (p.title + p.aim).toLowerCase().includes(search)
+    );
 
-function setCategory(c){
-  activeCategory=c;
-  renderFilters();
-  renderPrograms();
-}
-
-function matches(p){
-  const text=[
-    p.title,p.category,p.aim,p.steps,p.hint,
-    p.algorithm.join(" "),codeFor(p)
-  ].join(" ").toLowerCase();
-
-  return (activeCategory==="All" || p.category===activeCategory)
-    && text.includes(searchTerm);
-}
-
-function renderIndex(){
-  const items=data.filter(matches);
-  document.getElementById("indexGrid").innerHTML=items.length
-    ?items.map(p=>`
-      <button class="index-card" onclick="openProgram(${p.n})">
-        <span class="index-no">PRACTICAL ${String(p.n).padStart(2,"0")}</span>
-        <h3>${escapeHTML(p.title)}</h3>
-        <p>${escapeHTML(p.category)} · Algorithm + Code + Output</p>
-        <p class="topic">Open practical ↗</p>
-      </button>
-    `).join("")
-    :`<div class="empty">No matching practicals found.</div>`;
-}
-
-function renderProgram(p){
-  const id="code-"+p.n;
-  const algorithm=p.algorithm.map(s=>`<li>${escapeHTML(s)}</li>`).join("");
-  const fileCode=filesFor(p).map(f=>`
-    <div class="code-header">
-      <strong>${escapeHTML(f.name)}</strong>
-      <button class="btn small" onclick="copyText(${p.n},${filesFor(p).indexOf(f)},this)">Copy Code</button>
-    </div>
-    <pre id="${id}-${filesFor(p).indexOf(f)}">${escapeHTML(f.code)}</pre>
-  `).join("");
-
-  return `
-  <article class="program" id="program-${p.n}">
-    <div class="program-head">
-      <div>
-        <span class="tag">PRACTICAL ${String(p.n).padStart(2,"0")} / 12 · ${escapeHTML(p.category.toUpperCase())}</span>
-        <h2>${escapeHTML(p.title)}</h2>
-        <span class="small">${escapeHTML(p.file)}</span>
-      </div>
-      <div class="number">${p.n}</div>
-    </div>
-
-    <div class="program-body">
-      <div class="box aim">
-        <h3>🎯 AIM</h3>
-        ${escapeHTML(p.aim)}
-      </div>
-
-      <div class="box algorithm">
-        <h3>📋 ALGORITHM</h3>
-        <ol>${algorithm}</ol>
-      </div>
-
-      <div class="box steps">
-        <h3>🧠 STEP-BY-STEP EXPLANATION</h3>
-        ${escapeHTML(p.steps)}
-      </div>
-
-      <div class="box memory">
-        <h3>💡 EASY MEMORY HINT</h3>
-        ${escapeHTML(p.hint)}
-      </div>
-
-      ${p.note?`<div class="note">⚠ ${escapeHTML(p.note)}</div>`:""}
-
-      <div class="code-header">
-        <strong>☕ COMPLETE JAVA SOURCE CODE</strong>
-        <button class="btn small" onclick="toggleCode(${p.n},this)">Hide Code</button>
-      </div>
-
-      <div id="source-${p.n}">
-        ${fileCode}
-      </div>
-
-      <div class="code-header">
-        <strong>▶ SAMPLE OUTPUT</strong>
-      </div>
-      <div class="output">${escapeHTML(p.output)}</div>
-
-      <div class="actions">
-        <button class="btn success" onclick="downloadProgram(${p.n})">
-          Download ${p.files?"Program ZIP":".java File"}
+    document.getElementById("index").innerHTML = filtered.map(p => `
+        <button onclick="openProgram(${programs.indexOf(p)})">
+            <small>PROGRAM ${programs.indexOf(p) + 1}</small>
+            <strong>${escapeHTML(p.title)}</strong>
         </button>
-        <button class="btn" onclick="downloadProgramText(${p.n})">
-          Download Code TXT
-        </button>
-        <button class="btn" onclick="copyAll(${p.n},this)">
-          Copy Complete Code
-        </button>
-      </div>
-    </div>
-  </article>`;
+    `).join("");
+
+    document.getElementById("programs").innerHTML = filtered.map(p => {
+        const id = programs.indexOf(p);
+
+        return `
+        <section class="program" id="p${id}">
+            <div class="program-title">
+                <small>JAVA PRACTICAL ${id + 1}</small>
+                <h3>${escapeHTML(p.title)}</h3>
+                <span>${escapeHTML(p.file)}</span>
+            </div>
+
+            <div class="content">
+                <div class="box">
+                    <h4>🎯 AIM</h4>
+                    ${escapeHTML(p.aim)}
+                </div>
+
+                <div class="box algorithm">
+                    <h4>📋 ALGORITHM</h4>
+                    <ol>
+                        ${p.algorithm.map(step =>
+                            `<li>${escapeHTML(step)}</li>`
+                        ).join("")}
+                    </ol>
+                </div>
+
+                <div class="box explain">
+                    <h4>🧠 EASY EXPLANATION</h4>
+                    ${escapeHTML(p.explain)}
+                </div>
+
+                ${p.note ? `
+                    <div class="note">
+                        ⚠ ${escapeHTML(p.note)}
+                    </div>
+                ` : ""}
+
+                <h4>☕ JAVA CODE</h4>
+
+                ${getFiles(p).map((f, i) => `
+                    <p><strong>${escapeHTML(f.name)}</strong></p>
+                    <pre id="code${id}_${i}">${escapeHTML(f.code)}</pre>
+                    <button class="btn" onclick="copyCode(${id}, ${i})">
+                        Copy Code
+                    </button>
+                    <button class="btn" onclick="downloadOne(${id}, ${i})">
+                        Download File
+                    </button>
+                `).join("")}
+
+                <h4>▶ SAMPLE OUTPUT</h4>
+                <div class="output">${escapeHTML(p.output)}</div>
+
+                <div class="actions">
+                    <button class="btn green" onclick="downloadText(${id})">
+                        Download Practical TXT
+                    </button>
+                </div>
+            </div>
+        </section>`;
+    }).join("");
 }
 
-function renderPrograms(){
-  searchTerm=document.getElementById("search").value.toLowerCase().trim();
-  renderIndex();
-
-  const list=data.filter(matches);
-  document.getElementById("programs").innerHTML=list.length
-    ?list.map(renderProgram).join("")
-    :`<div class="empty">No programs match your search.</div>`;
+function openProgram(id) {
+    document.getElementById("p" + id).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 }
 
-function openProgram(n){
-  const p=document.getElementById("program-"+n);
-  if(p)p.scrollIntoView({behavior:"smooth",block:"start"});
+function goToIndex() {
+    document.getElementById("indexHeading").scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
-function goToPrograms(){
-  document.getElementById("programSection").scrollIntoView({
-    behavior:"smooth"
-  });
-}
-
-function toggleCode(n,button){
-  const el=document.getElementById("source-"+n);
-  el.classList.toggle("hidden");
-  button.textContent=el.classList.contains("hidden")?"Show Code":"Hide Code";
-}
-
-async function copyString(text,button){
-  try{
-    if(!navigator.clipboard || !window.isSecureContext) throw new Error();
-    await navigator.clipboard.writeText(text);
-    const old=button.textContent;
-    button.textContent="Copied!";
-    setTimeout(()=>button.textContent=old,1300);
-  }catch(e){
-    const area=document.createElement("textarea");
-    area.value=text;
-    document.body.appendChild(area);
-    area.select();
-    try{
-      document.execCommand("copy");
-      alert("Copied to clipboard.");
-    }catch(err){
-      alert("Copy failed. Select and copy the text manually.");
-    }
-    area.remove();
-  }
-}
-
-function copyText(n,index,button){
-  const p=data.find(x=>x.n===n);
-  copyString(filesFor(p)[index].code,button);
-}
-
-function copyAll(n,button){
-  const p=data.find(x=>x.n===n);
-  copyString(codeFor(p),button);
-}
-
-function downloadBlob(filename,blob){
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement("a");
-  a.href=url;
-  a.download=filename;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url),1500);
-}
-
-function downloadText(filename,text){
-  downloadBlob(filename,new Blob([text],{
-    type:"text/plain;charset=utf-8"
-  }));
-}
-
-function downloadProgram(n){
-  const p=data.find(x=>x.n===n);
-  const files=filesFor(p);
-
-  if(files.length===1){
-    downloadText(files[0].name,files[0].code);
-    return;
-  }
-
-  makeZip(files,p.title.replace(/[^a-z0-9]/gi,"_")+".zip");
-}
-
-function downloadProgramText(n){
-  const p=data.find(x=>x.n===n);
-  downloadText(
-    "P"+String(n).padStart(2,"0")+"_Complete.txt",
-    p.title+"\n\nAIM\n"+p.aim+
-    "\n\nALGORITHM\n"+p.algorithm.map((s,i)=>(i+1)+". "+s).join("\n")+
-    "\n\nJAVA SOURCE CODE\n"+codeFor(p)+
-    "\n\nSAMPLE OUTPUT\n"+p.output
-  );
-}
-
-function downloadAllText(){
-  const text=data.map(p=>
-    "==================================================\n"+
-    "PRACTICAL "+p.n+": "+p.title+"\n"+
-    "==================================================\n\n"+
-    "AIM\n"+p.aim+"\n\n"+
-    "ALGORITHM\n"+p.algorithm.map((s,i)=>(i+1)+". "+s).join("\n")+
-    "\n\nSTEPS\n"+p.steps+
-    "\n\nJAVA CODE\n"+codeFor(p)+
-    "\n\nSAMPLE OUTPUT\n"+p.output+
-    (p.note?"\n\nNOTE\n"+p.note:"")
-  ).join("\n\n\n");
-
-  downloadText("Advanced_Java_All_12_Practicals.txt",text);
-}
-
-function loadJSZip(){
-  return new Promise((resolve,reject)=>{
-    if(window.JSZip){resolve();return;}
-    const script=document.createElement("script");
-    script.src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";
-    script.onload=resolve;
-    script.onerror=()=>reject(new Error("Could not load ZIP library"));
-    document.head.appendChild(script);
-  });
-}
-
-async function makeZip(files,filename){
-  await loadJSZip();
-  const zip=new JSZip();
-  files.forEach(f=>zip.file(f.name,f.code));
-  const blob=await zip.generateAsync({type:"blob"});
-  downloadBlob(filename,blob);
-}
-
-async function downloadAllZip(){
-  try{
-    await loadJSZip();
-    const zip=new JSZip();
-
-    data.forEach(p=>{
-      filesFor(p).forEach(f=>{
-        zip.file("Java_Practicals/Set_"+String(p.n).padStart(2,"0")+"/"+f.name,f.code);
-      });
+function saveFile(name, content) {
+    const blob = new Blob([content], {
+        type: "text/plain;charset=utf-8"
     });
 
-    zip.file("README.txt",
-`ADVANCED JAVA PRACTICAL INDEX
-12 JAVA PRACTICAL PROGRAMS
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
 
-HOW TO COMPILE AND RUN:
-1. Install a compatible JDK.
-2. Open a terminal in the folder containing the Java file.
-3. Compile using javac FileName.java.
-4. Run using java ClassName.
+    a.href = url;
+    a.download = name;
+    a.click();
 
-SPECIAL NOTES:
-- Practical 6 contains multiple files and uses a custom package.
-- Practicals 9 and 10 are legacy applet examples.
-- Practicals 9 and 10 require a compatible legacy Java environment.
-- Practical 12 uses Java 11 or later.
-- Practical 11 uses an AWT graphical window.
-
-For Practical 6:
-javac mypack/Message.java P06_CustomPackages.java
-java P06_CustomPackages
-`);
-
-    const blob=await zip.generateAsync({type:"blob"});
-    downloadBlob("Advanced_Java_All_12_Practicals.zip",blob);
-  }catch(e){
-    alert("ZIP download needs an internet connection to load its library. Use Download All TXT instead.");
-  }
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-renderFilters();
-renderPrograms();
+function downloadOne(id, fileIndex) {
+    const file = getFiles(programs[id])[fileIndex];
+    saveFile(file.name, file.code);
+}
+
+function downloadText(id) {
+    const p = programs[id];
+
+    const text =
+        "AIM\n" + p.aim +
+        "\n\nALGORITHM\n" +
+        p.algorithm.map((s, i) => (i + 1) + ". " + s).join("\n") +
+        "\n\nJAVA CODE\n" +
+        getFiles(p).map(f => f.name + "\n" + f.code).join("\n\n") +
+        "\n\nOUTPUT\n" + p.output;
+
+    saveFile("Practical_" + (id + 1) + ".txt", text);
+}
+
+function downloadAll() {
+    let text = "";
+
+    programs.forEach((p, i) => {
+        text += "\n========================================\n";
+        text += "PRACTICAL " + (i + 1) + ": " + p.title + "\n";
+        text += "========================================\n\n";
+        text += "AIM\n" + p.aim + "\n\n";
+        text += "ALGORITHM\n";
+        text += p.algorithm.map((s, j) => (j + 1) + ". " + s).join("\n");
+        text += "\n\nJAVA CODE\n";
+
+        getFiles(p).forEach(f => {
+            text += "\nFILE: " + f.name + "\n";
+            text += f.code + "\n";
+        });
+
+        text += "\nOUTPUT\n" + p.output + "\n";
+    });
+
+    saveFile("All_12_Easy_Java_Practicals.txt", text);
+}
+
+async function copyCode(id, fileIndex) {
+    const text = getFiles(programs[id])[fileIndex].code;
+
+    try {
+        await navigator.clipboard.writeText(text);
+        alert("Code copied!");
+    } catch (e) {
+        const area = document.createElement("textarea");
+        area.value = text;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+        alert("Code copied!");
+    }
+}
+
+render();
 </script>
 
 </body>
-  </html>
+</html>
