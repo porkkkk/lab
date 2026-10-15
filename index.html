@@ -49,20 +49,15 @@ sudo grep -i arpwatch /var/log/syslog</pre></div><div class="memory"><b>Remember
 
 <section class="card lab" id="p4"><h2>04. Buffer overflow — simple safe C program</h2><div class="aim"><b>Aim:</b> To understand that a buffer has a fixed size and input must not exceed it.</div><h3>Algorithm — INPUT → CHECK → DISPLAY</h3><ol class="steps"><li>Create a character array of 20 spaces/bytes.</li><li>Read the input safely with <code>fgets()</code>.</li><li>Remove the newline if present.</li><li>Display the entered text.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>// buffer.c — simple, safe demonstration
 #include <stdio.h>
-#include <string.h>
 
-int main(void) {
+int main() {
     char name[20];
 
-    printf("Enter your name (max 19 characters): ");
+    printf("Enter name: ");
+    scanf("%19s", name);
 
-    if (fgets(name, sizeof(name), stdin) == NULL) {
-        return 1;
-    }
+    printf("Name: %s", name);
 
-    name[strcspn(name, "\\n")] = '\\0';
-
-    printf("Your name is: %s\\n", name);
     return 0;
 }</pre></div><h3>Compile and run</h3><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>gcc buffer.c -o buffer
 ./buffer</pre></div><div class="memory"><b>Simple explanation:</b> Buffer overflow happens when a program writes more data into a buffer than it can hold. Here, <code>name[20]</code> holds at most 19 typed characters plus the ending <code>\\0</code>. <code>fgets()</code> limits the input and demonstrates the safe method.</div><p class="small">This is a safe memory-safety demonstration, not an exploit that corrupts memory. For the practical record, explain the overflow risk and show how bounded input prevents it.</p></section>
