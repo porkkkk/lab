@@ -3,233 +3,285 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CyberLab | Network Security Practical Index</title>
+<meta name="theme-color" content="#080d18">
+<title>CyberLab | IDP Practical Guide</title>
 <style>
-:root{--bg:#080d18;--panel:#101a2c;--panel2:#0d1525;--line:#253550;--text:#eaf1ff;--muted:#9fb0cc;--cyan:#5ce1e6;--blue:#7c9cff;--green:#77e0ad;--amber:#ffd27a;--red:#ff7b8b}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top right,#17284a 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-header{padding:42px 22px 30px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(92,225,230,.08),rgba(124,156,255,.06))}
-.wrap{max-width:1180px;margin:auto}.eyebrow{color:var(--cyan);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}.hero{display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:10px 0 14px;letter-spacing:-.04em}h1 span{color:var(--cyan)}.sub{color:var(--muted);max-width:760px}.pill{border:1px solid #31516a;border-radius:999px;padding:7px 12px;color:var(--green);background:#102a2c;font-size:.82rem}
-.layout{display:grid;grid-template-columns:255px minmax(0,1fr);gap:22px;padding:24px 18px 60px}.side{position:sticky;top:14px;align-self:start;background:rgba(16,26,44,.85);border:1px solid var(--line);border-radius:18px;padding:15px}.side strong{display:block;margin:3px 8px 10px}.side a{display:block;text-decoration:none;color:var(--muted);padding:9px 10px;border-radius:9px;font-size:.92rem}.side a:hover{background:#1b2b45;color:var(--text)}.content{min-width:0}.notice{border:1px solid #6b5228;background:#2b2112;color:#ffe2a4;padding:13px 15px;border-radius:12px;margin-bottom:18px}.card{background:linear-gradient(145deg,rgba(16,26,44,.98),rgba(13,21,37,.98));border:1px solid var(--line);border-radius:17px;padding:21px;margin-bottom:17px;box-shadow:0 12px 28px #0002}.card h2{margin:0 0 7px;font-size:1.35rem}.desc{color:var(--muted);margin-top:0}.meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tag{font-size:.75rem;color:#c8d6f1;background:#18263d;border:1px solid #2b3c59;padding:4px 8px;border-radius:7px}.card h3{font-size:1rem;margin:18px 0 7px;color:var(--cyan)}ol,ul{padding-left:22px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}.subcard{border:1px solid var(--line);border-radius:12px;padding:14px;background:#0a1220}.subcard h3{margin-top:0}.codewrap{position:relative;margin:10px 0 14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#060b13;border:1px solid #25344b;border-radius:11px;padding:15px;color:#d7e6ff;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;margin:0}.copy{position:absolute;top:8px;right:8px;background:#1c3049;border:1px solid #38506e;color:white;border-radius:7px;padding:5px 9px;cursor:pointer}.btnrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.btn{cursor:pointer;border:1px solid #36506e;background:#172942;color:var(--text);padding:9px 13px;border-radius:9px;font-weight:650}.btn.primary{background:var(--cyan);color:#06121a;border-color:var(--cyan)}.btn:hover{filter:brightness(1.12)}.tip{border-left:3px solid var(--blue);padding:8px 12px;background:#121e32;color:#cbd8ef;border-radius:0 8px 8px 0;margin:12px 0}.danger{border-left-color:var(--red)}.good{border-left-color:var(--green)}.search{width:100%;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:#080f1c;color:var(--text);margin:8px 0 13px}.small{font-size:.86rem;color:var(--muted)}footer{text-align:center;padding:22px;color:var(--muted);border-top:1px solid var(--line)}.hidden{display:none!important}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.side{position:static}.side nav{display:grid;grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr}}
-@media print{body{background:white;color:#111}.side,.btn,.copy,header .pill{display:none!important}.layout{display:block}.card{break-inside:avoid;background:white;color:#111;border:1px solid #aaa;box-shadow:none}pre{background:#f5f5f5;color:#111;border-color:#ccc}.desc,.small{color:#333}header{background:white;color:#111}}
+:root{--bg:#080d18;--panel:#101a2c;--panel2:#0c1423;--line:#263752;--text:#edf3ff;--muted:#a4b4ce;--cyan:#5ce1e6;--blue:#8aa5ff;--green:#81e6b3;--amber:#ffd27b;--red:#ff8794}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#172b50 0,transparent 36%),var(--bg);color:var(--text);font:15px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:var(--cyan)}header{padding:38px 20px 30px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,#5ce1e60c,#8aa5ff0b)}.wrap{max-width:1200px;margin:auto}.hero{display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:.19em;text-transform:uppercase;font-size:.76rem}h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.03;letter-spacing:-.045em;margin:10px 0}h1 span{color:var(--cyan)}.lead{color:var(--muted);max-width:760px;margin:13px 0}.status{border:1px solid #28616a;background:#0d2a30;color:var(--green);padding:8px 13px;border-radius:999px;font-size:.83rem}.layout{display:grid;grid-template-columns:265px minmax(0,1fr);gap:22px;padding:24px 18px 55px}.side{position:sticky;top:14px;align-self:start;background:#101a2ce8;border:1px solid var(--line);border-radius:17px;padding:15px}.side b{display:block;margin:4px 8px 9px;letter-spacing:.08em;font-size:.82rem}.side a{display:block;padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--muted);font-size:.9rem}.side a:hover{background:#1b2c47;color:white}.search{width:100%;padding:11px 12px;border-radius:9px;background:#080f1b;color:white;border:1px solid var(--line);margin:8px 0 12px}.content{min-width:0}.notice{border:1px solid #705629;background:#2b2112;color:#ffe5aa;border-radius:12px;padding:13px 15px;margin-bottom:17px}.card{background:linear-gradient(145deg,#101a2cf5,#0c1423f5);border:1px solid var(--line);border-radius:17px;padding:21px;margin-bottom:17px;box-shadow:0 12px 32px #0002}.card h2{margin:0 0 5px;font-size:1.35rem;letter-spacing:-.02em}.desc{color:var(--muted);margin:0 0 10px}.meta{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0}.tag{font-size:.74rem;color:#d2ddf2;background:#17263d;border:1px solid #2b405e;padding:3px 8px;border-radius:7px}.card h3{color:var(--cyan);font-size:1rem;margin:18px 0 7px}.card ol,.card ul{padding-left:22px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:13px}.subcard{border:1px solid var(--line);border-radius:12px;padding:13px;background:#0a1220;min-width:0}.subcard h3{margin:0 0 8px}.codewrap{position:relative;margin:10px 0 14px}pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;overflow-x:auto;background:#050a12;border:1px solid #273852;border-radius:10px;padding:15px;color:#d8e7ff;font:12.8px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;padding-top:40px}.copy{position:absolute;right:8px;top:7px;z-index:1;border:1px solid #3a5172;background:#1a2b45;color:#fff;padding:5px 9px;border-radius:7px;cursor:pointer}.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{border:1px solid #3a5274;background:#182b45;color:white;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer}.btn.primary{background:var(--cyan);color:#07151b;border-color:var(--cyan)}.btn:hover{filter:brightness(1.12)}.tip{border-left:3px solid var(--blue);background:#121e32;padding:9px 12px;border-radius:0 9px 9px 0;color:#d0def5;margin:12px 0}.tip.good{border-left-color:var(--green)}.tip.warn{border-left-color:var(--amber)}.small{font-size:.86rem;color:var(--muted)}.hidden{display:none!important}.table{width:100%;border-collapse:collapse;font-size:.9rem}.table th,.table td{border:1px solid var(--line);padding:8px;text-align:left}.table th{color:var(--cyan);background:#101e32}footer{border-top:1px solid var(--line);padding:23px;text-align:center;color:var(--muted)}@media(max-width:880px){.layout{grid-template-columns:1fr}.side{position:static}.side nav{display:grid;grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr}}@media print{body{background:#fff;color:#111}.side,.btn,.copy,header .status{display:none!important}.layout{display:block}.card,.subcard{background:#fff;color:#111;box-shadow:none;border-color:#aaa;break-inside:avoid}.desc,.small{color:#333}pre{background:#f4f4f4;color:#111;border-color:#bbb}.tip,.notice{background:#f5f5f5;color:#111}header{background:#fff;color:#111}}
 </style>
 </head>
 <body>
-<header><div class="wrap hero"><div><div class="eyebrow">STUDENT PRACTICAL TOOLKIT · 09 LABS</div><h1>Cyber<span>Lab</span> Index</h1><p class="sub">A clean, offline-friendly practical guide with aims, algorithms, commands, sample code, and proof/check steps for network reconnaissance and security tools.</p></div><div class="pill">● Learning mode · Authorized labs only</div></div></header>
+<header><div class="wrap hero"><div><div class="eyebrow">INTRUSION DETECTION & PREVENTION LAB</div><h1>Cyber<span>Lab</span> / IDP</h1><p class="lead">Practical revision website based on your uploaded “IDP Lab Quick Notes” document. Each experiment includes an aim, algorithm, commands or code, and a checklist for writing the record.</p></div><div class="status">● 10 practical experiments</div></div></header>
 <div class="wrap layout">
-<aside class="side"><strong>LAB NAVIGATION</strong><input id="search" class="search" placeholder="Search labs…" aria-label="Search labs"><nav id="nav">
-<a href="#lab1">01 · Reconnaissance</a><a href="#lab2">02 · ARPwatch</a><a href="#lab3">03 · Nessus</a><a href="#lab4">04 · Traceroute</a><a href="#lab5">05 · Buffer overflow</a><a href="#lab6">06 · Block port 8080</a><a href="#lab7">07 · Snort</a><a href="#lab8">08 · Domain details</a><a href="#lab9">09 · OWASP ZAP</a>
-</nav><div class="btnrow"><button class="btn primary" onclick="downloadGuide()">Download all code (.txt)</button><button class="btn" onclick="window.print()">Print / Save PDF</button></div><p class="small">Replace <code>college.example</code> with your official college domain. Do not scan systems without written permission.</p></aside>
+<aside class="side"><b>EXPERIMENT INDEX</b><input class="search" id="search" placeholder="Search practicals…" aria-label="Search experiments"><nav>
+<a href="#e1">01 · Network reconnaissance</a><a href="#e2">02 · ARPwatch</a><a href="#e3">03 · Nessus</a><a href="#e4">04 · Buffer overflow</a><a href="#e5">05 · Install/remove Snort</a><a href="#e6">06 · Logs & registries</a><a href="#e7">07 · iptables firewall</a><a href="#e8">08 · Snort IDS alert</a><a href="#e9">09 · IP traceback</a><a href="#e10">10 · OWASP ZAP</a>
+</nav><div class="btnrow"><button class="btn primary" onclick="downloadAll()">Download all notes (.txt)</button><button class="btn" onclick="window.print()">Print / Save PDF</button></div><p class="small">College domain in the source notes: <b>stc.ac.in</b>. Commands may differ by OS/tool version.</p></aside>
 <main class="content">
-<div class="notice"><b>Safety + accuracy:</b> Run these activities only on your own computer, a local lab, or systems for which you have explicit written permission. Scanners can disrupt services. This guide uses placeholders and defensive checks; it does not claim to have scanned your college.</div>
+<div class="notice"><b>Authorized lab use only:</b> Run scans and packet-monitoring tools only on systems and networks approved by your instructor. This guide is based on your notes; where a command may be version-dependent or risky, the page flags that limitation instead of claiming a result.</div>
 
-<section class="card lab" id="lab1" data-search="reconnaissance college website security logs critical warnings ttl google ping whois dns">
-<h2>01. Network reconnaissance</h2><p class="desc">Identify public website/domain details, review security logs, and understand TTL.</p><div class="meta"><span class="tag">Aim</span><span class="tag">DNS / WHOIS</span><span class="tag">Logs</span><span class="tag">TTL</span></div>
-<h3>Aim</h3><p>To collect publicly available information about an authorized college website and identify critical warnings in local security logs.</p>
-<h3>Algorithm</h3><ol><li>Confirm the official domain with the college.</li><li>Query DNS records and domain registration details.</li><li>Review the system's own security logs for critical events.</li><li>Record findings, time, tool, and evidence without exposing private data.</li><li>Check TTL using ping and explain its meaning.</li></ol>
-<div class="cols"><div class="subcard"><h3>Website / DNS details</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Replace with the official domain
-nslookup college.example
-nslookup -type=MX college.example
-nslookup -type=NS college.example
-whois college.example
+<section class="card lab" id="e1" data-search="experiment 1 network reconnaissance whois dig traceroute tracert ping ipconfig nslookup stc.ac.in">
+<h2>01. Network reconnaissance using WHOIS, DIG, TRACEROUTE and NSLOOKUP</h2><p class="desc">Source notes: Experiment 1 · Domain: stc.ac.in</p><div class="meta"><span class="tag">Aim</span><span class="tag">DNS</span><span class="tag">WHOIS</span><span class="tag">Route tracing</span></div>
+<h3>Aim</h3><p>To gather public domain and network information about the college website using WHOIS, DIG, traceroute, ping, ipconfig and an online DNS lookup.</p>
+<h3>Algorithm</h3><ol><li>Open a terminal or command prompt.</li><li>Run WHOIS and DNS lookup commands for the college domain.</li><li>Use traceroute/tracert to observe the route and ping to test reachability.</li><li>Use ipconfig on Windows to view local network configuration.</li><li>Record outputs, date/time, IP addresses, and any timeouts.</li></ol>
+<div class="cols"><div class="subcard"><h3>Linux commands</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>whois www.stc.ac.in
+dig stc.ac.in
+traceroute stc.ac.in
+ping stc.ac.in
 
-# Linux/macOS: common DNS records
-dig college.example A
-dig college.example AAAA
-dig college.example MX
-dig college.example NS
-dig college.example TXT</pre></div></div><div class="subcard"><h3>Security logs</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Linux: systemd journal, recent errors
-sudo journalctl -p 0..4 --since "24 hours ago"
+# DNS records can also be checked at:
+# https://nslookup.io/</pre></div></div><div class="subcard"><h3>Windows commands</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>nslookup stc.ac.in
+tracert stc.ac.in
+ping stc.ac.in
+ipconfig
 
-# Ubuntu/Debian authentication log
-sudo grep -Ei "critical|alert|failed|invalid|denied" /var/log/auth.log
-
-# Windows PowerShell: recent critical/error events
-Get-WinEvent -FilterHashtable @{
- LogName='System'; Level=1,2; StartTime=(Get-Date).AddDays(-1)
-} | Select-Object TimeCreated, Id, ProviderName, Message</pre></div></div></div>
-<h3>What to write about critical warnings</h3><ul><li><b>Repeated failed logins:</b> may indicate password guessing; verify source and account.</li><li><b>Privilege escalation / unexpected admin activity:</b> verify against approved change records.</li><li><b>Service crash or repeated restarts:</b> investigate the service logs and recent updates.</li><li><b>Firewall blocks / malware alerts:</b> preserve timestamps and event IDs; follow the incident process.</li></ul>
-<div class="tip"><b>TTL:</b> Time To Live is a limit on a packet's lifetime, reduced by each router hop. On Windows, <code>ping -4 www.google.com</code> displays the reply's remaining TTL. On Linux/macOS use <code>ping -c 4 www.google.com</code>. The returned value varies by destination, route, OS, and time; record your actual result instead of assuming a fixed Google TTL.</div>
+# WHOIS/DIG may need separate tools
+# installed on Windows.</pre></div></div></div>
+<div class="tip">TTL means Time To Live. For IP packets it limits how many router hops a packet can traverse; routers decrement it. Ping may show a reply TTL, which is not necessarily the original TTL. Write down your actual observed result.</div>
+<h3>Record your findings</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>Domain: stc.ac.in
+Date/time:
+WHOIS summary:
+A / AAAA records:
+Name servers:
+Traceroute hop count:
+Ping result:
+Local IP configuration:
+Conclusion:</pre></div>
 </section>
 
-<section class="card lab" id="lab2" data-search="arpwatch mac arp spoofing detect install interface">
-<h2>02. Detect MAC / ARP changes with arpwatch</h2><p class="desc">Monitor a network you administer for unexpected IP-to-MAC mapping changes.</p><div class="meta"><span class="tag">Aim</span><span class="tag">ARP monitoring</span><span class="tag">Linux</span></div>
-<h3>Aim</h3><p>To use arpwatch to log changes in IP-to-MAC address mappings and investigate possible ARP spoofing.</p>
-<h3>Algorithm</h3><ol><li>Get permission and identify the correct lab interface.</li><li>Install arpwatch from the operating system's trusted package repository.</li><li>Start monitoring the authorized interface.</li><li>Review logs for “changed ethernet address” or “flip flop” events.</li><li>Verify suspicious changes against router/DHCP records; a change is not proof by itself.</li></ol>
-<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Debian / Ubuntu
-sudo apt update
-sudo apt install arpwatch
+<section class="card lab" id="e2" data-search="experiment 2 detect arp spoofing arpwatch apt rsyslog eth0 syslog">
+<h2>02. Detect ARP spoofing using ARPwatch</h2><p class="desc">Source notes: Experiment 2</p><div class="meta"><span class="tag">Aim</span><span class="tag">ARP monitoring</span><span class="tag">Linux</span></div>
+<h3>Aim</h3><p>To install and run ARPwatch and inspect logs for unexpected IP-to-MAC address changes.</p>
+<h3>Algorithm</h3><ol><li>Update the package list and install arpwatch and rsyslog.</li><li>Enable and check the logging service.</li><li>Identify the actual network interface using <code>ip link show</code>.</li><li>Start arpwatch for the correct interface.</li><li>Inspect logs and verify any alerts against trusted router/DHCP records.</li></ol>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo apt update
+sudo apt install arpwatch -y
+sudo apt install rsyslog -y
+sudo systemctl enable --now rsyslog
+sudo systemctl status rsyslog
 
-# Find the interface (example: enp0s3 or eth0)
-ip -br link
-ip route
+# Find your actual interface; it may not be eth0
+ip link show
 
-# Start monitoring ONLY the approved lab interface
-sudo arpwatch -i enp0s3
-
-# Check common log locations
-sudo journalctl -u arpwatch --since "1 hour ago"
-sudo grep -Ei "changed ethernet|flip flop|new station" /var/log/syslog</pre></div>
-<div class="tip danger">If the service is not named arpwatch or uses a different log file on your distribution, check <code>systemctl status arpwatch</code> and your distribution's package documentation. Do not generate spoofed ARP traffic on a shared college network.</div>
-<h3>Evidence to submit</h3><p>Screenshot the command, monitoring status, and any relevant alert with MAC addresses partly redacted. If there are no alerts, write “No suspicious mapping change observed during the test window.”</p>
+# Use the interface name that exists on your system
+sudo systemctl enable --now arpwatch@eth0.service
+sudo systemctl status arpwatch@eth0.service
+sudo grep -i arpwatch /var/log/syslog</pre></div>
+<div class="tip warn">Replace <code>eth0</code> if your interface has a different name (for example, <code>enp0s3</code>). A changed MAC mapping can have legitimate causes, so treat an alert as a lead to investigate—not proof of spoofing.</div>
+<h3>Conclusion template</h3><p>“ARPwatch was installed and its service/logs were checked. During the observation period, [write the alert found / no suspicious mapping change was observed].”</p>
 </section>
 
-<section class="card lab" id="lab3" data-search="nessus vulnerability scan report safe scan">
-<h2>03. Vulnerability assessment with Nessus</h2><p class="desc">Use the Nessus interface to run an approved, non-destructive assessment and document findings.</p><div class="meta"><span class="tag">Aim</span><span class="tag">Nessus</span><span class="tag">Report</span></div>
-<h3>Aim</h3><p>To assess an authorized lab host for known vulnerabilities and classify findings by severity.</p>
-<h3>Algorithm</h3><ol><li>Obtain written scope and target IP from the instructor.</li><li>Install/launch Nessus and complete activation if required.</li><li>Create a new scan; select Basic Network Scan or the instructor-approved template.</li><li>Enter only the approved lab target and run the scan.</li><li>Review Critical/High findings, validate them, and export a report.</li></ol>
-<h3>Procedure / proof</h3><ol><li>Open the Nessus web interface shown by your installation.</li><li>Choose <b>New Scan → Basic Network Scan</b>.</li><li>Set a clear name, such as <code>Authorized-Lab-Assessment</code>.</li><li>Enter the permitted lab IP address only. Do not use a college/public IP unless explicitly authorized.</li><li>Launch; when complete, record plugin ID, severity, affected service, evidence, and remediation.</li></ol>
-<div class="tip good"><b>Report format:</b> Finding | Severity | Evidence | Business impact | Recommended fix | Retest result. A scanner finding should be validated before calling it a confirmed vulnerability.</div>
+<section class="card lab" id="e3" data-search="experiment 3 vulnerability scanning nessus tenable basic scan target ip">
+<h2>03. Vulnerability scanning using Nessus</h2><p class="desc">Source notes: Experiment 3</p><div class="meta"><span class="tag">Aim</span><span class="tag">Nessus</span><span class="tag">Assessment</span></div>
+<h3>Aim</h3><p>To scan an authorized lab target with Nessus and review its reported vulnerability findings.</p>
+<h3>Algorithm / procedure</h3><ol><li>Open the official Tenable Nessus website and download the appropriate installer.</li><li>Install Nessus and finish setup so the local web interface opens.</li><li>Choose the appropriate local setup option, activate Nessus Essentials if available, and create credentials.</li><li>Create a Basic Scan and enter the instructor-approved target IP.</li><li>Run the scan, then record severity, plugin ID, affected service, evidence, and remediation.</li></ol>
+<div class="tip warn">Only scan an IP address assigned for the lab or explicitly approved in writing. Do not assume that a Critical/High scanner result is confirmed until it is validated.</div>
+<h3>Report table</h3><table class="table"><tr><th>Field</th><th>What to record</th></tr><tr><td>Target</td><td>Authorized lab IP/hostname</td></tr><tr><td>Finding</td><td>Plugin title and ID</td></tr><tr><td>Severity</td><td>Critical / High / Medium / Low / Info</td></tr><tr><td>Evidence</td><td>Relevant scanner evidence, redacted as needed</td></tr><tr><td>Remediation</td><td>Vendor patch, configuration change, or further validation</td></tr></table>
 </section>
 
-<section class="card lab" id="lab4" data-search="traceroute tracert microsoft college website ip hops">
-<h2>04. IP address and hop count with traceroute</h2><p class="desc">Trace the route to Microsoft and your college website, then record the final responding hop.</p><div class="meta"><span class="tag">Aim</span><span class="tag">traceroute / tracert</span></div>
-<h3>Aim</h3><p>To resolve a hostname to an IP address and observe the network hops toward that destination.</p>
-<h3>Algorithm</h3><ol><li>Resolve the website hostname to an IP.</li><li>Run traceroute/tracert.</li><li>Count numbered hop rows; note timeouts as non-responding hops, not necessarily failures.</li><li>Repeat at a different time if needed and record the date.</li></ol>
-<div class="cols"><div class="subcard"><h3>Windows</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>nslookup www.microsoft.com
-tracert -d www.microsoft.com
-
-nslookup college.example
-tracert -d college.example</pre></div></div><div class="subcard"><h3>Linux / macOS</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>getent ahosts www.microsoft.com
-traceroute -n www.microsoft.com
-
-getent ahosts college.example
-traceroute -n college.example</pre></div></div></div>
-<div class="tip">If traceroute is not installed, install it through your OS package manager or use the tool approved by your instructor. Routes may change, and some routers do not respond to traceroute probes. Report the observed result, not a guessed hop count.</div>
-</section>
-
-<section class="card lab" id="lab5" data-search="buffer overflow c programming safe demonstration bounds">
-<h2>05. Buffer overflow concept — safe local demonstration</h2><p class="desc">Learn how writing past a fixed-size buffer is a memory-safety bug. Use a bounds-checked example; do not attack another process or service.</p><div class="meta"><span class="tag">Aim</span><span class="tag">C</span><span class="tag">Memory safety</span></div>
-<h3>Aim</h3><p>To demonstrate a buffer boundary problem conceptually and show how length validation prevents it.</p>
-<h3>Algorithm</h3><ol><li>Create a fixed-size character buffer.</li><li>Read user input with a bounded input function.</li><li>Check whether the input was too long.</li><li>Print the accepted text and explain that unchecked writes can corrupt adjacent memory.</li></ol>
-<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>// safe_buffer.c — safe bounds-checked demonstration
+<section class="card lab" id="e4" data-search="experiment 4 buffer overflow demonstration C buffer_demo gcc scanf unsafe">
+<h2>04. Buffer overflow demonstration</h2><p class="desc">Source notes: Experiment 4 · C language</p><div class="meta"><span class="tag">Aim</span><span class="tag">C</span><span class="tag">Memory safety</span></div>
+<h3>Aim</h3><p>To understand how writing more input than a fixed-size buffer can safely hold may cause memory corruption, and to demonstrate a bounds-checked alternative.</p>
+<h3>Algorithm</h3><ol><li>Declare a character buffer with a fixed size.</li><li>Prompt the user for a name.</li><li>Read input with a length-limited function.</li><li>Display accepted input and explain why unbounded input is unsafe.</li></ol>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>// buffer_demo.c — safe classroom demonstration
 #include <stdio.h>
 #include <string.h>
 
 int main(void) {
-    char buffer[16];
+    char name[20];
 
-    printf("Enter text (maximum 15 characters): ");
-    if (fgets(buffer, sizeof buffer, stdin) == NULL) {
+    printf("Enter your name (maximum 19 characters): ");
+    if (fgets(name, sizeof name, stdin) == NULL) {
         return 1;
     }
 
-    size_t n = strlen(buffer);
-    if (n > 0 && buffer[n - 1] == '\\n') {
-        buffer[n - 1] = '\\0';
+    size_t n = strlen(name);
+    if (n > 0 && name[n - 1] == '\\n') {
+        name[n - 1] = '\\0';
     } else {
         int ch;
         while ((ch = getchar()) != '\\n' && ch != EOF) { }
         printf("Input was too long; extra characters were discarded.\\n");
     }
 
-    printf("Accepted input: %s\\n", buffer);
+    printf("Hello %s\\n", name);
     return 0;
 }</pre></div>
-<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Compile and run locally
-gcc -Wall -Wextra -fstack-protector-strong safe_buffer.c -o safe_buffer
-./safe_buffer</pre></div>
-<div class="tip danger"><b>Explanation for viva:</b> A classic buffer overflow occurs when a program writes more bytes than a buffer can hold. This example intentionally avoids an unsafe exploit and demonstrates a safe fix using <code>fgets()</code> plus input-length handling.</div>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>nano buffer_demo.c
+gcc -Wall -Wextra -fstack-protector-strong buffer_demo.c -o buffer_demo
+./buffer_demo</pre></div>
+<div class="tip warn"><b>Viva:</b> The original note uses <code>scanf("%s", name)</code> with <code>char name[20]</code> and no maximum width. That is unsafe for long input. This page uses <code>fgets()</code> to demonstrate the concept without intentionally triggering a crash. A segmentation fault is not guaranteed or a reliable test.</div>
 </section>
 
-<section class="card lab" id="lab6" data-search="block unblock port 8080 firewall ufw windows powershell">
-<h2>06. Block and unblock port 8080</h2><p class="desc">Demonstrate a firewall rule on your own lab machine and verify it. Keep an alternate admin session open when changing firewall rules remotely.</p><div class="meta"><span class="tag">Aim</span><span class="tag">Firewall</span><span class="tag">Verification</span></div>
-<h3>Aim</h3><p>To block inbound TCP traffic to port 8080, verify the rule, and then remove the rule to unblock it.</p><h3>Algorithm</h3><ol><li>Check whether the service is listening on port 8080.</li><li>Add a firewall block rule for inbound TCP 8080.</li><li>List the rule and test from an authorized second machine.</li><li>Remove the rule and retest.</li></ol>
-<div class="cols"><div class="subcard"><h3>Ubuntu with UFW</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Block inbound TCP 8080
-sudo ufw deny 8080/tcp
-sudo ufw status numbered
+<section class="card lab" id="e5" data-search="experiment 5 install uninstall snort IDS snort lua apt purge">
+<h2>05. Install and uninstall Snort IDS</h2><p class="desc">Source notes: Experiment 5</p><div class="meta"><span class="tag">Aim</span><span class="tag">Snort IDS</span><span class="tag">Linux</span></div>
+<h3>Aim</h3><p>To install Snort, verify its version/configuration, run it on an authorized lab interface, and remove the package from a disposable lab system when required.</p>
+<h3>Algorithm</h3><ol><li>Update package lists and install Snort.</li><li>Check the installed version and configuration directory.</li><li>Test the configuration using the config file appropriate for the installed version.</li><li>Identify the authorized lab interface and run Snort in monitoring mode.</li><li>Stop Snort, then uninstall it only if authorized.</li></ol>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo apt update
+sudo apt install snort -y
+snort -V
+ls /etc/snort
 
-# Unblock: remove the matching rule
-sudo ufw status numbered
-sudo ufw delete deny 8080/tcp
+# Confirm which config file exists on your version
+ls /etc/snort/snort.*
 
-# Check local listener
-sudo ss -lntp | grep ':8080'</pre></div></div><div class="subcard"><h3>Windows PowerShell (Admin)</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Block inbound TCP 8080
-New-NetFirewallRule -DisplayName "Lab Block TCP 8080" -Direction Inbound -Protocol TCP -LocalPort 8080 -Action Block
+# The notes use Snort 3-style Lua configuration:
+sudo snort -T -c /etc/snort/snort.lua
 
-# Verify rule
-Get-NetFirewallRule -DisplayName "Lab Block TCP 8080"
+# Find the real interface name first
+ip link
 
-# Unblock by removing the lab rule
-Remove-NetFirewallRule -DisplayName "Lab Block TCP 8080"
+# Run only on an authorized lab interface
+sudo snort -c /etc/snort/snort.lua -i eth0
 
-# Check local listener
-Get-NetTCPConnection -LocalPort 8080 -State Listen</pre></div></div></div>
-<div class="tip">A firewall rule blocking inbound traffic does not necessarily stop a service listening locally, and a local connection test alone may not prove remote blocking. Record the firewall rule plus a test from an authorized second machine.</div>
+# Optional basic connectivity test
+ping -c 4 8.8.8.8
+
+# Remove from your own lab machine only
+sudo apt purge snort -y
+sudo apt autoremove -y</pre></div>
+<div class="tip warn">Snort 2 and Snort 3 use different configuration formats and options. If <code>snort.lua</code> is absent, do not assume the command will work; inspect your installed version and package documentation. Avoid removing monitoring software from managed systems.</div>
 </section>
 
-<section class="card lab" id="lab7" data-search="snort ids detect vulnerabilities alerts uninstall remove">
-<h2>07. Identify suspicious traffic with Snort</h2><p class="desc">Use Snort as a network intrusion detection system (IDS) on an authorized lab interface, inspect alerts, and remove it only if your instructor asks.</p><div class="meta"><span class="tag">Aim</span><span class="tag">IDS</span><span class="tag">Alerts</span></div>
-<h3>Aim</h3><p>To run Snort in detection mode, review generated alerts, and demonstrate clean uninstallation in a disposable lab environment.</p>
-<h3>Algorithm</h3><ol><li>Install Snort from the trusted OS repository.</li><li>Identify the correct lab interface and verify the configuration.</li><li>Run a short detection session or use the instructor-provided PCAP.</li><li>Review alerts and map them to timestamps and rule IDs.</li><li>Stop Snort, then remove it only from your own lab machine if required.</li></ol>
-<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Debian / Ubuntu — install
-sudo apt update
-sudo apt install snort
+<section class="card lab" id="e6" data-search="experiment 6 study logs registries eventvwr 4624 4625 4720 4726 1102 auth.log journalctl">
+<h2>06. Study logs and registries</h2><p class="desc">Source notes: Experiment 6 · Windows and Linux</p><div class="meta"><span class="tag">Aim</span><span class="tag">Event logs</span><span class="tag">Registry</span></div>
+<h3>Aim</h3><p>To inspect operating-system logs for login/account events and review Windows startup Run keys.</p>
+<h3>Algorithm</h3><ol><li>Open Event Viewer in Windows and inspect the Security log.</li><li>Search for the listed event IDs and note time, account, and outcome.</li><li>Inspect startup Run registry keys without changing them.</li><li>On Linux, review authentication logs and journal entries.</li><li>Record suspicious events with context; redact usernames and IPs in shared reports.</li></ol>
+<div class="cols"><div class="subcard"><h3>Windows</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Win + R, then enter:
+eventvwr.msc
 
-# Find interface
-ip -br link
+# Event IDs in the notes
+4624  Successful logon
+4625  Failed logon
+4720  User account created
+4726  User account deleted
+1102  Security audit log cleared
 
-# Validate configuration (path/options can vary by version)
-sudo snort -T -c /etc/snort/snort.conf
+# Win + R, then enter:
+regedit
 
-# Run IDS on an authorized lab interface (classic Snort 2 syntax)
-sudo snort -A console -q -c /etc/snort/snort.conf -i enp0s3
+# Inspect these keys (do not edit without authorization)
+HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run
+HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run</pre></div></div><div class="subcard"><h3>Linux</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>ls /var/log
+sudo less /var/log/auth.log
+sudo tail -n 30 /var/log/auth.log
+sudo grep -a -i "failed" /var/log/auth.log
+sudo grep -a -i "authentication failure" /var/log/auth.log
+sudo grep -a -i "failed password" /var/log/auth.log
 
-# Review alerts in another terminal; common Snort 2 location
-sudo tail -f /var/log/snort/alert</pre></div>
-<h3>Remove Snort (only from your own disposable lab)</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Stop service first (service name may vary)
-sudo systemctl stop snort 2>/dev/null || true
-
-# Remove package but keep config
-sudo apt remove snort
-
-# Optional: purge config only if you are sure you no longer need it
-# sudo apt purge snort</pre></div>
-<div class="tip danger">Do not uninstall security monitoring from a college or workplace system without the administrator's approval. Snort is an IDS; it detects suspicious patterns and alerts, but does not automatically prove that a host is vulnerable.</div>
+journalctl
+sudo journalctl | grep -i "authentication"
+sudo journalctl | grep -i "failed"
+sudo journalctl -n 30</pre></div></div></div>
+<div class="tip">Some Linux distributions use different authentication log paths or only the systemd journal. Event IDs need context: a failed login alone does not prove an attack, and event 1102 is important because it indicates the Security audit log was cleared.</div>
 </section>
 
-<section class="card lab" id="lab8" data-search="college domain details dns whois certificate crt.sh">
-<h2>08. Collect college domain details</h2><p class="desc">Use public DNS, registration, and TLS certificate information. Some domains hide registrant details or use privacy protection.</p><div class="meta"><span class="tag">Aim</span><span class="tag">WHOIS</span><span class="tag">DNS</span><span class="tag">TLS</span></div>
-<h3>Aim</h3><p>To collect public technical details for the official college domain using suitable lookup tools.</p><h3>Algorithm</h3><ol><li>Confirm the exact domain from the college website or instructor.</li><li>Collect A/AAAA, MX, NS, and TXT DNS records.</li><li>Check registration dates and registrar when public.</li><li>Inspect the website TLS certificate and expiry.</li><li>Document only public technical data relevant to the assignment.</li></ol>
-<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Linux/macOS
-whois college.example
-dig college.example A
-dig college.example AAAA
-dig college.example MX
-dig college.example NS
-dig college.example TXT
-curl -I https://college.example
+<section class="card lab" id="e7" data-search="experiment 7 firewall iptables port 80 23 drop accept save rules">
+<h2>07. Create firewall rules using iptables</h2><p class="desc">Source notes: Experiment 7</p><div class="meta"><span class="tag">Aim</span><span class="tag">Firewall</span><span class="tag">Linux</span></div>
+<h3>Aim</h3><p>To inspect firewall rules, create example ACCEPT and DROP rules, save a rules snapshot, and review kernel logs.</p>
+<h3>Algorithm</h3><ol><li>List current rules and counters.</li><li>Add an ACCEPT rule for inbound TCP port 80 in the lab.</li><li>Add a DROP rule for inbound TCP port 23 in the lab.</li><li>List rules with line numbers and save a snapshot.</li><li>Check logging and remove temporary rules after the experiment if required.</li></ol>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Inspect current rules
+sudo iptables -L -n -v
 
-# Certificate dates (if OpenSSL is installed)
-echo | openssl s_client -servername college.example -connect college.example:443 2>/dev/null | openssl x509 -noout -subject -issuer -dates</pre></div>
-<h3>Report template</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>College domain:
-Lookup date/time:
-IPv4 (A):
-IPv6 (AAAA):
-Mail servers (MX):
-Name servers (NS):
-TXT / SPF / DMARC observations:
-Registrar / registration dates (if public):
-TLS issuer and expiry:
-Tools used:
-Evidence / screenshots:
-Limitations:</pre></div>
-<div class="tip">Do not publish personal registrant data, internal IPs, credentials, or private logs in your report. A DNS record or open port alone is not proof of a vulnerability.</div>
+# Example lab rules (run only on a machine you administer)
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -L INPUT -n
+sudo iptables -A INPUT -p tcp --dport 23 -j DROP
+sudo iptables -L INPUT -n -v --line-numbers
+
+# Save a snapshot to a local file
+sudo iptables-save > firewall.rules
+cat firewall.rules
+
+# Add logging at the end of INPUT (can generate many logs)
+sudo iptables -A INPUT -j LOG --log-prefix "IPTABLES: "
+sudo journalctl -k | grep IPTABLES</pre></div>
+<div class="tip warn">Be careful when changing firewall rules over SSH; you can lock yourself out. These rules affect inbound traffic and may be overridden by other rules or firewall managers. The source note's ping command tests connectivity, not whether a particular TCP port is blocked.</div>
+<h3>Optional cleanup</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># List numbered INPUT rules, then delete only the rule you added:
+sudo iptables -L INPUT -n -v --line-numbers
+# Example only: replace N with the verified rule number
+sudo iptables -D INPUT N</pre></div>
 </section>
 
-<section class="card lab" id="lab9" data-search="owasp zap vulnerability assessment web application passive scan active scan">
-<h2>09. Vulnerability assessment with OWASP ZAP</h2><p class="desc">Assess a deliberately vulnerable training app or your own local web app. Begin with passive scanning; active scans send attack-like requests.</p><div class="meta"><span class="tag">Aim</span><span class="tag">OWASP ZAP</span><span class="tag">Web security</span></div>
-<h3>Aim</h3><p>To assess a web application for common security issues using OWASP ZAP and document risk and remediation.</p><h3>Algorithm</h3><ol><li>Get written authorization and define the target scope.</li><li>Start ZAP and open the training app (prefer localhost or a deliberately vulnerable app).</li><li>Browse the app through ZAP to build the site tree.</li><li>Review passive alerts first.</li><li>Run an active scan only on an explicitly authorized test target.</li><li>Export the report, validate findings, and suggest fixes.</li></ol>
-<h3>GUI procedure</h3><ol><li>Install OWASP ZAP from its official project website.</li><li>Choose the automated scan option only for a permitted training target.</li><li>For a safe first pass, browse the application through ZAP and inspect the Alerts tab.</li><li>Record alert name, risk, URL, evidence, and remediation.</li><li>Export an HTML report for your practical record.</li></ol>
-<div class="tip good"><b>Common checks:</b> missing security headers, cookie flags, mixed content, information disclosure, and input-validation alerts. Treat scanner results as leads that require manual verification.</div>
+<section class="card lab" id="e8" data-search="experiment 8 intrusion detection snort test.rules icmp alert_fast sid">
+<h2>08. Demonstrate an intrusion detection system</h2><p class="desc">Source notes: Experiment 8 · Snort custom ICMP alert</p><div class="meta"><span class="tag">Aim</span><span class="tag">Snort rule</span><span class="tag">ICMP</span></div>
+<h3>Aim</h3><p>To configure a local Snort rule that alerts on ICMP traffic and observe alerts in an authorized lab.</p>
+<h3>Algorithm</h3><ol><li>Install Snort and verify the version and available config files.</li><li>Validate the installed configuration.</li><li>Create a local rule with a unique SID.</li><li>Run Snort on the approved lab interface using that rule.</li><li>Generate benign ICMP traffic only within the authorized lab and inspect alerts.</li></ol>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo apt update
+sudo apt install snort -y
+snort -V
+ls /etc/snort
+
+# Validate only if this config exists for your installed version
+sudo snort -T -c /etc/snort/snort.lua
+
+nano ~/test.rules</pre></div>
+<p>Create this rule in <code>~/test.rules</code>:</p><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>alert icmp any any -> any any (msg:"ICMP TEST ALERT"; sid:1000001; rev:1;)</pre></div>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Snort 3 options differ from Snort 2; check `snort --help`
+# and your version's documentation before running.
+sudo snort -c /etc/snort/snort.lua -R ~/test.rules -i eth0 -A alert_fast
+
+# Source notes' simple test:
+ping -c 4 8.8.8.8</pre></div>
+<div class="tip warn">The source notes combine a Lua configuration (Snort 3) with command-line options that may vary by version. Confirm the installed Snort version and use its documented syntax. Use a local test host if external ICMP traffic is not permitted.</div>
+<h3>Evidence</h3><p>Capture the alert message, SID <code>1000001</code>, timestamp, and the test traffic used. The alert indicates that the rule matched traffic; it is not by itself proof of a compromise.</p>
 </section>
-<div class="card"><h2>Practical record checklist</h2><ul><li>☐ Aim and algorithm for each experiment</li><li>☐ Commands / settings used and date/time</li><li>☐ Screenshot of tool and output</li><li>☐ Findings, severity, evidence, and remediation</li><li>☐ Scope / permission noted; sensitive values redacted</li><li>☐ Conclusion: what was observed and what was not verified</li></ul><p class="small">This page is a study guide, not a claim that any scan has been run. Tool versions, paths, interface names, and command options vary by operating system.</p></div>
+
+<section class="card lab" id="e9" data-search="experiment 9 ip traceback traceroute tracert stc.ac.in">
+<h2>09. Demonstrate IP traceback using traceroute</h2><p class="desc">Source notes: Experiment 9</p><div class="meta"><span class="tag">Aim</span><span class="tag">Traceroute</span><span class="tag">Hops</span></div>
+<h3>Aim</h3><p>To observe the route taken by packets toward the college website and record responding hops.</p>
+<h3>Algorithm</h3><ol><li>Open Linux terminal or Windows Command Prompt.</li><li>Run the platform-specific route tracing command.</li><li>Count hop rows and note responding routers and timeouts.</li><li>Repeat if necessary and record the date/time.</li></ol>
+<div class="cols"><div class="subcard"><h3>Linux</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>traceroute stc.ac.in</pre></div></div><div class="subcard"><h3>Windows</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>tracert stc.ac.in</pre></div></div></div>
+<div class="tip">Traceroute is a route-observation tool, not a guaranteed way to identify the original attacker. Firewalls, routing changes, and routers that do not respond can affect the output.</div>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>Destination:
+Resolved IP:
+Date/time:
+Total displayed hop rows:
+Non-responding hops:
+Conclusion:</pre></div>
+</section>
+
+<section class="card lab" id="e10" data-search="experiment 10 vulnerability assessment OWASP ZAP zaproxy docker juice shop localhost 3000">
+<h2>10. Vulnerability assessment using OWASP ZAP</h2><p class="desc">Source notes: Experiment 10 · OWASP ZAP + OWASP Juice Shop local target</p><div class="meta"><span class="tag">Aim</span><span class="tag">OWASP ZAP</span><span class="tag">Docker</span><span class="tag">Local training app</span></div>
+<h3>Aim</h3><p>To use OWASP ZAP to assess a deliberately vulnerable local training application and record findings with remediation recommendations.</p>
+<h3>Algorithm</h3><ol><li>Update package information and install ZAP if the package is available for your system.</li><li>Start ZAP and open the training application in the browser through ZAP.</li><li>Run passive checks first and inspect the Alerts panel.</li><li>Use active scanning only against the local Juice Shop or another explicitly authorized target.</li><li>Record alert name, risk, evidence, and remediation; export a report.</li></ol>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo apt update
+sudo apt upgrade -y
+apt search zaproxy
+sudo dpkg --configure -a
+sudo apt --fix-broken install -y
+sudo apt install zaproxy -y
+zaproxy</pre></div>
+<h3>Start a local Juice Shop training target</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo systemctl status docker
+
+sudo docker pull bkimminich/juice-shop
+sudo docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+
+# In a second terminal, check that the local app responds:
+curl http://127.0.0.1:3000</pre></div>
+<div class="tip good">The port binding <code>127.0.0.1:3000:3000</code> keeps the training application accessible only from the same machine. This is preferable for practice to exposing a deliberately vulnerable app on a public network.</div>
+<h3>Assessment report template</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>Application: Local OWASP Juice Shop
+Target URL: http://127.0.0.1:3000
+Tool/version:
+Date/time:
+Alert name:
+Risk:
+Evidence:
+Potential impact:
+Recommended remediation:
+Retest result:
+Conclusion:</pre></div>
+</section>
+
+<section class="card"><h2>Final practical record checklist</h2><ul><li>☐ Write the aim in one or two sentences.</li><li>☐ Number the algorithm steps in order.</li><li>☐ Add the commands/code and the output actually observed.</li><li>☐ Attach screenshots from your own lab run.</li><li>☐ State the tool version and date/time where relevant.</li><li>☐ Never invent scan findings, IP addresses, hop counts, or alerts.</li><li>☐ Include a short conclusion and any safety/remediation notes.</li></ul><p class="small">This offline guide is based on the six-page uploaded “IDP Lab Quick Notes” document. Tool options and package availability can vary by Linux distribution and software version.</p></section>
 </main></div>
-<footer>CyberLab Index · Educational use · Keep testing authorized, documented, and reversible.</footer>
+<footer>CyberLab IDP · Practical revision guide · Use tools responsibly and only with authorization.</footer>
 <script>
-function copyCode(btn){const pre=btn.parentElement.querySelector('pre');const text=pre.innerText;if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',1200)}).catch(()=>fallbackCopy(text,btn))}else fallbackCopy(text,btn)}
-function fallbackCopy(text,btn){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',1200)}catch(e){btn.textContent='Select code'}ta.remove()}
-document.getElementById('search').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('.lab').forEach(el=>{el.classList.toggle('hidden',!el.innerText.toLowerCase().includes(q))})});
-function downloadGuide(){const text=[...document.querySelectorAll('.lab')].map(el=>el.innerText.replace(/Copy/g,'')).join('\n\n'+'='.repeat(65)+'\n\n');const blob=new Blob([text],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='CyberLab_Practical_Guide.txt';a.click();URL.revokeObjectURL(a.href)}
+function copyCode(btn){let t=btn.parentElement.querySelector('pre').innerText;const done=()=>{btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',1200)};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done).catch(()=>fallback(t,btn))}else fallback(t,btn)}
+function fallback(t,btn){let a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',1200)}catch(e){btn.textContent='Select manually'}a.remove()}
+document.getElementById('search').addEventListener('input',e=>{let q=e.target.value.toLowerCase();document.querySelectorAll('.lab').forEach(s=>s.classList.toggle('hidden',!s.innerText.toLowerCase().includes(q)))});
+function downloadAll(){let parts=[...document.querySelectorAll('.lab')].map(s=>s.innerText.replaceAll('Copy',''));let blob=new Blob([parts.join('\n\n'+'='.repeat(70)+'\n\n')],{type:'text/plain;charset=utf-8'});let u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='IDP_Lab_Quick_Notes.txt';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
 </script>
 </body></html>
