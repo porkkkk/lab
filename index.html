@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-<header><div class="wrap hero"><div><div class="eyebrow">NETWORK SECURITY · PRACTICAL REVISION</div><h1>Cyber<span>Lab</span> IDP</h1><p class="muted">Simple aims, easy algorithms, working sample code, commands, and memory tricks for your 9 practical questions.</p><button class="btn primary" onclick="downloadNotes()">Download all notes (.txt)</button><button class="btn" onclick="window.print()">Print / Save PDF</button></div><div class="status">● 9 practicals · Easy English</div></div></header>
+<header><div class="wrap hero"><div><div class="eyebrow">NETWORK SECURITY · PRACTICAL REVISION</div><h1>Cyber<span>Lab</span> IDP</h1><p class="muted">Simple aims, easy algorithms, working sample code, Snort rules, iptables commands, and memory tricks for your IDP practicals.</p><button class="btn primary" onclick="downloadNotes()">Download all notes (.txt)</button><button class="btn" onclick="window.print()">Print / Save PDF</button></div><div class="status">● Practical guide · Easy English</div></div></header>
 <div class="wrap layout">
 <aside class="side"><b>QUICK INDEX</b><input id="search" placeholder="Search practical..." aria-label="Search practicals"><nav>
 <a href="#p1">01 · Reconnaissance</a><a href="#p2">02 · ARPwatch</a><a href="#p3">03 · Nessus</a><a href="#p4">04 · Buffer overflow</a><a href="#p5">05 · Port 8080</a><a href="#p6">06 · Snort IDS</a><a href="#p7">07 · College domain</a><a href="#p8">08 · OWASP ZAP</a><a href="#memory">09 · Final revision</a>
@@ -49,42 +49,93 @@ sudo grep -i arpwatch /var/log/syslog</pre></div><div class="memory"><b>Remember
 
 <section class="card lab" id="p4"><h2>04. Buffer overflow — simple safe C program</h2><div class="aim"><b>Aim:</b> To understand that a buffer has a fixed size and input must not exceed it.</div><h3>Algorithm — INPUT → CHECK → DISPLAY</h3><ol class="steps"><li>Create a character array of 20 spaces/bytes.</li><li>Read the input safely with <code>fgets()</code>.</li><li>Remove the newline if present.</li><li>Display the entered text.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>// buffer.c — simple, safe demonstration
 #include <stdio.h>
+#include <string.h>
 
-int main() {
+int main(void) {
     char name[20];
 
-    printf("Enter name: ");
-    scanf("%19s", name);
+    printf("Enter your name (max 19 characters): ");
 
-    printf("Name: %s", name);
+    if (fgets(name, sizeof(name), stdin) == NULL) {
+        return 1;
+    }
 
+    name[strcspn(name, "\\n")] = '\\0';
+
+    printf("Your name is: %s\\n", name);
     return 0;
 }</pre></div><h3>Compile and run</h3><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>gcc buffer.c -o buffer
 ./buffer</pre></div><div class="memory"><b>Simple explanation:</b> Buffer overflow happens when a program writes more data into a buffer than it can hold. Here, <code>name[20]</code> holds at most 19 typed characters plus the ending <code>\\0</code>. <code>fgets()</code> limits the input and demonstrates the safe method.</div><p class="small">This is a safe memory-safety demonstration, not an exploit that corrupts memory. For the practical record, explain the overflow risk and show how bounded input prevents it.</p></section>
 
-<section class="card lab" id="p5"><h2>05. Block and unblock port 8080</h2><div class="aim"><b>Aim:</b> To block TCP port 8080, verify the rule, then remove the rule to unblock it.</div><h3>Algorithm — BLOCK → VERIFY → UNBLOCK</h3><ol class="steps"><li>List firewall rules.</li><li>Add a rule blocking inbound TCP port 8080.</li><li>Verify the rule exists.</li><li>Delete the exact rule to unblock.</li><li>List rules again to confirm removal.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Linux lab machine; use only if you administer it
+<section class="card lab" id="p5">
+<h2>05. Create firewall rules using iptables</h2>
+<div class="aim"><b>Aim:</b> To view firewall rules, allow or block TCP ports, save rules, and check firewall logs.</div>
+<h3>Algorithm — VIEW → ADD RULE → VERIFY → SAVE</h3>
+<ol class="steps"><li>List current rules.</li><li>Add an allow, drop, or logging rule.</li><li>Verify the rule.</li><li>Save a copy for the practical record.</li><li>Remove temporary rules when instructed.</li></ol>
+<h3>View existing rules</h3>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo iptables -L -n -v
+sudo iptables -L INPUT -n -v --line-numbers</pre></div>
+<h3>Allow TCP port 80</h3>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -L INPUT -n</pre></div>
+<h3>Block TCP port 23 (Telnet)</h3>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo iptables -A INPUT -p tcp --dport 23 -j DROP
+sudo iptables -L INPUT -n -v --line-numbers</pre></div>
+<h3>Block and unblock TCP port 8080</h3>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Block port 8080
 sudo iptables -I INPUT -p tcp --dport 8080 -j DROP
 
-# Prove the rule is present
+# Verify the rule
 sudo iptables -L INPUT -n -v --line-numbers
 
-# Unblock by deleting the matching rule
+# Unblock by deleting the same rule
 sudo iptables -D INPUT -p tcp --dport 8080 -j DROP
 
-# Prove the rule is gone
-sudo iptables -L INPUT -n -v --line-numbers</pre></div><div class="memory"><b>Remember:</b> DROP = block. Delete the same rule = unblock. A firewall rule listing proves the rule is configured; test actual port access only against your own lab service.</div><div class="notice">Do not change firewall rules on a shared/college machine or over a remote connection unless your instructor has approved it.</div></section>
+# Verify again
+sudo iptables -L INPUT -n -v --line-numbers</pre></div>
+<h3>Save rules and check logs</h3>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo iptables-save > firewall.rules
+cat firewall.rules
 
-<section class="card lab" id="p6"><h2>06. Snort: detect traffic and remove the tool</h2><div class="aim"><b>Aim:</b> To install Snort, check its version, validate the matching configuration, and remove it from a personal lab system if instructed.</div><h3>Algorithm — INSTALL → CHECK → TEST → REMOVE</h3><ol class="steps"><li>Update package lists and install Snort.</li><li>Check the installed version.</li><li>Check which configuration file exists.</li><li>Test using version-appropriate options.</li><li>Remove only from your own lab machine if asked.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo apt update
+# Add a logging rule (may create many log entries)
+sudo iptables -A INPUT -j LOG --log-prefix "IPTABLES: "
+
+# Check matching kernel logs
+sudo journalctl -k | grep IPTABLES</pre></div>
+<div class="memory"><b>Remember:</b> ACCEPT = allow · DROP = block · -L = list · -A = append · -I = insert · -D = delete.</div>
+<div class="notice">Use only on a machine you administer or an approved lab system. Rule order matters. Avoid changing firewall rules over a remote connection unless you have a recovery path.</div>
+</section>
+
+<section class="card lab" id="p6">
+<h2>06. Snort IDS — install, create rules, test, remove</h2>
+<div class="aim"><b>Aim:</b> To install Snort, create a simple ICMP alert rule, test the configuration, observe alerts, and remove Snort if required.</div>
+<h3>Algorithm — INSTALL → RULE → TEST → ALERT</h3>
+<ol class="steps"><li>Install Snort and check the version.</li><li>Check the configuration file available on your system.</li><li>Create a custom rule file.</li><li>Test the configuration and run Snort on the correct interface.</li><li>Generate test traffic in your approved lab and observe alerts.</li></ol>
+<h3>Install and check</h3>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo apt update
 sudo apt install snort -y
 snort -V
 ls /etc/snort
-
-# Snort 3 only, if snort.lua exists
+ip link</pre></div>
+<h3>Create a simple ICMP test rule</h3>
+<p>This rule alerts when Snort sees ICMP traffic. Use only on your own lab interface or an authorized lab network.</p>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>nano ~/test.rules</pre></div>
+<p>Add this one-line rule, then save the file:</p>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>alert icmp any any -> any any (msg:"ICMP TEST ALERT"; sid:1000001; rev:1;)</pre></div>
+<h3>Test the rule</h3>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Snort 3 example; use the config file present on your system
 sudo snort -T -c /etc/snort/snort.lua
 
-# Remove from your own lab computer only
-sudo apt purge snort -y
-sudo apt autoremove -y</pre></div><div class="memory"><b>Remember:</b> Snort = IDS (Intrusion Detection System). It inspects traffic and can generate alerts. Snort 2 and 3 commands differ.</div></section>
+# Replace eth0 with your real interface
+sudo snort -c /etc/snort/snort.lua -R ~/test.rules -i eth0 -A alert_fast</pre></div>
+<p>In another terminal, generate a few test packets in your approved lab:</p>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>ping -c 4 127.0.0.1</pre></div>
+<p class="small">Snort versions and distro packages may use different flags or configuration paths. If a command fails, check <code>snort --help</code>, <code>snort -V</code>, and your installed config. An alert appears only for packets Snort actually observes on the selected interface.</p>
+<div class="memory"><b>Remember:</b> Snort = IDS. A rule has an action, condition, message, and SID. <code>alert icmp</code> means alert on ICMP packets.</div>
+<h3>Remove Snort (only if your practical asks)</h3>
+<div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo apt purge snort -y
+sudo apt autoremove -y</pre></div>
+</section>
 
 <section class="card lab" id="p7"><h2>07. College domain details</h2><div class="aim"><b>Aim:</b> To collect domain registration and DNS information using suitable lookup tools.</div><h3>Algorithm — DOMAIN → DNS → RECORD</h3><ol class="steps"><li>Run WHOIS for domain registration information.</li><li>Run DNS lookup for IP and name-server records.</li><li>Record the actual output and lookup date.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>whois stc.ac.in
 nslookup stc.ac.in
