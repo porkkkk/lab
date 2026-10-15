@@ -1,240 +1,127 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IDP Lab - Easy Memory Notes</title>
+<meta name="theme-color" content="#080d18">
+<title>CyberLab — IDP Practical Guide</title>
 <style>
-:root {
-  --bg: #0a1020;
-  --card: #121d32;
-  --line: #2a3b59;
-  --text: #f1f5ff;
-  --muted: #b1bfd7;
-  --cyan: #62e6e2;
-  --yellow: #ffdc85;
-  --green: #8de8b5;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: linear-gradient(135deg, #0a1020, #101a2d);
-  color: var(--text);
-  font: 16px/1.65 system-ui, Arial, sans-serif;
-}
-header { padding: 32px 18px; border-bottom: 1px solid var(--line); }
-.wrap { max-width: 1050px; margin: auto; }
-h1 { font-size: clamp(2rem,5vw,3.3rem); line-height: 1.1; }
-h1 span { color: var(--cyan); }
-.muted, .small { color: var(--muted); }
-.layout {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 18px;
-  padding: 20px 14px;
-}
-.nav {
-  position: sticky;
-  top: 10px;
-  align-self: start;
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 14px;
-  border-radius: 14px;
-}
-.nav a {
-  display: block;
-  color: var(--muted);
-  padding: 7px;
-  text-decoration: none;
-  border-radius: 7px;
-}
-.nav a:hover { background: #21314c; color: white; }
-.nav input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  background: #080f1d;
-  color: white;
-}
-.card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 19px;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-.card h2 { margin: 0 0 5px; }
-.card h3 { color: var(--cyan); }
-.aim {
-  border-left: 3px solid var(--green);
-  padding: 8px 12px;
-  background: #102b2a;
-  border-radius: 0 8px 8px 0;
-}
-.memory {
-  border-left: 3px solid var(--yellow);
-  padding: 8px 12px;
-  background: #302719;
-  border-radius: 0 8px 8px 0;
-  margin: 12px 0;
-}
-.codebox { position: relative; margin: 9px 0; }
-pre {
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  background: #070c16;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  padding: 38px 12px 12px;
-  color: #d8e8ff;
-  font: 13px/1.6 monospace;
-}
-.copy {
-  position: absolute;
-  right: 7px;
-  top: 6px;
-  background: #20324e;
-  color: white;
-  border-radius: 6px;
-  padding: 5px 9px;
-  cursor: pointer;
-}
-.btn {
-  background: var(--cyan);
-  color: #06151a;
-  border: 0;
-  border-radius: 9px;
-  padding: 10px 12px;
-  font-weight: 800;
-  cursor: pointer;
-}
-.hidden { display: none !important; }
-@media(max-width:780px) {
-  .layout { grid-template-columns: 1fr; }
-  .nav { position: static; }
-  .nav nav { display: grid; grid-template-columns: 1fr 1fr; }
-}
-@media print {
-  body { background: white; color: #111; }
-  .nav, .btn, .copy { display: none !important; }
-  .layout { display: block; }
-  .card { background: white; color: #111; }
-  pre { background: #f5f5f5; color: #111; }
-}
+:root{--bg:#080d18;--panel:#111c30;--panel2:#0a1322;--line:#2a3b58;--text:#eef4ff;--muted:#a9b8d0;--cyan:#63e5e2;--green:#8be6b1;--gold:#ffdc86;--red:#ff9ca8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#17294b 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.65 system-ui,Arial,sans-serif}.wrap{max-width:1180px;margin:auto}header{padding:35px 20px;border-bottom:1px solid var(--line)}.hero{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:.15em;font-size:.75rem}h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;margin:8px 0;letter-spacing:-.04em}h1 span{color:var(--cyan)}.muted{color:var(--muted)}.status{border:1px solid #28616a;background:#0d292f;color:var(--green);padding:7px 12px;border-radius:999px}.layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:20px;padding:22px 16px 50px}.side{position:sticky;top:12px;align-self:start;background:#111c30eF;border:1px solid var(--line);border-radius:15px;padding:14px}.side b{display:block;margin:4px 6px 9px}.side input{width:100%;padding:10px;border-radius:8px;border:1px solid var(--line);background:#080f1b;color:white;margin-bottom:8px}.side a{display:block;color:var(--muted);text-decoration:none;padding:7px 8px;border-radius:7px;font-size:.88rem}.side a:hover{background:#20314b;color:white}.content{min-width:0}.notice{background:#302617;border:1px solid #6b542b;color:#ffe6aa;padding:12px 14px;border-radius:11px;margin-bottom:15px}.card{background:linear-gradient(145deg,#111c30,#0d1627);border:1px solid var(--line);border-radius:15px;padding:20px;margin-bottom:15px;box-shadow:0 10px 30px #0002}.card h2{font-size:1.3rem;margin:0 0 5px}.card h3{font-size:1rem;color:var(--cyan);margin:16px 0 6px}.aim{border-left:3px solid var(--green);background:#102927;padding:9px 12px;border-radius:0 8px 8px 0}.memory{border-left:3px solid var(--gold);background:#2d2618;padding:9px 12px;border-radius:0 8px 8px 0;margin:12px 0}.steps{padding-left:22px}.steps li{margin:4px 0}.codebox{position:relative;margin:9px 0 13px}pre{margin:0;padding:38px 12px 12px;background:#050a12;border:1px solid #263650;border-radius:9px;white-space:pre-wrap;overflow-wrap:anywhere;color:#dceaff;font:12.8px/1.65 ui-monospace,Consolas,monospace}.copy{position:absolute;right:7px;top:7px;background:#1c2d47;color:white;border:1px solid #405575;border-radius:6px;padding:5px 9px;cursor:pointer}.btn{border:1px solid #405575;background:#1c2d47;color:white;border-radius:9px;padding:9px 12px;font-weight:700;cursor:pointer;margin:4px 5px 4px 0}.btn.primary{background:var(--cyan);color:#07171a;border-color:var(--cyan)}.small{font-size:.88rem;color:var(--muted)}.hidden{display:none!important}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:8px;border:1px solid var(--line);text-align:left}.table th{color:var(--cyan)}footer{border-top:1px solid var(--line);text-align:center;padding:22px;color:var(--muted)}@media(max-width:850px){.layout{grid-template-columns:1fr}.side{position:static}.side nav{display:grid;grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}}@media print{body{background:white;color:#111}.side,.btn,.copy,.status{display:none!important}.layout{display:block}.card{background:white;color:#111;box-shadow:none;break-inside:avoid;border-color:#aaa}.muted,.small{color:#333}pre{background:#f4f4f4;color:#111}.aim,.memory,.notice{background:#f5f5f5;color:#111}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <h1>IDP Lab <span>Made Easy</span></h1>
-    <p class="muted">
-      10 practicals with simple aims, algorithms,
-      commands, and memory tricks.
-    </p>
-    <button class="btn" onclick="downloadNotes()">
-      Download all notes (.txt)
-    </button>
-    <button class="btn" onclick="window.print()">
-      Print / Save PDF
-    </button>
-  </div>
-</header>
-
+<header><div class="wrap hero"><div><div class="eyebrow">NETWORK SECURITY · PRACTICAL REVISION</div><h1>Cyber<span>Lab</span> IDP</h1><p class="muted">Simple aims, easy algorithms, working sample code, commands, and memory tricks for your 9 practical questions.</p><button class="btn primary" onclick="downloadNotes()">Download all notes (.txt)</button><button class="btn" onclick="window.print()">Print / Save PDF</button></div><div class="status">● 9 practicals · Easy English</div></div></header>
 <div class="wrap layout">
-  <aside class="nav">
-    <b>Find a practical</b>
-    <input id="search" placeholder="Search...">
-    <nav>
-      <a href="#p1">1. Reconnaissance</a>
-      <a href="#p2">2. ARPwatch</a>
-      <a href="#p3">3. Nessus</a>
-      <a href="#p4">4. Buffer overflow</a>
-      <a href="#p5">5. Snort install/remove</a>
-      <a href="#p6">6. Logs & registry</a>
-      <a href="#p7">7. Firewall</a>
-      <a href="#p8">8. Snort alert</a>
-      <a href="#p9">9. Trace route</a>
-      <a href="#p10">10. OWASP ZAP</a>
-    </nav>
-  </aside>
-
-  <main>
-    <!-- Each practical in the downloaded file includes:
-         Aim, short algorithm, code/commands,
-         a memory trick, and result guidance. -->
-
-    <section class="card lab" id="p1">
-      <h2>1. Network Reconnaissance</h2>
-      <div class="aim">
-        <b>Aim:</b> To collect public information about
-        the college website and check its route.
-      </div>
-      <h3>Algorithm — LOOK → TRACE → TEST</h3>
-      <ol>
-        <li>Open terminal.</li>
-        <li>Look up domain details.</li>
-        <li>Trace the route.</li>
-        <li>Test with ping.</li>
-        <li>Write the actual output.</li>
-      </ol>
-      <pre>whois stc.ac.in
+<aside class="side"><b>QUICK INDEX</b><input id="search" placeholder="Search practical..." aria-label="Search practicals"><nav>
+<a href="#p1">01 · Reconnaissance</a><a href="#p2">02 · ARPwatch</a><a href="#p3">03 · Nessus</a><a href="#p4">04 · Buffer overflow</a><a href="#p5">05 · Port 8080</a><a href="#p6">06 · Snort IDS</a><a href="#p7">07 · College domain</a><a href="#p8">08 · OWASP ZAP</a><a href="#memory">09 · Final revision</a>
+</nav><p class="small">Study order: Aim → Algorithm → Code → Result.</p></aside>
+<main class="content">
+<div class="notice"><b>Lab safety:</b> Run scans and network tests only on systems you own or have permission to test. Use the real college domain only for permitted lookups. Record actual output—never invent IPs, hop counts, warnings, or vulnerabilities.</div>
+<section class="card lab" id="p1"><h2>01. Network reconnaissance</h2><p class="muted">WHOIS · DNS · security logs · TTL · traceroute</p><div class="aim"><b>Aim:</b> To collect public website information, inspect security warnings, and check network hops.</div><h3>Algorithm — LOOK → CHECK → WRITE</h3><ol class="steps"><li>Open Terminal or Command Prompt.</li><li>Look up domain and DNS information.</li><li>Check the route and ping response.</li><li>Open security logs and note critical warnings.</li><li>Write only results you actually observe.</li></ol><div class="grid2"><div><h3>Linux</h3><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>whois stc.ac.in
 dig stc.ac.in
+traceroute www.microsoft.com
 traceroute stc.ac.in
-ping stc.ac.in
-
-# Windows
-nslookup stc.ac.in
+ping -c 4 google.com</pre></div></div><div><h3>Windows</h3><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>nslookup stc.ac.in
+tracert www.microsoft.com
 tracert stc.ac.in
-ping stc.ac.in
-ipconfig</pre>
-      <div class="memory">
-        WHOIS = domain info; DIG = DNS info;
-        traceroute = hops; ping = reply test.
-      </div>
-    </section>
+ping google.com
+ipconfig</pre></div></div></div><h3>TTL and critical warnings</h3><p>TTL means <b>Time To Live</b>. For IP packets it limits the number of router hops. The TTL shown by a ping reply is the observed reply TTL, not necessarily the original value.</p><p>Security-log warnings to investigate include repeated failed logins, unexpected account creation, audit-log clearing, unknown startup programs, and unexpected privilege changes.</p><div class="memory"><b>Remember:</b> WHOIS = domain details · DNS = records · traceroute = hops · ping = reachability · TTL = hop limit.</div><h3>Result record</h3><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>College domain:
+Resolved IP:
+DNS / name servers:
+Microsoft hop count:
+College hop count:
+Google reply TTL:
+Critical log warning:
+Conclusion:</pre></div></section>
 
-    <!-- The downloaded index.html contains all ten complete
-         practicals, including ARPwatch, Nessus, safe C code,
-         Snort, Windows/Linux logs, iptables, traceroute,
-         and OWASP ZAP with a local training application. -->
-  </main>
-</div>
+<section class="card lab" id="p2"><h2>02. Detect ARP spoofing with ARPwatch</h2><div class="aim"><b>Aim:</b> To monitor IP-to-MAC address changes and investigate unusual changes.</div><h3>Algorithm — INSTALL → START → CHECK</h3><ol class="steps"><li>Install ARPwatch and the log service.</li><li>Find your real network interface.</li><li>Start ARPwatch for that interface.</li><li>Read logs and verify any alerts.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo apt update
+sudo apt install arpwatch rsyslog -y
+sudo systemctl enable --now rsyslog
+ip link show
 
+# Replace eth0 with your real interface
+sudo systemctl enable --now arpwatch@eth0.service
+sudo systemctl status arpwatch@eth0.service
+sudo grep -i arpwatch /var/log/syslog</pre></div><div class="memory"><b>Remember:</b> ARPwatch watches IP ↔ MAC changes. A change is a warning to investigate, not proof by itself.</div></section>
+
+<section class="card lab" id="p3"><h2>03. Vulnerability scan using Nessus</h2><div class="aim"><b>Aim:</b> To scan an approved lab machine and record possible vulnerabilities.</div><h3>Algorithm — INSTALL → TARGET → SCAN → REPORT</h3><ol class="steps"><li>Install Nessus from the official Tenable source.</li><li>Open its local web interface and finish setup.</li><li>Create a Basic Network Scan.</li><li>Enter the instructor-approved target.</li><li>Run the scan and record severity, evidence, and fixes.</li></ol><table class="table"><tr><th>Write in record</th><th>What it means</th></tr><tr><td>Finding</td><td>Vulnerability title / plugin ID</td></tr><tr><td>Severity</td><td>Critical, High, Medium, Low, Info</td></tr><tr><td>Evidence</td><td>What the scanner actually reported</td></tr><tr><td>Fix</td><td>Patch or configuration change</td></tr></table><div class="memory"><b>Remember:</b> Nessus finds possible weaknesses. Scan → read → record → recommend a fix. Do not invent findings.</div></section>
+
+<section class="card lab" id="p4"><h2>04. Buffer overflow — simple safe C program</h2><div class="aim"><b>Aim:</b> To understand that a buffer has a fixed size and input must not exceed it.</div><h3>Algorithm — INPUT → CHECK → DISPLAY</h3><ol class="steps"><li>Create a character array of 20 spaces/bytes.</li><li>Read the input safely with <code>fgets()</code>.</li><li>Remove the newline if present.</li><li>Display the entered text.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>// buffer.c — simple, safe demonstration
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+    char name[20];
+
+    printf("Enter your name (max 19 characters): ");
+
+    if (fgets(name, sizeof(name), stdin) == NULL) {
+        return 1;
+    }
+
+    name[strcspn(name, "\\n")] = '\\0';
+
+    printf("Your name is: %s\\n", name);
+    return 0;
+}</pre></div><h3>Compile and run</h3><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>gcc buffer.c -o buffer
+./buffer</pre></div><div class="memory"><b>Simple explanation:</b> Buffer overflow happens when a program writes more data into a buffer than it can hold. Here, <code>name[20]</code> holds at most 19 typed characters plus the ending <code>\\0</code>. <code>fgets()</code> limits the input and demonstrates the safe method.</div><p class="small">This is a safe memory-safety demonstration, not an exploit that corrupts memory. For the practical record, explain the overflow risk and show how bounded input prevents it.</p></section>
+
+<section class="card lab" id="p5"><h2>05. Block and unblock port 8080</h2><div class="aim"><b>Aim:</b> To block TCP port 8080, verify the rule, then remove the rule to unblock it.</div><h3>Algorithm — BLOCK → VERIFY → UNBLOCK</h3><ol class="steps"><li>List firewall rules.</li><li>Add a rule blocking inbound TCP port 8080.</li><li>Verify the rule exists.</li><li>Delete the exact rule to unblock.</li><li>List rules again to confirm removal.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Linux lab machine; use only if you administer it
+sudo iptables -I INPUT -p tcp --dport 8080 -j DROP
+
+# Prove the rule is present
+sudo iptables -L INPUT -n -v --line-numbers
+
+# Unblock by deleting the matching rule
+sudo iptables -D INPUT -p tcp --dport 8080 -j DROP
+
+# Prove the rule is gone
+sudo iptables -L INPUT -n -v --line-numbers</pre></div><div class="memory"><b>Remember:</b> DROP = block. Delete the same rule = unblock. A firewall rule listing proves the rule is configured; test actual port access only against your own lab service.</div><div class="notice">Do not change firewall rules on a shared/college machine or over a remote connection unless your instructor has approved it.</div></section>
+
+<section class="card lab" id="p6"><h2>06. Snort: detect traffic and remove the tool</h2><div class="aim"><b>Aim:</b> To install Snort, check its version, validate the matching configuration, and remove it from a personal lab system if instructed.</div><h3>Algorithm — INSTALL → CHECK → TEST → REMOVE</h3><ol class="steps"><li>Update package lists and install Snort.</li><li>Check the installed version.</li><li>Check which configuration file exists.</li><li>Test using version-appropriate options.</li><li>Remove only from your own lab machine if asked.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>sudo apt update
+sudo apt install snort -y
+snort -V
+ls /etc/snort
+
+# Snort 3 only, if snort.lua exists
+sudo snort -T -c /etc/snort/snort.lua
+
+# Remove from your own lab computer only
+sudo apt purge snort -y
+sudo apt autoremove -y</pre></div><div class="memory"><b>Remember:</b> Snort = IDS (Intrusion Detection System). It inspects traffic and can generate alerts. Snort 2 and 3 commands differ.</div></section>
+
+<section class="card lab" id="p7"><h2>07. College domain details</h2><div class="aim"><b>Aim:</b> To collect domain registration and DNS information using suitable lookup tools.</div><h3>Algorithm — DOMAIN → DNS → RECORD</h3><ol class="steps"><li>Run WHOIS for domain registration information.</li><li>Run DNS lookup for IP and name-server records.</li><li>Record the actual output and lookup date.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre>whois stc.ac.in
+nslookup stc.ac.in
+nslookup -type=NS stc.ac.in
+nslookup -type=MX stc.ac.in
+
+# Linux, if dig is installed
+dig stc.ac.in A
+dig stc.ac.in NS
+dig stc.ac.in MX</pre></div><div class="memory"><b>Remember:</b> WHOIS = registration; A = IPv4 address; NS = name servers; MX = mail servers. DNS output may change over time.</div></section>
+
+<section class="card lab" id="p8"><h2>08. Vulnerability assessment using OWASP ZAP</h2><div class="aim"><b>Aim:</b> To scan a web application and record security alerts with suggested fixes.</div><h3>Algorithm — OPEN → SCAN → REPORT</h3><ol class="steps"><li>Install and open OWASP ZAP.</li><li>Use a local training app or an explicitly approved target.</li><li>Browse through ZAP and review passive alerts first.</li><li>Run active scan only with permission.</li><li>Record alert name, risk, evidence, and remediation.</li></ol><div class="codebox"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Optional: install ZAP if available in your distro
+sudo apt update
+sudo apt install zaproxy -y
+zaproxy
+
+# Optional local training target using Docker
+sudo apt install docker.io -y
+sudo systemctl enable --now docker
+sudo docker pull bkimminich/juice-shop
+sudo docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+
+# In another terminal
+curl http://127.0.0.1:3000</pre></div><div class="memory"><b>Remember:</b> ZAP = web app scanner. Alert → risk → evidence → fix. Localhost keeps the practice app on your own computer.</div></section>
+
+<section class="card" id="memory"><h2>09. Final memory revision</h2><table class="table"><tr><th>Practical</th><th>Remember these words</th></tr><tr><td>Reconnaissance</td><td>Look → Check → Write</td></tr><tr><td>ARPwatch</td><td>Install → Start → Check</td></tr><tr><td>Nessus</td><td>Install → Target → Scan → Report</td></tr><tr><td>Buffer overflow</td><td>Input → Check → Display</td></tr><tr><td>Port 8080</td><td>Block → Verify → Unblock</td></tr><tr><td>Snort</td><td>Install → Check → Test → Remove</td></tr><tr><td>Domain</td><td>WHOIS → DNS → Record</td></tr><tr><td>OWASP ZAP</td><td>Open → Scan → Report</td></tr></table><div class="memory"><b>Exam trick:</b> Read the aim, cover the steps, say the keywords from memory, then practise the commands. Write the output you actually get.</div></section>
+</main></div>
+<footer>CyberLab IDP · Easy practical revision · Authorized lab use only</footer>
 <script>
-function copyCode(button) {
-  const text = button.parentElement.querySelector("pre").innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    button.textContent = "Copied!";
-    setTimeout(() => button.textContent = "Copy", 1000);
-  });
-}
-
-document.getElementById("search").addEventListener("input", event => {
-  const query = event.target.value.toLowerCase();
-  document.querySelectorAll(".lab").forEach(card => {
-    card.classList.toggle(
-      "hidden",
-      !card.innerText.toLowerCase().includes(query)
-    );
-  });
-});
-
-function downloadNotes() {
-  const notes = [...document.querySelectorAll(".lab")]
-    .map(card => card.innerText)
-    .join("\n\n--------------------\n\n");
-
-  const blob = new Blob([notes], { type: "text/plain" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "IDP_Easy_Memory_Notes.txt";
-  link.click();
-  URL.revokeObjectURL(url);
-}
+function copyCode(button){const text=button.parentElement.querySelector('pre').innerText;const success=()=>{button.textContent='Copied!';setTimeout(()=>button.textContent='Copy',1000)};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(success).catch(()=>fallback(text,button))}else fallback(text,button)}
+function fallback(text,button){const box=document.createElement('textarea');box.value=text;document.body.appendChild(box);box.select();try{document.execCommand('copy');button.textContent='Copied!';setTimeout(()=>button.textContent='Copy',1000)}catch(e){button.textContent='Select manually'}box.remove()}
+document.getElementById('search').addEventListener('input',event=>{const q=event.target.value.toLowerCase();document.querySelectorAll('.lab').forEach(card=>card.classList.toggle('hidden',!card.innerText.toLowerCase().includes(q)))});
+function downloadNotes(){const notes=[...document.querySelectorAll('.lab')].map(card=>card.innerText).join('\n\n'+'='.repeat(55)+'\n\n');const blob=new Blob([notes],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='IDP_Easy_Practical_Notes.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 </script>
-</body>
-</html>
+</body></html>
