@@ -2,992 +2,234 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Easy Java Practical Lab</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CyberLab | Network Security Practical Index</title>
 <style>
-:root {
-    --bg: #0b1020;
-    --card: #151d32;
-    --border: #293651;
-    --text: #f4f7ff;
-    --muted: #aab6ce;
-    --accent: #8b8cff;
-    --green: #55e6a5;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-
-button, input {
-    font: inherit;
-}
-
-button {
-    cursor: pointer;
-}
-
-header {
-    padding: 38px 20px;
-    background: linear-gradient(135deg, #24245a, #101b32, #063e4d);
-    text-align: center;
-}
-
-header h1 {
-    font-size: clamp(30px, 5vw, 48px);
-    margin: 10px 0;
-}
-
-header p {
-    color: #d0d9ef;
-}
-
-.gradient {
-    color: #74edc0;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin: 20px 0;
-}
-
-.stat {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.stat strong {
-    display: block;
-    color: var(--green);
-    font-size: 25px;
-}
-
-.stat span {
-    font-size: 13px;
-    color: var(--muted);
-}
-
-.toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background: #0b1020ee;
-    padding: 12px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--border);
-}
-
-.toolbar input {
-    flex: 1;
-    min-width: 180px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: white;
-    padding: 12px;
-}
-
-.btn {
-    padding: 10px 14px;
-    background: #252f49;
-    color: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-}
-
-.btn:hover {
-    border-color: var(--accent);
-}
-
-.primary {
-    background: #5553c7;
-}
-
-.green {
-    background: #146044;
-}
-
-h2 {
-    font-size: 24px;
-}
-
-.muted {
-    color: var(--muted);
-}
-
-.index {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.index button {
-    text-align: left;
-    color: white;
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 16px;
-    border-radius: 12px;
-}
-
-.index button:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-}
-
-.index small {
-    color: var(--green);
-}
-
-.index strong {
-    display: block;
-    margin-top: 7px;
-}
-
-.program {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    margin: 22px 0;
-    overflow: hidden;
-    scroll-margin-top: 75px;
-}
-
-.program-title {
-    padding: 18px;
-    background: #1c2942;
-    border-bottom: 1px solid var(--border);
-}
-
-.program-title h3 {
-    margin: 5px 0;
-    font-size: 21px;
-}
-
-.program-title small {
-    color: var(--green);
-}
-
-.content {
-    padding: 18px;
-}
-
-.box {
-    margin: 13px 0;
-    padding: 14px;
-    border-radius: 9px;
-    background: #101a2b;
-    border-left: 3px solid var(--accent);
-}
-
-.box h4 {
-    margin: 0 0 7px;
-}
-
-.algorithm {
-    border-left-color: var(--green);
-}
-
-.explain {
-    border-left-color: #ffcb70;
-}
-
-pre {
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    background: #070b14;
-    color: #a8e6ff;
-    padding: 16px;
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    overflow-x: auto;
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-.output {
-    padding: 14px;
-    border-radius: 8px;
-    background: #08251b;
-    border: 1px solid #20583e;
-    color: #85f4b7;
-    font-family: monospace;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-}
-
-.actions {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 12px;
-}
-
-.note {
-    color: #ffdc91;
-    background: #332817;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 13px;
-}
-
-.hidden {
-    display: none;
-}
-
-footer {
-    text-align: center;
-    color: var(--muted);
-    padding: 30px 15px;
-    border-top: 1px solid var(--border);
-}
-
-@media(max-width:750px) {
-    .index {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media(max-width:480px) {
-    .index {
-        grid-template-columns: 1fr;
-    }
-
-    .stats {
-        gap: 7px;
-    }
-
-    .stat {
-        padding: 10px 5px;
-    }
-
-    .container {
-        padding: 12px;
-    }
-
-    .content {
-        padding: 12px;
-    }
-}
-
-@media print {
-    body {
-        background: white;
-        color: black;
-    }
-
-    header, .toolbar, .index, .actions, footer {
-        display: none;
-    }
-
-    .program, .program-title, .box, pre, .output {
-        background: white;
-        color: black;
-        break-inside: avoid;
-    }
-}
+:root{--bg:#080d18;--panel:#101a2c;--panel2:#0d1525;--line:#253550;--text:#eaf1ff;--muted:#9fb0cc;--cyan:#5ce1e6;--blue:#7c9cff;--green:#77e0ad;--amber:#ffd27a;--red:#ff7b8b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top right,#17284a 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{padding:42px 22px 30px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(92,225,230,.08),rgba(124,156,255,.06))}
+.wrap{max-width:1180px;margin:auto}.eyebrow{color:var(--cyan);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}.hero{display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:10px 0 14px;letter-spacing:-.04em}h1 span{color:var(--cyan)}.sub{color:var(--muted);max-width:760px}.pill{border:1px solid #31516a;border-radius:999px;padding:7px 12px;color:var(--green);background:#102a2c;font-size:.82rem}
+.layout{display:grid;grid-template-columns:255px minmax(0,1fr);gap:22px;padding:24px 18px 60px}.side{position:sticky;top:14px;align-self:start;background:rgba(16,26,44,.85);border:1px solid var(--line);border-radius:18px;padding:15px}.side strong{display:block;margin:3px 8px 10px}.side a{display:block;text-decoration:none;color:var(--muted);padding:9px 10px;border-radius:9px;font-size:.92rem}.side a:hover{background:#1b2b45;color:var(--text)}.content{min-width:0}.notice{border:1px solid #6b5228;background:#2b2112;color:#ffe2a4;padding:13px 15px;border-radius:12px;margin-bottom:18px}.card{background:linear-gradient(145deg,rgba(16,26,44,.98),rgba(13,21,37,.98));border:1px solid var(--line);border-radius:17px;padding:21px;margin-bottom:17px;box-shadow:0 12px 28px #0002}.card h2{margin:0 0 7px;font-size:1.35rem}.desc{color:var(--muted);margin-top:0}.meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tag{font-size:.75rem;color:#c8d6f1;background:#18263d;border:1px solid #2b3c59;padding:4px 8px;border-radius:7px}.card h3{font-size:1rem;margin:18px 0 7px;color:var(--cyan)}ol,ul{padding-left:22px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}.subcard{border:1px solid var(--line);border-radius:12px;padding:14px;background:#0a1220}.subcard h3{margin-top:0}.codewrap{position:relative;margin:10px 0 14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#060b13;border:1px solid #25344b;border-radius:11px;padding:15px;color:#d7e6ff;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;margin:0}.copy{position:absolute;top:8px;right:8px;background:#1c3049;border:1px solid #38506e;color:white;border-radius:7px;padding:5px 9px;cursor:pointer}.btnrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.btn{cursor:pointer;border:1px solid #36506e;background:#172942;color:var(--text);padding:9px 13px;border-radius:9px;font-weight:650}.btn.primary{background:var(--cyan);color:#06121a;border-color:var(--cyan)}.btn:hover{filter:brightness(1.12)}.tip{border-left:3px solid var(--blue);padding:8px 12px;background:#121e32;color:#cbd8ef;border-radius:0 8px 8px 0;margin:12px 0}.danger{border-left-color:var(--red)}.good{border-left-color:var(--green)}.search{width:100%;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:#080f1c;color:var(--text);margin:8px 0 13px}.small{font-size:.86rem;color:var(--muted)}footer{text-align:center;padding:22px;color:var(--muted);border-top:1px solid var(--line)}.hidden{display:none!important}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.side{position:static}.side nav{display:grid;grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr}}
+@media print{body{background:white;color:#111}.side,.btn,.copy,header .pill{display:none!important}.layout{display:block}.card{break-inside:avoid;background:white;color:#111;border:1px solid #aaa;box-shadow:none}pre{background:#f5f5f5;color:#111;border-color:#ccc}.desc,.small{color:#333}header{background:white;color:#111}}
 </style>
 </head>
-
 <body>
+<header><div class="wrap hero"><div><div class="eyebrow">STUDENT PRACTICAL TOOLKIT · 09 LABS</div><h1>Cyber<span>Lab</span> Index</h1><p class="sub">A clean, offline-friendly practical guide with aims, algorithms, commands, sample code, and proof/check steps for network reconnaissance and security tools.</p></div><div class="pill">● Learning mode · Authorized labs only</div></div></header>
+<div class="wrap layout">
+<aside class="side"><strong>LAB NAVIGATION</strong><input id="search" class="search" placeholder="Search labs…" aria-label="Search labs"><nav id="nav">
+<a href="#lab1">01 · Reconnaissance</a><a href="#lab2">02 · ARPwatch</a><a href="#lab3">03 · Nessus</a><a href="#lab4">04 · Traceroute</a><a href="#lab5">05 · Buffer overflow</a><a href="#lab6">06 · Block port 8080</a><a href="#lab7">07 · Snort</a><a href="#lab8">08 · Domain details</a><a href="#lab9">09 · OWASP ZAP</a>
+</nav><div class="btnrow"><button class="btn primary" onclick="downloadGuide()">Download all code (.txt)</button><button class="btn" onclick="window.print()">Print / Save PDF</button></div><p class="small">Replace <code>college.example</code> with your official college domain. Do not scan systems without written permission.</p></aside>
+<main class="content">
+<div class="notice"><b>Safety + accuracy:</b> Run these activities only on your own computer, a local lab, or systems for which you have explicit written permission. Scanners can disrupt services. This guide uses placeholders and defensive checks; it does not claim to have scanned your college.</div>
 
-<header>
-    <h1>Easy <span class="gradient">Java Lab</span></h1>
-    <p>12 Java Practicals | Simple Code | Easy Algorithms</p>
-    <p>Learn the logic. Remember the code. Prepare for exams.</p>
+<section class="card lab" id="lab1" data-search="reconnaissance college website security logs critical warnings ttl google ping whois dns">
+<h2>01. Network reconnaissance</h2><p class="desc">Identify public website/domain details, review security logs, and understand TTL.</p><div class="meta"><span class="tag">Aim</span><span class="tag">DNS / WHOIS</span><span class="tag">Logs</span><span class="tag">TTL</span></div>
+<h3>Aim</h3><p>To collect publicly available information about an authorized college website and identify critical warnings in local security logs.</p>
+<h3>Algorithm</h3><ol><li>Confirm the official domain with the college.</li><li>Query DNS records and domain registration details.</li><li>Review the system's own security logs for critical events.</li><li>Record findings, time, tool, and evidence without exposing private data.</li><li>Check TTL using ping and explain its meaning.</li></ol>
+<div class="cols"><div class="subcard"><h3>Website / DNS details</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Replace with the official domain
+nslookup college.example
+nslookup -type=MX college.example
+nslookup -type=NS college.example
+whois college.example
 
-    <button class="btn primary" onclick="goToIndex()">
-        Start Learning ↓
-    </button>
+# Linux/macOS: common DNS records
+dig college.example A
+dig college.example AAAA
+dig college.example MX
+dig college.example NS
+dig college.example TXT</pre></div></div><div class="subcard"><h3>Security logs</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Linux: systemd journal, recent errors
+sudo journalctl -p 0..4 --since "24 hours ago"
 
-    <button class="btn green" onclick="downloadAll()">
-        Download All Java
-    </button>
-</header>
+# Ubuntu/Debian authentication log
+sudo grep -Ei "critical|alert|failed|invalid|denied" /var/log/auth.log
 
-<div class="container">
+# Windows PowerShell: recent critical/error events
+Get-WinEvent -FilterHashtable @{
+ LogName='System'; Level=1,2; StartTime=(Get-Date).AddDays(-1)
+} | Select-Object TimeCreated, Id, ProviderName, Message</pre></div></div></div>
+<h3>What to write about critical warnings</h3><ul><li><b>Repeated failed logins:</b> may indicate password guessing; verify source and account.</li><li><b>Privilege escalation / unexpected admin activity:</b> verify against approved change records.</li><li><b>Service crash or repeated restarts:</b> investigate the service logs and recent updates.</li><li><b>Firewall blocks / malware alerts:</b> preserve timestamps and event IDs; follow the incident process.</li></ul>
+<div class="tip"><b>TTL:</b> Time To Live is a limit on a packet's lifetime, reduced by each router hop. On Windows, <code>ping -4 www.google.com</code> displays the reply's remaining TTL. On Linux/macOS use <code>ping -c 4 www.google.com</code>. The returned value varies by destination, route, OS, and time; record your actual result instead of assuming a fixed Google TTL.</div>
+</section>
 
-    <div class="stats">
-        <div class="stat">
-            <strong>12</strong>
-            <span>Practicals</span>
-        </div>
+<section class="card lab" id="lab2" data-search="arpwatch mac arp spoofing detect install interface">
+<h2>02. Detect MAC / ARP changes with arpwatch</h2><p class="desc">Monitor a network you administer for unexpected IP-to-MAC mapping changes.</p><div class="meta"><span class="tag">Aim</span><span class="tag">ARP monitoring</span><span class="tag">Linux</span></div>
+<h3>Aim</h3><p>To use arpwatch to log changes in IP-to-MAC address mappings and investigate possible ARP spoofing.</p>
+<h3>Algorithm</h3><ol><li>Get permission and identify the correct lab interface.</li><li>Install arpwatch from the operating system's trusted package repository.</li><li>Start monitoring the authorized interface.</li><li>Review logs for “changed ethernet address” or “flip flop” events.</li><li>Verify suspicious changes against router/DHCP records; a change is not proof by itself.</li></ol>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Debian / Ubuntu
+sudo apt update
+sudo apt install arpwatch
 
-        <div class="stat">
-            <strong>Easy</strong>
-            <span>Beginner Code</span>
-        </div>
+# Find the interface (example: enp0s3 or eth0)
+ip -br link
+ip route
 
-        <div class="stat">
-            <strong>100%</strong>
-            <span>Study Focused</span>
-        </div>
-    </div>
+# Start monitoring ONLY the approved lab interface
+sudo arpwatch -i enp0s3
 
-    <h2 id="indexHeading">📚 Practical Index</h2>
-    <p class="muted">Click a practical to open its code.</p>
+# Check common log locations
+sudo journalctl -u arpwatch --since "1 hour ago"
+sudo grep -Ei "changed ethernet|flip flop|new station" /var/log/syslog</pre></div>
+<div class="tip danger">If the service is not named arpwatch or uses a different log file on your distribution, check <code>systemctl status arpwatch</code> and your distribution's package documentation. Do not generate spoofed ARP traffic on a shared college network.</div>
+<h3>Evidence to submit</h3><p>Screenshot the command, monitoring status, and any relevant alert with MAC addresses partly redacted. If there are no alerts, write “No suspicious mapping change observed during the test window.”</p>
+</section>
 
-    <div class="toolbar">
-        <input
-            id="search"
-            placeholder="Search practical..."
-            oninput="render()"
-        >
+<section class="card lab" id="lab3" data-search="nessus vulnerability scan report safe scan">
+<h2>03. Vulnerability assessment with Nessus</h2><p class="desc">Use the Nessus interface to run an approved, non-destructive assessment and document findings.</p><div class="meta"><span class="tag">Aim</span><span class="tag">Nessus</span><span class="tag">Report</span></div>
+<h3>Aim</h3><p>To assess an authorized lab host for known vulnerabilities and classify findings by severity.</p>
+<h3>Algorithm</h3><ol><li>Obtain written scope and target IP from the instructor.</li><li>Install/launch Nessus and complete activation if required.</li><li>Create a new scan; select Basic Network Scan or the instructor-approved template.</li><li>Enter only the approved lab target and run the scan.</li><li>Review Critical/High findings, validate them, and export a report.</li></ol>
+<h3>Procedure / proof</h3><ol><li>Open the Nessus web interface shown by your installation.</li><li>Choose <b>New Scan → Basic Network Scan</b>.</li><li>Set a clear name, such as <code>Authorized-Lab-Assessment</code>.</li><li>Enter the permitted lab IP address only. Do not use a college/public IP unless explicitly authorized.</li><li>Launch; when complete, record plugin ID, severity, affected service, evidence, and remediation.</li></ol>
+<div class="tip good"><b>Report format:</b> Finding | Severity | Evidence | Business impact | Recommended fix | Retest result. A scanner finding should be validated before calling it a confirmed vulnerability.</div>
+</section>
 
-        <button class="btn" onclick="window.print()">
-            Print / PDF
-        </button>
-    </div>
+<section class="card lab" id="lab4" data-search="traceroute tracert microsoft college website ip hops">
+<h2>04. IP address and hop count with traceroute</h2><p class="desc">Trace the route to Microsoft and your college website, then record the final responding hop.</p><div class="meta"><span class="tag">Aim</span><span class="tag">traceroute / tracert</span></div>
+<h3>Aim</h3><p>To resolve a hostname to an IP address and observe the network hops toward that destination.</p>
+<h3>Algorithm</h3><ol><li>Resolve the website hostname to an IP.</li><li>Run traceroute/tracert.</li><li>Count numbered hop rows; note timeouts as non-responding hops, not necessarily failures.</li><li>Repeat at a different time if needed and record the date.</li></ol>
+<div class="cols"><div class="subcard"><h3>Windows</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>nslookup www.microsoft.com
+tracert -d www.microsoft.com
 
-    <div class="index" id="index"></div>
+nslookup college.example
+tracert -d college.example</pre></div></div><div class="subcard"><h3>Linux / macOS</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>getent ahosts www.microsoft.com
+traceroute -n www.microsoft.com
 
-    <h2>💻 All Java Programs</h2>
-    <p class="muted">Every practical contains the aim, algorithm, simple code and output.</p>
+getent ahosts college.example
+traceroute -n college.example</pre></div></div></div>
+<div class="tip">If traceroute is not installed, install it through your OS package manager or use the tool approved by your instructor. Routes may change, and some routers do not respond to traceroute probes. Report the observed result, not a guessed hop count.</div>
+</section>
 
-    <div id="programs"></div>
+<section class="card lab" id="lab5" data-search="buffer overflow c programming safe demonstration bounds">
+<h2>05. Buffer overflow concept — safe local demonstration</h2><p class="desc">Learn how writing past a fixed-size buffer is a memory-safety bug. Use a bounds-checked example; do not attack another process or service.</p><div class="meta"><span class="tag">Aim</span><span class="tag">C</span><span class="tag">Memory safety</span></div>
+<h3>Aim</h3><p>To demonstrate a buffer boundary problem conceptually and show how length validation prevents it.</p>
+<h3>Algorithm</h3><ol><li>Create a fixed-size character buffer.</li><li>Read user input with a bounded input function.</li><li>Check whether the input was too long.</li><li>Print the accepted text and explain that unchecked writes can corrupt adjacent memory.</li></ol>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>// safe_buffer.c — safe bounds-checked demonstration
+#include <stdio.h>
+#include <string.h>
 
-</div>
+int main(void) {
+    char buffer[16];
 
-<footer>
-    EASY JAVA LAB<br>
-    Study one program at a time.
-</footer>
+    printf("Enter text (maximum 15 characters): ");
+    if (fgets(buffer, sizeof buffer, stdin) == NULL) {
+        return 1;
+    }
 
+    size_t n = strlen(buffer);
+    if (n > 0 && buffer[n - 1] == '\\n') {
+        buffer[n - 1] = '\\0';
+    } else {
+        int ch;
+        while ((ch = getchar()) != '\\n' && ch != EOF) { }
+        printf("Input was too long; extra characters were discarded.\\n");
+    }
+
+    printf("Accepted input: %s\\n", buffer);
+    return 0;
+}</pre></div>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Compile and run locally
+gcc -Wall -Wextra -fstack-protector-strong safe_buffer.c -o safe_buffer
+./safe_buffer</pre></div>
+<div class="tip danger"><b>Explanation for viva:</b> A classic buffer overflow occurs when a program writes more bytes than a buffer can hold. This example intentionally avoids an unsafe exploit and demonstrates a safe fix using <code>fgets()</code> plus input-length handling.</div>
+</section>
+
+<section class="card lab" id="lab6" data-search="block unblock port 8080 firewall ufw windows powershell">
+<h2>06. Block and unblock port 8080</h2><p class="desc">Demonstrate a firewall rule on your own lab machine and verify it. Keep an alternate admin session open when changing firewall rules remotely.</p><div class="meta"><span class="tag">Aim</span><span class="tag">Firewall</span><span class="tag">Verification</span></div>
+<h3>Aim</h3><p>To block inbound TCP traffic to port 8080, verify the rule, and then remove the rule to unblock it.</p><h3>Algorithm</h3><ol><li>Check whether the service is listening on port 8080.</li><li>Add a firewall block rule for inbound TCP 8080.</li><li>List the rule and test from an authorized second machine.</li><li>Remove the rule and retest.</li></ol>
+<div class="cols"><div class="subcard"><h3>Ubuntu with UFW</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Block inbound TCP 8080
+sudo ufw deny 8080/tcp
+sudo ufw status numbered
+
+# Unblock: remove the matching rule
+sudo ufw status numbered
+sudo ufw delete deny 8080/tcp
+
+# Check local listener
+sudo ss -lntp | grep ':8080'</pre></div></div><div class="subcard"><h3>Windows PowerShell (Admin)</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Block inbound TCP 8080
+New-NetFirewallRule -DisplayName "Lab Block TCP 8080" -Direction Inbound -Protocol TCP -LocalPort 8080 -Action Block
+
+# Verify rule
+Get-NetFirewallRule -DisplayName "Lab Block TCP 8080"
+
+# Unblock by removing the lab rule
+Remove-NetFirewallRule -DisplayName "Lab Block TCP 8080"
+
+# Check local listener
+Get-NetTCPConnection -LocalPort 8080 -State Listen</pre></div></div></div>
+<div class="tip">A firewall rule blocking inbound traffic does not necessarily stop a service listening locally, and a local connection test alone may not prove remote blocking. Record the firewall rule plus a test from an authorized second machine.</div>
+</section>
+
+<section class="card lab" id="lab7" data-search="snort ids detect vulnerabilities alerts uninstall remove">
+<h2>07. Identify suspicious traffic with Snort</h2><p class="desc">Use Snort as a network intrusion detection system (IDS) on an authorized lab interface, inspect alerts, and remove it only if your instructor asks.</p><div class="meta"><span class="tag">Aim</span><span class="tag">IDS</span><span class="tag">Alerts</span></div>
+<h3>Aim</h3><p>To run Snort in detection mode, review generated alerts, and demonstrate clean uninstallation in a disposable lab environment.</p>
+<h3>Algorithm</h3><ol><li>Install Snort from the trusted OS repository.</li><li>Identify the correct lab interface and verify the configuration.</li><li>Run a short detection session or use the instructor-provided PCAP.</li><li>Review alerts and map them to timestamps and rule IDs.</li><li>Stop Snort, then remove it only from your own lab machine if required.</li></ol>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Debian / Ubuntu — install
+sudo apt update
+sudo apt install snort
+
+# Find interface
+ip -br link
+
+# Validate configuration (path/options can vary by version)
+sudo snort -T -c /etc/snort/snort.conf
+
+# Run IDS on an authorized lab interface (classic Snort 2 syntax)
+sudo snort -A console -q -c /etc/snort/snort.conf -i enp0s3
+
+# Review alerts in another terminal; common Snort 2 location
+sudo tail -f /var/log/snort/alert</pre></div>
+<h3>Remove Snort (only from your own disposable lab)</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Stop service first (service name may vary)
+sudo systemctl stop snort 2>/dev/null || true
+
+# Remove package but keep config
+sudo apt remove snort
+
+# Optional: purge config only if you are sure you no longer need it
+# sudo apt purge snort</pre></div>
+<div class="tip danger">Do not uninstall security monitoring from a college or workplace system without the administrator's approval. Snort is an IDS; it detects suspicious patterns and alerts, but does not automatically prove that a host is vulnerable.</div>
+</section>
+
+<section class="card lab" id="lab8" data-search="college domain details dns whois certificate crt.sh">
+<h2>08. Collect college domain details</h2><p class="desc">Use public DNS, registration, and TLS certificate information. Some domains hide registrant details or use privacy protection.</p><div class="meta"><span class="tag">Aim</span><span class="tag">WHOIS</span><span class="tag">DNS</span><span class="tag">TLS</span></div>
+<h3>Aim</h3><p>To collect public technical details for the official college domain using suitable lookup tools.</p><h3>Algorithm</h3><ol><li>Confirm the exact domain from the college website or instructor.</li><li>Collect A/AAAA, MX, NS, and TXT DNS records.</li><li>Check registration dates and registrar when public.</li><li>Inspect the website TLS certificate and expiry.</li><li>Document only public technical data relevant to the assignment.</li></ol>
+<div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre># Linux/macOS
+whois college.example
+dig college.example A
+dig college.example AAAA
+dig college.example MX
+dig college.example NS
+dig college.example TXT
+curl -I https://college.example
+
+# Certificate dates (if OpenSSL is installed)
+echo | openssl s_client -servername college.example -connect college.example:443 2>/dev/null | openssl x509 -noout -subject -issuer -dates</pre></div>
+<h3>Report template</h3><div class="codewrap"><button class="copy" onclick="copyCode(this)">Copy</button><pre>College domain:
+Lookup date/time:
+IPv4 (A):
+IPv6 (AAAA):
+Mail servers (MX):
+Name servers (NS):
+TXT / SPF / DMARC observations:
+Registrar / registration dates (if public):
+TLS issuer and expiry:
+Tools used:
+Evidence / screenshots:
+Limitations:</pre></div>
+<div class="tip">Do not publish personal registrant data, internal IPs, credentials, or private logs in your report. A DNS record or open port alone is not proof of a vulnerability.</div>
+</section>
+
+<section class="card lab" id="lab9" data-search="owasp zap vulnerability assessment web application passive scan active scan">
+<h2>09. Vulnerability assessment with OWASP ZAP</h2><p class="desc">Assess a deliberately vulnerable training app or your own local web app. Begin with passive scanning; active scans send attack-like requests.</p><div class="meta"><span class="tag">Aim</span><span class="tag">OWASP ZAP</span><span class="tag">Web security</span></div>
+<h3>Aim</h3><p>To assess a web application for common security issues using OWASP ZAP and document risk and remediation.</p><h3>Algorithm</h3><ol><li>Get written authorization and define the target scope.</li><li>Start ZAP and open the training app (prefer localhost or a deliberately vulnerable app).</li><li>Browse the app through ZAP to build the site tree.</li><li>Review passive alerts first.</li><li>Run an active scan only on an explicitly authorized test target.</li><li>Export the report, validate findings, and suggest fixes.</li></ol>
+<h3>GUI procedure</h3><ol><li>Install OWASP ZAP from its official project website.</li><li>Choose the automated scan option only for a permitted training target.</li><li>For a safe first pass, browse the application through ZAP and inspect the Alerts tab.</li><li>Record alert name, risk, URL, evidence, and remediation.</li><li>Export an HTML report for your practical record.</li></ol>
+<div class="tip good"><b>Common checks:</b> missing security headers, cookie flags, mixed content, information disclosure, and input-validation alerts. Treat scanner results as leads that require manual verification.</div>
+</section>
+<div class="card"><h2>Practical record checklist</h2><ul><li>☐ Aim and algorithm for each experiment</li><li>☐ Commands / settings used and date/time</li><li>☐ Screenshot of tool and output</li><li>☐ Findings, severity, evidence, and remediation</li><li>☐ Scope / permission noted; sensitive values redacted</li><li>☐ Conclusion: what was observed and what was not verified</li></ul><p class="small">This page is a study guide, not a claim that any scan has been run. Tool versions, paths, interface names, and command options vary by operating system.</p></div>
+</main></div>
+<footer>CyberLab Index · Educational use · Keep testing authorized, documented, and reversible.</footer>
 <script>
-const programs = [
-
-{
-title: "Classes and Objects",
-file: "P01_ClassesObjects.java",
-aim: "To create a class and object in Java.",
-algorithm: [
-"Start.",
-"Create a Student class.",
-"Declare name and age.",
-"Create a display method.",
-"Create an object in main().",
-"Display the details.",
-"Stop."
-],
-explain: "Class is a blueprint. Object is created using new. The object calls the display() method.",
-code: `class Student {
-    String name = "Rahul";
-    int age = 20;
-
-    void display() {
-        System.out.println(name);
-        System.out.println(age);
-    }
-}
-
-public class P01_ClassesObjects {
-    public static void main(String[] args) {
-        Student s = new Student();
-        s.display();
-    }
-}`,
-output: `Rahul
-20`
-},
-
-{
-title: "Constructors",
-file: "P02_Constructors.java",
-aim: "To demonstrate a constructor in Java.",
-algorithm: [
-"Start.",
-"Create an Employee class.",
-"Define a constructor.",
-"Assign the name inside the constructor.",
-"Create an object.",
-"Display the name.",
-"Stop."
-],
-explain: "A constructor has the same name as its class. It runs automatically when an object is created.",
-code: `class Employee {
-    String name;
-
-    Employee() {
-        name = "Anu";
-    }
-
-    void display() {
-        System.out.println(name);
-    }
-}
-
-public class P02_Constructors {
-    public static void main(String[] args) {
-        Employee e = new Employee();
-        e.display();
-    }
-}`,
-output: `Anu`
-},
-
-{
-title: "Method Overloading",
-file: "P03_MethodOverloading.java",
-aim: "To demonstrate method overloading.",
-algorithm: [
-"Start.",
-"Create two methods with the same name.",
-"Give them different parameters.",
-"Call both methods.",
-"Display the results.",
-"Stop."
-],
-explain: "Same method name with different parameters is called method overloading.",
-code: `class Add {
-    int sum(int a, int b) {
-        return a + b;
-    }
-
-    int sum(int a, int b, int c) {
-        return a + b + c;
-    }
-}
-
-public class P03_MethodOverloading {
-    public static void main(String[] args) {
-        Add a = new Add();
-
-        System.out.println(a.sum(10, 20));
-        System.out.println(a.sum(10, 20, 30));
-    }
-}`,
-output: `30
-60`
-},
-
-{
-title: "String Class Methods",
-file: "P04_StringMethods.java",
-aim: "To demonstrate Java String methods.",
-algorithm: [
-"Start.",
-"Create a string.",
-"Find its length.",
-"Convert it to uppercase.",
-"Convert it to lowercase.",
-"Reverse it using a loop.",
-"Display the results."
-],
-explain: "length() finds the number of characters. toUpperCase() converts letters to capitals. A loop can reverse the string.",
-code: `public class P04_StringMethods {
-    public static void main(String[] args) {
-        String name = "Java";
-
-        System.out.println("Length: " + name.length());
-        System.out.println("Uppercase: " + name.toUpperCase());
-        System.out.println("Lowercase: " + name.toLowerCase());
-
-        String reverse = "";
-
-        for (int i = name.length() - 1; i >= 0; i--) {
-            reverse = reverse + name.charAt(i);
-        }
-
-        System.out.println("Reverse: " + reverse);
-    }
-}`,
-output: `Length: 4
-Uppercase: JAVA
-Lowercase: java
-Reverse: avaJ`
-},
-
-{
-title: "Vector Class",
-file: "P05_VectorClass.java",
-aim: "To demonstrate the Vector class.",
-algorithm: [
-"Start.",
-"Import Vector.",
-"Create a Vector.",
-"Add three elements.",
-"Display the elements.",
-"Remove one element.",
-"Display the updated Vector."
-],
-explain: "Vector stores multiple values and can grow automatically. add() inserts values and remove() deletes values.",
-code: `import java.util.Vector;
-
-public class P05_VectorClass {
-    public static void main(String[] args) {
-        Vector<String> books = new Vector<>();
-
-        books.add("Java");
-        books.add("Python");
-        books.add("C++");
-
-        System.out.println(books);
-
-        books.remove("Python");
-
-        System.out.println(books);
-    }
-}`,
-output: `[Java, Python, C++]
-[Java, C++]`
-},
-
-{
-title: "Custom Packages",
-file: "P06_CustomPackages.zip",
-aim: "To create and use a custom package.",
-algorithm: [
-"Create a package named mypack.",
-"Create a Message class inside the package.",
-"Create a method named display().",
-"Import the package class in the main program.",
-"Create an object.",
-"Call the display method."
-],
-explain: "A package groups related classes. The import keyword allows another class to use a public class from a package.",
-files: [
-{
-name: "mypack/Message.java",
-code: `package mypack;
-
-public class Message {
-    public void display() {
-        System.out.println("Hello Java");
-    }
-}`
-},
-{
-name: "P06_CustomPackages.java",
-code: `import mypack.Message;
-
-public class P06_CustomPackages {
-    public static void main(String[] args) {
-        Message m = new Message();
-        m.display();
-    }
-}`
-}
-],
-output: `Hello Java`,
-note: "Compile from the project folder: javac mypack/Message.java P06_CustomPackages.java. Then run: java P06_CustomPackages."
-},
-
-{
-title: "Multiple Inheritance Using Interfaces",
-file: "P07_MultipleInheritance.java",
-aim: "To demonstrate multiple inheritance using interfaces.",
-algorithm: [
-"Start.",
-"Create two interfaces.",
-"Declare one method in each interface.",
-"Implement both interfaces in a class.",
-"Create an object.",
-"Call both methods."
-],
-explain: "Java does not support extending multiple classes, but a class can implement multiple interfaces.",
-code: `interface A {
-    void show();
-}
-
-interface B {
-    void display();
-}
-
-class Test implements A, B {
-    public void show() {
-        System.out.println("Interface A");
-    }
-
-    public void display() {
-        System.out.println("Interface B");
-    }
-}
-
-public class P07_MultipleInheritance {
-    public static void main(String[] args) {
-        Test t = new Test();
-
-        t.show();
-        t.display();
-    }
-}`,
-output: `Interface A
-Interface B`
-},
-
-{
-title: "Multithreading",
-file: "P08_Multithreading.java",
-aim: "To demonstrate multithreading.",
-algorithm: [
-"Start.",
-"Create a class extending Thread.",
-"Override run().",
-"Print numbers inside run().",
-"Create a thread object.",
-"Call start().",
-"Stop."
-],
-explain: "A thread performs a task independently. start() starts the thread and executes run().",
-code: `class MyThread extends Thread {
-    public void run() {
-        for (int i = 1; i <= 5; i++) {
-            System.out.println(i);
-        }
-    }
-}
-
-public class P08_Multithreading {
-    public static void main(String[] args) {
-        MyThread t = new MyThread();
-        t.start();
-    }
-}`,
-output: `1
-2
-3
-4
-5`
-},
-
-{
-title: "Simple Java Applet",
-file: "P09_SimpleApplet.java",
-aim: "To create a simple Java applet.",
-algorithm: [
-"Import Applet.",
-"Import Graphics.",
-"Create a class extending Applet.",
-"Override paint().",
-"Display a message using drawString()."
-],
-explain: "An applet is an old Java GUI program. paint() is used to draw text or graphics.",
-code: `import java.applet.Applet;
-import java.awt.Graphics;
-
-public class P09_SimpleApplet extends Applet {
-    public void paint(Graphics g) {
-        g.drawString("Hello Java", 50, 50);
-    }
-}`,
-output: `Hello Java`,
-note: "Legacy syllabus program. Modern browsers do not support Java applets. Use a compatible legacy environment for practical execution."
-},
-
-{
-title: "Applet Using Components",
-file: "P10_AppletComponents.java",
-aim: "To create an applet interface using components.",
-algorithm: [
-"Import Applet and AWT.",
-"Create an applet class.",
-"Set the layout.",
-"Create a Label, TextField and Button.",
-"Add the components.",
-"Display the interface."
-],
-explain: "Label displays text. TextField accepts input. Button displays a clickable button.",
-code: `import java.applet.Applet;
-import java.awt.*;
-
-public class P10_AppletComponents extends Applet {
-    public void init() {
-        setLayout(new FlowLayout());
-
-        add(new Label("Name:"));
-        add(new TextField(15));
-        add(new Button("Submit"));
-    }
-}`,
-output: `Name: [TextField] [Submit]`,
-note: "This is a legacy applet example. For modern Java GUI programming, use AWT Frame or Swing JFrame."
-},
-
-{
-title: "Multiple Selection List Box",
-file: "P11_MultipleSelectionList.java",
-aim: "To demonstrate multiple selection in a GUI list.",
-algorithm: [
-"Import AWT classes.",
-"Create a Frame.",
-"Create a multiple-selection List.",
-"Add course names.",
-"Add a button.",
-"Display the window."
-],
-explain: "List stores selectable items. Passing true to List allows multiple selections.",
-code: `import java.awt.*;
-
-public class P11_MultipleSelectionList {
-    public static void main(String[] args) {
-        Frame f = new Frame("Course List");
-
-        List list = new List(5, true);
-        list.add("Java");
-        list.add("Python");
-        list.add("C++");
-
-        f.add(list);
-        f.setSize(300, 200);
-        f.setLayout(new FlowLayout());
-        f.setVisible(true);
-    }
-}`,
-output: `A window opens with Java, Python and C++.
-You can select more than one course.`,
-note: "Run this program on a computer with a graphical desktop. It will not open a window in a headless terminal."
-},
-
-{
-title: "File Handling",
-file: "P12_FileHandling.java",
-aim: "To write and read a file in Java.",
-algorithm: [
-"Import file classes.",
-"Create a file path.",
-"Write text into the file.",
-"Read the text.",
-"Display the content.",
-"Handle file errors."
-],
-explain: "File handling stores data in files. This program writes text into sample.txt and reads it back.",
-code: `import java.io.*;
-
-public class P12_FileHandling {
-    public static void main(String[] args) {
-        try {
-            FileWriter w = new FileWriter("sample.txt");
-            w.write("Hello Java File");
-            w.close();
-
-            FileReader r = new FileReader("sample.txt");
-            int ch;
-
-            while ((ch = r.read()) != -1) {
-                System.out.print((char) ch);
-            }
-
-            r.close();
-
-        } catch (IOException e) {
-            System.out.println("File error");
-        }
-    }
-}`,
-output: `Hello Java File`
-}
-
-];
-
-function escapeHTML(text) {
-    return String(text).replace(/[&<>"']/g, function(c) {
-        return {
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;"
-        }[c];
-    });
-}
-
-function getFiles(p) {
-    if (p.files) return p.files;
-
-    return [{
-        name: p.file,
-        code: p.code
-    }];
-}
-
-function render() {
-    const search = document.getElementById("search").value.toLowerCase();
-
-    const filtered = programs.filter(p =>
-        (p.title + p.aim).toLowerCase().includes(search)
-    );
-
-    document.getElementById("index").innerHTML = filtered.map(p => `
-        <button onclick="openProgram(${programs.indexOf(p)})">
-            <small>PROGRAM ${programs.indexOf(p) + 1}</small>
-            <strong>${escapeHTML(p.title)}</strong>
-        </button>
-    `).join("");
-
-    document.getElementById("programs").innerHTML = filtered.map(p => {
-        const id = programs.indexOf(p);
-
-        return `
-        <section class="program" id="p${id}">
-            <div class="program-title">
-                <small>JAVA PRACTICAL ${id + 1}</small>
-                <h3>${escapeHTML(p.title)}</h3>
-                <span>${escapeHTML(p.file)}</span>
-            </div>
-
-            <div class="content">
-                <div class="box">
-                    <h4>🎯 AIM</h4>
-                    ${escapeHTML(p.aim)}
-                </div>
-
-                <div class="box algorithm">
-                    <h4>📋 ALGORITHM</h4>
-                    <ol>
-                        ${p.algorithm.map(step =>
-                            `<li>${escapeHTML(step)}</li>`
-                        ).join("")}
-                    </ol>
-                </div>
-
-                <div class="box explain">
-                    <h4>🧠 EASY EXPLANATION</h4>
-                    ${escapeHTML(p.explain)}
-                </div>
-
-                ${p.note ? `
-                    <div class="note">
-                        ⚠ ${escapeHTML(p.note)}
-                    </div>
-                ` : ""}
-
-                <h4>☕ JAVA CODE</h4>
-
-                ${getFiles(p).map((f, i) => `
-                    <p><strong>${escapeHTML(f.name)}</strong></p>
-                    <pre id="code${id}_${i}">${escapeHTML(f.code)}</pre>
-                    <button class="btn" onclick="copyCode(${id}, ${i})">
-                        Copy Code
-                    </button>
-                    <button class="btn" onclick="downloadOne(${id}, ${i})">
-                        Download File
-                    </button>
-                `).join("")}
-
-                <h4>▶ SAMPLE OUTPUT</h4>
-                <div class="output">${escapeHTML(p.output)}</div>
-
-                <div class="actions">
-                    <button class="btn green" onclick="downloadText(${id})">
-                        Download Practical TXT
-                    </button>
-                </div>
-            </div>
-        </section>`;
-    }).join("");
-}
-
-function openProgram(id) {
-    document.getElementById("p" + id).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-}
-
-function goToIndex() {
-    document.getElementById("indexHeading").scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-function saveFile(name, content) {
-    const blob = new Blob([content], {
-        type: "text/plain;charset=utf-8"
-    });
-
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-
-    a.href = url;
-    a.download = name;
-    a.click();
-
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
-function downloadOne(id, fileIndex) {
-    const file = getFiles(programs[id])[fileIndex];
-    saveFile(file.name, file.code);
-}
-
-function downloadText(id) {
-    const p = programs[id];
-
-    const text =
-        "AIM\n" + p.aim +
-        "\n\nALGORITHM\n" +
-        p.algorithm.map((s, i) => (i + 1) + ". " + s).join("\n") +
-        "\n\nJAVA CODE\n" +
-        getFiles(p).map(f => f.name + "\n" + f.code).join("\n\n") +
-        "\n\nOUTPUT\n" + p.output;
-
-    saveFile("Practical_" + (id + 1) + ".txt", text);
-}
-
-function downloadAll() {
-    let text = "";
-
-    programs.forEach((p, i) => {
-        text += "\n========================================\n";
-        text += "PRACTICAL " + (i + 1) + ": " + p.title + "\n";
-        text += "========================================\n\n";
-        text += "AIM\n" + p.aim + "\n\n";
-        text += "ALGORITHM\n";
-        text += p.algorithm.map((s, j) => (j + 1) + ". " + s).join("\n");
-        text += "\n\nJAVA CODE\n";
-
-        getFiles(p).forEach(f => {
-            text += "\nFILE: " + f.name + "\n";
-            text += f.code + "\n";
-        });
-
-        text += "\nOUTPUT\n" + p.output + "\n";
-    });
-
-    saveFile("All_12_Easy_Java_Practicals.txt", text);
-}
-
-async function copyCode(id, fileIndex) {
-    const text = getFiles(programs[id])[fileIndex].code;
-
-    try {
-        await navigator.clipboard.writeText(text);
-        alert("Code copied!");
-    } catch (e) {
-        const area = document.createElement("textarea");
-        area.value = text;
-        document.body.appendChild(area);
-        area.select();
-        document.execCommand("copy");
-        area.remove();
-        alert("Code copied!");
-    }
-}
-
-render();
+function copyCode(btn){const pre=btn.parentElement.querySelector('pre');const text=pre.innerText;if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',1200)}).catch(()=>fallbackCopy(text,btn))}else fallbackCopy(text,btn)}
+function fallbackCopy(text,btn){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',1200)}catch(e){btn.textContent='Select code'}ta.remove()}
+document.getElementById('search').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('.lab').forEach(el=>{el.classList.toggle('hidden',!el.innerText.toLowerCase().includes(q))})});
+function downloadGuide(){const text=[...document.querySelectorAll('.lab')].map(el=>el.innerText.replace(/Copy/g,'')).join('\n\n'+'='.repeat(65)+'\n\n');const blob=new Blob([text],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='CyberLab_Practical_Guide.txt';a.click();URL.revokeObjectURL(a.href)}
 </script>
-
-</body>
-</html>
+</body></html>
