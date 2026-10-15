@@ -2,245 +2,177 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#10131c">
-<title>IDP Lab Practicals — Code & Algorithm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0e15">
+<title>IDP Practicals — All Code Download</title>
 <style>
-:root{--bg:#0b0d13;--panel:#131722;--panel2:#191f2d;--line:#2a3244;--text:#eef2ff;--muted:#a5aec2;--accent:#8b9cff;--accent2:#5ce1c3;--code:#090c12;--warn:#ffd27a}
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at top,#1b2240 0,#0b0d13 50%);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-header{padding:34px 18px 22px;text-align:center;border-bottom:1px solid var(--line)}
-header .tag{display:inline-block;padding:5px 11px;border:1px solid #3b4663;border-radius:99px;color:var(--accent2);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
-h1{margin:12px 0 8px;font-size:clamp(1.7rem,5vw,2.8rem);line-height:1.15}
-header p{margin:0 auto;max-width:720px;color:var(--muted)}
-.wrap{max-width:1100px;margin:auto;padding:20px 15px 55px}
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;position:sticky;top:0;padding:10px 0;background:#0b0d13eF;backdrop-filter:blur(12px);z-index:5}
-input[type=search]{flex:1;min-width:190px;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;color:var(--text);font:inherit}
-button{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:10px 13px;background:var(--panel2);color:var(--text);font:inherit}
-button:hover{border-color:var(--accent);transform:translateY(-1px)}
-.progress{height:5px;background:#252b3a;border-radius:99px;overflow:hidden;margin:0 0 18px}
-.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .2s}
-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;margin:0 0 20px}
-nav a{color:var(--text);text-decoration:none;padding:10px 12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;font-size:.92rem}
-nav a:hover{border-color:var(--accent)}
-section.practical{background:linear-gradient(160deg,#151a27,#10131b);border:1px solid var(--line);border-radius:16px;padding:20px;margin:15px 0;box-shadow:0 12px 30px #0002;scroll-margin-top:85px}
-h2{font-size:1.28rem;margin:0 0 12px}
-h3{font-size:1rem;margin:18px 0 7px;color:var(--accent2)}
-.aim{color:var(--muted);margin:0 0 14px}
-ol,ul{padding-left:23px}
-li{margin:4px 0}
-pre{white-space:pre;overflow:auto;background:var(--code);border:1px solid #262d3c;border-radius:11px;padding:14px;color:#e6ecff;font: .88rem/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}
-.codehead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
-.codehead h3{margin:12px 0 0}
-.small{font-size:.86rem;color:var(--muted)}
-.note{padding:11px 13px;border-left:3px solid var(--warn);background:#2b2416;border-radius:8px;color:#f4e5c4;margin:12px 0}
-.memory{padding:11px 13px;background:#102a27;border:1px solid #24534a;border-radius:10px;color:#c6fff0;margin-top:12px}
-.hidden{display:none!important}
-footer{text-align:center;color:var(--muted);padding:20px}
-@media(max-width:600px){section.practical{padding:15px}pre{font-size:.8rem}.toolbar{position:static}}
-@media print{body{background:white;color:#111}header,section.practical,nav{break-inside:avoid}section.practical{background:white;border:1px solid #bbb;box-shadow:none;color:#111}pre{background:#f5f5f5;color:#111;white-space:pre-wrap}h3{color:#111}.toolbar,.progress,nav button{display:none}.aim,.small,footer{color:#444}}
+:root{--bg:#0b0e15;--panel:#151a27;--panel2:#1c2435;--line:#30394e;--text:#f2f5ff;--muted:#a9b3c9;--accent:#9ba8ff;--mint:#71e6cc}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#1b2340,var(--bg) 55%);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+header{text-align:center;padding:34px 16px 26px;border-bottom:1px solid var(--line)}.tag{font-size:.76rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mint);border:1px solid #365b5b;border-radius:99px;padding:5px 10px}h1{font-size:clamp(1.7rem,5vw,2.8rem);line-height:1.15;margin:16px 0 8px}header p{color:var(--muted);max-width:720px;margin:auto}
+main{max-width:1050px;padding:20px 14px 60px;margin:auto}.actions{display:flex;gap:9px;flex-wrap:wrap;position:sticky;top:0;z-index:5;padding:10px 0;background:#0b0e15ee;backdrop-filter:blur(10px)}button{background:var(--panel2);color:var(--text);border:1px solid var(--line);padding:10px 14px;border-radius:10px;font:inherit;cursor:pointer}button:hover{border-color:var(--accent)}.primary{background:var(--accent);color:#0b0e15;border-color:var(--accent);font-weight:700}input{flex:1;min-width:180px;background:var(--panel);border:1px solid var(--line);color:var(--text);padding:11px 13px;border-radius:10px;font:inherit}
+nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;margin:10px 0 20px}nav a{padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text);text-decoration:none;font-size:.92rem}nav a:hover{border-color:var(--accent)}
+section{background:linear-gradient(150deg,#171d2b,#111520);border:1px solid var(--line);border-radius:15px;padding:18px;margin:14px 0;scroll-margin-top:85px}h2{font-size:1.25rem;margin:0 0 5px}h3{font-size:1rem;color:var(--mint);margin:17px 0 6px}.aim{color:var(--muted);margin:0 0 12px}.steps{padding-left:22px}.steps li{margin:3px 0}.codehead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}.codehead h3{margin:12px 0 5px}pre{overflow:auto;white-space:pre;background:#080b11;color:#edf0ff;border:1px solid #2a3245;border-radius:10px;padding:13px;font: .86rem/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}.note{background:#2a2418;border-left:3px solid #f4cb73;padding:10px 12px;border-radius:8px;color:#ffedc5;margin-top:10px}.memory{background:#102a27;border:1px solid #25534b;border-radius:9px;padding:10px 12px;color:#c8fff2;margin-top:10px}.muted{color:var(--muted);font-size:.9rem}.hide{display:none!important}.progress{height:4px;background:#293147;border-radius:10px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--mint))}
+@media(max-width:600px){.actions{position:static}section{padding:14px}pre{font-size:.8rem}}@media print{body{background:white;color:#111}header,section,nav a{background:white;color:#111;box-shadow:none}section{break-inside:avoid;border-color:#aaa}.aim,.muted{color:#444}.actions,.progress{display:none}pre{white-space:pre-wrap;background:#f5f5f5;color:#111}h3{color:#111}}
 </style>
 </head>
 <body>
-<header>
-  <span class="tag">IDP Lab • Quick Revision</span>
-  <h1>Code & Algorithm Only</h1>
-  <p>10 practicals in simple steps. Search, copy code, and print your notes for revision.</p>
-</header>
-<main class="wrap">
-  <div class="toolbar">
-    <input id="search" type="search" placeholder="Search practical, command, algorithm…" aria-label="Search practicals">
-    <button onclick="expandAll()">Expand all</button>
-    <button onclick="collapseAll()">Collapse all</button>
-    <button onclick="window.print()">Print / Save PDF</button>
-  </div>
-  <div class="progress" aria-label="Reading progress"><span id="progressBar"></span></div>
-  <nav id="nav">
-    <a href="#p1">1. Network Reconnaissance</a><a href="#p2">2. ARPwatch</a><a href="#p3">3. Nessus</a><a href="#p4">4. C Buffer Demo</a><a href="#p5">5. Snort Install</a><a href="#p6">6. Logs & Registry</a><a href="#p7">7. iptables Firewall</a><a href="#p8">8. Snort Rule</a><a href="#p9">9. Traceroute</a><a href="#p10">10. OWASP ZAP</a>
-  </nav>
+<header><span class="tag">IDP Lab • Exam Revision</span><h1>All 9 Practicals — Code & Algorithm</h1><p>Simple study notes, copyable commands, search, one-click download of all code, and print-to-PDF.</p></header>
+<main>
+<div class="actions">
+<input id="search" type="search" placeholder="Search practical or command…" aria-label="Search notes">
+<button class="primary" onclick="downloadAll()">⬇ Download All Code (.txt)</button>
+<button onclick="downloadHTML()">Download HTML</button>
+<button onclick="window.print()">Print / Save PDF</button>
+<button onclick="clearSearch()">Show all</button>
+</div>
+<div class="progress"><span id="progressBar"></span></div>
+<nav>
+<a href="#p1">1. Reconnaissance & TTL</a><a href="#p2">2. ARPwatch</a><a href="#p3">3. Nessus</a><a href="#p4">4. Buffer Overflow</a><a href="#p5">5. Trace Route</a><a href="#p6">6. Port 8080</a><a href="#p7">7. Snort IDS</a><a href="#p8">8. College Domain Details</a><a href="#p9">9. OWASP ZAP</a>
+</nav>
 
-  <section class="practical" id="p1">
-    <h2>1. Network Reconnaissance</h2><p class="aim"><b>Aim:</b> Collect basic domain, DNS and network-path information for stc.ac.in.</p>
-    <h3>Algorithm</h3><ol><li>Open Terminal or Command Prompt.</li><li>Run WHOIS and DNS lookup commands.</li><li>Find the domain's IP address.</li><li>Trace the network route.</li><li>Record the results.</li></ol>
-    <div class="codehead"><h3>Linux commands</h3><button onclick="copyBlock(this)">Copy</button></div><pre>whois stc.ac.in
+<section id="p1"><h2>1. Network Reconnaissance, Security Logs & TTL</h2><p class="aim"><b>Aim:</b> Find public domain/DNS information, review important security logs and understand TTL.</p><h3>Algorithm</h3><ol class="steps"><li>Open a terminal and run domain lookup commands.</li><li>Record IP/DNS details and route output.</li><li>Review security event IDs.</li><li>Check Google DNS TTL using dig.</li></ol>
+<div class="codehead"><h3>Linux commands</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="01-recon-linux.txt">whois stc.ac.in
 dig stc.ac.in
 nslookup stc.ac.in
-traceroute stc.ac.in</pre>
-    <div class="codehead"><h3>Windows commands</h3><button onclick="copyBlock(this)">Copy</button></div><pre>nslookup stc.ac.in
-tracert stc.ac.in</pre>
-    <div class="memory"><b>Remember:</b> WHOIS = domain details • DIG/NSLOOKUP = DNS • traceroute = network hops. TTL = Time To Live.</div>
-  </section>
+dig +short stc.ac.in
+traceroute stc.ac.in
+ping -c 1 google.com
+dig google.com</pre>
+<div class="codehead"><h3>Install required tools</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="01-install-tools.txt">sudo apt update
+sudo apt install whois traceroute dnsutils -y</pre>
+<div class="codehead"><h3>Windows Event Viewer</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="01-windows-logs.txt">eventvwr.msc
 
-  <section class="practical" id="p2">
-    <h2>2. Detect ARP Changes Using ARPwatch</h2><p class="aim"><b>Aim:</b> Monitor changes in IP-to-MAC address mappings on an authorized lab network.</p>
-    <h3>Algorithm</h3><ol><li>Update package information.</li><li>Install ARPwatch.</li><li>Enable and start the service.</li><li>Review its logs.</li><li>Investigate unexpected IP-to-MAC changes.</li></ol>
-    <div class="codehead"><h3>Commands</h3><button onclick="copyBlock(this)">Copy</button></div><pre>sudo apt update
-sudo apt install arpwatch
+Event ID 4624 = Successful login
+Event ID 4625 = Failed login
+Event ID 4720 = User account created
+Event ID 4726 = User account deleted
+Event ID 1102  = Security audit log cleared</pre>
+<div class="memory"><b>Remember:</b> WHOIS = domain details; dig/nslookup = DNS; traceroute = hops. IP packet TTL limits router hops. DNS TTL is a cache duration in seconds and changes over time.</div></section>
+
+<section id="p2"><h2>2. Detect MAC / ARP Changes Using ARPwatch</h2><p class="aim"><b>Aim:</b> Monitor IP-to-MAC address mapping changes in an authorized lab.</p><h3>Algorithm</h3><ol class="steps"><li>Install ARPwatch.</li><li>Start the service.</li><li>Check logs for unexpected changes.</li><li>Investigate before concluding spoofing occurred.</li></ol>
+<div class="codehead"><h3>Commands</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="02-arpwatch.txt">sudo apt update
+sudo apt install arpwatch -y
 ip addr
 ip route
 sudo systemctl enable --now arpwatch
 sudo systemctl status arpwatch
-sudo journalctl -u arpwatch</pre>
-    <div class="note">A changed IP-to-MAC mapping is a warning to investigate, not proof of spoofing.</div>
-  </section>
+sudo journalctl -u arpwatch</pre><div class="note">An IP-to-MAC change is a warning to investigate, not proof of spoofing.</div></section>
 
-  <section class="practical" id="p3">
-    <h2>3. Vulnerability Scan Using Nessus</h2><p class="aim"><b>Aim:</b> Identify potential vulnerabilities on an authorized test system.</p>
-    <h3>Algorithm</h3><ol><li>Install and open Nessus Essentials.</li><li>Create a new scan and select Basic Network Scan.</li><li>Enter the authorized target IP address.</li><li>Save and launch the scan.</li><li>Review severity, evidence and recommended fixes.</li><li>Prepare the report.</li></ol>
-    <div class="memory"><b>Remember:</b> Tool workflow practical — open → create scan → choose target → run → review → report.</div>
-  </section>
+<section id="p3"><h2>3. Network Vulnerability Analysis Using Nessus</h2><p class="aim"><b>Aim:</b> Find potential vulnerabilities on an authorized lab target.</p><h3>Algorithm</h3><ol class="steps"><li>Open Nessus Essentials.</li><li>Create a Basic Network Scan.</li><li>Enter your authorized lab target.</li><li>Launch the scan, review findings and prepare a report.</li></ol>
+<div class="codehead"><h3>Find your lab IP address</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="03-lab-ip.txt">ip addr
+ping -c 4 127.0.0.1</pre><div class="memory"><b>Remember:</b> Create scan → Target → Scan → Report. The scan itself is performed in the Nessus web interface.</div></section>
 
-  <section class="practical" id="p4">
-    <h2>4. Safe C Buffer Input Demonstration</h2><p class="aim"><b>Aim:</b> Demonstrate bounded input to prevent overflowing a character array.</p>
-    <h3>Algorithm</h3><ol><li>Start the program.</li><li>Declare a character array of size 20.</li><li>Read at most 19 characters.</li><li>Display the entered name.</li><li>End the program.</li></ol>
-    <div class="codehead"><h3>buffer_demo.c</h3><button onclick="copyBlock(this)">Copy</button></div><pre>#include &lt;stdio.h&gt;
+<section id="p4"><h2>4. Buffer Overflow Concept Using C</h2><p class="aim"><b>Aim:</b> Understand buffer boundaries with a safe input example.</p><h3>Algorithm</h3><ol class="steps"><li>Create a character array.</li><li>Read bounded input.</li><li>Print the value.</li><li>Compile and run.</li></ol>
+<div class="codehead"><h3>buffer.c</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="04-buffer.c">#include &lt;stdio.h&gt;
 
 int main(void) {
     char name[20];
 
     printf("Enter your name: ");
-
     if (scanf("%19s", name) != 1) {
         return 1;
     }
 
-    printf("Hello %s\\n", name);
+    printf("Your name is %s\\n", name);
     return 0;
 }</pre>
-    <div class="codehead"><h3>Compile and run</h3><button onclick="copyBlock(this)">Copy</button></div><pre>gcc buffer_demo.c -o buffer_demo
-./buffer_demo</pre>
-    <div class="memory"><b>Remember:</b> name[20] stores up to 19 input characters plus the string-ending character. The width in %19s limits input.</div>
-  </section>
+<div class="codehead"><h3>Compile and run</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="04-compile.txt">gcc buffer.c -o buffer
+./buffer</pre><div class="memory"><b>Remember:</b> Buffer overflow means writing beyond allocated memory. `%19s` limits input to fit in `char name[20]` including the string terminator.</div></section>
 
-  <section class="practical" id="p5">
-    <h2>5. Install, Test and Uninstall Snort</h2><p class="aim"><b>Aim:</b> Install an IDS, check its version and test its configuration.</p>
-    <h3>Algorithm</h3><ol><li>Update packages.</li><li>Install Snort.</li><li>Check the version and configuration path.</li><li>Test the configuration.</li><li>Run Snort on the correct lab interface.</li><li>Uninstall if required.</li></ol>
-    <div class="codehead"><h3>Commands</h3><button onclick="copyBlock(this)">Copy</button></div><pre>sudo apt update
+<section id="p5"><h2>5. Find Website IP and Total Hops</h2><p class="aim"><b>Aim:</b> Resolve the IP and count the hops reported for Microsoft and the college website.</p><h3>Algorithm</h3><ol class="steps"><li>Resolve the hostname.</li><li>Run traceroute/tracert.</li><li>Count responding hop lines and record the results.</li></ol>
+<div class="codehead"><h3>Linux</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="05-traceroute-linux.txt">nslookup www.microsoft.com
+traceroute www.microsoft.com
+nslookup stc.ac.in
+traceroute stc.ac.in</pre>
+<div class="codehead"><h3>Windows</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="05-traceroute-windows.txt">nslookup www.microsoft.com
+tracert www.microsoft.com
+nslookup stc.ac.in
+tracert stc.ac.in</pre><div class="note">IP addresses and hop counts can change. Some routers do not reply, so record your actual lab output.</div></section>
+
+<section id="p6"><h2>6. Block and Unblock TCP Port 8080</h2><p class="aim"><b>Aim:</b> Add a firewall block rule, verify it, remove it, and verify removal.</p><h3>Algorithm</h3><ol class="steps"><li>Insert the DROP rule.</li><li>Check that the rule exists.</li><li>Delete the rule.</li><li>Check that the rule no longer exists.</li></ol>
+<div class="codehead"><h3>Block port 8080</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="06-block-8080.txt">sudo iptables -I INPUT 1 -p tcp --dport 8080 -j DROP
+sudo iptables -L INPUT -n -v --line-numbers</pre>
+<div class="codehead"><h3>Verify rule exists (exit code 0 = found)</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="06-check-block.txt">sudo iptables -C INPUT -p tcp --dport 8080 -j DROP
+echo $?</pre>
+<div class="codehead"><h3>Unblock and verify (exit code 1 = rule not found)</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="06-unblock-8080.txt">sudo iptables -D INPUT -p tcp --dport 8080 -j DROP
+sudo iptables -C INPUT -p tcp --dport 8080 -j DROP
+echo $?</pre><div class="note">Run on your own lab machine. Firewall changes apply immediately and can affect connections. Removing this rule does not guarantee the port is reachable if other rules or services affect it.</div></section>
+
+<section id="p7"><h2>7. Snort IDS Rule, Test and Removal</h2><p class="aim"><b>Aim:</b> Install Snort, add a simple ICMP alert rule, observe results and uninstall.</p><h3>Algorithm</h3><ol class="steps"><li>Install and check Snort.</li><li>Create a custom rule file.</li><li>Run Snort on the correct lab interface.</li><li>Generate test traffic and inspect alerts.</li><li>Uninstall Snort if required.</li></ol>
+<div class="codehead"><h3>Install and inspect</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="07-snort-install.txt">sudo apt update
 sudo apt install snort -y
 snort -V
-ls /etc/snort
-sudo snort -T -c /etc/snort/snort.lua
 ip link
-sudo snort -c /etc/snort/snort.lua -i eth0</pre>
-    <div class="codehead"><h3>Uninstall</h3><button onclick="copyBlock(this)">Copy</button></div><pre>sudo apt purge snort -y
-sudo apt autoremove -y</pre>
-    <div class="note">Replace eth0 with the real interface name. Snort versions and configuration paths differ; if the shown file is missing, use the installed version's configuration path.</div>
-  </section>
-
-  <section class="practical" id="p6">
-    <h2>6. Security Logs and Registry</h2><p class="aim"><b>Aim:</b> Examine login events, account changes and startup entries.</p>
-    <h3>Algorithm — Windows</h3><ol><li>Open Event Viewer.</li><li>Go to Windows Logs → Security.</li><li>Search relevant event IDs.</li><li>Inspect Run registry keys for startup entries.</li></ol>
-    <div class="codehead"><h3>Windows commands and paths</h3><button onclick="copyBlock(this)">Copy</button></div><pre>eventvwr.msc
-regedit</pre>
-    <pre>HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run
-HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run</pre>
-    <div class="codehead"><h3>Event IDs to remember</h3><button onclick="copyBlock(this)">Copy</button></div><pre>4624 - Successful login
-4625 - Failed login
-4720 - User account created
-4726 - User account deleted
-1102 - Security audit log cleared</pre>
-    <h3>Algorithm — Linux</h3><ol><li>List log files.</li><li>Open authentication logs or system journal.</li><li>Search for failed authentication.</li><li>Record relevant events.</li></ol>
-    <div class="codehead"><h3>Linux commands</h3><button onclick="copyBlock(this)">Copy</button></div><pre>ls /var/log
-sudo less /var/log/auth.log
-sudo tail -n 30 /var/log/auth.log
-sudo grep -a -i "failed" /var/log/auth.log
-sudo journalctl -n 30
-sudo journalctl | grep -i "authentication"
-sudo journalctl | grep -i "failed"</pre>
-    <div class="note">Some Linux systems use journalctl instead of /var/log/auth.log. Review unfamiliar registry entries before changing or deleting them.</div>
-  </section>
-
-  <section class="practical" id="p7">
-    <h2>7. Firewall Rules Using iptables</h2><p class="aim"><b>Aim:</b> List firewall rules, allow or block traffic, and inspect logs.</p>
-    <h3>Algorithm</h3><ol><li>List existing firewall rules.</li><li>Add a rule to allow TCP port 80.</li><li>Add a rule to drop TCP port 23.</li><li>Inspect rules and line numbers.</li><li>Save a rules snapshot.</li><li>Add a logging rule and inspect kernel logs.</li></ol>
-    <div class="codehead"><h3>Commands</h3><button onclick="copyBlock(this)">Copy</button></div><pre>sudo iptables -L -n -v
-sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 23 -j DROP
-sudo iptables -L INPUT -n -v --line-numbers
-sudo iptables-save > firewall.rules
-sudo iptables -A INPUT -j LOG --log-prefix "IPTABLES: "
-sudo journalctl -k | grep IPTABLES</pre>
-    <div class="memory"><b>Remember:</b> INPUT = incoming traffic • ACCEPT = allow • DROP = discard • LOG = record matching packets.</div>
-    <div class="note">Firewall changes apply immediately. Use a lab system and avoid changing remote firewall rules without a recovery plan.</div>
-  </section>
-
-  <section class="practical" id="p8">
-    <h2>8. Create a Custom Snort ICMP Alert Rule</h2><p class="aim"><b>Aim:</b> Create a rule to alert on matching ICMP traffic in a lab.</p>
-    <h3>Algorithm</h3><ol><li>Create a rule file.</li><li>Add an ICMP alert rule with a unique SID.</li><li>Identify the network interface.</li><li>Run Snort with the rule file.</li><li>Generate test ICMP traffic and observe alerts.</li></ol>
-    <div class="codehead"><h3>Create rule file</h3><button onclick="copyBlock(this)">Copy</button></div><pre>nano ~/test.rules</pre>
-    <div class="codehead"><h3>Rule text</h3><button onclick="copyBlock(this)">Copy</button></div><pre>alert icmp any any -> any any (msg:"ICMP TEST ALERT"; sid:1000001; rev:1;)</pre>
-    <div class="codehead"><h3>Run and test</h3><button onclick="copyBlock(this)">Copy</button></div><pre>ip link
+ls /etc/snort</pre>
+<div class="codehead"><h3>Create rule file</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="07-test.rules">alert icmp any any -&gt; any any (msg:"ICMP TEST ALERT"; sid:1000001; rev:1;)</pre>
+<div class="codehead"><h3>Run in a compatible Snort 3 installation</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="07-snort-run.txt">nano ~/test.rules
 sudo snort -c /etc/snort/snort.lua -R ~/test.rules -i eth0 -A alert_fast
 ping -c 4 8.8.8.8</pre>
-    <div class="memory"><b>Remember:</b> alert = action • icmp = protocol • msg = alert text • sid = rule ID • rev = revision.</div>
-    <div class="note">This example uses Snort 3-style options and a sample config path. Use the actual config path and interface for your installation.</div>
-  </section>
+<div class="codehead"><h3>Uninstall</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="07-snort-remove.txt">sudo apt purge snort -y
+sudo apt autoremove -y</pre><div class="note">Replace eth0 with your actual interface. Snort version/configuration paths differ; use the installed version's configuration. The ICMP rule alerts only on traffic visible to the selected interface.</div></section>
 
-  <section class="practical" id="p9">
-    <h2>9. Network Path Using traceroute</h2><p class="aim"><b>Aim:</b> Observe the hops between your computer and a destination.</p>
-    <h3>Algorithm</h3><ol><li>Open Terminal or Command Prompt.</li><li>Enter the destination domain.</li><li>Run traceroute or tracert.</li><li>Observe hops and response times.</li><li>Record the result.</li></ol>
-    <div class="codehead"><h3>Linux</h3><button onclick="copyBlock(this)">Copy</button></div><pre>traceroute stc.ac.in
-ping -c 4 stc.ac.in</pre>
-    <div class="codehead"><h3>Windows</h3><button onclick="copyBlock(this)">Copy</button></div><pre>tracert stc.ac.in</pre>
-    <div class="memory"><b>Remember:</b> Traceroute shows the route; it does not by itself identify the person responsible for an attack.</div>
-  </section>
+<section id="p8"><h2>8. College Domain Details</h2><p class="aim"><b>Aim:</b> Gather available public registration and DNS records for the college domain.</p><h3>Algorithm</h3><ol class="steps"><li>Check domain registration.</li><li>Query A and AAAA records.</li><li>Query name servers and mail servers.</li><li>Record available results.</li></ol>
+<div class="codehead"><h3>Commands</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="08-domain-details.txt">whois stc.ac.in
+dig stc.ac.in
+dig +short stc.ac.in
+dig A stc.ac.in
+dig AAAA stc.ac.in
+dig NS stc.ac.in
+dig MX stc.ac.in
+nslookup stc.ac.in</pre><div class="memory"><b>Remember:</b> WHOIS = registration; A = IPv4; AAAA = IPv6; NS = name servers; MX = mail servers.</div></section>
 
-  <section class="practical" id="p10">
-    <h2>10. Web Assessment Using OWASP ZAP</h2><p class="aim"><b>Aim:</b> Scan a local training web application for potential security issues.</p>
-    <h3>Algorithm</h3><ol><li>Install and open OWASP ZAP.</li><li>Start a local training app.</li><li>Set the app URL as the target in ZAP.</li><li>Browse or scan the local application.</li><li>Review alerts and severity.</li><li>Record findings and suggested fixes.</li></ol>
-    <div class="codehead"><h3>Install and start ZAP (Ubuntu/Debian packages)</h3><button onclick="copyBlock(this)">Copy</button></div><pre>sudo apt update
+<section id="p9"><h2>9. Vulnerability Assessment Using OWASP ZAP</h2><p class="aim"><b>Aim:</b> Assess a local training web application and review possible vulnerabilities.</p><h3>Algorithm</h3><ol class="steps"><li>Install/open ZAP.</li><li>Run a local training application.</li><li>Set the target in ZAP.</li><li>Scan and review alerts.</li><li>Write findings and suggested fixes.</li></ol>
+<div class="codehead"><h3>Install ZAP on supported Debian/Ubuntu systems</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="09-zap-install.txt">sudo apt update
 sudo apt install zaproxy -y
 zaproxy</pre>
-    <div class="codehead"><h3>Install Docker and run local Juice Shop</h3><button onclick="copyBlock(this)">Copy</button></div><pre>sudo apt install docker.io -y
+<div class="codehead"><h3>Optional local OWASP Juice Shop with Docker</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="09-juice-shop.txt">sudo apt install docker.io -y
 sudo systemctl start docker
-sudo systemctl enable docker
 sudo docker pull bkimminich/juice-shop
 sudo docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop</pre>
-    <div class="codehead"><h3>Test local app</h3><button onclick="copyBlock(this)">Copy</button></div><pre>curl http://127.0.0.1:3000</pre>
-    <p class="small">Open http://127.0.0.1:3000 in your browser, then target that local URL in ZAP. Keep the Docker terminal running during the test.</p>
-    <div class="note">Scan only applications you own or have permission to test. The Juice Shop image is intentionally vulnerable and should be kept local for this exercise.</div>
-  </section>
+<div class="codehead"><h3>Test local app</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="09-test-local.txt">curl http://127.0.0.1:3000</pre><p class="muted">Open http://127.0.0.1:3000 in your browser, then browse/scan that local URL in ZAP. Keep the Docker terminal running.</p><div class="note">Scan only systems you own or have permission to test. Keep the deliberately vulnerable Juice Shop bound to localhost.</div></section>
 
-  <section class="practical">
-    <h2>Last-minute memory sheet</h2>
-    <div class="codehead"><h3>Commands at a glance</h3><button onclick="copyBlock(this)">Copy</button></div><pre>whois / dig / nslookup = domain and DNS information
-traceroute / tracert = network hops
-arpwatch = watch IP-to-MAC changes
-Nessus = vulnerability scanning
-gcc file.c -o file = compile C
-snort -V = Snort version
-eventvwr.msc = Windows Event Viewer
-journalctl = Linux system logs
-iptables -L -n -v = list firewall rules
-zaproxy = open OWASP ZAP</pre>
-    <div class="memory"><b>Exam format:</b> Aim → Algorithm → Code / Commands → Result. Practise each command in a permitted lab environment.</div>
-  </section>
-  <footer>IDP Lab Quick Revision • Code and algorithms only</footer>
+<section><h2>10-Minute Memory Sheet</h2><div class="codehead"><h3>Quick recall</h3><button onclick="copyCode(this)">Copy</button></div><pre data-name="10-memory-sheet.txt">1. Recon: whois, dig, nslookup, TTL
+2. ARPwatch: install, start, check logs
+3. Nessus: create scan, target, scan, report
+4. Buffer: array, bounded input, compile
+5. Trace route: nslookup = IP; traceroute = hops
+6. Port 8080: -I insert, -C check, -D delete
+7. Snort: install, rule, alert, remove
+8. Domain: WHOIS, A, AAAA, NS, MX
+9. ZAP: open, target, scan, alerts, report</pre><div class="memory"><b>Exam format:</b> Aim → Algorithm → Commands/Code → Result.</div></section>
 </main>
 <script>
-function copyBlock(button){
-  const pre=button.closest('.codehead').nextElementSibling;
-  if(!pre || pre.tagName!=='PRE') return;
-  const text=pre.innerText;
-  if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(text).then(()=>{const old=button.textContent;button.textContent='Copied!';setTimeout(()=>button.textContent=old,1200)}).catch(()=>fallbackCopy(text,button));
-  }else fallbackCopy(text,button);
+function copyCode(button){
+ const pre=button.closest('.codehead').nextElementSibling;if(!pre||pre.tagName!=='PRE')return;
+ const old=button.textContent;const text=pre.innerText;
+ const done=()=>{button.textContent='Copied!';setTimeout(()=>button.textContent=old,1100)};
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(text).then(done).catch(()=>fallback(text,button,old));
+ else fallback(text,button,old);
 }
-function fallbackCopy(text,button){
-  const area=document.createElement('textarea');area.value=text;document.body.appendChild(area);area.select();
-  try{document.execCommand('copy');const old=button.textContent;button.textContent='Copied!';setTimeout(()=>button.textContent=old,1200)}catch(e){button.textContent='Select code manually'}
-  area.remove();
+function fallback(text,button,old){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');button.textContent='Copied!';setTimeout(()=>button.textContent=old,1100)}catch(e){button.textContent='Select manually'}t.remove()}
+function downloadAll(){
+ let out='IDP CYBERSECURITY PRACTICALS — ALL CODE AND ALGORITHMS\\n\\n';
+ document.querySelectorAll('section').forEach(s=>{
+   out+='\\n'+'='.repeat(72)+'\\n'+s.querySelector('h2')?.innerText+'\\n'+'='.repeat(72)+'\\n';
+   s.querySelectorAll('h3').forEach(h=>{
+     const p=h.parentElement.nextElementSibling;
+     if(p&&p.tagName==='PRE')out+='\\n--- '+h.innerText+' ---\\n'+p.innerText+'\\n';
+   });
+   const alg=s.querySelector('ol');if(alg)out+='\\nALGORITHM\\n'+Array.from(alg.querySelectorAll('li')).map((li,i)=>(i+1)+'. '+li.innerText).join('\\n')+'\\n';
+   const aim=s.querySelector('.aim');if(aim)out+='\\n'+aim.innerText+'\\n';
+ });
+ saveFile(out,'IDP_All_Practical_Code.txt','text/plain;charset=utf-8');
 }
-function expandAll(){document.querySelectorAll('section.practical').forEach(s=>s.classList.remove('hidden'))}
-function collapseAll(){document.querySelectorAll('section.practical').forEach(s=>{if(s.id)s.classList.add('hidden')})}
-document.getElementById('search').addEventListener('input',function(){
-  const q=this.value.toLowerCase().trim();
-  document.querySelectorAll('section.practical').forEach(s=>{s.classList.toggle('hidden',!!q&&!s.innerText.toLowerCase().includes(q))});
-});
-window.addEventListener('scroll',()=>{
-  const total=document.documentElement.scrollHeight-window.innerHeight;
-  document.getElementById('progressBar').style.width=(total>0?window.scrollY/total*100:0)+'%';
-});
+function downloadHTML(){
+ const blob=new Blob(['<!DOCTYPE html>\\n'+document.documentElement.outerHTML],{type:'text/html;charset=utf-8'});
+ saveBlob(blob,'IDP_Practicals_Code_Algorithm.html');
+}
+function saveFile(text,name,type){saveBlob(new Blob([text],{type}),name)}
+function saveBlob(blob,name){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function clearSearch(){document.getElementById('search').value='';filterSections('')}
+function filterSections(q){document.querySelectorAll('section').forEach(s=>s.classList.toggle('hide',!!q&&!s.innerText.toLowerCase().includes(q)))}
+document.getElementById('search').addEventListener('input',e=>filterSections(e.target.value.toLowerCase().trim()));
+window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;document.getElementById('progressBar').style.width=(max>0?scrollY/max*100:0)+'%'});
 </script>
 </body>
-</html>
+  </html>
