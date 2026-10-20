@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OS & Linux Utilities Lab | Sets 1–5</title>
+<style>
+:root{--bg:#090b10;--panel:#11151e;--panel2:#171d28;--text:#f4f7fb;--muted:#a6b0c2;--red:#ff334f;--line:#293243;--green:#5de0a5;--mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top right,#28101a 0,transparent 36%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.55}
+header{padding:34px 20px 24px;border-bottom:1px solid var(--line);background:#090b10cc}.wrap{max-width:1120px;margin:auto} .eyebrow{color:var(--red);font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.76rem}
+h1{font-size:clamp(2rem,5vw,3.7rem);line-height:1.05;margin:10px 0 12px;letter-spacing:-.04em}h1 span{color:var(--red)}.subtitle{color:var(--muted);max-width:700px;margin:0}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:11px 15px;border-radius:10px;font-weight:750;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn.primary{background:var(--red);border-color:var(--red);color:white}.btn:hover{filter:brightness(1.12)}.btn:focus-visible,button:focus-visible{outline:3px solid #ff8a9b;outline-offset:3px}
+main{padding:24px 20px 70px}.notice{border:1px solid #55313b;background:#1b1016;padding:13px 15px;border-radius:12px;color:#ffdce1;margin-bottom:22px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 22px}.search{flex:1;min-width:220px;background:var(--panel);border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:10px;font-size:1rem}
+.setnav{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.setnav a{color:var(--text);text-decoration:none;border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:var(--panel)}.setnav a:hover{border-color:var(--red)}
+.set{margin:28px 0 36px;scroll-margin-top:20px}.sethead{display:flex;align-items:flex-start;gap:13px;margin-bottom:14px}.number{display:grid;place-items:center;flex:0 0 44px;height:44px;background:var(--red);border-radius:12px;font-size:1.15rem;font-weight:900}.set h2{margin:0;font-size:1.5rem}.sethead p{margin:3px 0 0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:linear-gradient(145deg,var(--panel),#0e1118);border:1px solid var(--line);border-radius:15px;padding:17px;min-width:0}.card h3{margin:0 0 6px;font-size:1.08rem}.aim{color:var(--muted);font-size:.92rem;margin:0 0 13px}.codehead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 7px;color:#c5cede;font-size:.83rem}.smallbtn{background:#202838;border:1px solid #354157;color:#f5f7fb;padding:6px 9px;border-radius:7px;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap}pre{margin:0;background:#07090d;border:1px solid #202735;border-radius:10px;padding:13px;overflow:auto;color:#d9f7e7;font: .86rem/1.6 var(--mono);white-space:pre}.explain{margin-top:12px;color:var(--muted);font-size:.9rem}.tag{display:inline-block;color:#ffabb7;border:1px solid #55313b;background:#201018;padding:3px 8px;border-radius:999px;font-size:.75rem;margin-bottom:8px}.output{color:var(--green)}.footer{border-top:1px solid var(--line);padding:22px 20px;color:var(--muted);text-align:center}
+@media(max-width:760px){.grid{grid-template-columns:1fr}header{padding-top:26px}.card{padding:14px}.actions .btn{flex:1}}
+@media print{body{background:white;color:#111}.actions,.toolbar,.setnav,.smallbtn{display:none!important}.card{break-inside:avoid;background:white;color:#111;border:1px solid #aaa}.aim,.explain,.sethead p{color:#333}pre{background:#f5f5f5;color:#111;white-space:pre-wrap}.set h2{color:#111}header{background:white;color:#111}.eyebrow,h1 span{color:#c00}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="eyebrow">Practical exam quick guide · October 2026</div>
+  <h1>OS & Linux Utilities<br><span>Lab Sets 1–5</span></h1>
+  <p class="subtitle">Simple, exam-friendly commands and programs with copy buttons, search, and one-click downloads. Use Linux commands in a Linux terminal and Windows commands in Command Prompt.</p>
+  <div class="actions">
+   <button class="btn primary" onclick="downloadAll()">⬇ Download all commands (.txt)</button>
+   <button class="btn" onclick="downloadHTML()">⇩ Download this index.html</button>
+   <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+ </div>
+</header>
+<main class="wrap">
+ <div class="notice"><strong>Safety note:</strong> The examples create and edit practice files/folders. The Set 4 <code>kill</code> command must use the actual PID of your test process—not a guessed PID.</div>
+ <div class="toolbar">
+  <input id="search" class="search" type="search" placeholder="Search commands, topics, or code…" aria-label="Search commands">
+  <button class="btn" onclick="clearSearch()">Clear search</button>
+ </div>
+ <nav class="setnav" aria-label="Jump to set">
+  <a href="#set1">Set 1</a><a href="#set2">Set 2</a><a href="#set3">Set 3</a><a href="#set4">Set 4</a><a href="#set5">Set 5</a>
+ </nav>
+ <div id="content">
+  <section class="set" id="set1" data-search="set 1 shell script read write execute permissions date cal echo">
+   <div class="sethead"><div class="number">1</div><div><h2>Set 1 — Permissions & Basic Linux</h2><p>Shell script to list files with read, write, and execute permissions; date, calendar, and message.</p></div></div>
+   <div class="grid">
+    <article class="card" data-search="shell script chmod nano read write execute files">
+     <span class="tag">Linux · Shell script</span><h3>1. Display files with r, w, x permissions</h3><p class="aim"><strong>Aim:</strong> List regular files for which the current user has read, write, and execute permission.</p>
+     <div class="codehead"><span>Save as <code>set1.sh</code></span><button class="smallbtn" onclick="copyCode(this)">Copy code</button></div>
+     <pre><code>#!/bin/bash
+for file in *
+do
+    if [ -f "$file" ] &amp;&amp; [ -r "$file" ] &amp;&amp; [ -w "$file" ] &amp;&amp; [ -x "$file" ]
+    then
+        echo "$file"
+    fi
+done</code></pre>
+     <div class="codehead"><span>Run in Terminal</span><button class="smallbtn" onclick="copyText('nano set1.sh\nchmod +x set1.sh\n./set1.sh')">Copy commands</button></div>
+     <pre><code>nano set1.sh
+
+chmod +x set1.sh
+./set1.sh</code></pre>
+     <p class="explain">Memory: <code>-r</code> read, <code>-w</code> write, <code>-x</code> execute. No output means no matching file was found in the current directory.</p>
+    </article>
+    <article class="card" data-search="date cal echo basic linux commands">
+     <span class="tag">Linux · Commands</span><h3>2. Date, calendar, and message</h3><p class="aim"><strong>Aim:</strong> Display the current date/time, calendar, and a message.</p>
+     <div class="codehead"><span>Type each line in Terminal</span><button class="smallbtn" onclick="copyCode(this)">Copy code</button></div>
+     <pre><code>date
+cal
+echo "Welcome to Linux"</code></pre>
+     <p class="explain"><code>date</code> shows date/time · <code>cal</code> shows the calendar (install a calendar utility if unavailable) · <code>echo</code> prints a message.</p>
+    </article>
+   </div>
+  </section>
+  <section class="set" id="set2" data-search="set 2 awk characters words lines windows cmd dir mkdir cd type ren del rmdir">
+   <div class="sethead"><div class="number">2</div><div><h2>Set 2 — AWK & Windows Commands</h2><p>Count characters, words, and lines; practise Windows file and directory operations.</p></div></div>
+   <div class="grid">
+    <article class="card" data-search="awk characters words lines sample.txt count.awk">
+     <span class="tag">Linux · AWK</span><h3>1. Count characters, words, and lines</h3><p class="aim"><strong>Aim:</strong> Count characters (excluding newline separators), words, and lines in a file.</p>
+     <div class="codehead"><span>Save as <code>count.awk</code></span><button class="smallbtn" onclick="copyCode(this)">Copy code</button></div>
+     <pre><code>{
+    characters += length($0)
+    words += NF
+    lines++
+}
+END {
+    print "Characters:", characters
+    print "Words:", words
+    print "Lines:", lines
+}</code></pre>
+     <div class="codehead"><span>Create sample and run</span><button class="smallbtn" onclick="copyText('printf \'Hello World\\nWelcome Linux\\n\' > sample.txt\nawk -f count.awk sample.txt')">Copy commands</button></div>
+     <pre><code>printf 'Hello World\nWelcome Linux\n' > sample.txt
+awk -f count.awk sample.txt</code></pre>
+     <p class="explain">For the sample text above: 23 characters (not counting newline separators), 4 words, 2 lines. <code>NF</code> is the number of fields/words in a line.</p>
+    </article>
+    <article class="card" data-search="windows command prompt dir mkdir cd echo type ren del rmdir">
+     <span class="tag">Windows · CMD</span><h3>2. File and directory operations</h3><p class="aim"><strong>Aim:</strong> Create, view, rename, and delete practice files and folders.</p>
+     <div class="codehead"><span>Run in Windows Command Prompt</span><button class="smallbtn" onclick="copyCode(this)">Copy code</button></div>
+     <pre><code>dir
+mkdir Test
+cd Test
+echo Hello > a.txt
+type a.txt
+ren a.txt b.txt
+del b.txt
+cd ..
+rmdir Test</code></pre>
+     <p class="explain">Run in order. <code>mkdir</code> makes a folder, <code>cd</code> changes location, <code>type</code> displays text, <code>ren</code> renames, and <code>del</code> deletes the test file.</p>
+    </article>
+   </div>
+  </section>
+  <section class="set" id="set3" data-search="set 3 sort numbers ascending head tail sort grep">
+   <div class="sethead"><div class="number">3</div><div><h2>Set 3 — Sorting & Text Processing</h2><p>Sort numbers in ascending order and practise common text commands.</p></div></div>
+   <div class="grid">
+    <article class="card" data-search="shell script sort ascending numbers read">
+     <span class="tag">Linux · Shell script</span><h3>1. Sort three numbers ascending</h3><p class="aim"><strong>Aim:</strong> Arrange three input numbers from smallest to largest.</p>
+     <div class="codehead"><span>Save as <code>sort.sh</code></span><button class="smallbtn" onclick="copyCode(this)">Copy code</button></div>
+     <pre><code>#!/bin/bash
+echo "Enter three numbers:"
+read a b c
+
+if [ "$a" -le "$b" ] &amp;&amp; [ "$a" -le "$c" ]; then
+    first=$a
+elif [ "$b" -le "$a" ] &amp;&amp; [ "$b" -le "$c" ]; then
+    first=$b
+else
+    first=$c
+fi
+
+if [ "$a" -ge "$b" ] &amp;&amp; [ "$a" -ge "$c" ]; then
+    last=$a
+elif [ "$b" -ge "$a" ] &amp;&amp; [ "$b" -ge "$c" ]; then
+    last=$b
+else
+    last=$c
+fi
+
+middle=$((a + b + c - first - last))
+echo "Ascending order: $first $middle $last"</code></pre>
+     <div class="codehead"><span>Run</span><button class="smallbtn" onclick="copyText('nano sort.sh\nchmod +x sort.sh\n./sort.sh')">Copy commands</button></div>
+     <pre><code>nano sort.sh
+
+chmod +x sort.sh
+./sort.sh</code></pre>
+     <p class="explain">Example input <code>8 2 5</code> gives <code>2 5 8</code>. Enter three integers separated by spaces.</p>
+    </article>
+    <article class="card" data-search="head tail sort grep text file">
+     <span class="tag">Linux · Text commands</span><h3>2. Process a sample text file</h3><p class="aim"><strong>Aim:</strong> Use <code>head</code>, <code>tail</code>, <code>sort</code>, and <code>grep</code>.</p>
+     <div class="codehead"><span>Create file and run commands</span><button class="smallbtn" onclick="copyCode(this)">Copy code</button></div>
+     <pre><code>printf 'apple\nbanana\napple\norange\n' > fruits.txt
+head fruits.txt
+tail fruits.txt
+sort fruits.txt
+grep "apple" fruits.txt</code></pre>
+     <p class="explain"><code>head</code> shows first lines, <code>tail</code> last lines, <code>sort</code> sorts lines, and <code>grep</code> finds matching lines.</p>
+    </article>
+   </div>
+  </section>
+  <section class="set" id="set4" data-search="set 4 process management ps kill nice time cut paste uniq tr">
+   <div class="sethead"><div class="number">4</div><div><h2>Set 4 — Process & File Processing</h2><p>Demonstrate process management and file-processing commands.</p></div></div>
+   <div class="grid">
+    <article class="card" data-search="ps kill nice time process sleep">
+     <span class="tag">Linux · Process management</span><h3>1. Use ps, kill, nice, and time</h3><p class="aim"><strong>Aim:</strong> Display and manage a test process.</p>
+     <div class="codehead"><span>Run carefully in Terminal</span><button class="smallbtn" onclick="copyCode(this)">Copy code</button></div>
+     <pre><code>ps
+sleep 100 &
+ps
+
+kill PID
+nice -n 10 sleep 5
+time ls</code></pre>
+     <p class="explain">Replace <code>PID</code> with the real process ID number for your test <code>sleep</code> process. Do not type the letters PID literally. <code>ps</code> lists processes; <code>kill</code> sends a signal; <code>nice</code> adjusts scheduling niceness; <code>time</code> measures execution time.</p>
+    </article>
+    <article class="card" data-search="cut paste uniq tr text processing">
+     <span class="tag">Linux · File processing</span><h3>2. Use cut, paste, uniq, and tr</h3><p class="aim"><strong>Aim:</strong> Manipulate the contents of a sample text file.</p>
+     <div class="codehead"><span>Run in Terminal</span><button class="smallbtn" onclick="copyCode(this)">Copy code</button></div>
+     <pre><code>printf 'apple\nbanana\napple\n' > fruits.txt
+cut -c 1-3 fruits.txt
+paste fruits.txt fruits.txt
+sort fruits.txt | uniq
+tr 'a-z' 'A-Z' < fruits.txt</code></pre>
+     <p class="explain"><code>cut</code> selects characters, <code>paste</code> combines lines side by side, <code>uniq</code> removes adjacent duplicate lines (sorting first groups duplicates), and <code>tr</code> translates lowercase letters to uppercase.</p>
+    </article>
+   </div>
+  </section>
+  <section class="set" id="set5" data-search="set 5 shell script directory touch ls input output redirection vi editor">
+   <div class="sethead"><div class="number">5</div><div><h2>Set 5 — Directories, Redirection & vi</h2><p>Create a user-defined directory, list its contents, and edit a text file.</p></div></div>
+   <div class="grid">
+    <article class="card" data-search="directory shell script mkdir read touch ls">
+     <span class="tag">Linux · Shell script</span><h3>1. Create a directory and display contents</h3><p class="aim"><strong>Aim:</strong> Ask for a directory name, create it, create two files, and list contents.</p>
+     <div class="codehead"><span>Save as <code>directory.sh</code></span><button class="smallbtn" onclick="copyCode(this)">Copy code</button></div>
+     <pre><code>#!/bin/bash
+echo "Enter directory name:"
+read name
+mkdir -p "$name"
+cd "$name" || exit 1
+touch file1.txt file2.txt
+echo "Directory contents:"
+ls</code></pre>
+     <div class="codehead"><span>Run</span><button class="smallbtn" onclick="copyText('nano directory.sh\nchmod +x directory.sh\n./directory.sh')">Copy commands</button></div>
+     <pre><code>nano directory.sh
+
+chmod +x directory.sh
+./directory.sh</code></pre>
+     <p class="explain">Example: enter <code>MyFolder</code>. The script creates that folder in the current directory, adds two empty files, and lists them. Use a new folder name for each run or note that existing files/folders may be reused.</p>
+    </article>
+    <article class="card" data-search="redirection input output vi editor cat echo">
+     <span class="tag">Linux · Redirection & vi</span><h3>2. Redirection and vi editor</h3><p class="aim"><strong>Aim:</strong> Redirect output to a file and create/edit a file using <code>vi</code>.</p>
+     <div class="codehead"><span>Redirection commands</span><button class="smallbtn" onclick="copyCode(this)">Copy code</button></div>
+     <pre><code>echo "Hello Linux" > file.txt
+echo "Welcome" >> file.txt
+cat file.txt
+cat < file.txt</code></pre>
+     <div class="codehead"><span>Open vi editor</span><button class="smallbtn" onclick="copyText('vi notes.txt')">Copy command</button></div>
+     <pre><code>vi notes.txt
+
+
+     <p class="explain"><code>&gt;</code> creates/replaces file content; <code>&gt;&gt;</code> appends; <code>&lt;</code> takes input from a file. In <code>vi</code>, press <code>i</code> to insert, then <code>Esc</code> and <code>:wq</code> to save and quit.</p>
+    </article>
+   </div>
+  </section>
+ </div>
+ <div class="notice"><strong>Exam format:</strong> Write Aim → Program/Commands → Execution → Output. Practise each command in the correct environment: Linux commands in Linux Terminal, Windows commands in Command Prompt.</div>
+</main>
+<footer class="footer">OS & Linux Utilities Lab · Sets 1–5 · Study version</footer>
+<script>
+function copyText(text){
+ if(navigator.clipboard && window.isSecureContext){navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard!')).catch(()=>fallbackCopy(text));}
+ else fallbackCopy(text);
+}
+function fallbackCopy(text){const t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');alert('Copied to clipboard!')}catch(e){alert('Copy failed. Select and copy the text manually.')}t.remove();}
+function copyCode(button){const code=button.closest('.card').querySelectorAll('pre code');let target=button.closest('.codehead').nextElementSibling;if(target && target.matches('pre'))copyText(target.innerText);}
+function clearSearch(){document.getElementById('search').value='';filterCards();}
+function filterCards(){const q=document.getElementById('search').value.toLowerCase().trim();document.querySelectorAll('.set').forEach(section=>{let visible=0;section.querySelectorAll('.card').forEach(card=>{const text=(card.innerText+' '+(card.dataset.search||'')).toLowerCase();const show=!q||text.includes(q);card.style.display=show?'':'none';if(show)visible++;});section.style.display=visible?'':'none';});}
+document.getElementById('search').addEventListener('input',filterCards);
+function downloadAll(){
+ const text=`OS & LINUX UTILITIES LAB — SETS 1–5
+======================================
+Use Linux commands in Linux Terminal and Windows commands in Command Prompt.
+Set 1 — Permissions
+--- set1.sh ---
+#!/bin/bash
+for file in *
+do
+    if [ -f "$file" ] && [ -r "$file" ] && [ -w "$file" ] && [ -x "$file" ]
+    then
+        echo "$file"
+    fi
+done
+Run: chmod +x set1.sh && ./set1.sh
+
+Set 1 — Basic commands
+date
+cal
+echo "Welcome to Linux"
+
+Set 2 — AWK count (save as count.awk)
+{
+    characters += length($0)
+    words += NF
+    lines++
+}
+END {
+    print "Characters:", characters
+    print "Words:", words
+    print "Lines:", lines
+}
+Create sample: printf 'Hello World\\nWelcome Linux\\n' > sample.txt
+Run: awk -f count.awk sample.txt
+Counts characters excluding newline separators.
+
+Set 2 — Windows CMD (run one by one)
+dir
+mkdir Test
+cd Test
+echo Hello > a.txt
+type a.txt
+ren a.txt b.txt
+del b.txt
+cd ..
+rmdir Test
+
+Set 3 — Sort three numbers (save as sort.sh)
+#!/bin/bash
+echo "Enter three numbers:"
+read a b c
+if [ "$a" -le "$b" ] && [ "$a" -le "$c" ]; then first=$a
+elif [ "$b" -le "$a" ] && [ "$b" -le "$c" ]; then first=$b
+else first=$c
+fi
+if [ "$a" -ge "$b" ] && [ "$a" -ge "$c" ]; then last=$a
+elif [ "$b" -ge "$a" ] && [ "$b" -ge "$c" ]; then last=$b
+else last=$c
+fi
+middle=$((a + b + c - first - last))
+echo "Ascending order: $first $middle $last"
+Run: chmod +x sort.sh && ./sort.sh
+
+Set 3 — Text commands
+printf 'apple\\nbanana\\napple\\norange\\n' > fruits.txt
+head fruits.txt
+tail fruits.txt
+sort fruits.txt
+grep "apple" fruits.txt
+
+Set 4 — Process management
+ps
+sleep 100 &
+ps
+kill PID
+nice -n 10 sleep 5
+time ls
+
+Set 4 — File processing
+printf 'apple\\nbanana\\napple\\n' > fruits.txt
+cut -c 1-3 fruits.txt
+paste fruits.txt fruits.txt
+sort fruits.txt | uniq
+tr 'a-z' 'A-Z' < fruits.txt
+
+Set 5 — Directory script (save as directory.sh)
+#!/bin/bash
+echo "Enter directory name:"
+read name
+mkdir -p "$name"
+cd "$name" || exit 1
+touch file1.txt file2.txt
+echo "Directory contents:"
+ls
+Run: chmod +x directory.sh && ./directory.sh
+
+Set 5 — Redirection and vi
+echo "Hello Linux" > file.txt
+echo "Welcome" >> file.txt
+cat file.txt
+cat < file.txt
+vi notes.txt
+
+Quick memory:
+date=date/time; cal=calendar; echo=message; dir=list Windows files; mkdir=create folder; cd=change directory; ps=process list; kill=send signal; head/tail=beginning/end; grep=search; cut=select; paste=combine; uniq=remove adjacent duplicates; tr=translate; > = overwrite; >> = append.
+`;
+ const blob=new Blob([text],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='OS_Linux_Lab_Sets_1_to_5.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+function downloadHTML(){const blob=new Blob(['<!DOCTYPE html>\\n'+document.documentElement.outerHTML],{type:'text/html;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='index.html';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+</script>
+</body>
+</html>
