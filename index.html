@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cloud Computing & Forensics — Study Hub</title>
+<style>
+:root{--bg:#0a1020;--panel:#111b30;--panel2:#16243c;--line:#263957;--text:#eaf1ff;--muted:#9fb0cc;--accent:#67e8f9;--accent2:#a78bfa;--green:#86efac;--shadow:0 18px 50px #0005}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top left,#17294a 0,transparent 40%),var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:var(--accent)}.layout{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 16px;background:#0b1427d9;border-right:1px solid var(--line);backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:12px;margin:0 8px 24px}.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#08101e;font-weight:900;font-size:21px}.brand h1{font-size:16px;line-height:1.25;margin:0}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:4px;letter-spacing:.12em}
+.navlabel{font-size:10px;letter-spacing:.18em;color:#7f94b5;margin:22px 10px 8px;font-weight:800}.nav button{width:100%;display:flex;align-items:center;gap:10px;text-align:left;border:1px solid transparent;background:transparent;color:#b9c8e1;border-radius:11px;padding:11px 12px;margin:4px 0;cursor:pointer;font:inherit;font-size:13px;transition:.2s}.nav button:hover,.nav button.active{background:#172743;border-color:#2b4264;color:white}.nav .num{display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#233653;color:var(--accent);font-size:11px;font-weight:800;flex-shrink:0}
+.side-note{margin:28px 5px 0;padding:14px;border:1px solid var(--line);border-radius:14px;color:var(--muted);font-size:12px}
+main{min-width:0;padding:34px clamp(18px,4vw,58px) 80px;max-width:1250px;width:100%;margin:0 auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:28px}.eyebrow{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.18em}.topbar h2{margin:5px 0 0;font-size:clamp(25px,4vw,40px);line-height:1.15;letter-spacing:-.04em}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#13213a;color:var(--text);border-radius:10px;padding:10px 13px;font-weight:700;cursor:pointer}.btn:hover{border-color:var(--accent);color:var(--accent)}
+.hero{position:relative;overflow:hidden;padding:clamp(22px,4vw,40px);border:1px solid #304767;border-radius:24px;background:linear-gradient(115deg,#142947,#171b38 70%,#25204b);box-shadow:var(--shadow);margin-bottom:22px}.hero:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-70px;top:-100px;background:linear-gradient(135deg,#67e8f933,#a78bfa44);filter:blur(2px)}.hero h3{position:relative;z-index:1;font-size:clamp(22px,3vw,32px);line-height:1.2;margin:0 0 10px;max-width:650px}.hero p{position:relative;z-index:1;color:#b9c8e1;max-width:700px;margin:0}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px;position:relative;z-index:1}.stat{border:1px solid #344765;background:#09142955;border-radius:13px;padding:12px}.stat b{display:block;font-size:20px}.stat span{color:var(--muted);font-size:11px}
+.searchbar{display:flex;gap:10px;margin:20px 0 18px}.searchbar input{width:100%;background:#0e192c;border:1px solid var(--line);border-radius:13px;padding:14px 16px;color:white;font:inherit;outline:none}.searchbar input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #67e8f91a}.search-count{white-space:nowrap;align-self:center;color:var(--muted);font-size:12px}
+.quickgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:28px}.quick{padding:17px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(135deg,#121f35,#10192c);cursor:pointer;text-align:left;color:var(--text)}.quick:hover{border-color:var(--accent);transform:translateY(-1px)}.quick strong{display:block;margin-bottom:4px}.quick span{font-size:12px;color:var(--muted)}
+.unit-panel{display:none;animation:fade .25s ease}.unit-panel.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}.unit-kicker{font-size:11px;color:var(--accent);font-weight:900;letter-spacing:.18em;margin:8px 0 5px}.content h1{font-size:clamp(24px,3vw,34px);letter-spacing:-.03em;line-height:1.2;margin:0 0 20px}.content h2{font-size:21px;line-height:1.3;margin:28px 0 12px;padding-top:14px;border-top:1px solid #263957}.content h3{font-size:16px;margin:22px 0 8px;color:#c7d2fe}.content p{margin:8px 0;color:#d7e1f3}.content ul,.content ol{padding-left:24px;color:#d7e1f3}.content li{padding:3px 0 3px 4px}.content li::marker{color:var(--accent)}.content strong{color:#fff}.content code{background:#091426;border:1px solid var(--line);padding:2px 5px;border-radius:5px;color:var(--green)}.table-wrap{overflow:auto;margin:12px 0 20px;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:430px;background:#0e192b}th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#192a45;color:var(--accent);font-size:13px}td{font-size:14px}tr:last-child td{border-bottom:0}.content p:has(strong){background:#14243b;padding:12px 14px;border-left:3px solid var(--accent);border-radius:0 9px 9px 0}
+.empty{display:none;padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:15px}
+footer{border-top:1px solid var(--line);margin-top:38px;padding-top:18px;color:#7184a4;font-size:12px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.sidebar{position:relative;height:auto;padding:14px;border-right:0;border-bottom:1px solid var(--line)}.brand{margin-bottom:12px}.navlabel,.side-note{display:none}.nav{display:flex;gap:7px;overflow:auto;padding-bottom:3px}.nav button{min-width:max-content;width:auto;margin:0;padding:8px}.nav .num{width:24px;height:24px}.sidebar .nav button[data-unit="home"]{display:none}main{padding-top:22px}.topbar{align-items:flex-start}.top-actions .btn{padding:8px;font-size:12px}.stats{gap:8px}.stat{padding:10px}.quickgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.stats{grid-template-columns:1fr}.quickgrid{grid-template-columns:1fr}.topbar{display:block}.top-actions{margin-top:14px}.searchbar{flex-wrap:wrap}.search-count{padding-left:2px}}
+@media print{body{background:#fff;color:#111}.sidebar,.topbar,.hero,.searchbar,.quickgrid,footer{display:none!important}.layout{display:block}main{padding:0;max-width:none}.unit-panel{display:block!important;page-break-before:always}.content h1,.content h2,.content h3,.content p,.content li{color:#111}.content h2{border-color:#ccc}.content p:has(strong){background:#eee;color:#111}.table-wrap{overflow:visible}table{background:white}th{background:#eee;color:#111}td,th{border-color:#ccc}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">C</div><div><h1>Cloud Study Hub</h1><small>EXAM REVISION • OFFLINE</small></div></div>
+  <div class="navlabel">NAVIGATION</div>
+  <nav class="nav" id="nav">
+    <button class="active" data-unit="home"><span class="num">⌂</span>Overview</button>
+    <button data-unit="1"><span class="num">01</span>Study Notes</button>
+<button data-unit="2"><span class="num">02</span>Study Notes</button>
+<button data-unit="3"><span class="num">03</span>Study Notes</button>
+<button data-unit="4"><span class="num">04</span>Study Notes</button>
+<button data-unit="5"><span class="num">05</span>Study Notes</button>
+     <button data-unit="6"><span class="num">17</span>Important Qs</button>
+  </nav>
+  <div class="side-note">Tip: Use search to find definitions, keywords, tools, or exam topics. This page works offline after saving it.</div>
+</aside>
+<main>
+  <div class="topbar"><div><div class="eyebrow">YOUR PERSONAL REVISION SPACE</div><h2>Cloud Computing<br>Study Notes</h2></div><div class="top-actions"><button class="btn" onclick="window.print()">⤓ Print / Save PDF</button><button class="btn" id="resetBtn">Reset</button></div></div>
+  <section class="hero" id="homeHero">
+    <h3>Understand faster. Revise smarter.</h3>
+    <p>All your supplied notes organized into easy sections. Choose a unit, search any topic, or print the notes as a PDF for offline study.</p>
+    <div class="stats"><div class="stat"><b>5 Units + 17 Qs</b><span>Study notes and exam answers</span></div><div class="stat"><b>Quick Search</b><span>Find a topic instantly</span></div><div class="stat"><b>Offline</b><span>No internet needed</span></div></div>
+  </section>
+  <div class="searchbar"><input id="search" type="search" placeholder="Search: encryption, RBAC, FaaS, chain of custody..." autocomplete="off"><div class="search-count" id="searchCount">All topics</div></div>
+  <section class="quickgrid" id="quickgrid">
+    <button class="quick" data-open="1"><strong>01 · Introduction to Cloud Computing</strong><span>Definition, characteristics, models, benefits and risks</span></button>
+    <button class="quick" data-open="2"><strong>02 · Cloud Security and Privacy</strong><span>IAM, CIA principles, standards and shared responsibility</span></button>
+    <button class="quick" data-open="3"><strong>03 · Data Confidentiality</strong><span>Threats, encryption, E2EE and secure deletion</span></button>
+    <button class="quick" data-open="4"><strong>04 · Cloud Forensics</strong><span>Process, tools, evidence and chain of custody</span></button>
+    <button class="quick" data-open="5"><strong>05 · Cloud Digital Evidence</strong><span>Readiness, FaaS, architecture and distributed forensics</span></button>
+     <button class="quick" data-open="6"><strong>17 · Important Exam Questions</strong><span>Point-wise answers for all 17 cloud forensics topics</span></button>
+  </section>
+  <div id="units"><article class="unit-panel" id="unit-1" data-unit="1"><div class="unit-kicker">STUDY UNIT 1</div><div class="content"><h1>UNIT 1 — Introduction to Cloud Computing</h1>
+<h2>1. Cloud Computing — Definition</h2>
+<p>Cloud computing is a technology that provides servers, storage, databases, networking and software through the Internet on demand.</p>
+<p>Example: Google Drive, Gmail, AWS and Microsoft Azure.</p>
+<h2>2. Origins and Influences of Cloud Computing</h2>
+<ol>
+<li>Mainframe computing: One powerful computer serves many users.</li>
+<li>Client-server computing: Clients request services from servers.</li>
+<li>Distributed computing: Multiple computers work together.</li>
+<li>Grid computing: Computers in different locations solve large problems.</li>
+<li>Utility computing: Users pay according to usage.</li>
+<li>Virtualization: Multiple virtual machines run on one physical computer.</li>
+<li>Internet technology: Enables global access to cloud services.</li>
+</ol>
+<h2>3. Business Drivers</h2>
+<ol>
+<li>Cost reduction.</li>
+<li>Faster service delivery.</li>
+<li>Scalability.</li>
+<li>Global accessibility.</li>
+<li>Business continuity.</li>
+<li>Improved collaboration.</li>
+<li>Focus on core business activities.</li>
+</ol>
+<h2>4. Cloud Characteristics</h2>
+<p>Remember these five:</p>
+<ol>
+<li>On-demand self-service: Resources can be obtained whenever needed.</li>
+<li>Broad network access: Services are accessible through networks.</li>
+<li>Resource pooling: Resources are shared among customers.</li>
+<li>Rapid elasticity: Resources increase or decrease quickly.</li>
+<li>Measured service: Usage is monitored and measured for billing.</li>
+</ol>
+<h2>5. Cloud Roles</h2>
+<ol>
+<li>Cloud provider: Supplies cloud services.</li>
+<li>Cloud consumer: Uses cloud services.</li>
+<li>Cloud broker: Connects providers and consumers.</li>
+<li>Cloud auditor: Checks security, compliance and performance.</li>
+<li>Cloud carrier: Provides network connectivity.</li>
+</ol>
+<p>Cloud resource administrator: Manages cloud resources, permissions, configurations and monitoring.</p>
+<h2>6. Cloud Service Models</h2>
+<div class='table-wrap'><table><thead><tr><th>Model</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+<tr><td>IaaS</td><td>Infrastructure as a Service — virtual machines, storage and networks</td><td>Amazon EC2</td></tr>
+<tr><td>PaaS</td><td>Platform as a Service — platform for developing applications</td><td>Google App Engine</td></tr>
+<tr><td>SaaS</td><td>Software as a Service — ready-to-use online software</td><td>Gmail, Microsoft 365</td></tr>
+</tbody></table></div>
+<h2>7. Cloud Deployment Models</h2>
+<ol>
+<li>Public cloud: Services available to multiple customers.</li>
+<li>Private cloud: Infrastructure dedicated to one organization.</li>
+<li>Hybrid cloud: Combination of public and private clouds.</li>
+<li>Community cloud: Shared by organizations with common requirements.</li>
+</ol>
+<h2>8. Benefits of Cloud Computing</h2>
+<ol>
+<li>Reduces hardware costs.</li>
+<li>Provides scalability.</li>
+<li>Offers remote access.</li>
+<li>Supports collaboration.</li>
+<li>Enables faster deployment.</li>
+<li>Provides backup and recovery options.</li>
+<li>Reduces infrastructure maintenance.</li>
+</ol>
+<h2>9. Risks and Challenges</h2>
+<ol>
+<li>Data breaches.</li>
+<li>Privacy issues.</li>
+<li>Internet dependency.</li>
+<li>Service downtime.</li>
+<li>Vendor lock-in.</li>
+<li>Data loss.</li>
+<li>Compliance problems.</li>
+<li>Unexpected costs.</li>
+<li>Performance and latency issues.</li>
+</ol></div></article>
+<article class="unit-panel" id="unit-2" data-unit="2"><div class="unit-kicker">STUDY UNIT 2</div><div class="content"><h1>UNIT 2 — Cloud Security and Privacy</h1>
+<h2>1. Cloud Security</h2>
+<p>Cloud security protects cloud data, applications, accounts and infrastructure from unauthorized access, attacks and damage.</p>
+<h2>2. Major Cloud Security Issues</h2>
+<ol>
+<li>Data breach: Unauthorized access to sensitive data.</li>
+<li>Data loss: Data disappears because of deletion, failure or attacks.</li>
+<li>Insecure APIs: Weak interfaces allow unauthorized access.</li>
+<li>Insider threats: Employees misuse their access.</li>
+<li>DoS attacks: Excessive traffic makes services unavailable.</li>
+<li>Shared technology vulnerabilities: Attacks exploit weaknesses in shared infrastructure.</li>
+</ol>
+<p>Prevention: Encryption, backups, MFA, access controls, monitoring and secure configuration.</p>
+<h2>3. Identity Security</h2>
+<p>Identity security verifies users and controls their access to cloud resources.</p>
+<ul>
+<li>Authentication: Verifies who the user is.</li>
+<li>Authorization: Determines what the user can do.</li>
+<li>MFA: Uses two or more verification factors.</li>
+<li>IAM: Manages identities, accounts and permissions.</li>
+</ul>
+<p>Example: Password plus OTP protects a cloud account.</p>
+<h2>4. Five Information Security Principles</h2>
+<ol>
+<li>Confidentiality: Only authorized users can view data.</li>
+<li>Integrity: Data remains accurate and unaltered without authorization.</li>
+<li>Availability: Services are accessible when required.</li>
+<li>Accountability: Actions can be traced to users or systems.</li>
+<li>Nonrepudiation: Evidence helps prevent a person from denying an action they performed.</li>
+</ol>
+<h2>5. Key Information Security Considerations</h2>
+<ol>
+<li>Risk assessment.</li>
+<li>Access control.</li>
+<li>Encryption.</li>
+<li>Data integrity.</li>
+<li>Availability and recovery.</li>
+<li>Privacy protection.</li>
+<li>Monitoring and auditing.</li>
+<li>Legal compliance.</li>
+<li>Incident response.</li>
+<li>Shared responsibility.</li>
+</ol>
+<h2>6. Shared Responsibility Model</h2>
+<p>Security responsibilities are divided between the cloud provider and customer.</p>
+<ul>
+<li>Provider: Generally protects physical infrastructure and provider-managed services.</li>
+<li>Customer: Protects data, identities, permissions and customer-managed configurations.</li>
+<li>Importance: Clarifies responsibilities and reduces security risks.</li>
+</ul>
+<h2>7. Cloud Security Standards</h2>
+<ol>
+<li>ISO/IEC 27001: Information security management.</li>
+<li>ISO/IEC 27017: Cloud security controls.</li>
+<li>ISO/IEC 27018: Protection of personal information in public clouds.</li>
+<li>NIST Cybersecurity Framework: Cybersecurity risk management.</li>
+<li>NIST SP 800-53: Security and privacy controls.</li>
+<li>CSA Cloud Controls Matrix: Cloud security controls framework.</li>
+</ol>
+<h2>8. Information Security Analysis in Cloud</h2>
+<ol>
+<li>Check data protection.</li>
+<li>Review identity management.</li>
+<li>Examine network security.</li>
+<li>Verify encryption and key management.</li>
+<li>Review logs and monitoring.</li>
+<li>Check backup and recovery.</li>
+<li>Verify compliance.</li>
+<li>Examine incident response procedures.</li>
+</ol></div></article>
+<article class="unit-panel" id="unit-3" data-unit="3"><div class="unit-kicker">STUDY UNIT 3</div><div class="content"><h1>UNIT 3 — Confidentiality of Data in the Cloud</h1>
+<h2>1. Data Confidentiality</h2>
+<p>Confidentiality means ensuring that only authorized people or systems can access information.</p>
+<p>Example: Encrypting private files stored in cloud storage.</p>
+<h2>2. Threat Landscape</h2>
+<ol>
+<li>External attackers: Use phishing, malware and password attacks.</li>
+<li>Malicious CSP insiders: Employees intentionally misuse privileged access.</li>
+<li>Honest-but-curious CSP: Provider follows service rules but tries to learn customer information.</li>
+<li>Compromised co-tenants: Attackers target other customers sharing the same infrastructure.</li>
+<li>Malicious or negligent users: Users intentionally or accidentally expose data.</li>
+</ol>
+<h2>3. Layered Defence</h2>
+<ol>
+<li>Transport protection: TLS protects data in transit.</li>
+<li>Storage encryption: Protects data at rest.</li>
+<li>End-to-end encryption: Data is encrypted before upload and decrypted by authorized recipients.</li>
+<li>IAM: Controls access to resources.</li>
+<li>Key management: Protects encryption keys.</li>
+<li>Auditing: Records and monitors activities.</li>
+</ol>
+<h2>4. Access Control Models</h2>
+<p>RBAC — Role-Based Access Control</p>
+<ul>
+<li>Permissions are assigned to roles.</li>
+<li>Users receive permissions through their roles.</li>
+<li>Easy to manage in large organizations.</li>
+<li>Example: Teachers can edit marks; students can view them.</li>
+</ul>
+<p>ABAC — Attribute-Based Access Control</p>
+<ul>
+<li>Access depends on user, resource and environmental attributes.</li>
+<li>Can consider department, file sensitivity, time or device.</li>
+<li>Supports detailed access rules.</li>
+</ul>
+<p>Difference: RBAC uses roles; ABAC uses attributes and policies.</p>
+<h2>5. Data Classification</h2>
+<ol>
+<li>Public: Can be shared publicly.</li>
+<li>Internal: Intended for organization members.</li>
+<li>Confidential: Restricted sensitive information.</li>
+<li>Restricted: Highest-sensitivity information requiring strict protection.</li>
+</ol>
+<h2>6. Data Lifecycle Confidentiality</h2>
+<p>Protect information at every stage:</p>
+<ol>
+<li>Data creation.</li>
+<li>Data storage.</li>
+<li>Data sharing.</li>
+<li>Data backup or archival.</li>
+<li>Data deletion.</li>
+</ol>
+<h2>7. Cryptographic Solutions</h2>
+<p>Cryptography: Protects information using mathematical methods.</p>
+<ul>
+<li>Plaintext: Original readable data.</li>
+<li>Ciphertext: Encrypted data.</li>
+<li>Encryption: Converts plaintext into ciphertext.</li>
+<li>Decryption: Converts ciphertext back to plaintext.</li>
+<li>Hashing: Produces a digest used to check integrity.</li>
+<li>Digital signature: Helps verify origin and detect modification.</li>
+</ul>
+<h3>Five encryption approaches</h3>
+<ol>
+<li>Symmetric encryption: Uses one shared secret key. Example: AES.</li>
+<li>Asymmetric encryption: Uses public and private keys. Examples: RSA and ECC.</li>
+<li>Convergent encryption: Derives a key from data; can support deduplication.</li>
+<li>Searchable Symmetric Encryption (SSE): Enables searching encrypted data.</li>
+<li>Homomorphic encryption: Allows computation on encrypted data.</li>
+</ol>
+<h2>8. End-to-End Encryption (E2EE)</h2>
+<ol>
+<li>Data is encrypted on the sender&#x27;s device.</li>
+<li>Encrypted data is uploaded or transmitted.</li>
+<li>The cloud stores ciphertext.</li>
+<li>Authorized recipients obtain the necessary keys.</li>
+<li>Decryption occurs on authorized devices.</li>
+<li>The provider cannot read the contents if it does not possess the decryption keys.</li>
+</ol>
+<p>Challenges: Key recovery, adding devices, password changes and revoking access.</p>
+<h2>9. Secure Deletion</h2>
+<p>Secure deletion ensures that information cannot be recovered through unauthorized means.</p>
+<ul>
+<li>Delete data according to secure disposal policies.</li>
+<li>Consider backups, replicas and snapshots.</li>
+<li>Use cryptographic erasure where appropriate.</li>
+<li>Protect and securely destroy encryption keys.</li>
+<li>Verify that required copies have been addressed.</li>
+</ul>
+<p>Data remanence: Traces of information that remain after deletion.</p>
+<h2>10. Cloud Security Arms Race</h2>
+<ol>
+<li>Attackers develop new attacks.</li>
+<li>Defenders improve encryption and access controls.</li>
+<li>Monitoring detects suspicious activities.</li>
+<li>Patching addresses vulnerabilities.</li>
+<li>Security methods evolve continuously.</li>
+</ol></div></article>
+<article class="unit-panel" id="unit-4" data-unit="4"><div class="unit-kicker">STUDY UNIT 4</div><div class="content"><h1>UNIT 4 — Cloud Forensics</h1>
+<h2>1. Definition</h2>
+<p>Cloud forensics is the process of identifying, collecting, preserving, examining, analysing and presenting digital evidence from cloud environments.</p>
+<p>Example: Investigating unauthorized access to a cloud database.</p>
+<h2>2. Why Cloud Forensics Is Different</h2>
+<ol>
+<li>Loss of physical control: The provider manages hardware.</li>
+<li>Multi-tenancy: Many customers share infrastructure.</li>
+<li>Volatility: Temporary resources may disappear.</li>
+<li>Distributed data: Evidence may be spread across locations.</li>
+<li>Encryption: Data may be inaccessible without keys.</li>
+<li>Large data volume: Millions of logs require automated analysis.</li>
+<li>Legal issues: Different countries have different laws.</li>
+<li>Provider dependency: Investigators may need CSP cooperation.</li>
+</ol>
+<h2>3. Cloud Service Models and Forensics</h2>
+<ul>
+<li>IaaS: Access to VM images, operating-system logs and customer-managed resources.</li>
+<li>PaaS: Mainly application and provider-supported platform records.</li>
+<li>SaaS: Often depends on provider-generated logs and evidence requests.</li>
+</ul>
+<h2>4. Stakeholders</h2>
+<ol>
+<li>CSP: Provides available cloud evidence.</li>
+<li>Cloud customer: Supplies account information and local evidence.</li>
+<li>Forensic investigator: Collects and analyses evidence.</li>
+<li>Law enforcement/regulators: Request or legally obtain evidence.</li>
+<li>End users: Their activities may create evidence.</li>
+<li>Auditors: May verify procedures and controls.</li>
+</ol>
+<h2>5. Technical Challenges</h2>
+<ol>
+<li>Physical hardware is inaccessible to investigators.</li>
+<li>Evidence location may be uncertain.</li>
+<li>Multiple customers share infrastructure.</li>
+<li>Temporary logs may disappear.</li>
+<li>Encryption may restrict access.</li>
+<li>Evidence integrity must be established.</li>
+<li>Huge log volumes are difficult to analyse manually.</li>
+</ol>
+<h2>6. Legal and Organizational Challenges</h2>
+<ol>
+<li>Different countries have different laws.</li>
+<li>Privacy rules may restrict disclosure.</li>
+<li>Provider cooperation may be necessary.</li>
+<li>SLAs may not clearly define responsibilities.</li>
+<li>Evidence must be separated between tenants.</li>
+<li>Chain of custody must be documented.</li>
+</ol>
+<p>Data sovereignty: Data may be subject to the laws of the country where it is stored or otherwise governed.</p>
+<h2>7. Cloud Forensic Process</h2>
+<p>Memorize these four steps:</p>
+<ol>
+<li>Identification: Identify the incident and evidence sources.</li>
+<li>Preservation and collection: Save logs and snapshots, calculate hashes and document handling.</li>
+<li>Examination and analysis: Examine evidence and reconstruct the timeline.</li>
+<li>Presentation: Prepare a report with findings and methodology.</li>
+</ol>
+<h2>8. Cloud Forensic Methods</h2>
+<ol>
+<li>Provider-side: Collect CSP logs, snapshots and metadata.</li>
+<li>Client-side: Examine browser history, cached files and synced data.</li>
+<li>Network forensics: Examine captured network traffic.</li>
+<li>Hybrid approach: Combine all three methods for stronger findings.</li>
+</ol>
+<h2>9. Cloud Forensic Tools</h2>
+<div class='table-wrap'><table><thead><tr><th>Tool</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>AWS CloudTrail</td><td>AWS account and API activity logs</td></tr>
+<tr><td>Azure Monitor</td><td>Monitoring and logs</td></tr>
+<tr><td>GCP Cloud Logging</td><td>Cloud logs</td></tr>
+<tr><td>FTK Imager</td><td>Forensic imaging</td></tr>
+<tr><td>Wireshark</td><td>Network analysis</td></tr>
+<tr><td>Splunk / ELK Stack</td><td>Log analysis</td></tr>
+<tr><td>Autopsy</td><td>Digital forensic examination</td></tr>
+<tr><td><code>sha256sum</code></td><td>Calculate file hashes</td></tr>
+</tbody></table></div>
+<h2>10. Cloud Data Acquisition</h2>
+<ol>
+<li>Snapshot acquisition: Point-in-time copy of VM disks or volumes.</li>
+<li>API-based acquisition: Collect logs and metadata through APIs.</li>
+<li>Live acquisition: Collect RAM and running-state evidence.</li>
+<li>Client-side acquisition: Collect local cached or synced data.</li>
+<li>Provider-assisted acquisition: Request evidence directly from the CSP.</li>
+</ol>
+<h2>11. Chain of Custody</h2>
+<p>Chain of custody is the documented record of evidence collection, access, transfer and storage.</p>
+<p>It records:</p>
+<ul>
+<li>Who handled the evidence.</li>
+<li>When it was handled.</li>
+<li>How it was collected or transferred.</li>
+<li>Where it was stored.</li>
+<li>Relevant hash values.</li>
+</ul>
+<p>Importance: Helps establish evidence integrity and supports legal proceedings.</p>
+<h2>12. New Cloud Forensic Model</h2>
+<ol>
+<li>Forensic readiness.</li>
+<li>Clearly defined responsibilities.</li>
+<li>Separation of tenant data.</li>
+<li>Standardized evidence formats.</li>
+<li>Automated collection and continuous monitoring.</li>
+</ol>
+<h2>13. Cloud Forensic Analysis Questions</h2>
+<p>Investigators must determine:</p>
+<ol>
+<li>What happened?</li>
+<li>When did it happen?</li>
+<li>Who was responsible?</li>
+<li>How did it happen?</li>
+<li>Which systems or data were affected?</li>
+</ol></div></article>
+<article class="unit-panel" id="unit-5" data-unit="5"><div class="unit-kicker">STUDY UNIT 5</div><div class="content"><h1>UNIT 5 — Analysis of Cloud Digital Evidence</h1>
+<h2>1. Digital Evidence</h2>
+<p>Digital evidence is information stored or transmitted digitally that can help an investigation.</p>
+<p>Examples: Access logs, API logs, VM snapshots, memory captures, network traffic and metadata.</p>
+<h2>2. Current Approaches to Cloud Evidence</h2>
+<ol>
+<li>Acquisition: Collect evidence through APIs, logs, snapshots and live capture.</li>
+<li>Evidence management: Use hashing, secure storage and chain-of-custody records.</li>
+<li>Presentation: Prepare timelines, visualizations and reports.</li>
+<li>Court preparation: Establish authenticity, reliability, lawful collection and proper documentation.</li>
+</ol>
+<h2>3. Forensic Readiness</h2>
+<p>Forensic readiness means preparing an organization to collect, preserve and use digital evidence when required.</p>
+<p>Benefits:</p>
+<ol>
+<li>Reduces investigation costs.</li>
+<li>Reduces operational disruption.</li>
+<li>Improves evidence availability.</li>
+<li>Supports compliance.</li>
+<li>Speeds up investigations.</li>
+<li>Helps deter wrongdoing.</li>
+</ol>
+<h2>4. Digital Forensic Readiness (DFR) — 10 Steps</h2>
+<ol>
+<li>Define the business situation.</li>
+<li>Identify evidence sources.</li>
+<li>Determine collection requirements.</li>
+<li>Establish legal collection capability.</li>
+<li>Establish secure storage policies.</li>
+<li>Monitor effectively.</li>
+<li>Specify evidence-release conditions.</li>
+<li>Train staff.</li>
+<li>Document cases.</li>
+<li>Provide legal review.</li>
+</ol>
+<h2>5. Cloud Forensic Readiness (CFR)</h2>
+<p>CFR applies forensic readiness specifically to cloud environments.</p>
+<p>Main features:</p>
+<ol>
+<li>Shared responsibility between customer and provider.</li>
+<li>Forensic-by-design cloud systems.</li>
+<li>Secure and tamper-evident logs.</li>
+<li>VM and storage snapshots.</li>
+<li>Tenant data segregation.</li>
+<li>Forensic responsibilities in SLAs.</li>
+<li>Forensic APIs for evidence collection.</li>
+<li>Staff training.</li>
+<li>Support for FaaS.</li>
+</ol>
+<h2>6. DFR vs CFR</h2>
+<div class='table-wrap'><table><thead><tr><th>DFR</th><th>CFR</th></tr></thead><tbody>
+<tr><td>Applies to digital systems generally</td><td>Applies to cloud environments</td></tr>
+<tr><td>Focuses on evidence preparation</td><td>Also addresses provider dependence</td></tr>
+<tr><td>Covers general digital evidence</td><td>Covers cloud logs, snapshots and APIs</td></tr>
+<tr><td>Can involve locally managed devices</td><td>Must consider multi-tenancy and distributed data</td></tr>
+</tbody></table></div>
+<h2>7. Forensics-as-a-Service (FaaS)</h2>
+<p>FaaS is a cloud-based service that provides digital forensic capabilities on demand.</p>
+<p>Services:</p>
+<ol>
+<li>Evidence acquisition.</li>
+<li>Evidence preservation.</li>
+<li>Indexing and searching.</li>
+<li>Evidence analysis.</li>
+<li>Reporting and case management.</li>
+</ol>
+<h2>8. Why FaaS Is Needed</h2>
+<ol>
+<li>Large data volume: Handles terabytes of evidence.</li>
+<li>Data locality: Analyses data near its storage location.</li>
+<li>Specialized expertise: Provides access to specialist tools and skills.</li>
+<li>Cost efficiency: Reduces the need for expensive local infrastructure.</li>
+<li>Elastic scalability: Increases or decreases resources according to demand.</li>
+</ol>
+<h2>9. FaaS Architecture — Four Layers</h2>
+<ol>
+<li>Infrastructure layer: Provides computing, storage and networking.</li>
+<li>Acquisition layer: Collects logs, memory captures and disk images.</li>
+<li>Processing layer: Performs hashing, indexing, searching and timeline reconstruction.</li>
+<li>Presentation and case-management layer: Displays results, generates reports and maintains records.</li>
+</ol>
+<h2>10. Security and Trust in FaaS</h2>
+<ol>
+<li>Encrypt evidence in transit and at rest.</li>
+<li>Isolate each customer&#x27;s evidence.</li>
+<li>Maintain immutable audit logs.</li>
+<li>Validate forensic tools.</li>
+<li>Define legal and jurisdictional responsibilities.</li>
+<li>Maintain chain of custody.</li>
+</ol>
+<h2>11. Representative FaaS Approaches</h2>
+<ol>
+<li>Academic frameworks: Cloud-hosted evidence processing and automated analysis.</li>
+<li>Commercial extensions: Traditional tools such as EnCase and FTK use cloud-hosted processing.</li>
+<li>Cloud-native services: Providers offer integrated forensic and incident-response tools.</li>
+</ol>
+<h2>12. Parallel and Distributed Forensics</h2>
+<p>Parallel processing: Several tasks run simultaneously.</p>
+<p>Distributed processing: Tasks are shared across multiple computers.</p>
+<p>Benefits:</p>
+<ol>
+<li>Faster processing.</li>
+<li>Handles large evidence collections.</li>
+<li>Supports large-scale keyword searching.</li>
+<li>Speeds up hashing and indexing.</li>
+<li>Helps reconstruct timelines across many logs.</li>
+</ol>
+<h2>13. Key Techniques</h2>
+<ol>
+<li>MapReduce/Hadoop: Divides tasks into smaller operations and combines results.</li>
+<li>Distributed indexing: Makes large evidence collections searchable.</li>
+<li>GPU acceleration: Speeds up suitable parallel tasks.</li>
+<li>Distributed network forensics: Analyses traffic from multiple collection points.</li>
+<li>Elastic clusters: Increase or decrease processing workers when needed.</li>
+</ol>
+<h2>14. FaaS Advantages and Challenges</h2>
+<p>Advantages:</p>
+<ol>
+<li>Scalable processing.</li>
+<li>Handles large datasets.</li>
+<li>Reduces hardware costs.</li>
+<li>Offers specialist tools.</li>
+<li>Supports faster investigations.</li>
+</ol>
+<p>Challenges:</p>
+<ol>
+<li>Evidence confidentiality.</li>
+<li>Chain-of-custody requirements.</li>
+<li>Provider dependence.</li>
+<li>Legal and jurisdictional issues.</li>
+<li>Need for strong tenant isolation.</li>
+<li>Platform security and reliability.</li>
+</ol></div></article>
+<article class="unit-panel" id="unit-6" data-unit="6"><div class="unit-kicker">EXAM REVISION • 17 IMPORTANT QUESTIONS</div><div class="content"><h2>1. Cloud-Based Attacks</h2>
+<p>Definition: Cloud-based attacks are cyberattacks that target cloud data, applications, accounts or infrastructure.</p>
+<p>Types of cloud attacks:</p>
+<ol>
+<li>Phishing attack: Fake emails or websites trick users into revealing passwords.</li>
+<li>Password attack: Attackers try to guess or steal passwords.</li>
+<li>Malware attack: Malicious software damages systems or steals information.</li>
+<li>Data breach: Unauthorized people access confidential information.</li>
+<li>Insider attack: An employee or administrator misuses authorized access.</li>
+<li>Denial of Service (DoS): Excessive requests make a cloud service unavailable.</li>
+<li>API attack: Attackers exploit weaknesses in cloud application interfaces.</li>
+<li>VM escape attack: An attacker attempts to break out of a virtual machine's isolation.</li>
+<li>Co-tenant attack: An attacker targets another customer's resources in shared cloud infrastructure.</li>
+<li>Data loss attack: Important information is deleted, damaged or made unavailable.</li>
+</ol>
+<p>Prevention:</p>
+<ul>
+<li>Use strong passwords.</li>
+<li>Enable Multi-Factor Authentication (MFA).</li>
+<li>Encrypt sensitive data.</li>
+<li>Apply access controls.</li>
+<li>Update software regularly.</li>
+<li>Monitor cloud activity.</li>
+<li>Maintain secure backups.</li>
+</ul>
+<p>Example: A hacker steals a cloud account password and downloads confidential company files.</p>
+<h2>2. Cryptographic Techniques</h2>
+<p>Definition: Cryptography protects information by converting it into a form that unauthorized people cannot easily understand.</p>
+<p>Important techniques:</p>
+<p>1. Symmetric encryption: Uses the same secret key for encryption and decryption.</p>
+<ul>
+<li>Example: AES.</li>
+<li>Advantage: Fast for large amounts of data.</li>
+<li>Limitation: The secret key must be protected.</li>
+</ul>
+<p>2. Asymmetric encryption: Uses a public key and a private key.</p>
+<ul>
+<li>Examples: RSA and ECC.</li>
+<li>Use: Secure key exchange and encryption.</li>
+<li>Digital signatures use related public-private key mechanisms.</li>
+</ul>
+<p>3. Hashing: Converts data into a fixed-length hash value.</p>
+<ul>
+<li>Example: SHA-256.</li>
+<li>Use: Checks data integrity.</li>
+<li>A changed file normally produces a different hash.</li>
+</ul>
+<p>4. Digital signature: Helps verify the signer's identity and whether signed data has changed.</p>
+<ul>
+<li>Use: Authentication and integrity verification.</li>
+</ul>
+<p>5. Convergent encryption: Derives an encryption key from the data.</p>
+<ul>
+<li>Use: Allows identical files to have identical encrypted results for deduplication.</li>
+<li>Limitation: Predictable data may be vulnerable to guessing attacks.</li>
+</ul>
+<p>6. Searchable encryption: Allows certain searches over encrypted data.</p>
+<ul>
+<li>Use: Searching cloud information without decrypting all the data.</li>
+</ul>
+<p>7. Homomorphic encryption: Allows certain calculations on encrypted data.</p>
+<ul>
+<li>Use: Privacy-preserving cloud computation.</li>
+<li>Limitation: Can be computationally expensive.</li>
+</ul>
+<p>Importance:</p>
+<ul>
+<li>Protects confidentiality.</li>
+<li>Helps verify integrity.</li>
+<li>Supports authentication.</li>
+<li>Protects data during storage and transmission.</li>
+<li>Requires secure key management.</li>
+</ul>
+<h2>3. Importance of Cloud Forensics</h2>
+<p>Definition: Cloud forensics is the process of identifying, collecting, preserving, examining, analysing and presenting evidence from cloud systems.</p>
+<p>Importance:</p>
+<ol>
+<li>Crime investigation: Helps investigate hacking, fraud and data theft.</li>
+<li>Evidence collection: Collects logs, files, snapshots and account records.</li>
+<li>Incident reconstruction: Determines what happened and when.</li>
+<li>User identification: Helps identify accounts involved in suspicious activities.</li>
+<li>Data recovery: Helps locate recoverable evidence where available.</li>
+<li>Security improvement: Identifies weaknesses in cloud systems.</li>
+<li>Legal support: Provides evidence for legal or disciplinary proceedings.</li>
+<li>Damage assessment: Identifies affected systems and information.</li>
+<li>Accountability: Helps determine which actions occurred and under which account.</li>
+<li>Compliance: Supports applicable legal and regulatory requirements.</li>
+</ol>
+<p>Example: Investigating who accessed and deleted files from a cloud account.</p>
+<h2>4. Cloud Forensics Tools for Investigation</h2>
+<p>Definition: Cloud forensic tools are software programs and services used to collect, examine and analyse digital evidence.</p>
+<div class='table-wrap'><table><thead><tr><th>Tool</th><th>Small definition / use</th></tr></thead><tbody>
+<tr><td>AWS CloudTrail</td><td>Records many AWS account activities and API calls.</td></tr>
+<tr><td>Azure Monitor</td><td>Collects monitoring information and logs from Azure.</td></tr>
+<tr><td>Google Cloud Logging</td><td>Collects logs from Google Cloud services.</td></tr>
+<tr><td>FTK Imager</td><td>Creates forensic images of supported evidence sources.</td></tr>
+<tr><td>EnCase</td><td>Supports digital evidence acquisition and examination.</td></tr>
+<tr><td>Wireshark</td><td>Captures and analyses network packets.</td></tr>
+<tr><td>tcpdump</td><td>Captures network traffic for examination.</td></tr>
+<tr><td>Splunk</td><td>Searches and analyses large volumes of logs.</td></tr>
+<tr><td>ELK Stack</td><td>Collects, indexes and searches logs.</td></tr>
+<tr><td>Graylog</td><td>Centralizes and analyses log data.</td></tr>
+<tr><td>Autopsy</td><td>Supports digital forensic examination.</td></tr>
+<tr><td>Plaso</td><td>Helps create timelines from digital artefacts.</td></tr>
+<tr><td>SHA-256 / <code>sha256sum</code></td><td>Calculates hashes to help verify evidence integrity.</td></tr>
+<tr><td>Magnet AXIOM Cloud</td><td>Supports examination of data from supported cloud sources.</td></tr>
+</tbody></table></div>
+<p>Importance:</p>
+<ul>
+<li>Reduces manual work.</li>
+<li>Helps identify suspicious activity.</li>
+<li>Supports timeline reconstruction.</li>
+<li>Processes large amounts of evidence.</li>
+<li>Helps verify evidence integrity.</li>
+</ul>
+<p>Note: The exact evidence a tool can collect depends on permissions, provider support and the investigation environment.</p>
+<h2>5. Data Acquisition Techniques in Cloud Forensics</h2>
+<p>Definition: Data acquisition is the process of collecting digital evidence from cloud systems.</p>
+<p>Techniques:</p>
+<ol>
+<li>Snapshot acquisition: Creates a point-in-time copy of a virtual machine disk or storage volume.</li>
+<li>API-based acquisition: Uses cloud APIs to collect logs, metadata and other available evidence.</li>
+<li>Live acquisition: Collects information from an active system, such as RAM, running processes and network state.</li>
+<li>Agent-based acquisition: Uses software agents to collect supported disk or memory information.</li>
+<li>Client-side acquisition: Collects evidence from a user's computer or mobile device, such as browser history and cached files.</li>
+<li>Provider-assisted acquisition: Obtains evidence from the Cloud Service Provider (CSP).</li>
+<li>Log acquisition: Collects login records, API activity, audit logs and access records.</li>
+<li>Network acquisition: Captures available network traffic for investigation.</li>
+</ol>
+<p>Important steps:</p>
+<ul>
+<li>Identify the evidence source.</li>
+<li>Obtain proper authorization.</li>
+<li>Select the correct acquisition method.</li>
+<li>Preserve evidence before it disappears.</li>
+<li>Calculate hash values where appropriate.</li>
+<li>Record all collection activities.</li>
+</ul>
+<p>Example: Taking a virtual machine snapshot before investigating a suspected attack.</p>
+<h2>6. Approaches Used for Cloud Digital Evidence Analysis</h2>
+<p>Definition: Cloud digital evidence analysis is the process of examining collected evidence to understand a security incident.</p>
+<p>Main approaches:</p>
+<p>1. Provider-side forensics</p>
+<ul>
+<li>Collects evidence from the cloud provider.</li>
+<li>Includes logs, snapshots and metadata.</li>
+<li>Limitation: Depends on provider cooperation.</li>
+</ul>
+<p>2. Client-side forensics</p>
+<ul>
+<li>Examines the user's computer or mobile device.</li>
+<li>Includes browser history, cached files and synchronized data.</li>
+<li>Limitation: Shows only evidence available on that device.</li>
+</ul>
+<p>3. Network forensics</p>
+<ul>
+<li>Examines captured network traffic.</li>
+<li>Helps identify suspicious connections and data transfers.</li>
+<li>Limitation: Encryption may hide communication contents.</li>
+</ul>
+<p>4. Hybrid approach</p>
+<ul>
+<li>Combines provider-side, client-side and network evidence.</li>
+<li>Compares information from different sources.</li>
+<li>Provides a more complete investigation.</li>
+</ul>
+<p>Analysis steps:</p>
+<ul>
+<li>Organize collected evidence.</li>
+<li>Search for suspicious activities.</li>
+<li>Compare timestamps.</li>
+<li>Verify integrity using hashes.</li>
+<li>Reconstruct the event timeline.</li>
+<li>Prepare a report.</li>
+</ul>
+<p>Example: Comparing cloud login logs with browser history to investigate unauthorized access.</p>
+<h2>7. Importance of Forensic Readiness in Cloud</h2>
+<p>Definition: Forensic readiness is the ability to collect, preserve and analyse digital evidence when an incident occurs.</p>
+<p>Importance:</p>
+<ol>
+<li>Early preparation: Makes systems ready for investigation.</li>
+<li>Evidence preservation: Prevents important evidence from disappearing.</li>
+<li>Reduced cost: Reduces investigation expenses.</li>
+<li>Faster investigation: Helps investigators start work quickly.</li>
+<li>Better evidence quality: Provides more complete and reliable information.</li>
+<li>Reduced disruption: Minimizes interruption to normal business.</li>
+<li>Legal support: Helps prepare evidence for legal proceedings.</li>
+<li>Compliance: Supports applicable regulations and organizational policies.</li>
+<li>Incident detection: Monitoring helps identify suspicious activity.</li>
+<li>Staff awareness: Trains employees to preserve evidence correctly.</li>
+</ol>
+<p>How to achieve forensic readiness:</p>
+<ul>
+<li>Enable audit logging.</li>
+<li>Define evidence-retention policies.</li>
+<li>Establish secure storage.</li>
+<li>Prepare collection procedures.</li>
+<li>Train staff.</li>
+<li>Define responsibilities between the customer and CSP.</li>
+</ul>
+<p>Example: Keeping cloud login logs so that a future security breach can be investigated.</p>
+<h2>8. Cloud-Based Forensics Service</h2>
+<p>Definition: A cloud-based forensic service provides digital investigation tools and resources through the cloud.</p>
+<p>Forensics-as-a-Service (FaaS) is an example of this service model.</p>
+<p>Main services:</p>
+<ol>
+<li>Evidence acquisition: Collects digital evidence.</li>
+<li>Evidence preservation: Protects evidence from unauthorized changes.</li>
+<li>Indexing: Organizes evidence for searching.</li>
+<li>Search: Finds relevant files and records.</li>
+<li>Evidence analysis: Examines data to identify suspicious activity.</li>
+<li>Reporting: Generates investigation reports.</li>
+<li>Case management: Organizes evidence and investigation records.</li>
+</ol>
+<p>Advantages:</p>
+<ul>
+<li>Reduces the need for expensive local infrastructure.</li>
+<li>Provides scalable processing resources.</li>
+<li>Handles large evidence collections.</li>
+<li>Offers access to specialized tools.</li>
+<li>Can reduce investigation time.</li>
+<li>Supports remote collaboration.</li>
+</ul>
+<p>Challenges:</p>
+<ul>
+<li>Evidence confidentiality.</li>
+<li>Dependence on the service provider.</li>
+<li>Legal and jurisdictional issues.</li>
+<li>Chain-of-custody requirements.</li>
+<li>Risk of unauthorized access.</li>
+</ul>
+<p>Example: An organization uses an online forensic service to search cloud logs for suspicious activity.</p>
+<h2>9. Components of a Cloud Forensics Readiness Framework</h2>
+<p>Definition: A Cloud Forensics Readiness (CFR) framework is a set of policies, technologies and procedures that prepares cloud systems for future investigations.</p>
+<p>Main components:</p>
+<ol>
+<li>Shared responsibility: Defines the duties of the cloud customer and provider.</li>
+<li>Forensic-by-design: Configures systems to capture relevant events automatically.</li>
+<li>Immutable logging: Protects logs against unauthorized modification.</li>
+<li>Snapshotting: Preserves earlier states of virtual machines and storage.</li>
+<li>Data segregation: Separates one customer's evidence from other customers' data.</li>
+<li>Forensic SLAs: Define evidence retention, notification, cooperation and export responsibilities.</li>
+<li>Forensic APIs: Support snapshot creation, log export and evidence retrieval.</li>
+<li>Secure evidence storage: Protects collected evidence.</li>
+<li>Staff training: Prepares teams to handle evidence correctly.</li>
+<li>Evidence management: Maintains records of evidence handling and transfers.</li>
+<li>Monitoring: Detects incidents and records relevant activity.</li>
+<li>Legal policies: Ensure that collection and disclosure follow applicable laws.</li>
+</ol>
+<p>Example: A cloud provider agrees to retain audit logs for a specified period and supply them through an approved process when an investigation is authorized.</p>
+<h2>10. Techniques for Data Deletion</h2>
+<p>Definition: Data deletion is the process of removing information from a storage system.</p>
+<p>Main techniques:</p>
+<ol>
+<li>Logical deletion: Removes the file reference or marks its storage space as available.</li>
+<li>Overwriting: Writes new data over the old data.</li>
+<li>Secure erase: Uses supported storage commands to erase data.</li>
+<li>Cryptographic erasure: Destroys the necessary encryption keys to make encrypted data unreadable.</li>
+<li>Backup deletion: Removes relevant backup copies according to the retention and deletion policy.</li>
+<li>Snapshot deletion: Removes stored snapshots containing the data, where applicable.</li>
+<li>Physical destruction: Destroys the storage device itself; generally difficult for shared cloud infrastructure.</li>
+</ol>
+<p>Cloud deletion challenges:</p>
+<ul>
+<li>Data may have multiple copies.</li>
+<li>Replicas may exist in different data centres.</li>
+<li>Backups may retain old information.</li>
+<li>Snapshots may contain previous versions.</li>
+<li>Shared storage makes direct physical deletion difficult to verify.</li>
+<li>Provider deletion procedures may take time.</li>
+</ul>
+<p>Important point: Logical deletion does not guarantee permanent destruction. Actual deletion depends on the storage technology and provider's processes.</p>
+<p>Example: Deleting a file from cloud storage may not immediately remove copies held in backups.</p>
+<h2>11. Hardware-Based and Software-Based Critical Modules</h2>
+<p>Definition: Hardware-based and software-based modules are components that help protect cloud systems, control access and support forensic investigations.</p>
+<h3>A. Hardware-based modules</h3>
+<ol>
+<li>Hardware Security Module (HSM): A specialized device that securely manages cryptographic keys and performs cryptographic operations.</li>
+<li>Trusted Platform Module (TPM): A hardware component that supports security functions such as key protection and platform integrity checks.</li>
+<li>Physical servers: Provide computing resources for cloud services.</li>
+<li>Storage devices: Store cloud data and digital evidence.</li>
+<li>Network devices: Transfer data between computers and cloud systems.</li>
+</ol>
+<h3>B. Software-based modules</h3>
+<ol>
+<li>Logging module: Records user activities and system events.</li>
+<li>Access control module: Determines who can access cloud resources.</li>
+<li>Encryption module: Protects information from unauthorized reading.</li>
+<li>Hashing module: Calculates hash values to help verify data integrity.</li>
+<li>Monitoring module: Detects suspicious activities.</li>
+<li>Backup module: Creates copies of important data.</li>
+<li>Forensic analysis module: Examines files, logs and other digital evidence.</li>
+<li>Authentication module: Verifies the identity of users.</li>
+</ol>
+<p>Importance:</p>
+<ul>
+<li>Protects confidential information.</li>
+<li>Prevents unauthorized access.</li>
+<li>Helps detect attacks.</li>
+<li>Supports evidence collection.</li>
+<li>Helps verify evidence integrity.</li>
+</ul>
+<p>Example: An HSM protects encryption keys, while logging software records who accessed a cloud resource.</p>
+<h2>12. Challenges in Cloud Forensics</h2>
+<p>Definition: Cloud forensic challenges are the difficulties investigators face when collecting, preserving and analysing evidence from cloud systems.</p>
+<h3>A. Technical challenges</h3>
+<ol>
+<li>Loss of physical control: Investigators cannot normally access the provider's physical servers directly.</li>
+<li>Data location: Evidence may be stored across multiple data centres.</li>
+<li>Multi-tenancy: Multiple customers share the same physical infrastructure.</li>
+<li>Data volatility: Temporary logs, virtual machines and containers may disappear quickly.</li>
+<li>Encryption: Investigators may not have the keys needed to read encrypted data.</li>
+<li>Large data volume: Huge amounts of evidence are difficult to analyse manually.</li>
+<li>Data replication: Multiple copies make it difficult to identify and preserve all relevant evidence.</li>
+<li>Evidence integrity: Investigators must demonstrate that evidence has not been altered.</li>
+</ol>
+<h3>B. Organizational challenges</h3>
+<ol>
+<li>Provider dependence: Investigators may depend on the CSP for evidence.</li>
+<li>Lack of standard procedures: Providers may use different evidence-collection methods.</li>
+<li>Unclear SLAs: Contracts may not define forensic responsibilities clearly.</li>
+<li>Lack of expertise: Skilled cloud forensic investigators may be limited.</li>
+</ol>
+<h3>C. Legal challenges</h3>
+<ol>
+<li>Jurisdiction: Different countries have different laws.</li>
+<li>Privacy: Laws may restrict access to personal information.</li>
+<li>Data sovereignty: Some data is subject to rules concerning where it is stored.</li>
+<li>Chain of custody: Evidence passes through different organizations.</li>
+<li>Tenant privacy: Investigators must avoid exposing other customers' data.</li>
+</ol>
+<p>Conclusion: Cloud forensic challenges require proper planning, provider cooperation, secure evidence handling and compliance with applicable laws.</p>
+<h2>13. Cloud Forensics Model in Investigation</h2>
+<p>Definition: A cloud forensics model is a structured framework that guides investigators through a digital investigation.</p>
+<p>Main stages:</p>
+<p>1. Identification</p>
+<ul>
+<li>Identify the incident.</li>
+<li>Determine the affected cloud service and account.</li>
+<li>Identify possible evidence sources.</li>
+</ul>
+<p>2. Preservation and collection</p>
+<ul>
+<li>Protect evidence from deletion or modification.</li>
+<li>Collect logs and snapshots.</li>
+<li>Calculate hash values where appropriate.</li>
+<li>Document the chain of custody.</li>
+</ul>
+<p>3. Examination and analysis</p>
+<ul>
+<li>Examine collected evidence.</li>
+<li>Search for suspicious activity.</li>
+<li>Compare timestamps.</li>
+<li>Reconstruct the incident timeline.</li>
+</ul>
+<p>4. Presentation</p>
+<ul>
+<li>Prepare an investigation report.</li>
+<li>Explain the methods used.</li>
+<li>Present findings and conclusions.</li>
+<li>Provide evidence for authorized legal or organizational proceedings.</li>
+</ul>
+<p>Other traditional forensic models:</p>
+<ul>
+<li>DFRWS model: Includes identification, preservation, collection, examination, analysis, presentation and decision.</li>
+<li>ADFM: Adds preparation and approach-strategy stages to the investigation process.</li>
+<li>IDIP: Includes readiness, deployment, crime-scene investigation and review.</li>
+<li>NIST forensic process: Uses collection, examination, analysis and reporting.</li>
+</ul>
+<p>Example: Investigating a cloud data breach by identifying the affected account, preserving its logs, analysing the records and presenting the findings.</p>
+<h2>14. Process or Steps of Cloud Forensics</h2>
+<p>Definition: The cloud forensic process is a series of steps followed to investigate a cloud security incident and handle digital evidence correctly.</p>
+<p>Steps:</p>
+<ol>
+<li>Preparation: Prepare tools, trained staff, policies and authorization procedures.</li>
+<li>Identification: Identify the incident and possible sources of evidence.</li>
+<li>Securing: Protect relevant accounts, logs and resources against unauthorized changes.</li>
+<li>Preservation: Preserve snapshots, logs and other evidence before they disappear.</li>
+<li>Collection: Acquire the evidence using suitable APIs, tools or provider assistance.</li>
+<li>Examination: Organize and extract useful information from collected evidence.</li>
+<li>Analysis: Compare records and reconstruct what happened.</li>
+<li>Documentation: Record collection methods, timestamps, hash values and evidence transfers.</li>
+<li>Reporting: Prepare a report explaining the methods, findings and conclusions.</li>
+<li>Presentation: Explain the results to authorized management, investigators or a court.</li>
+</ol>
+<p>Important precaution: Investigators should preserve evidence before making changes that could destroy it. Every action must be authorized and documented.</p>
+<p>Easy memory order:</p>
+<p>Preparation → Identification → Securing → Preservation → Collection → Examination → Analysis → Documentation → Reporting → Presentation.</p>
+<h2>15. Digital Evidence Management and Court Preparation</h2>
+<p>Definition: Digital evidence management is the process of collecting, storing, protecting and tracking digital evidence. Court preparation involves presenting the evidence and explaining its reliability.</p>
+<h3>A. Digital evidence management</h3>
+<ol>
+<li>Evidence collection: Collect relevant logs, files, snapshots and records.</li>
+<li>Evidence identification: Give each item a unique reference or identifier.</li>
+<li>Hashing: Calculate hash values to help verify evidence integrity.</li>
+<li>Secure storage: Store evidence in a protected location.</li>
+<li>Access control: Allow only authorized people to access evidence.</li>
+<li>Encryption: Protect sensitive evidence from unauthorized reading.</li>
+<li>Chain of custody: Record every important evidence-handling action.</li>
+<li>Metadata recording: Record the source, time and collection method.</li>
+<li>Backup: Maintain appropriate protected copies where required.</li>
+<li>Audit logging: Record access and actions performed on evidence.</li>
+</ol>
+<h3>B. Court preparation</h3>
+<ol>
+<li>Authenticity: Establish where the evidence came from.</li>
+<li>Integrity: Show that evidence has not been improperly changed.</li>
+<li>Reliability: Explain the tools and methods used.</li>
+<li>Legal authorization: Ensure evidence was collected lawfully.</li>
+<li>Timeline reconstruction: Show the sequence of events.</li>
+<li>Technical explanation: Explain technical information in simple language.</li>
+<li>Expert testimony: Allow a qualified expert to explain findings when required.</li>
+<li>Documentation: Maintain collection and handling records.</li>
+<li>Corroboration: Compare evidence with other reliable sources.</li>
+<li>Reporting: Present the findings, methodology and conclusions clearly.</li>
+</ol>
+<p>Example: An investigator presents cloud login logs, their hash records and the chain-of-custody documentation to explain a suspected account breach.</p>
+<p>Conclusion: Proper evidence management helps establish reliability and supports legal proceedings. Admissibility depends on the applicable law and circumstances.</p>
+<h2>16. FaaS — Role, Architecture and Advantages in Cloud</h2>
+<p>Definition: Forensics-as-a-Service (FaaS) is a cloud-based service that provides digital forensic tools and investigation capabilities on demand.</p>
+<h3>A. Role of FaaS</h3>
+<ol>
+<li>Collects digital evidence.</li>
+<li>Preserves evidence securely.</li>
+<li>Indexes and searches large datasets.</li>
+<li>Analyses files, logs and other digital artefacts.</li>
+<li>Reconstructs incident timelines.</li>
+<li>Generates investigation reports.</li>
+<li>Supports case management.</li>
+<li>Provides scalable processing resources.</li>
+</ol>
+<h3>B. FaaS architecture</h3>
+<p>1. Infrastructure layer</p>
+<ul>
+<li>Provides computing power, storage and networking.</li>
+<li>Supports large-scale evidence processing.</li>
+</ul>
+<p>2. Acquisition layer</p>
+<ul>
+<li>Collects disk images, memory captures and logs.</li>
+<li>Connects to supported cloud services and evidence sources.</li>
+</ul>
+<p>3. Processing layer</p>
+<ul>
+<li>Performs hashing, indexing and keyword searches.</li>
+<li>Analyses evidence and reconstructs timelines.</li>
+</ul>
+<p>4. Presentation and case-management layer</p>
+<ul>
+<li>Displays findings.</li>
+<li>Generates reports.</li>
+<li>Organizes cases and records evidence handling.</li>
+</ul>
+<h3>C. Advantages of FaaS</h3>
+<ol>
+<li>Cost efficiency: Reduces the need for expensive local infrastructure.</li>
+<li>Scalability: Resources can increase or decrease according to demand.</li>
+<li>Large data processing: Handles large evidence collections.</li>
+<li>Faster analysis: Uses scalable processing to speed up suitable tasks.</li>
+<li>Data locality: Analyses data near its storage location when possible.</li>
+<li>Specialized tools: Provides access to forensic tools and expertise.</li>
+<li>Remote access: Supports authorized investigators working from different locations.</li>
+<li>Flexible resources: Computing resources can be used when needed.</li>
+</ol>
+<h3>D. Security considerations</h3>
+<ul>
+<li>Encrypt evidence during transfer and storage.</li>
+<li>Separate each customer's evidence.</li>
+<li>Maintain immutable audit logs.</li>
+<li>Validate forensic tools.</li>
+<li>Protect the chain of custody.</li>
+<li>Follow legal and privacy requirements.</li>
+</ul>
+<p>Conclusion: FaaS makes digital forensic investigation more scalable and flexible by providing forensic capabilities through the cloud.</p>
+<h2>17. Parallel and Distributed Processing Techniques in Forensic Analysis</h2>
+<p>Definition: Parallel and distributed processing are methods used to process large amounts of digital evidence efficiently.</p>
+<h3>A. Parallel processing</h3>
+<p>Definition: Parallel processing performs multiple tasks simultaneously using multiple processing units or cores.</p>
+<p>Example: Checking the hashes of several files at the same time.</p>
+<p>Advantages:</p>
+<ul>
+<li>Reduces processing time.</li>
+<li>Speeds up repetitive tasks.</li>
+<li>Improves processing efficiency.</li>
+</ul>
+<h3>B. Distributed processing</h3>
+<p>Definition: Distributed processing divides a large task among multiple computers and combines their results.</p>
+<p>Example: Dividing millions of cloud log records among several computers for analysis.</p>
+<p>Advantages:</p>
+<ul>
+<li>Handles large datasets.</li>
+<li>Uses multiple computers.</li>
+<li>Improves processing speed.</li>
+<li>Supports large-scale investigations.</li>
+</ul>
+<h3>C. Important techniques</h3>
+<p>1. MapReduce and Hadoop</p>
+<ul>
+<li>Divides large tasks into smaller operations.</li>
+<li>The Map stage processes separate portions of data.</li>
+<li>The Reduce stage combines the results.</li>
+<li>Used for hashing, indexing and evidence extraction.</li>
+</ul>
+<p>2. Distributed indexing</p>
+<ul>
+<li>Organizes large evidence collections into searchable indexes.</li>
+<li>Helps investigators find information quickly.</li>
+<li>Technologies such as Elasticsearch support searching across large datasets.</li>
+</ul>
+<p>3. GPU acceleration</p>
+<ul>
+<li>Uses Graphics Processing Units to perform suitable calculations in parallel.</li>
+<li>Can accelerate hashing, password recovery and image classification.</li>
+<li>Performance depends on the task and implementation.</li>
+</ul>
+<p>4. Distributed network forensics</p>
+<ul>
+<li>Collects or analyses network traffic at multiple points.</li>
+<li>Combines the results to understand cloud network activity.</li>
+</ul>
+<p>5. Elastic cloud clusters</p>
+<ul>
+<li>Add processing workers when more computing power is required.</li>
+<li>Reduce resources when processing finishes.</li>
+<li>Help control resource usage and cost.</li>
+</ul>
+<h3>D. Importance in cloud forensics</h3>
+<ol>
+<li>Processes large amounts of evidence.</li>
+<li>Speeds up keyword searching.</li>
+<li>Accelerates file hashing and indexing.</li>
+<li>Helps reconstruct timelines from many logs.</li>
+<li>Supports large cloud investigations.</li>
+<li>Enables scalable Forensics-as-a-Service platforms.</li>
+</ol>
+<p>Conclusion: Parallel and distributed processing help investigators analyse large cloud evidence collections faster than relying only on sequential processing on a single computer.</p>
+<h2>Quick revision: Important definitions</h2>
+<div class='table-wrap'><table><thead><tr><th>Topic</th><th>Definition in one line</th></tr></thead><tbody>
+<tr><td>Cloud-based attack</td><td>An attack targeting cloud data, accounts or services.</td></tr>
+<tr><td>Cryptography</td><td>Protecting information using mathematical techniques and keys.</td></tr>
+<tr><td>Cloud forensics</td><td>Investigating digital evidence from cloud environments.</td></tr>
+<tr><td>Data acquisition</td><td>Collecting digital evidence for examination.</td></tr>
+<tr><td>Forensic readiness</td><td>Preparing to collect and preserve evidence when needed.</td></tr>
+<tr><td>Forensic framework</td><td>A structure of policies and procedures for evidence readiness.</td></tr>
+<tr><td>Data deletion</td><td>Removing information from a storage system.</td></tr>
+<tr><td>Chain of custody</td><td>A record of who handled evidence, when and how.</td></tr>
+<tr><td>FaaS</td><td>Providing forensic tools and services through the cloud.</td></tr>
+<tr><td>Parallel processing</td><td>Performing multiple tasks simultaneously.</td></tr>
+<tr><td>Distributed processing</td><td>Dividing work among multiple computers.</td></tr>
+<tr><td>Hashing</td><td>Converting data into a fixed-length value to help verify integrity.</td></tr>
+<tr><td>Snapshot</td><td>A point-in-time copy of a system or storage volume.</td></tr>
+<tr><td>Multi-tenancy</td><td>Multiple customers sharing cloud infrastructure.</td></tr>
+<tr><td>SLA</td><td>An agreement defining service expectations and responsibilities.</td></tr>
+</tbody></table></div></div></article></div>
+  <div class="empty" id="empty">No matching topics. Try another keyword.</div>
+  <footer>Built from your supplied study notes. To make a PDF, choose “Print / Save PDF” and select “Save as PDF” in the print window.</footer>
+</main>
+</div>
+<script>
+const panels=[...document.querySelectorAll('.unit-panel')];
+const navButtons=[...document.querySelectorAll('#nav button[data-unit]')];
+const search=document.getElementById('search');
+let current='home';
+function showUnit(n){
+ current=String(n);
+ document.getElementById('homeHero').style.display=n==='home'?'block':'none';
+ document.getElementById('quickgrid').style.display=n==='home'?'grid':'none';
+ panels.forEach(p=>p.classList.toggle('active',n!=='home'&&p.dataset.unit===String(n)));
+ navButtons.forEach(b=>b.classList.toggle('active',b.dataset.unit===String(n)));
+ if(n!=='home'){search.value='';filterContent();window.scrollTo({top:0,behavior:'smooth'});}
+ else {search.value='';filterContent();window.scrollTo({top:0,behavior:'smooth'});}
+}
+navButtons.forEach(b=>b.addEventListener('click',()=>showUnit(b.dataset.unit)));
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>showUnit(b.dataset.open)));
+function filterContent(){
+ const q=search.value.trim().toLowerCase();
+ let matches=0;
+ panels.forEach(p=>{
+   const isCurrent=current==='home'||p.dataset.unit===current;
+   const nodes=[...p.querySelectorAll('h1,h2,h3,p,li,tr')];
+   let unitHas=false;
+   nodes.forEach(el=>{
+     const yes=!q||el.textContent.toLowerCase().includes(q);
+     el.style.display=yes?'':'none';
+     if(yes&&q)unitHas=true;
+   });
+   const visible=!q?isCurrent:(unitHas&&(current==='home'||p.dataset.unit===current));
+   p.style.display=visible?'':'none';
+   p.classList.toggle('active',visible);
+   if(visible)matches++;
+ });
+ document.getElementById('homeHero').style.display=(current==='home'&&!q)?'block':'none';
+ document.getElementById('quickgrid').style.display=(current==='home'&&!q)?'grid':'none';
+ document.getElementById('empty').style.display=matches?'none':'block';
+ document.getElementById('searchCount').textContent=q?(matches+' unit(s) found'):(current==='home'?'All topics':(current==='6'?'17 Important Questions':'Unit '+current));
+}
+search.addEventListener('input',()=>{current='home';navButtons.forEach(b=>b.classList.toggle('active',b.dataset.unit==='home'));filterContent();});
+document.getElementById('resetBtn').addEventListener('click',()=>showUnit('home'));
+showUnit('home');
+</script>
+</body></html>
