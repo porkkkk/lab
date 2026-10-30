@@ -1,130 +1,1355 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#101827">
-<title>STC Pollachi | Cyber Crime — Easy Read & Remember</title>
+<title>English Exam Preparation | STC Pollachi</title>
+
 <style>
-:root{--bg:#f4f7fb;--surface:#fff;--text:#182230;--muted:#667085;--line:#e3e8f0;--accent:#6257e8;--accent2:#e9e7ff;--good:#087f5b;--shadow:0 8px 28px rgba(20,30,55,.07)}
-[data-theme="dark"]{--bg:#0c1220;--surface:#141d2d;--text:#eef2ff;--muted:#a4b0c4;--line:#29354a;--accent:#a79cff;--accent2:#29264b;--good:#55d6a7;--shadow:0 8px 28px rgba(0,0,0,.2)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:18px/1.75 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-header{background:radial-gradient(circle at 85% 10%,#5449bd 0,transparent 30%),linear-gradient(125deg,#111a2c,#24275a);color:#fff;padding:30px 18px 26px}
-.wrap{max-width:940px;margin:auto}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#d4d8ff}.actions{display:flex;gap:8px;flex-wrap:wrap}button,.btn{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);padding:10px 13px;font:inherit;font-weight:650;cursor:pointer}.headbtn{background:#ffffff14;border-color:#ffffff38;color:#fff}.hero{padding:28px 0 8px;max-width:850px}.eyebrow{color:#c7c5ff;font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.hero h1{font-size:clamp(2rem,5vw,3.35rem);line-height:1.1;letter-spacing:-.04em;margin:8px 0 12px}.hero p{color:#e1e6f4;margin:0;max-width:740px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.chip{border:1px solid #ffffff35;border-radius:999px;padding:6px 10px;font-size:.82rem;color:#f3f4ff}
-main{padding:22px 16px 70px}.notice{border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:14px 16px;margin-bottom:18px;box-shadow:var(--shadow)}.notice strong{color:var(--accent)}
-.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0 13px;border-bottom:1px solid var(--line);margin-bottom:18px}.searchrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}.search{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:13px;background:var(--surface);color:var(--text);font:inherit;outline:none}.search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent2)}.filters{display:flex;gap:8px;overflow-x:auto;padding:10px 0 0}.filter{white-space:nowrap;border-radius:999px;padding:7px 12px;font-size:.88rem}.filter.active{background:var(--accent);border-color:var(--accent);color:white}.summary{display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--muted);font-size:.9rem;margin:8px 0 18px}
-.section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:26px 0 12px}.section-title h2{font-size:1.35rem;line-height:1.25;margin:0;letter-spacing:-.025em}.section-title p{color:var(--muted);margin:3px 0 0;font-size:.9rem}.cards{display:grid;grid-template-columns:1fr;gap:18px}.card{background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:22px 24px;box-shadow:var(--shadow);min-width:0}.cardhead{display:flex;gap:12px;align-items:flex-start}.num{display:grid;place-items:center;flex:0 0 38px;height:38px;border-radius:12px;background:var(--accent2);color:var(--accent);font-weight:850;font-size:.86rem}.qtitle{font-size:1.06rem;font-weight:800;line-height:1.4;margin:2px 0 0}.meta{color:var(--muted);font-size:.78rem;margin-top:4px}.definition{margin:14px 0 9px;padding:11px 13px;background:var(--bg);border-left:3px solid var(--accent);border-radius:0 10px 10px 0}.definition b{color:var(--accent)}ol,ul{padding-left:23px;margin:8px 0}li{margin:10px 0;padding-left:4px} .card ol li::marker{color:var(--accent);font-weight:800}.conclusion{margin-top:14px;color:var(--text);font-size:1rem;background:var(--accent2);padding:12px 14px;border-radius:12px} .study-notice{font-size:1rem}.study-tip{margin-top:10px;padding:10px 12px;background:var(--accent2);border-radius:10px}.reading-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 14px}.reading-controls button{padding:7px 11px;font-size:.9rem}.memory-strip{margin:14px 0;padding:12px 14px;border:1px dashed var(--accent);border-radius:12px;background:var(--accent2)}.memory-strip b{display:block;color:var(--accent);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}.memory-words{font-weight:750;line-height:1.6}.memory-help{color:var(--muted);font-size:.86rem;margin-top:3px}.focus-mode .answer-section:not([data-section="basics"]){display:none!important}.focus-mode .toolbar{position:static}.mcqgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mcq{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.mcq b{display:block;font-size:.94rem}.answer{color:var(--good);font-weight:800;margin-top:4px}.empty{display:none;text-align:center;color:var(--muted);padding:45px 15px}.foot{color:var(--muted);font-size:.86rem;text-align:center;margin-top:28px}.tag{font-size:.72rem;border-radius:999px;background:var(--bg);border:1px solid var(--line);padding:3px 8px;color:var(--muted);white-space:nowrap}
-@media(min-width:760px){.cards{grid-template-columns:1fr}.card.wide{grid-column:1/-1}.hero{padding-top:36px}.mcqgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){header{padding:20px 16px}.topline{align-items:flex-start}.hero{padding-top:23px}.hero h1{font-size:2.15rem}.searchrow{grid-template-columns:1fr}.searchrow button{width:100%}.card{padding:16px}.mcqgrid{grid-template-columns:1fr}.summary{align-items:flex-start;flex-direction:column}.section-title{align-items:flex-start;flex-direction:column}}
-@media print{header{background:#fff;color:#111;padding:10px 0}.hero p,.brand,.eyebrow,.chips,.actions,.toolbar,.notice .screen-only{display:none!important}body{background:#fff;color:#111;font-size:11pt}.wrap{max-width:none}main{padding:0}.cards{display:block}.card{box-shadow:none;border:1px solid #bbb;break-inside:avoid;margin:0 0 12px;padding:12px}.definition{background:#f6f6f6}.section-title{margin-top:18px}.section-title h2{font-size:16pt}.mcqgrid{grid-template-columns:repeat(2,1fr)}.foot{display:none}}
+:root {
+  --bg:#f4f6fa;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#64748b;
+  --primary:#315ee8;
+  --soft:#eaf0ff;
+  --border:#e4e8f0;
+  --green:#16834a;
+  --greenbg:#e9f8ef;
+  --orange:#a75a10;
+  --orangebg:#fff3df;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+button,input{font:inherit}
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:#101827;
+  color:white;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  box-shadow:0 3px 14px #0002;
+}
+.brand{font-size:17px;font-weight:800}
+.brand span{color:#91adff}
+.topbar small{color:#b9c5d9;font-size:11px}
+.hero{
+  background:linear-gradient(135deg,#17264a,#315ee8);
+  color:white;
+  padding:40px 22px;
+}
+.hero-inner{max-width:1100px;margin:auto}
+.hero h1{font-size:clamp(27px,5vw,43px);line-height:1.2;margin:0 0 12px}
+.hero p{color:#e2eaff;max-width:650px;margin:0}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{
+  display:inline-block;
+  padding:5px 11px;
+  border-radius:20px;
+  font-size:12px;
+  background:#ffffff20;
+  border:1px solid #ffffff35;
+}
+.layout{
+  max-width:1250px;
+  margin:25px auto;
+  padding:0 16px;
+  display:grid;
+  grid-template-columns:235px minmax(0,1fr);
+  gap:22px;
+  align-items:start;
+}
+.sidebar{
+  position:sticky;
+  top:82px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+}
+.sidebar h3{font-size:14px;margin:5px 8px 12px}
+.sidebar a{
+  display:block;
+  color:#475569;
+  text-decoration:none;
+  padding:9px 10px;
+  border-radius:8px;
+  font-size:13px;
+  margin:3px 0;
+}
+.sidebar a:hover{background:var(--soft);color:var(--primary)}
+.main{min-width:0}
+.searchbox{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:18px;
+}
+.searchbox input{
+  width:100%;
+  border:1px solid var(--border);
+  background:#f8fafc;
+  border-radius:9px;
+  padding:13px;
+  outline:none;
+  color:var(--text);
+}
+.searchbox input:focus{border-color:var(--primary)}
+.section{margin-bottom:28px;scroll-margin-top:90px}
+.section-title{
+  font-size:23px;
+  margin:0 0 13px;
+  line-height:1.3;
+}
+.section-sub{color:var(--muted);font-size:13px;margin:-5px 0 16px}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:19px;
+  margin-bottom:14px;
+  box-shadow:0 2px 8px #17203306;
+}
+.card h2{font-size:21px;margin:0 0 5px;line-height:1.35}
+.card h3{font-size:16px;margin:19px 0 8px}
+.card h4{font-size:14px;margin:15px 0 6px}
+.author{font-size:13px;color:var(--muted);margin-bottom:12px}
+.badge{
+  display:inline-block;
+  border-radius:20px;
+  padding:4px 9px;
+  font-size:11px;
+  font-weight:700;
+  background:var(--soft);
+  color:var(--primary);
+  margin:0 4px 5px 0;
+}
+.badge.green{background:var(--greenbg);color:var(--green)}
+.badge.orange{background:var(--orangebg);color:var(--orange)}
+p{margin:7px 0}
+ul,ol{padding-left:23px;margin:7px 0}
+li{margin:5px 0}
+.points li{padding-left:2px}
+.highlight{
+  background:#f0f5ff;
+  border-left:4px solid var(--primary);
+  border-radius:7px;
+  padding:12px 14px;
+  margin:12px 0;
+}
+.memory{
+  background:var(--greenbg);
+  border-left:4px solid var(--green);
+  border-radius:7px;
+  padding:12px 14px;
+  margin:12px 0;
+}
+.warning{
+  background:var(--orangebg);
+  border-left:4px solid #d58a25;
+  border-radius:7px;
+  padding:12px 14px;
+  margin:12px 0;
+}
+table{
+  border-collapse:collapse;
+  width:100%;
+  margin:10px 0;
+  font-size:13px;
+}
+th,td{
+  border:1px solid var(--border);
+  padding:10px;
+  text-align:left;
+  vertical-align:top;
+}
+th{background:#f0f3fa}
+.grid2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.mini{
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:12px;
+}
+.mini strong{display:block;margin-bottom:4px}
+.question{
+  padding:10px 0;
+  border-bottom:1px solid var(--border);
+}
+.question:last-child{border:0}
+.question strong{color:#263b6b}
+.writer-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.writer{
+  padding:12px;
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:9px;
+}
+.writer strong{display:block}
+.writer small{color:var(--muted)}
+.footer{
+  background:#101827;
+  color:#c5d0e3;
+  text-align:center;
+  padding:28px 15px;
+  margin-top:35px;
+  font-size:12px;
+}
+.progress-wrap{
+  height:7px;
+  background:#e5eaf3;
+  border-radius:20px;
+  overflow:hidden;
+  margin:9px 0;
+}
+.progress{
+  height:100%;
+  width:0%;
+  background:var(--green);
+  transition:width .2s;
+}
+.checkline{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  padding:8px 0;
+  border-bottom:1px solid var(--border);
+}
+.checkline input{margin-top:5px;accent-color:var(--green)}
+.checkline label{font-size:14px;cursor:pointer}
+.small{font-size:12px;color:var(--muted)}
+.hidden{display:none!important}
+@media(max-width:800px){
+  .layout{grid-template-columns:1fr;margin:15px auto}
+  .sidebar{
+    position:static;
+    display:flex;
+    flex-wrap:wrap;
+    gap:4px;
+    padding:9px;
+  }
+  .sidebar h3{width:100%;margin:3px 7px}
+  .sidebar a{font-size:12px;padding:7px 9px}
+  .grid2,.writer-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .topbar{padding:12px}
+  .brand{font-size:14px}
+  .hero{padding:30px 17px}
+  .layout{padding:0 11px}
+  .card{padding:14px}
+  .card h2{font-size:19px}
+  .section-title{font-size:21px}
+  th,td{padding:7px;font-size:12px}
+}
+@media print{
+  .topbar,.sidebar,.searchbox,.hero-tags{display:none!important}
+  .layout{display:block;margin:0;padding:0}
+  body{background:white}
+  .card{break-inside:avoid;box-shadow:none}
+  .section{break-inside:auto}
+}
 </style>
 </head>
+
 <body>
-<header>
- <div class="wrap">
-  <div class="topline"><div class="brand">STC Pollachi · B.Sc. DCFS</div><div class="actions"><button class="headbtn" id="themeBtn" type="button">☾ Dark mode</button><button class="headbtn" type="button" onclick="window.print()">⤓ Print / Save PDF</button></div></div>
-  <div class="hero"><div class="eyebrow">Semester exam revision · April–May 2026</div><h1>Introduction to<br>Cyber Crime</h1><p>Two question papers combined into one clean revision guide. Duplicate topics are merged. Answers are arranged for easy reading, quick revision and remembering in the exam.</p><div class="chips"><span class="chip">✓ Scanned papers combined</span><span class="chip">✓ Simple point-wise answers</span><span class="chip">✓ Mobile + PC layout</span><span class="chip">✓ No practice quiz</span></div></div>
- </div>
+
+<header class="topbar">
+  <div class="brand">ENGLISH <span>STUDY HUB</span></div>
+  <small>STC POLLACHI · B.Sc. DCFS</small>
 </header>
-<main class="wrap">
- <div class="notice study-notice"><strong>Easy way to study:</strong> <b>1.</b> Read only the definition. <b>2.</b> Learn 3 points at a time. <b>3.</b> Say the points without looking. <b>4.</b> Add the example and conclusion. Repeat the answer after 10 minutes. <div class="study-tip">For an 8-mark answer: Definition → 6 simple points → Example → Conclusion.</div></div>
- <div class="reading-controls"><span><b>Make text comfortable</b></span><button type="button" id="smallerText">A− Smaller</button><button type="button" id="largerText">A+ Bigger</button><button type="button" id="focusBtn">📖 Focus mode</button></div>
- <div class="toolbar">
-  <div class="searchrow"><input id="search" class="search" type="search" placeholder="Search a topic or question (e.g. phishing, forensics, worm)…" aria-label="Search questions"><button type="button" id="clearBtn">Clear search</button></div>
-  <div class="filters" id="filters"><button class="filter active" data-filter="all">All answers</button><button class="filter" data-filter="basics">Cybercrime basics</button><button class="filter" data-filter="phishing">Phishing & identity</button><button class="filter" data-filter="malware">Passwords & malware</button><button class="filter" data-filter="forensics">Investigation & forensics</button><button class="filter" data-filter="india">India & prevention</button><button class="filter" data-filter="mcq">1-mark MCQs</button></div>
- </div>
- <div class="summary"><span id="count">Showing all answers</span><span>Tip: use browser Find (Ctrl+F) or the search box.</span></div>
- <section class="answer-section" data-section="basics"><div class="section-title"><div><h2>Section C · 8-mark answers</h2><p>Combined long-answer questions from both scanned papers</p></div><span class="tag">Write definition + points + example</span></div><div class="cards">
- <article class="card" data-cat="basics"><div class="cardhead"><div class="num">01</div><div><div class="qtitle">Explain the origin, meaning, scope and features of cybercrime.</div><div class="meta">Paper 1 · Q16(a) · also supports “Define cybercrime”</div></div></div><div class="definition"><b>Definition:</b> Cybercrime means doing something illegal using a computer, mobile phone, network or the internet.</div><ol><li><b>Origin:</b> Cybercrime became more common as people started using computers and the internet more.</li><li><b>Meaning:</b> It includes entering systems without permission, stealing data, online cheating and damaging computers.</li><li><b>Against individuals:</b> Identity theft, cyberstalking, harassment and financial fraud.</li><li><b>Against property:</b> Software piracy, data theft and damage to digital assets.</li><li><b>Against organizations:</b> Hacking, data breaches, ransomware and denial-of-service attacks.</li><li><b>Against society or government:</b> Cyberterrorism, online forgery and attacks on public services.</li><li><b>Main features:</b> It can happen from far away and very quickly. Criminals may hide their identity, and digital evidence can be difficult to find.</li><li><b>Example:</b> A criminal sends a fake bank link and steals a victim’s login details.</li></ol><div class="conclusion">Conclusion: Cybercrime affects people, businesses and governments, so awareness, security controls and timely reporting are essential.</div></article>
- <article class="card" data-cat="basics"><div class="cardhead"><div class="num">02</div><div><div class="qtitle">Classify cybercrimes and give examples.</div><div class="meta">Paper 1 · Q16(b)</div></div></div><div class="definition"><b>Definition:</b> Cybercrimes can be classified according to the target affected by the crime.</div><ol><li><b>Against individuals:</b> Phishing, cyberstalking, identity theft, online harassment and banking fraud.</li><li><b>Against property:</b> Software piracy, intellectual-property theft, data destruction and internet-time theft.</li><li><b>Against organizations:</b> Hacking, password sniffing, email bombing, ransomware and DoS/DDoS attacks.</li><li><b>Against society:</b> Online forgery, spreading illegal content, cyberterrorism and website hijacking.</li><li><b>Against government:</b> Attacks on government websites, theft of private information and disruption of critical services.</li><li><b>Active attacks:</b> Change or disrupt data; examples are DDoS and website defacement.</li><li><b>Passive attacks:</b> Secretly observe information; examples are eavesdropping and packet sniffing.</li></ol><div class="conclusion">Conclusion: Classification helps investigators understand the target, impact and suitable response.</div></article>
- <article class="card" data-cat="basics"><div class="cardhead"><div class="num">03</div><div><div class="qtitle">Explain how cybercriminals plan cyberattacks.</div><div class="meta">Paper 1 · Q12(a) · supports cyberattack case handling</div></div></div><div class="definition"><b>Definition:</b> Cyberattack planning means choosing a target, finding a weakness and deciding how to attack it.</div><ol><li><b>Target selection:</b> Choose an individual, company, bank or government system.</li><li><b>Reconnaissance:</b> Collect public information such as email addresses, job roles and website details.</li><li><b>Find weaknesses:</b> Look for weak passwords, outdated software or careless security practices.</li><li><b>Select a method:</b> Choose phishing, malware, password attacks or exploitation of a vulnerability.</li><li><b>Create a trap:</b> Use a fake email, website, message or attachment to gain trust.</li><li><b>Launch the attack:</b> Attempt to steal login details, access data or interrupt services.</li><li><b>Hide evidence:</b> Criminals may try to disguise their identity or remove traces.</li><li><b>Gain benefit:</b> They may seek money, data, control or revenge.</li></ol><div class="conclusion">Example: A fake delivery SMS directs a victim to a copied website that collects login details. Awareness and layered security help stop such attacks.</div></article>
- <article class="card" data-cat="basics"><div class="cardhead"><div class="num">04</div><div><div class="qtitle">Explain social engineering and ways to prevent it in an organization.</div><div class="meta">Paper 1 · Q17(b) · Unit II notes</div></div></div><div class="definition"><b>Definition:</b> Social engineering means tricking people into sharing private information or doing something unsafe.</div><ol><li><b>Impersonation:</b> An attacker pretends to be an employee, technician or trusted person.</li><li><b>Phishing:</b> Fake emails or websites trick users into sharing information.</li><li><b>Pretexting:</b> A false story is used to gain trust.</li><li><b>Baiting:</b> A tempting offer or infected USB is used to attract a victim.</li><li><b>Urgency and fear:</b> Messages pressure people to act without checking.</li><li><b>Training:</b> Teach staff to identify suspicious requests and verify identities.</li><li><b>Verification:</b> Confirm payment changes and sensitive requests using a second trusted channel.</li><li><b>Technical controls:</b> Use MFA, spam filters, least-privilege access and clear reporting procedures.</li></ol><div class="conclusion">Conclusion: People are an important part of security. Training plus technical controls reduces social-engineering risk.</div></article>
- <article class="card" data-cat="basics"><div class="cardhead"><div class="num">05</div><div><div class="qtitle">Explain cybercafes and their connection with cybercrime.</div><div class="meta">Paper 1 · Q12(b)</div></div></div><div class="definition"><b>Definition:</b> A cybercafe is a public place where people pay to use a computer and the internet.</div><ol><li>Users share computers and network connections.</li><li>Criminals may misuse public access to try to hide their identity.</li><li>Shared computers can retain browser history, downloaded files or saved passwords.</li><li>Weak monitoring may allow illegal activity to go unnoticed.</li><li>Other risks include shoulder surfing, malware and theft of personal information.</li><li>Cybercafes should maintain lawful user records as required, keep systems updated and use security software.</li><li>Users should log out, avoid saving passwords and never access sensitive accounts on untrusted devices.</li></ol><div class="conclusion">Conclusion: Public internet access is useful, but responsible monitoring and safe user behaviour are important.</div></article>
- </div></section>
 
- <section class="answer-section" data-section="phishing"><div class="section-title"><div><h2>Phishing, identity theft & online identity</h2><p>Repeated phishing and identity-theft questions are combined here</p></div></div><div class="cards">
- <article class="card" data-cat="phishing"><div class="cardhead"><div class="num">06</div><div><div class="qtitle">Explain email phishing, smishing and vishing. How can they be prevented?</div><div class="meta">Paper 2 · Q16(a) · Paper 1 · Q18</div></div></div><div class="definition"><b>Definition:</b> Phishing is a fake message or website used to trick people into sharing information or opening dangerous links.</div><ol><li><b>Email phishing:</b> Fake emails imitate banks, companies or services and contain malicious links or attachments.</li><li><b>Smishing:</b> Phishing through SMS or text messages, often using fake delivery or bank alerts.</li><li><b>Vishing:</b> Phishing through voice calls, where a caller pretends to be bank staff or technical support.</li><li><b>Why effective:</b> Messages use urgency, fear, rewards or authority to make people act quickly.</li><li><b>Possible impact:</b> Stolen passwords, financial loss, identity theft, malware infection and account takeover.</li><li><b>Check the sender:</b> Inspect the full email address and verify the message through an official app or website.</li><li><b>Avoid unsafe actions:</b> Do not click unexpected links, open unknown attachments or share OTPs/PINs.</li><li><b>Report and protect:</b> Report suspicious messages, use spam filters, MFA and updated security software.</li></ol><div class="conclusion">Conclusion: Verify every unexpected request independently before clicking or sharing information.</div></article>
- <article class="card" data-cat="phishing"><div class="cardhead"><div class="num">07</div><div><div class="qtitle">Compare traditional phishing with spear phishing and spy-phishing.</div><div class="meta">Paper 2 · Q16(b) · Q11 phishing alternatives</div></div></div><div class="definition"><b>Definition:</b> Phishing uses deception to steal information. Spear phishing is targeted, while “spy-phishing” in the paper refers to phishing designed to capture or monitor a victim’s information.</div><ol><li><b>Traditional phishing:</b> A broad message is sent to many people, such as a fake bank email.</li><li><b>Spear phishing:</b> A specific person or organization is targeted using personal details, job roles or familiar names.</li><li><b>Spy-phishing:</b> A deceptive link or copied login page is used to capture login details or other sensitive information.</li><li><b>Personalization:</b> Traditional phishing is usually generic; spear phishing looks more relevant and believable.</li><li><b>Scale:</b> Traditional phishing often targets many users; spear phishing targets selected victims.</li><li><b>Example:</b> A generic “verify your account” email is traditional phishing; a tailored email naming an employee’s manager is spear phishing.</li><li><b>Protection:</b> Verify sender identity, inspect URLs, use MFA and report suspicious requests.</li></ol><div class="conclusion">Conclusion: Targeted phishing can be harder to recognize, so users must verify even messages that appear personal.</div></article>
- <article class="card" data-cat="phishing"><div class="cardhead"><div class="num">08</div><div><div class="qtitle">List types of phishing scams and methods used in phishing attacks.</div><div class="meta">Paper 2 · Q11(a)/(b)</div></div></div><div class="definition"><b>Definition:</b> A phishing scam is a fake communication intended to trick a victim into sharing data, sending money or installing malware.</div><ol><li><b>Email phishing:</b> Fake mass emails containing links or attachments.</li><li><b>Spear phishing:</b> Targeted messages for a particular person or organization.</li><li><b>Whaling:</b> Phishing aimed at senior executives or other high-level officials.</li><li><b>Smishing:</b> Fraudulent SMS or text messages.</li><li><b>Vishing:</b> Fraudulent phone calls or voice messages.</li><li><b>Clone phishing:</b> A genuine-looking message is copied and its link or attachment is replaced with a malicious one.</li><li><b>Fake websites and ads:</b> Copies of trusted sites collect passwords or payment information.</li><li><b>Social media scams:</b> Fake profiles, messages or giveaways collect personal information.</li></ol><div class="conclusion">Prevention: Check the sender and website address, avoid unexpected attachments, use MFA and report suspicious messages.</div></article>
- <article class="card" data-cat="phishing"><div class="cardhead"><div class="num">09</div><div><div class="qtitle">Explain identity theft, its types and prevention.</div><div class="meta">Paper 1 · Q14(b) · Paper 2 · Q18(b)</div></div></div><div class="definition"><b>Definition:</b> Identity theft occurs when someone obtains and uses another person’s personal information without permission, usually for fraud.</div><ol><li><b>Financial identity theft:</b> Stolen bank or card details are used for purchases or withdrawals.</li><li><b>Criminal identity theft:</b> A person uses another person’s identity to avoid responsibility.</li><li><b>Medical identity theft:</b> Someone misuses another person’s identity to obtain medical services.</li><li><b>Child identity theft:</b> A child’s information is used to open accounts or obtain services.</li><li><b>Synthetic identity theft:</b> Real and invented details are combined to create a false identity.</li><li><b>Protect information:</b> Share personal details only with trusted services and limit public social-media information.</li><li><b>Secure accounts:</b> Use unique passwords, MFA, device updates and account alerts.</li><li><b>Respond quickly:</b> Contact the bank/service provider, change affected passwords, preserve evidence and report the incident.</li></ol><div class="conclusion">Conclusion: Careful sharing, strong authentication and fast reporting help reduce identity theft.</div></article>
- <article class="card" data-cat="phishing"><div class="cardhead"><div class="num">10</div><div><div class="qtitle">Explain steps to efface your online identity or reduce your digital footprint.</div><div class="meta">Paper 1 · Q19(a) · Paper 2 · Q18(a)</div></div></div><div class="definition"><b>Definition:</b> A digital footprint is the information you leave online. Reducing it means removing information you do not need to share. It may not be possible to remove everything.</div><ol><li><b>Audit accounts:</b> Search your name and list old social-media profiles, websites and apps.</li><li><b>Delete unused accounts:</b> Use the official account-deletion process where possible.</li><li><b>Remove old posts:</b> Delete unnecessary personal posts, photos and public details.</li><li><b>Adjust privacy:</b> Make profiles private and restrict who can see posts and contact information.</li><li><b>Request removal:</b> Contact website owners or platforms to remove information where allowed.</li><li><b>Limit permissions:</b> Revoke unnecessary app access and disable location sharing when not needed.</li><li><b>Secure identity:</b> Change reused passwords, enable MFA and monitor account activity.</li><li><b>Be careful going forward:</b> Avoid posting addresses, phone numbers, identity documents or travel details publicly.</li></ol><div class="conclusion">Conclusion: Regular account reviews and careful sharing reduce exposure, but copies and legal records may remain online.</div></article>
- </div></section>
+<section class="hero">
+  <div class="hero-inner">
+    <h1>English Exam Preparation</h1>
+    <p>Complete English study notes in simple English. Read the stories, understand the poems, remember the writers and prepare for your university exam.</p>
+    <div class="hero-tags">
+      <span class="tag">9 Literature Lessons</span>
+      <span class="tag">Grammar Notes</span>
+      <span class="tag">5 & 8 Mark Questions</span>
+      <span class="tag">One-word Revision</span>
+      <span class="tag">Mobile + PC</span>
+    </div>
+  </div>
+</section>
 
- <section class="answer-section" data-section="malware"><div class="section-title"><div><h2>Passwords, spyware & malware</h2><p>Definitions, differences, detection and countermeasures</p></div></div><div class="cards">
- <article class="card" data-cat="malware"><div class="cardhead"><div class="num">11</div><div><div class="qtitle">Explain common password-cracking methods and distinguish cracking from guessing.</div><div class="meta">Paper 2 · Q15(a) · Q17(a)</div></div></div><div class="definition"><b>Definition:</b> Password cracking means trying to find a password. Password guessing means trying passwords that seem likely, such as common words or names.</div><ol><li><b>Brute-force attack:</b> Tries many or all possible character combinations.</li><li><b>Dictionary attack:</b> Tries words and common passwords from a prepared list.</li><li><b>Password guessing:</b> Uses likely choices such as names or common patterns.</li><li><b>Credential stuffing:</b> Tries leaked username-password pairs on other services.</li><li><b>Password spraying:</b> Tries a small number of common passwords across many accounts.</li><li><b>Phishing/social engineering:</b> Tricks users into revealing their password.</li><li><b>Keylogging:</b> Malware or hardware records keys typed by the user.</li><li><b>Prevention:</b> Use long unique passwords, a password manager, MFA, login-rate limits and breach monitoring.</li></ol><div class="conclusion"><b>Difference:</b> Guessing usually tests likely choices; cracking is the broader term and can include automated hash recovery or systematic attempts. Example: trying “Welcome123” is guessing; testing many combinations is brute-force cracking.</div></article>
- <article class="card" data-cat="malware"><div class="cardhead"><div class="num">12</div><div><div class="qtitle">Develop guidelines for creating secure passwords for an administrator system.</div><div class="meta">Paper 2 · Q14(b) · Paper 1 · Q15(b)</div></div></div><div class="definition"><b>Definition:</b> A secure password is hard for others to guess and is used for only one account.</div><ol><li>Use a long passphrase; length is more important than a predictable pattern.</li><li>Use a unique password for every account, especially administrator accounts.</li><li>Avoid names, birthdays, phone numbers and common words or sequences.</li><li>Use a trusted password manager to generate and store passwords.</li><li>Enable multi-factor authentication (MFA).</li><li>Never share passwords or send them in plain text.</li><li>Change a password immediately if it is exposed or suspected to be compromised.</li><li>Limit administrator access, use separate admin accounts and monitor failed login attempts.</li></ol><div class="conclusion">Conclusion: Strong unique passwords plus MFA and access controls greatly reduce without permission access.</div></article>
- <article class="card" data-cat="malware"><div class="cardhead"><div class="num">13</div><div><div class="qtitle">Explain keyloggers and their working. How can they be prevented?</div><div class="meta">Paper 2 · Q12(b)</div></div></div><div class="definition"><b>Definition:</b> A keylogger is a program or device that records what a person types on a keyboard.</div><ol><li><b>Types:</b> Software keyloggers run on a device; hardware keyloggers are physical devices connected to a keyboard or computer.</li><li><b>Infection/placement:</b> A software keylogger may arrive through malicious downloads, attachments or compromised software.</li><li><b>Recording:</b> It captures keystrokes, potentially including usernames, passwords and messages.</li><li><b>Storage/transmission:</b> Recorded data may be saved locally or sent to an attacker.</li><li><b>Misuse:</b> Criminals may use the information for account takeover or financial fraud.</li><li><b>Detection:</b> Use updated security software, inspect unfamiliar programs and check unusual device connections.</li><li><b>Prevention:</b> Keep systems updated, download only from trusted sources, use MFA and avoid suspicious attachments.</li><li><b>Response:</b> Disconnect a suspected infected device from networks, use trusted security support and change passwords from a clean device.</li></ol><div class="conclusion">Conclusion: Preventing malware and using MFA can reduce the damage caused by keyloggers.</div></article>
- <article class="card" data-cat="malware"><div class="cardhead"><div class="num">14</div><div><div class="qtitle">Differentiate between a computer virus and a worm.</div><div class="meta">Paper 2 · Q12(a)</div></div></div><div class="definition"><b>Definition:</b> A virus attaches itself to a file or program. A worm is a harmful program that can copy itself and spread across computers or networks.</div><ol><li><b>Host:</b> A virus usually needs a host file; a worm does not need to attach to another file.</li><li><b>Spread:</b> A virus commonly spreads when an infected file runs or is shared; a worm can self-replicate across networks.</li><li><b>User action:</b> Viruses often depend on a user running an infected file; worms may spread without direct user action.</li><li><b>Speed:</b> Worms can spread rapidly over vulnerable networks.</li><li><b>Impact:</b> Both may corrupt data, slow systems or deliver other malware.</li><li><b>Prevention:</b> Update systems, use security software, avoid unknown files and maintain backups.</li></ol><div class="conclusion">Example: An infected document may carry a virus; a network worm may copy itself between vulnerable computers.</div></article>
- <article class="card" data-cat="malware"><div class="cardhead"><div class="num">15</div><div><div class="qtitle">Explain the risks of Trojan horses and backdoors. How can they be detected?</div><div class="meta">Paper 2 · Q13(a) · Q17(b)</div></div></div><div class="definition"><b>Definition:</b> A Trojan horse is harmful software that looks like a normal program. A backdoor is a hidden way to enter a system without normal security checks.</div><ol><li><b>Unauthorized access:</b> Attackers may enter a system without normal login checks.</li><li><b>Data theft:</b> Files, login details and private information may be stolen.</li><li><b>Remote control:</b> An infected system may be controlled remotely.</li><li><b>Further malware:</b> A backdoor may allow additional malicious software to be installed.</li><li><b>Detection signs:</b> Unknown processes, unexpected network connections, changed settings or unusual system behaviour.</li><li><b>Security scans:</b> Use updated device security software and trusted malware scans.</li><li><b>System checks:</b> Review startup items, user accounts, logs and network activity.</li><li><b>Response:</b> Isolate the device, preserve evidence, remove the threat safely, patch systems and reset login details from a clean device.</li></ol><div class="conclusion">Conclusion: Download software only from trusted sources and monitor systems for unusual activity.</div></article>
- <article class="card" data-cat="malware"><div class="cardhead"><div class="num">16</div><div><div class="qtitle">Summarize spyware and explain how to prevent spyware infections.</div><div class="meta">Paper 2 · Q5 MCQ expanded · Paper 1 · Q19(b)</div></div></div><div class="definition"><b>Definition:</b> Spyware is software that secretly watches what a user does or collects their information.</div><ol><li>It may monitor browsing, collect personal data or track user behaviour.</li><li>Some spyware records keystrokes or captures login information.</li><li>It can arrive through suspicious downloads, fake updates, malicious links or bundled software.</li><li>Symptoms may include unusual pop-ups, unknown applications, browser changes or unexplained network activity.</li><li>Keep the operating system, browser and applications updated.</li><li>Download apps only from trusted sources and review installation permissions.</li><li>Use reputable security software and enable firewall protections.</li><li>If infected, disconnect if necessary, scan with trusted tools and change important passwords from a clean device.</li></ol><div class="conclusion">Conclusion: Safe downloading, updates and monitoring are the main defences against spyware.</div></article>
- <article class="card" data-cat="malware"><div class="cardhead"><div class="num">17</div><div><div class="qtitle">Explain steganography and how it differs from encryption.</div><div class="meta">Paper 2 · Q13(b)</div></div></div><div class="definition"><b>Definition:</b> Steganography means hiding a secret message inside a normal file, such as a picture, audio or video.</div><ol><li><b>Purpose:</b> Make the presence of secret information difficult to notice.</li><li><b>Cover file:</b> An ordinary image, audio file or document is selected.</li><li><b>Embedding:</b> Secret data is inserted into the cover file using a steganographic method.</li><li><b>Transmission:</b> The file is shared so that it appears ordinary.</li><li><b>Extraction:</b> The receiver uses the appropriate method or key to retrieve the hidden data.</li><li><b>Encryption:</b> Changes readable data into unreadable ciphertext to hide its meaning.</li><li><b>Main difference:</b> Steganography hides that a message exists; encryption hides what the message says.</li><li><b>Combined use:</b> A message can be encrypted first and then hidden for added protection.</li></ol><div class="conclusion">Example: Encryption makes a message unreadable, while steganography may hide it inside an image. Steganography is not automatically secure if the hidden data is discovered.</div></article>
- </div></section>
+<div class="layout">
 
- <section class="answer-section" data-section="forensics"><div class="section-title"><div><h2>Cybercrime investigation & computer forensics</h2><p>Investigation workflow, evidence integrity, reporting and network detection</p></div></div><div class="cards">
- <article class="card" data-cat="forensics"><div class="cardhead"><div class="num">18</div><div><div class="qtitle">Explain the main steps involved in investigating a cybercrime.</div><div class="meta">Paper 2 · Q20(b) · Paper 1 · Q15(a)</div></div></div><div class="definition"><b>Definition:</b> Cybercrime investigation means finding, collecting and checking digital evidence to understand a crime and support legal action.</div><ol><li><b>Identification:</b> Detect the incident and identify possible evidence sources.</li><li><b>Preservation:</b> Protect devices and data from alteration; document the scene and maintain chain of custody.</li><li><b>Collection:</b> Collect logs, emails, files, storage media and network records using approved methods.</li><li><b>Forensic imaging:</b> Make a bit-by-bit copy where appropriate and work on the copy rather than the original.</li><li><b>Examination:</b> Recover relevant files and identify suspicious activity or malware.</li><li><b>Analysis:</b> Correlate evidence and work out the order in which events happened.</li><li><b>Documentation:</b> Record tools, methods, dates, findings and evidence handling.</li><li><b>Presentation:</b> Prepare a clear report and present legally valid evidence to the appropriate authority or court.</li></ol><div class="conclusion">Conclusion: Proper evidence handling and documentation protect the integrity and credibility of an investigation.</div></article>
- <article class="card" data-cat="forensics"><div class="cardhead"><div class="num">19</div><div><div class="qtitle">Explain the importance of computer forensics in cybercrime investigation.</div><div class="meta">Paper 1 · Q20(a)</div></div></div><div class="definition"><b>Definition:</b> Computer forensics means carefully collecting and studying digital evidence so it can be trusted and used in an investigation or court.</div><ol><li><b>Identify evidence:</b> Locate relevant computers, storage devices, emails, logs and files.</li><li><b>Preserve integrity:</b> Protect original evidence and prevent accidental changes.</li><li><b>Recover data:</b> Find deleted, hidden or relevant files when possible.</li><li><b>Trace activity:</b> Examine timestamps, logs and file history to understand what happened.</li><li><b>Find attack methods:</b> Identify malware, without permission access or suspicious communication.</li><li><b>Build a timeline:</b> Connect events to reconstruct the incident.</li><li><b>Support legal action:</b> Document how evidence was collected and handled.</li><li><b>Prevent future incidents:</b> Findings can reveal weaknesses that need to be fixed.</li></ol><p><b>Common tools:</b> EnCase, FTK, Autopsy, Wireshark and Cellebrite UFED, depending on the evidence type.</p><div class="conclusion">Conclusion: Computer forensics turns digital traces into carefully documented evidence for investigation and legal proceedings.</div></article>
- <article class="card" data-cat="forensics"><div class="cardhead"><div class="num">20</div><div><div class="qtitle">How can investigators identify a cyberattack in a network?</div><div class="meta">Paper 2 · Q19(b)</div></div></div><div class="definition"><b>Definition:</b> Network attack identification means checking network activity and system records to find unusual or without permission actions.</div><ol><li><b>Monitor traffic:</b> Review network flows, firewall logs and intrusion-detection alerts.</li><li><b>Look for unusual patterns:</b> Large traffic spikes, repeated connection failures or unknown destinations.</li><li><b>Check endpoints:</b> Inspect affected computers for suspicious processes, files and account changes.</li><li><b>Review authentication logs:</b> Look for repeated failed logins, unfamiliar locations or unexpected privileges.</li><li><b>Compare timestamps:</b> Correlate network, server and endpoint events into a timeline.</li><li><b>Identify warning signs:</b> Record suspicious IP addresses, domains, file hashes and other relevant warning signs.</li><li><b>Contain safely:</b> Isolate affected systems when needed while preserving evidence.</li><li><b>Document and recover:</b> Report findings, remove the cause, patch weaknesses and monitor for recurrence.</li></ol><div class="conclusion">Conclusion: Combining logs, traffic analysis and endpoint evidence gives a clearer picture than relying on one alert alone.</div></article>
- <article class="card" data-cat="forensics"><div class="cardhead"><div class="num">21</div><div><div class="qtitle">Why should cybercrime be reported promptly? Give its benefits.</div><div class="meta">Paper 2 · Q19(a) · Paper 1 · Q10 MCQ</div></div></div><div class="definition"><b>Definition:</b> Cybercrime reporting means telling the correct authorities or service provider about an online crime and giving them the evidence you have.</div><ol><li><b>Limit damage:</b> Quick reporting may help block fraudulent transactions or stop ongoing access.</li><li><b>Improve recovery:</b> Banks and service providers may act faster when notified early.</li><li><b>Preserve evidence:</b> Logs, messages and account records may be easier to obtain before they disappear.</li><li><b>Identify offenders:</b> Authorities can investigate and connect related incidents.</li><li><b>Protect others:</b> Reports help warn other users and improve security measures.</li><li><b>Support legal action:</b> Official records can support an investigation and prosecution.</li><li><b>Keep proof:</b> Save screenshots, transaction IDs, emails, URLs and timestamps; do not alter the evidence.</li><li><b>Act safely:</b> Contact the relevant platform/bank and official cybercrime reporting channels promptly.</li></ol><div class="conclusion">Conclusion: Reporting early improves the chance of limiting harm, preserving evidence and preventing similar crimes.</div></article>
- </div></section>
+<nav class="sidebar">
+  <h3>STUDY MENU</h3>
+  <a href="#writers">Writers & Authors</a>
+  <a href="#unit1">Unit I – Poems</a>
+  <a href="#unit2">Unit II</a>
+  <a href="#unit3">Unit III</a>
+  <a href="#unit4">Unit IV</a>
+  <a href="#unit5">Unit V – Mary Kom</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#oneword">One-word Questions</a>
+  <a href="#important">Important Questions</a>
+  <a href="#revision">Revision Checklist</a>
+  <a href="#timetable">Study Timetable</a>
+</nav>
 
- <section class="answer-section" data-section="india"><div class="section-title"><div><h2>India’s cyber security initiatives & recent attacks</h2><p>Use a clear definition, key functions and an example of impact</p></div></div><div class="cards">
- <article class="card" data-cat="india"><div class="cardhead"><div class="num">22</div><div><div class="qtitle">Explain cyber security initiatives in India and their effectiveness.</div><div class="meta">Paper 1 · Q20(b) · Paper 2 · Q14(a)/(b)</div></div></div><div class="definition"><b>Definition:</b> Cybersecurity initiatives are government plans, agencies and rules that help stop cyberattacks and respond when they happen.</div><ol><li><b>CERT-In:</b> India’s national agency for responding to cybersecurity incidents; it issues alerts, advisories and incident-handling guidance.</li><li><b>MeitY:</b> The Ministry of Electronics and Information Technology supports national digital and cybersecurity policy.</li><li><b>Cybercrime reporting:</b> The national cybercrime reporting portal helps people report online crimes; financial fraud victims should report immediately through official channels.</li><li><b>Cyber Swachhta Kendra:</b> Supports detection and removal of botnet/malware threats and promotes cyber hygiene.</li><li><b>IT Act, 2000:</b> Provides a legal framework for electronic records and several cyber offences and penalties.</li><li><b>Awareness programmes:</b> Educate people about phishing, passwords, privacy and safe internet use.</li><li><b>Effectiveness:</b> These measures improve incident reporting, awareness, coordination and response.</li><li><b>Challenges:</b> Attacks change quickly; under-reporting, lack of awareness and skills gaps remain challenges.</li></ol><div class="conclusion">Conclusion: Initiatives are important, but their success also depends on timely reporting, trained staff, updated systems and public awareness.</div></article>
- <article class="card" data-cat="india"><div class="cardhead"><div class="num">23</div><div><div class="qtitle">Explain two examples of recent cyber security attacks and their impact.</div><div class="meta">Paper 2 · Q20(a)</div></div></div><div class="definition"><b>Definition:</b> A cybersecurity attack is an attempt to enter a computer system, damage it, stop its service or steal information.</div><ol><li><b>Ransomware attack:</b> Attackers encrypt an organization’s files and demand payment. It can stop hospital, business or public services, cause financial loss and expose data.</li><li><b>DDoS attack:</b> Attackers flood a server or service with traffic so legitimate users cannot access it. It can cause downtime, lost revenue and reduced public trust.</li><li><b>Phishing-led data breach:</b> A victim is tricked into sharing login details, allowing attackers to access email or company systems.</li><li><b>Common impacts:</b> Financial loss, service disruption, stolen personal data, reputational damage and recovery costs.</li><li><b>Prevention:</b> Use MFA, patch systems, maintain offline backups, filter suspicious messages and monitor network activity.</li><li><b>Response:</b> Isolate affected systems, preserve evidence, notify responsible teams and follow incident-response procedures.</li></ol><div class="conclusion">Exam tip: If your lecturer expects named recent incidents, use examples specifically covered in your class notes and state the year and impact accurately. The supplied Unit V notes list “recent attacks” as a seminar topic but do not name particular incidents.</div></article>
- <article class="card" data-cat="india"><div class="cardhead"><div class="num">24</div><div><div class="qtitle">Explain the role of proxy servers and anonymizers in cybercrime.</div><div class="meta">Paper 1 · Q13(a)</div></div></div><div class="definition"><b>Definition:</b> A proxy server passes messages between a user and a website. An anonymizer is a tool that tries to hide details such as the user's IP address.</div><ol><li>The user sends a request to the proxy/anonymizer rather than directly to the destination.</li><li>The intermediary forwards the request using its own connection or address.</li><li>The destination responds to the intermediary, which passes the response back to the user.</li><li>Legitimate uses include privacy, access control, content filtering and caching.</li><li>Criminals may misuse them to obscure the source of phishing, scanning or without permission access.</li><li>Some proxies hide more user details than others.</li><li>They do not make a person completely invisible. Logs, account details and other evidence may still help investigators.</li><li>Organizations can use logging, network monitoring and access controls to detect suspicious activity.</li></ol><div class="conclusion">Conclusion: Proxies and anonymizers have legitimate privacy uses but can also complicate tracing when misused.</div></article>
- </div></section>
+<main class="main">
 
+<div class="searchbox">
+  <input id="search" type="search" placeholder="Search lesson, writer, theme, question or grammar..." oninput="searchNotes()">
+  <p class="small">Type a word such as Mary Kom, friendship, Pulley, grammar or Behrman.</p>
+</div>
 
- <section class="answer-section" data-section="basics"><div class="section-title"><div><h2>Section B · 5-mark short answers</h2><p>Short-answer alternatives from both papers, including topics not repeated in Section C</p></div><span class="tag">5–7 simple points</span></div><div class="cards">
- <article class="card" data-cat="basics"><div class="cardhead"><div class="num">B1</div><div><div class="qtitle">What are the main reasons for committing cybercrime?</div><div class="meta">Paper 1 · Q11(b)</div></div></div><div class="definition"><b>Definition:</b> Reasons for cybercrime are the motives or conditions that encourage a person to commit an illegal activity using digital technology.</div><ol><li><b>Money:</b> Stealing funds, payment details or valuable data.</li><li><b>Curiosity or thrill:</b> Testing systems without permission.</li><li><b>Revenge:</b> Harming a person or organization because of a dispute.</li><li><b>Lack of awareness:</b> Users may fall for scams or misuse technology.</li><li><b>Anonymity:</b> Online identity can be difficult to trace.</li><li><b>Weak security:</b> Poor passwords and outdated systems create opportunities.</li><li><b>Political or business motives:</b> Stealing private information or disrupting services.</li></ol></article>
- <article class="card" data-cat="basics"><div class="cardhead"><div class="num">B2</div><div><div class="qtitle">Define cybercrime and list its key features.</div><div class="meta">Paper 1 · Q11(a)</div></div></div><div class="definition"><b>Definition:</b> Cybercrime is an illegal act involving a computer, device, network or internet service.</div><ol><li>It can target people, property, organizations or governments.</li><li>It may be carried out remotely across countries.</li><li>It can happen very quickly and affect many victims.</li><li>Criminals may attempt to hide their identity.</li><li>Evidence is usually digital, such as logs, files and messages.</li><li>Technical tools and specialist knowledge may be needed to investigate it.</li><li>Examples include phishing, hacking, identity theft and DDoS attacks.</li></ol></article>
- <article class="card" data-cat="phishing"><div class="cardhead"><div class="num">B3</div><div><div class="qtitle">List common methods used in phishing attacks.</div><div class="meta">Paper 2 · Q11(b)</div></div></div><div class="definition"><b>Definition:</b> Phishing uses fake communications or websites to trick people into revealing private information.</div><ol><li>Fake emails and attachments.</li><li>SMS messages with harmful links (smishing).</li><li>Fraudulent phone calls (vishing).</li><li>Copied websites and fake login pages.</li><li>Targeted spear-phishing emails.</li><li>Fake social-media profiles, advertisements and giveaways.</li><li>Prevention: check senders and URLs, do not share OTPs, use MFA and report suspicious messages.</li></ol></article>
- <article class="card" data-cat="phishing"><div class="cardhead"><div class="num">B4</div><div><div class="qtitle">Compare phishing and spear phishing.</div><div class="meta">Paper 1 · Q13(b)</div></div></div><ol><li><b>Phishing:</b> Usually sends similar deceptive messages to many people.</li><li><b>Spear phishing:</b> Targets a particular person or organization.</li><li><b>Information:</b> Traditional phishing may be generic; spear phishing uses personal or workplace details.</li><li><b>Believability:</b> Spear phishing can appear more genuine because it is personalized.</li><li><b>Example:</b> A general fake bank email is phishing; a fake message mentioning a real manager and project is spear phishing.</li><li><b>Safety:</b> Verify unexpected requests using a separate trusted channel.</li></ol></article>
- <article class="card" data-cat="phishing"><div class="cardhead"><div class="num">B5</div><div><div class="qtitle">How can phishing scams be identified?</div><div class="meta">Paper 1 · Q18(a)</div></div></div><ol><li>Check the sender’s full email address or phone number.</li><li>Look for spelling mistakes, unusual wording and unexpected attachments.</li><li>Be cautious about urgent threats, prizes or requests for immediate payment.</li><li>Hover over links or inspect the address carefully before opening them.</li><li>Do not enter passwords or payment details on links received unexpectedly.</li><li>Verify the request through the official app, website or known phone number.</li><li>Report the message and delete it after preserving evidence if needed.</li></ol></article>
- <article class="card" data-cat="phishing"><div class="cardhead"><div class="num">B6</div><div><div class="qtitle">What are phishing toolkits?</div><div class="meta">Unit III notes · supporting phishing questions</div></div></div><div class="definition"><b>Definition:</b> A phishing toolkit is a collection of ready-made tools or templates used to create deceptive messages or fake websites.</div><ol><li>It may contain copied login-page templates.</li><li>It may automate the sending of deceptive messages.</li><li>It may collect information entered by victims.</li><li>It can reduce the technical skills needed to run a phishing campaign.</li><li>Criminals may use toolkits to imitate trusted services.</li><li>Defence includes web filtering, MFA, staff awareness, monitoring and quick reporting.</li></ol></article>
- <article class="card" data-cat="malware"><div class="cardhead"><div class="num">B7</div><div><div class="qtitle">What are the risks associated with backdoors in network security?</div><div class="meta">Paper 2 · Q13(a)</div></div></div><ol><li>They allow without permission access by bypassing normal authentication.</li><li>Attackers may steal private files and passwords.</li><li>They can allow remote control of a device.</li><li>They may be used to install more malware.</li><li>They can help attackers remain in a system for a long time.</li><li>Organizations may face financial loss, service disruption and privacy damage.</li><li>Detect them through updates, endpoint scans, log reviews and monitoring unknown connections.</li></ol></article>
- <article class="card" data-cat="malware"><div class="cardhead"><div class="num">B8</div><div><div class="qtitle">Give preventive measures against password cracking and password theft.</div><div class="meta">Paper 1 · Q14(a)</div></div></div><ol><li>Use long, unique passwords for each account.</li><li>Avoid names, birthdays and common password patterns.</li><li>Use a password manager to create and store passwords.</li><li>Enable MFA, especially for email and administrator accounts.</li><li>Do not click login links in unexpected messages.</li><li>Use account lockout or rate limiting where available.</li><li>Change exposed passwords and monitor unusual login alerts.</li></ol></article>
- <article class="card" data-cat="india"><div class="cardhead"><div class="num">B9</div><div><div class="qtitle">How can cyber security initiatives help prevent recent cybercrime?</div><div class="meta">Paper 2 · Q15(b)</div></div></div><ol><li><b>Incident response:</b> CERT-In shares alerts and guidance about cyber incidents.</li><li><b>Reporting:</b> Official reporting channels help authorities receive complaints and investigate.</li><li><b>Awareness:</b> Campaigns teach people to identify phishing and fraud.</li><li><b>Law:</b> The IT Act provides a legal framework for relevant cyber offences.</li><li><b>Coordination:</b> Agencies and organizations can share information and respond faster.</li><li><b>Limits:</b> New attack methods, low reporting and weak security can reduce effectiveness.</li><li><b>Improvement:</b> Keep software updated, use MFA, train users and report incidents quickly.</li></ol></article>
- <article class="card" data-cat="forensics"><div class="cardhead"><div class="num">B10</div><div><div class="qtitle">What should be done first to maintain digital evidence integrity?</div><div class="meta">Paper 2 · Q7 MCQ expanded</div></div></div><ol><li>Secure and document the scene and affected devices.</li><li>Record device condition, date, time and who handled the evidence.</li><li>Avoid unnecessary actions that may change data.</li><li>Use trained personnel to create forensic images when appropriate.</li><li>Calculate and record hashes where suitable to check integrity.</li><li>Maintain a chain-of-custody record for every transfer or examination.</li><li>Analyze a verified copy rather than the original whenever possible.</li></ol></article>
- </div></section>
+<section class="section" id="writers">
+  <h2 class="section-title">1. Writers and Authors</h2>
+  <p class="section-sub">First learn all writer names. They are useful for one-word questions.</p>
+  <div class="card">
+    <div class="writer-grid">
+      <div class="writer"><strong>The Pulley</strong><small>George Herbert</small></div>
+      <div class="writer"><strong>Sonnet 30</strong><small>William Shakespeare</small></div>
+      <div class="writer"><strong>Thank You, M'am</strong><small>Langston Hughes</small></div>
+      <div class="writer"><strong>Clothes</strong><small>Chitra Banerjee Divakaruni</small></div>
+      <div class="writer"><strong>Next Sunday</strong><small>R. K. Narayan</small></div>
+      <div class="writer"><strong>The Last Leaf</strong><small>O. Henry</small></div>
+      <div class="writer"><strong>My Lord, the Baby</strong><small>Rabindranath Tagore</small></div>
+      <div class="writer"><strong>The Open Window</strong><small>Saki (H. H. Munro)</small></div>
+      <div class="writer"><strong>Mary Kom</strong><small>Biography of Mary Kom</small></div>
+    </div>
+    <div class="warning"><strong>Important:</strong> Learn the spelling of every writer's name. Do not confuse O. Henry's real name William Sydney Porter with Saki's real name H. H. Munro.</div>
+  </div>
+</section>
 
- <section class="answer-section" data-section="mcq"><div class="section-title"><div><h2>Section A · 1-mark MCQ answer key</h2><p>All 20 questions from the two papers, with answers only for quick revision</p></div><span class="tag">20 questions</span></div><div class="mcqgrid">
- <div class="mcq" data-cat="mcq"><b>Paper 1 · Q1</b>A person who commits cybercrime is called…<div class="answer">Cybercriminal</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 1 · Q2</b>Strong passwords and encryption help in…<div class="answer">Strengthening information security</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 1 · Q3</b>Cyberstalking refers to…<div class="answer">Online harassment or monitoring</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 1 · Q4</b>Criminals may prefer cybercafes because of…<div class="answer">Anonymity</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 1 · Q5</b>An anonymizer mainly helps in…<div class="answer">Hiding the IP address</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 1 · Q6</b>Identity theft involves…<div class="answer">Stealing personal information</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 1 · Q7</b>A worm differs from a virus because it…<div class="answer">Can self-replicate without user action</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 1 · Q8</b>Steganography differs from encryption because…<div class="answer">It hides the existence of data</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 1 · Q9</b>Computer forensics mainly deals with…<div class="answer">Investigating digital evidence</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 1 · Q10</b>Reporting cybercrime early helps in…<div class="answer">Faster investigation and prevention</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 2 · Q1</b>Which phishing type targets executives?<div class="answer">Whaling</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 2 · Q2</b>Smishing uses which method?<div class="answer">SMS / text messages</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 2 · Q3</b>Method that tries all possible password combinations?<div class="answer">Brute-force attack</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 2 · Q4</b>Primary function of a keylogger?<div class="answer">Record keystrokes</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 2 · Q5</b>How to reduce spyware infections?<div class="answer">Avoid suspicious downloads</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 2 · Q6</b>A backdoor maintains without permission access by…<div class="answer">Bypassing normal authentication</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 2 · Q7</b>Crucial first-phase evidence-integrity step?<div class="answer">Document the scene and create forensic images</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 2 · Q8</b>India’s cybersecurity incident-response organization?<div class="answer">CERT-In</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 2 · Q9</b>Memory that holds data only while powered on?<div class="answer">RAM</div></div>
- <div class="mcq" data-cat="mcq"><b>Paper 2 · Q10</b>Attack that floods servers and makes services unavailable?<div class="answer">DDoS</div></div>
- </div></section>
- <div class="foot">Prepared from the two uploaded scanned question papers and the supplied Introduction to Cyber Crime unit notes. Use your class notes for any named “recent attack” examples required by your lecturer.</div>
- <div class="empty" id="empty">No matching answers. Try a shorter keyword or choose “All answers”.</div>
+<section class="section" id="unit1">
+<h2 class="section-title">2. Unit I – Poems</h2>
+
+<article class="card searchable">
+<h2>Lesson 1: The Pulley</h2>
+<div class="author">Poet: George Herbert</div>
+<span class="badge">Poem</span><span class="badge">Religious poetry</span><span class="badge">Metaphysical poetry</span>
+
+<h3>Simple explanation</h3>
+<p>God creates human beings and wants to give them many blessings. He gives them strength, beauty, wisdom, honour and pleasure. But He keeps one blessing, called rest, for Himself.</p>
+<p>God thinks that if humans receive everything, they may become fully satisfied with worldly life. They may forget God and love the gifts more than the giver.</p>
+<p>So God keeps rest away from humans. People may enjoy many things, but they still feel something is missing. This feeling makes them remember God and return to Him.</p>
+
+<h3>Story in easy points</h3>
+<ol class="points">
+<li>God prepares a glass full of blessings.</li>
+<li>He gives strength to humans.</li>
+<li>He gives beauty and wisdom.</li>
+<li>He gives honour and pleasure.</li>
+<li>Only rest remains in the glass.</li>
+<li>God decides to keep rest.</li>
+<li>He thinks humans may forget Him if they have everything.</li>
+<li>Human beings become restless.</li>
+<li>Their tiredness brings them closer to God.</li>
+</ol>
+
+<h3>Important themes</h3>
+<ul>
+<li>God's love and wisdom.</li>
+<li>Human restlessness.</li>
+<li>Faith and spirituality.</li>
+<li>Worldly happiness is not complete happiness.</li>
+<li>Humans need God.</li>
+</ul>
+
+<h3>Important symbols</h3>
+<table>
+<tr><th>Symbol</th><th>Meaning</th></tr>
+<tr><td>Glass of blessings</td><td>God's gifts to humans.</td></tr>
+<tr><td>Strength</td><td>Physical power.</td></tr>
+<tr><td>Beauty</td><td>Good appearance.</td></tr>
+<tr><td>Wisdom</td><td>Knowledge and understanding.</td></tr>
+<tr><td>Honour</td><td>Respect.</td></tr>
+<tr><td>Pleasure</td><td>Happiness.</td></tr>
+<tr><td>Rest</td><td>Complete satisfaction.</td></tr>
+<tr><td>Pulley</td><td>Bringing humans closer to God.</td></tr>
+</table>
+
+<h3>Important literary devices</h3>
+<ul>
+<li><strong>Metaphysical conceit:</strong> An unusual comparison between a pulley and the spiritual life of humans.</li>
+<li><strong>Symbolism:</strong> The glass represents God's blessings.</li>
+<li><strong>Religious imagery:</strong> God and His gifts are central to the poem.</li>
+</ul>
+
+<div class="memory"><strong>Easy memory:</strong> God gives five blessings but keeps rest. Human restlessness makes them remember God.</div>
+
+<h3>Important 5-mark / 8-mark questions</h3>
+<div class="question">1. What blessings does God give to man?</div>
+<div class="question">2. Why does God withhold rest?</div>
+<div class="question">3. Explain the pulley metaphor.</div>
+<div class="question">4. What is the central theme of the poem?</div>
+<div class="question">5. Explain the significance of the glass of blessings.</div>
+<div class="question">6. How does the poem show God's wisdom?</div>
+<div class="question">7. Explain human restlessness and spiritual dependence.</div>
+<div class="question">8. What is the moral lesson of the poem?</div>
+</article>
+
+<article class="card searchable">
+<h2>Lesson 2: Sonnet 30</h2>
+<div class="author">Poet: William Shakespeare</div>
+<span class="badge">Poem</span><span class="badge">Shakespearean Sonnet</span>
+
+<h3>Simple explanation</h3>
+<p>The speaker sits quietly and remembers his past. He thinks about lost opportunities, old problems and friends who have died. These memories make him very sad.</p>
+<p>He feels that all his old sorrows are coming back again. But at the end, he remembers his dear friend. Suddenly, his sadness disappears. Thinking about his friend gives him happiness and comfort.</p>
+
+<h3>Poem in easy points</h3>
+<ol>
+<li>The speaker remembers his past quietly.</li>
+<li>He thinks about things he has lost.</li>
+<li>He remembers his old friends.</li>
+<li>He feels sad about friends who have died.</li>
+<li>His old sorrows return to his mind.</li>
+<li>He feels deep emotional pain.</li>
+<li>He remembers his dear friend.</li>
+<li>His sadness changes into happiness.</li>
+</ol>
+
+<h3>Important themes</h3>
+<ul>
+<li>Memory and the past.</li>
+<li>Friendship and love.</li>
+<li>Death and loss.</li>
+<li>Sadness and regret.</li>
+<li>The healing power of friendship.</li>
+<li>Passage of time.</li>
+</ul>
+
+<h3>Poem structure</h3>
+<table>
+<tr><th>Item</th><th>Answer</th></tr>
+<tr><td>Total lines</td><td>14</td></tr>
+<tr><td>Structure</td><td>Three quatrains and one couplet</td></tr>
+<tr><td>Rhyme scheme</td><td>ABAB CDCD EFEF GG</td></tr>
+<tr><td>Poetic form</td><td>Shakespearean sonnet</td></tr>
+<tr><td>Metre</td><td>Iambic pentameter</td></tr>
+</table>
+
+<h3>Literary devices</h3>
+<ul>
+<li><strong>Metaphor:</strong> Memories are presented like a legal court session.</li>
+<li><strong>Imagery:</strong> Pictures of sadness, loss and death.</li>
+<li><strong>Alliteration:</strong> Repetition of similar starting sounds.</li>
+<li><strong>Financial imagery:</strong> The speaker describes emotional losses using words connected with money and accounts.</li>
+<li><strong>Volta:</strong> The change in mood in the final couplet.</li>
+</ul>
+
+<div class="memory"><strong>Easy memory:</strong> Past memories bring sadness, but remembering a dear friend removes the sadness.</div>
+
+<h3>Important questions</h3>
+<div class="question">1. Explain the meaning of "sessions of sweet silent thought".</div>
+<div class="question">2. Why does the speaker remember his past?</div>
+<div class="question">3. What does "death's dateless night" mean?</div>
+<div class="question">4. Explain the financial imagery.</div>
+<div class="question">5. What is the importance of friendship?</div>
+<div class="question">6. Explain the final two lines.</div>
+<div class="question">7. What are the main themes of Sonnet 30?</div>
+<div class="question">8. Explain the structure of the sonnet.</div>
+</article>
+</section>
+
+<section class="section" id="unit2">
+<h2 class="section-title">3. Unit II – Short Stories</h2>
+
+<article class="card searchable">
+<h2>Lesson 3: Thank You, M'am</h2>
+<div class="author">Writer: Langston Hughes</div>
+<span class="badge">Short story</span>
+
+<h3>Simple story</h3>
+<p>Roger is a young boy who tries to steal Mrs. Jones's purse. She catches him. Instead of taking him to the police, she takes him to her house.</p>
+<p>She asks him to wash his face and gives him food. Roger tells her that he wants money to buy blue suede shoes. Mrs. Jones understands him and gives him money to buy the shoes.</p>
+<p>She also teaches him to behave properly. Roger feels grateful for her kindness and learns a good lesson.</p>
+
+<h3>Story in easy points</h3>
+<ol>
+<li>Roger tries to steal Mrs. Jones's purse.</li>
+<li>Mrs. Jones catches him.</li>
+<li>She takes him to her home.</li>
+<li>She asks him to wash his face.</li>
+<li>She gives him food.</li>
+<li>Roger says he wanted blue suede shoes.</li>
+<li>Mrs. Jones understands him.</li>
+<li>She gives him money for the shoes.</li>
+<li>Roger learns about kindness and trust.</li>
+<li>He thanks Mrs. Jones.</li>
+</ol>
+
+<h3>Important characters</h3>
+<div class="grid2">
+<div class="mini"><strong>Mrs. Jones</strong>Kind, strong, generous and understanding.</div>
+<div class="mini"><strong>Roger</strong>A young boy who makes a mistake but learns from it.</div>
+</div>
+
+<h3>Important themes</h3>
+<ul>
+<li>Kindness and generosity.</li>
+<li>Forgiveness.</li>
+<li>Trust and understanding.</li>
+<li>Human values.</li>
+<li>Helping poor children.</li>
+<li>Learning from mistakes.</li>
+</ul>
+
+<h3>Important items</h3>
+<table>
+<tr><th>Item</th><th>Meaning</th></tr>
+<tr><td>Purse</td><td>Roger's attempted theft.</td></tr>
+<tr><td>Blue suede shoes</td><td>Roger's desire.</td></tr>
+<tr><td>Food</td><td>Mrs. Jones's kindness.</td></tr>
+<tr><td>Home</td><td>Safety and guidance.</td></tr>
+</table>
+
+<div class="memory"><strong>Moral:</strong> Kindness and understanding can change a person's life.</div>
+
+<h3>Important questions</h3>
+<div class="question">1. Why did Roger try to steal the purse?</div>
+<div class="question">2. How did Mrs. Jones treat Roger?</div>
+<div class="question">3. Describe Mrs. Jones's character.</div>
+<div class="question">4. Describe Roger's character.</div>
+<div class="question">5. What lesson did Roger learn?</div>
+<div class="question">6. Explain the title of the story.</div>
+<div class="question">7. How does kindness change Roger?</div>
+<div class="question">8. What is the moral of the story?</div>
+</article>
+
+<article class="card searchable">
+<h2>Lesson 4: Clothes</h2>
+<div class="author">Writer: Chitra Banerjee Divakaruni</div>
+<span class="badge">Short story</span><span class="badge">Women's independence</span>
+
+<h3>Simple story</h3>
+<p>Sumita is a young Indian village woman. She lives with her parents. Her family arranges her marriage with Somesh Sen, who lives in California, America.</p>
+<p>Before marriage, her father gives her a beautiful pink sari. She marries Somesh and waits for her visa. After reaching America, she experiences a new culture and a different lifestyle.</p>
+<p>Somesh is kind and supportive. Sumita wants to work in their store and build a new life. But one night, a robber shoots Somesh and he dies.</p>
+<p>Her in-laws offer to take her back to India. However, Sumita decides to stay in America. She wants to become independent and create her own future.</p>
+
+<h3>Story in easy points</h3>
+<ol>
+<li>Sumita is a young woman from an Indian village.</li>
+<li>Her family arranges her marriage with Somesh.</li>
+<li>Somesh lives in California.</li>
+<li>Her father gives her a pink sari.</li>
+<li>She marries Somesh.</li>
+<li>She moves to America.</li>
+<li>She experiences a different culture.</li>
+<li>She wants to help Somesh in his store.</li>
+<li>A robber shoots Somesh.</li>
+<li>Somesh dies.</li>
+<li>Her in-laws offer to take her to India.</li>
+<li>Sumita decides to stay in America.</li>
+<li>She chooses an independent life.</li>
+</ol>
+
+<h3>Important characters</h3>
+<ul>
+<li><strong>Sumita:</strong> Sensitive, brave, determined and independent.</li>
+<li><strong>Somesh:</strong> Kind and supportive husband.</li>
+<li><strong>Father:</strong> Protective and loving.</li>
+<li><strong>In-laws:</strong> Support Sumita during her difficult time.</li>
+</ul>
+
+<h3>Important themes</h3>
+<ul>
+<li>Women's independence.</li>
+<li>Indian and American cultures.</li>
+<li>Love and marriage.</li>
+<li>Identity and transformation.</li>
+<li>Tradition versus modern life.</li>
+<li>Grief and loss.</li>
+<li>Courage and self-confidence.</li>
+</ul>
+
+<h3>Important symbols and items</h3>
+<table>
+<tr><th>Item</th><th>Meaning</th></tr>
+<tr><td>Pink sari</td><td>Tradition and marriage.</td></tr>
+<tr><td>Bangles</td><td>Married identity; breaking them represents grief.</td></tr>
+<tr><td>Blue jeans</td><td>Modern life and independence.</td></tr>
+<tr><td>Red bindi</td><td>Married identity and Indian tradition.</td></tr>
+<tr><td>Clothes</td><td>Changing identity and life.</td></tr>
+</table>
+
+<div class="memory"><strong>Moral:</strong> Be brave. Difficult situations can help us become independent and strong.</div>
+
+<h3>Important questions</h3>
+<div class="question">1. Describe Sumita's character.</div>
+<div class="question">2. Explain Sumita's marriage with Somesh.</div>
+<div class="question">3. What is the importance of the pink sari?</div>
+<div class="question">4. How does Sumita adjust to American culture?</div>
+<div class="question">5. Explain the relationship between Sumita and Somesh.</div>
+<div class="question">6. How does Somesh die?</div>
+<div class="question">7. Why does Sumita decide to stay in America?</div>
+<div class="question">8. Explain the importance of clothes in the story.</div>
+<div class="question">9. How does the story show women's independence?</div>
+<div class="question">10. Explain the cultural differences between India and America.</div>
+</article>
+</section>
+
+<section class="section" id="unit3">
+<h2 class="section-title">4. Unit III – Essay and Short Story</h2>
+
+<article class="card searchable">
+<h2>Lesson 5: Next Sunday</h2>
+<div class="author">Writer: R. K. Narayan</div>
+<span class="badge">Essay</span><span class="badge">Humour</span>
+
+<h3>Simple explanation</h3>
+<p>People wait for Sunday because it is a holiday. They plan to complete many activities, repair things, relax and enjoy their free time.</p>
+<p>But unexpected problems and distractions come. They cannot finish their plans. Finally, they postpone the work to the next Sunday.</p>
+<p>The same thing happens again and again. The writer uses humour to show how people waste time and postpone their work.</p>
+
+<h3>Important points</h3>
+<ol>
+<li>People wait for Sunday.</li>
+<li>They plan many activities.</li>
+<li>They want to relax and finish household work.</li>
+<li>Some people plan to repair household items.</li>
+<li>Unexpected problems appear.</li>
+<li>They cannot complete their work.</li>
+<li>They postpone the work.</li>
+<li>They say they will do it next Sunday.</li>
+</ol>
+
+<h3>Important themes</h3>
+<ul>
+<li>Procrastination – Postponing work.</li>
+<li>Human nature.</li>
+<li>Time management.</li>
+<li>Household responsibilities.</li>
+<li>Humour and irony.</li>
+</ul>
+
+<h3>Literary techniques</h3>
+<ul>
+<li><strong>Humour:</strong> Makes readers laugh.</li>
+<li><strong>Irony:</strong> People plan work but do not complete it.</li>
+<li><strong>Satire:</strong> Shows people's habits in a funny way.</li>
+</ul>
+
+<div class="memory"><strong>Easy memory:</strong> People plan work on Sunday but postpone it to the next Sunday.</div>
+
+<h3>Important questions</h3>
+<div class="question">1. What is the central idea of Next Sunday?</div>
+<div class="question">2. How do people plan their Sundays?</div>
+<div class="question">3. Why do Sunday plans fail?</div>
+<div class="question">4. Explain the humour in the essay.</div>
+<div class="question">5. What does the title mean?</div>
+<div class="question">6. What does the essay teach us about human nature?</div>
+</article>
+
+<article class="card searchable">
+<h2>Lesson 6: The Last Leaf</h2>
+<div class="author">Writer: O. Henry | Real name: William Sydney Porter</div>
+<span class="badge">Short story</span><span class="badge">Hope and sacrifice</span>
+
+<h3>Simple story</h3>
+<p>Sue and Johnsy are two young artists who live together. Johnsy becomes seriously ill with pneumonia. She looks outside the window and sees leaves falling from an ivy vine.</p>
+<p>She believes that she will die when the last leaf falls. Sue tries to encourage her, but Johnsy loses hope.</p>
+<p>Old Behrman is an elderly painter. He learns about Johnsy's belief. During a terrible storm, he goes outside and paints a leaf on the wall. It looks like a real leaf.</p>
+<p>In the morning, Johnsy sees that the leaf is still there. She gets hope and decides to live. Slowly, she recovers. But Behrman catches pneumonia and dies. His painted leaf becomes his masterpiece.</p>
+
+<h3>Story in easy points</h3>
+<ol>
+<li>Sue and Johnsy are two artists.</li>
+<li>Johnsy suffers from pneumonia.</li>
+<li>She watches the ivy leaves.</li>
+<li>She believes she will die when the last leaf falls.</li>
+<li>Sue tries to give her hope.</li>
+<li>Old Behrman learns about her belief.</li>
+<li>A storm comes at night.</li>
+<li>Behrman paints a leaf on the wall.</li>
+<li>Johnsy sees the leaf in the morning.</li>
+<li>She regains hope.</li>
+<li>Her health improves.</li>
+<li>Behrman dies from pneumonia.</li>
+<li>The painted leaf is his masterpiece.</li>
+</ol>
+
+<h3>Important characters</h3>
+<div class="grid2">
+<div class="mini"><strong>Johnsy</strong>A young artist who becomes ill and loses hope.</div>
+<div class="mini"><strong>Sue</strong>Johnsy's loving and caring friend.</div>
+<div class="mini"><strong>Old Behrman</strong>An old painter who sacrifices his life.</div>
+</div>
+
+<h3>Important themes</h3>
+<ul>
+<li>Friendship and love.</li>
+<li>Hope versus despair.</li>
+<li>Sacrifice and selflessness.</li>
+<li>Will to live.</li>
+<li>Power of art.</li>
+<li>Human kindness.</li>
+</ul>
+
+<h3>Important symbols</h3>
+<table>
+<tr><th>Symbol</th><th>Meaning</th></tr>
+<tr><td>Ivy leaves</td><td>Life and death.</td></tr>
+<tr><td>Last leaf</td><td>Hope and courage.</td></tr>
+<tr><td>Painted leaf</td><td>Sacrifice and art.</td></tr>
+<tr><td>Storm</td><td>Difficulties and danger.</td></tr>
+<tr><td>Pneumonia</td><td>Illness and suffering.</td></tr>
+</table>
+
+<div class="highlight"><strong>Important 8-mark answer: Behrman's sacrifice</strong>
+<p>Behrman is an old painter who dreams of painting a masterpiece. He learns that Johnsy believes she will die when the last ivy leaf falls. During a storm, he paints a leaf on the wall. It looks real and does not fall. Johnsy sees it and regains hope. She slowly recovers. But Behrman catches pneumonia in the cold and dies. His painted leaf becomes his greatest masterpiece. The story teaches us that true love and sacrifice can save another person's life.</p>
+</div>
+
+<div class="memory"><strong>Easy memory:</strong> Behrman paints the last leaf to give Johnsy hope. He dies, but Johnsy lives.</div>
+
+<h3>Important questions</h3>
+<div class="question">1. Describe Johnsy's character.</div>
+<div class="question">2. Explain the friendship between Sue and Johnsy.</div>
+<div class="question">3. How does Behrman help Johnsy?</div>
+<div class="question">4. What is the importance of the last leaf?</div>
+<div class="question">5. Why does Johnsy lose hope?</div>
+<div class="question">6. Explain Behrman's masterpiece.</div>
+<div class="question">7. What is the central theme of the story?</div>
+<div class="question">8. Explain the importance of sacrifice.</div>
+<div class="question">9. How does Johnsy recover?</div>
+<div class="question">10. Why is the ending surprising?</div>
+</article>
+</section>
+
+<section class="section" id="unit4">
+<h2 class="section-title">5. Unit IV – Short Stories</h2>
+
+<article class="card searchable">
+<h2>Lesson 7: My Lord, the Baby</h2>
+<div class="author">Writer: Rabindranath Tagore</div>
+<span class="badge">Short story</span><span class="badge">Love and sacrifice</span>
+
+<h3>Simple story</h3>
+<p>Raicharan starts working for Anukul when he is twelve years old. He is very loyal to his master. Later, Anukul gets married and has a baby boy.</p>
+<p>Raicharan loves the baby very much. One day, he takes the baby near the Padma River. The baby asks for a pretty flower. Raicharan goes to collect flowers. When he returns, the baby has disappeared.</p>
+<p>The baby's mother suspects Raicharan of stealing the child. He is sent away. Later, Raicharan has a son named Phailna. He believes that his son is the reincarnation of the lost baby.</p>
+<p>He sells his property and spends his money on Phailna's education. When Phailna grows up, Raicharan takes him to Anukul and falsely confesses that he stole the baby. He leaves after giving Phailna to his master's family.</p>
+
+<h3>Story in easy points</h3>
+<ol>
+<li>Raicharan works for Anukul from the age of twelve.</li>
+<li>He is very loyal to his master.</li>
+<li>Anukul has a baby boy.</li>
+<li>Raicharan loves the baby.</li>
+<li>He takes the baby near the Padma River.</li>
+<li>The baby asks for a pretty flower.</li>
+<li>Raicharan goes to collect flowers.</li>
+<li>The baby disappears near the river.</li>
+<li>The mother suspects Raicharan.</li>
+<li>Raicharan is sent away.</li>
+<li>Later, he has a son named Phailna.</li>
+<li>He believes Phailna is the lost baby's reincarnation.</li>
+<li>He spends all his money on Phailna.</li>
+<li>He falsely confesses to stealing the baby.</li>
+<li>He gives Phailna to Anukul's family.</li>
+<li>He leaves without asking for anything.</li>
+</ol>
+
+<h3>Important characters</h3>
+<ul>
+<li><strong>Raicharan:</strong> Loyal servant, loving and self-sacrificing.</li>
+<li><strong>Anukul:</strong> Raicharan's master and a magistrate.</li>
+<li><strong>Mistress:</strong> Anukul's wife and mother of the baby.</li>
+<li><strong>Phailna:</strong> Raicharan's biological son.</li>
+<li><strong>Little Master:</strong> Anukul's missing baby.</li>
+</ul>
+
+<h3>Important themes</h3>
+<ul>
+<li>Unconditional love.</li>
+<li>Loyalty and devotion.</li>
+<li>Guilt and regret.</li>
+<li>Parental love.</li>
+<li>Extreme sacrifice.</li>
+<li>Social class discrimination.</li>
+<li>Fate and destiny.</li>
+</ul>
+
+<h3>Important symbols</h3>
+<table>
+<tr><th>Symbol</th><th>Meaning</th></tr>
+<tr><td>Padma River</td><td>Destructive nature and fate.</td></tr>
+<tr><td>Kadamba flowers</td><td>The event that leads to tragedy.</td></tr>
+<tr><td>Gold ornaments</td><td>Wealth and social status.</td></tr>
+<tr><td>Go-cart</td><td>Childhood and innocence.</td></tr>
+</table>
+
+<div class="highlight"><strong>Important 8-mark answer: Raicharan's sacrifice</strong>
+<p>Raicharan is a loyal servant who loves his master's baby deeply. One day, the baby disappears near the Padma River while Raicharan goes to collect flowers. The baby's mother suspects him of stealing the child. Later, Raicharan has a son named Phailna. He believes his son is the reincarnation of his master's lost baby. He sells his property and spends his money on Phailna's education. When Phailna grows up, Raicharan takes him to Anukul and falsely confesses that he stole the baby. He gives Phailna to his master's family and leaves. His actions show unconditional love, guilt and extreme sacrifice.</p>
+</div>
+
+<div class="memory"><strong>Easy memory:</strong> Raicharan loses his master's baby, raises his own son with great sacrifice and finally gives him to his master.</div>
+
+<h3>Important questions</h3>
+<div class="question">1. Describe Raicharan's character.</div>
+<div class="question">2. Explain Raicharan's relationship with Anukul.</div>
+<div class="question">3. How did Raicharan lose the baby?</div>
+<div class="question">4. Why did the mistress suspect Raicharan?</div>
+<div class="question">5. Why was Raicharan sent away?</div>
+<div class="question">6. Why did Raicharan believe Phailna was the reincarnation of the baby?</div>
+<div class="question">7. How did Raicharan sacrifice everything for Phailna?</div>
+<div class="question">8. Explain the false confession.</div>
+<div class="question">9. What is the importance of the Padma River?</div>
+<div class="question">10. Explain the main themes of the story.</div>
+</article>
+
+<article class="card searchable">
+<h2>Lesson 8: The Open Window</h2>
+<div class="author">Writer: Saki | Real name: H. H. Munro</div>
+<span class="badge">Short story</span><span class="badge">Humour and suspense</span>
+
+<h3>Simple story</h3>
+<p>Framton Nuttel visits a house to improve his health. He meets a young girl named Vera. Vera is clever and imaginative.</p>
+<p>She tells him a false story that her aunt's husband and brothers disappeared while hunting. She says that they went out through the open window and never returned.</p>
+<p>Framton believes her story. Suddenly, three men return from hunting through the open window. Framton thinks they are ghosts and runs away in fear.</p>
+<p>Vera then creates another story to explain why Framton ran away. The story ends with a surprising and funny twist.</p>
+
+<h3>Story in easy points</h3>
+<ol>
+<li>Framton Nuttel visits a house.</li>
+<li>He meets a young girl named Vera.</li>
+<li>Vera tells him a false story.</li>
+<li>She says her aunt's family disappeared while hunting.</li>
+<li>Framton believes her.</li>
+<li>Three men return through the open window.</li>
+<li>Framton thinks they are ghosts.</li>
+<li>He becomes frightened and runs away.</li>
+<li>Vera invents another story.</li>
+<li>The ending shows Vera's cleverness.</li>
+</ol>
+
+<h3>Important characters</h3>
+<ul>
+<li><strong>Vera:</strong> Clever, imaginative and mischievous.</li>
+<li><strong>Framton Nuttel:</strong> Nervous and easily frightened.</li>
+<li><strong>Mrs. Sappleton:</strong> Vera's aunt.</li>
+<li><strong>Mr. Sappleton:</strong> Returns from hunting.</li>
+</ul>
+
+<h3>Important themes</h3>
+<ul>
+<li>Imagination and deception.</li>
+<li>Humour and irony.</li>
+<li>Human gullibility.</li>
+<li>Suspense and surprise.</li>
+<li>Power of storytelling.</li>
+</ul>
+
+<h3>Important items</h3>
+<table>
+<tr><th>Item</th><th>Meaning</th></tr>
+<tr><td>Open window</td><td>Centre of Vera's invented story.</td></tr>
+<tr><td>Hunting party</td><td>Reality that frightens Framton.</td></tr>
+<tr><td>Vera's story</td><td>Imagination and deception.</td></tr>
+</table>
+
+<div class="memory"><strong>Easy memory:</strong> Vera tells a false story. Framton believes it and runs away when the hunters return.</div>
+
+<h3>Important questions</h3>
+<div class="question">1. Describe Vera's character.</div>
+<div class="question">2. How does Vera trick Framton Nuttel?</div>
+<div class="question">3. Describe Framton Nuttel.</div>
+<div class="question">4. What is the significance of the open window?</div>
+<div class="question">5. How does Saki create suspense?</div>
+<div class="question">6. Explain the humorous ending.</div>
+<div class="question">7. What is the main theme of the story?</div>
+<div class="question">8. How does Vera show her imagination?</div>
+</article>
+</section>
+
+<section class="section" id="unit5">
+<h2 class="section-title">6. Unit V – Biography</h2>
+
+<article class="card searchable">
+<h2>Lesson 9: Mary Kom – The Magnificent Mary</h2>
+<div class="author">Biography: Mary Kom | Famous Indian boxer</div>
+<span class="badge">Biography</span><span class="badge">Inspiration</span>
+
+<h3>Simple biography</h3>
+<p>Mary Kom was born in a poor farming family in Manipur. From childhood, she was interested in sports. She was inspired by boxer Dingko Singh and decided to become a boxer.</p>
+<p>Her family initially opposed her decision. She faced poverty, lack of sports facilities and gender discrimination. But she worked hard and won the Manipur State Championship in 2000.</p>
+<p>She became a six-time World Champion. She won a bronze medal at the 2012 London Olympics and gold at the 2014 Asian Games. She continued her career even after becoming a mother.</p>
+<p>Mary Kom became an inspiration to women and young athletes. Her life teaches us the value of hard work, courage and determination.</p>
+
+<h3>Biography in easy points</h3>
+<ol>
+<li>Mary Kom was born in a poor farming family in Manipur.</li>
+<li>She was interested in sports from childhood.</li>
+<li>She was inspired by Dingko Singh.</li>
+<li>She decided to become a boxer.</li>
+<li>Her family initially opposed her decision.</li>
+<li>She faced poverty and a lack of training facilities.</li>
+<li>She won the Manipur State Championship in 2000.</li>
+<li>She won her first World Championship gold in 2002.</li>
+<li>She married K. Onler Kom in 2005.</li>
+<li>She continued boxing after becoming a mother.</li>
+<li>She won Olympic bronze in London in 2012.</li>
+<li>She won Asian Games gold in 2014.</li>
+<li>She won her sixth World Championship gold in 2018.</li>
+<li>She became an inspiration for women.</li>
+</ol>
+
+<h3>Important achievements</h3>
+<table>
+<tr><th>Year</th><th>Achievement</th></tr>
+<tr><td>2000</td><td>Manipur State Championship.</td></tr>
+<tr><td>2001</td><td>World Championship Silver.</td></tr>
+<tr><td>2002</td><td>First World Championship Gold.</td></tr>
+<tr><td>2005</td><td>Married K. Onler Kom.</td></tr>
+<tr><td>2007</td><td>Twin sons born.</td></tr>
+<tr><td>2012</td><td>London Olympic Bronze.</td></tr>
+<tr><td>2014</td><td>Asian Games Gold.</td></tr>
+<tr><td>2018</td><td>Sixth World Championship Gold.</td></tr>
+</table>
+
+<h3>Six World Championship gold medals</h3>
+<div class="grid2">
+<div class="mini"><strong>2002</strong>Antalya, Turkey</div>
+<div class="mini"><strong>2005</strong>Podolsk, Russia</div>
+<div class="mini"><strong>2006</strong>New Delhi, India</div>
+<div class="mini"><strong>2008</strong>Ningbo, China</div>
+<div class="mini"><strong>2010</strong>Bridgetown, Barbados</div>
+<div class="mini"><strong>2018</strong>New Delhi, India</div>
+</div>
+
+<h3>Important awards</h3>
+<ul>
+<li>Padma Shri – 2006.</li>
+<li>Rajiv Gandhi Khel Ratna – 2009.</li>
+<li>Padma Bhushan – 2013.</li>
+<li>Padma Vibhushan – 2020.</li>
+</ul>
+
+<h3>Important themes</h3>
+<ul>
+<li>Hard work and determination.</li>
+<li>Women's empowerment.</li>
+<li>Overcoming poverty.</li>
+<li>Gender equality.</li>
+<li>Family support.</li>
+<li>Discipline and dedication.</li>
+</ul>
+
+<div class="highlight"><strong>Important 8-mark answer: Mary Kom as a role model</strong>
+<p>Mary Kom is one of India's greatest women boxers. She was born in a poor farming family in Manipur. She was inspired by Dingko Singh and decided to become a boxer. She faced poverty, family opposition and gender discrimination. Through hard work and determination, she became a six-time World Champion. She won a bronze medal at the 2012 London Olympics and gold at the 2014 Asian Games. She continued boxing after becoming a mother. She also established a boxing academy to train young people. Mary Kom teaches us that hard work, confidence and determination can help us achieve our dreams.</p>
+</div>
+
+<div class="memory"><strong>Easy memory:</strong> Mary Kom = Boxing + Six World Championship gold medals + Olympic Bronze + Determination.</div>
+
+<h3>Important questions</h3>
+<div class="question">1. Describe Mary Kom's early life.</div>
+<div class="question">2. How did Dingko Singh inspire her?</div>
+<div class="question">3. What challenges did she face?</div>
+<div class="question">4. How did she balance motherhood and boxing?</div>
+<div class="question">5. What are her World Championship achievements?</div>
+<div class="question">6. What did she achieve at the 2012 Olympics?</div>
+<div class="question">7. Mention her important awards.</div>
+<div class="question">8. How did she break gender stereotypes?</div>
+<div class="question">9. Why is Mary Kom a role model?</div>
+<div class="question">10. What is the message of her life?</div>
+</article>
+</section>
+
+<section class="section" id="grammar">
+<h2 class="section-title">7. Grammar – Complete Revision</h2>
+
+<article class="card searchable">
+<h2>A. Clauses and Sentences</h2>
+<h3>What is a sentence?</h3>
+<p>A sentence is a group of words that gives complete meaning.</p>
+<ul>
+<li>She is reading.</li>
+<li>He plays football.</li>
+<li>They are going to college.</li>
+</ul>
+
+<h3>What is a clause?</h3>
+<p>A clause is a group of words that has a subject and a verb.</p>
+<ul>
+<li>She smiled.</li>
+<li>Because he was late.</li>
+<li>When the rain stopped.</li>
+</ul>
+
+<h3>Sentence and clause difference</h3>
+<table>
+<tr><th>Sentence</th><th>Clause</th></tr>
+<tr><td>Gives complete meaning.</td><td>May give complete or incomplete meaning.</td></tr>
+<tr><td>Can stand alone.</td><td>May depend on another clause.</td></tr>
+<tr><td>Example: She is happy.</td><td>Example: Because she is happy.</td></tr>
+</table>
+
+<h3>Types of clauses</h3>
+<div class="mini">
+<strong>1. Independent clause</strong>
+<p>Gives complete meaning.</p>
+<p>Example: She is studying.</p>
+</div>
+<div class="mini">
+<strong>2. Dependent clause</strong>
+<p>Does not give complete meaning alone.</p>
+<p>Example: Because he was sick.</p>
+</div>
+<div class="mini">
+<strong>3. Noun clause</strong>
+<p>Works like a noun.</p>
+<p>Example: I know what you said.</p>
+</div>
+<div class="mini">
+<strong>4. Adjective clause</strong>
+<p>Describes a noun.</p>
+<p>Example: The boy who won the prize is my friend.</p>
+</div>
+<div class="mini">
+<strong>5. Adverb clause</strong>
+<p>Explains time, reason or condition.</p>
+<p>Example: Call me when you arrive.</p>
+</div>
+
+<h3>Compound sentence</h3>
+<p>A compound sentence has two independent clauses joined together.</p>
+<div class="highlight"><strong>FANBOYS</strong><br>
+F – For<br>A – And<br>N – Nor<br>B – But<br>O – Or<br>Y – Yet<br>S – So
+</div>
+<p>Examples:</p>
+<ul>
+<li>I wanted to go, but it was raining.</li>
+<li>She studied hard, so she passed.</li>
+<li>He was tired, yet he continued working.</li>
+</ul>
+</article>
+
+<article class="card searchable">
+<h2>B. Subject–Verb Agreement (Concord)</h2>
+<p><strong>Definition:</strong> The verb must agree with the subject in number and person.</p>
+
+<h3>Important rules</h3>
+<div class="question"><strong>Rule 1: Singular subject</strong><p>Use a singular verb.</p><p>He plays football. She writes a letter.</p></div>
+<div class="question"><strong>Rule 2: Plural subject</strong><p>Use a plural verb.</p><p>They play football. Boys sing.</p></div>
+<div class="question"><strong>Rule 3: Subjects joined by AND</strong><p>Usually take a plural verb.</p><p>Ram and Ravi are friends.</p><p>Exception: Bread and butter is my favourite breakfast.</p></div>
+<div class="question"><strong>Rule 4: Either/or and Neither/nor</strong><p>The verb agrees with the nearest subject.</p><p>Neither the teacher nor the students are present.</p></div>
+<div class="question"><strong>Rule 5: Each and Every</strong><p>Take singular verbs.</p><p>Each student has a book.</p></div>
+<div class="question"><strong>Rule 6: Mathematics and News</strong><p>Take singular verbs.</p><p>Mathematics is difficult. The news is good.</p></div>
+<div class="question"><strong>Rule 7: A number of / The number of</strong><p>A number of students are absent.</p><p>The number of students is increasing.</p></div>
+<div class="question"><strong>Rule 8: There is / There are</strong><p>There is a book. There are many books.</p></div>
+<div class="question"><strong>Rule 9: Collective nouns</strong><p>The team is playing. The group is ready.</p></div>
+<div class="question"><strong>Rule 10: Time, money and distance</strong><p>When considered as one unit, use singular verbs.</p><p>Ten kilometres is a long distance.</p></div>
+
+<h3>Important error corrections</h3>
+<table>
+<tr><th>Wrong</th><th>Correct</th></tr>
+<tr><td>He play cricket.</td><td>He plays cricket.</td></tr>
+<tr><td>They plays football.</td><td>They play football.</td></tr>
+<tr><td>She have a pen.</td><td>She has a pen.</td></tr>
+<tr><td>Each student have a book.</td><td>Each student has a book.</td></tr>
+<tr><td>Mathematics are difficult.</td><td>Mathematics is difficult.</td></tr>
+<tr><td>The news are good.</td><td>The news is good.</td></tr>
+<tr><td>There is many students.</td><td>There are many students.</td></tr>
+<tr><td>A number of students has arrived.</td><td>A number of students have arrived.</td></tr>
+<tr><td>The number of students have increased.</td><td>The number of students has increased.</td></tr>
+<tr><td>Neither the teacher nor the students is present.</td><td>Neither the teacher nor the students are present.</td></tr>
+</table>
+</article>
+
+<article class="card searchable">
+<h2>C. Degrees of Comparison</h2>
+<p><strong>Definition:</strong> Degrees of comparison are used to compare people, places or things.</p>
+
+<h3>Three types</h3>
+<div class="grid2">
+<div class="mini"><strong>Positive</strong><p>Describes one person or thing.</p><p>Ram is tall.</p></div>
+<div class="mini"><strong>Comparative</strong><p>Compares two things.</p><p>Ram is taller than Ravi.</p></div>
+<div class="mini"><strong>Superlative</strong><p>Compares three or more.</p><p>Ram is the tallest boy.</p></div>
+</div>
+
+<h3>Important comparison table</h3>
+<table>
+<tr><th>Positive</th><th>Comparative</th><th>Superlative</th></tr>
+<tr><td>Tall</td><td>Taller</td><td>Tallest</td></tr>
+<tr><td>Small</td><td>Smaller</td><td>Smallest</td></tr>
+<tr><td>Big</td><td>Bigger</td><td>Biggest</td></tr>
+<tr><td>Fast</td><td>Faster</td><td>Fastest</td></tr>
+<tr><td>Happy</td><td>Happier</td><td>Happiest</td></tr>
+<tr><td>Easy</td><td>Easier</td><td>Easiest</td></tr>
+<tr><td>Beautiful</td><td>More beautiful</td><td>Most beautiful</td></tr>
+<tr><td>Difficult</td><td>More difficult</td><td>Most difficult</td></tr>
+<tr><td>Good</td><td>Better</td><td>Best</td></tr>
+<tr><td>Bad</td><td>Worse</td><td>Worst</td></tr>
+<tr><td>Little</td><td>Less</td><td>Least</td></tr>
+<tr><td>Many</td><td>More</td><td>Most</td></tr>
+</table>
+
+<h3>Important rules</h3>
+<ol>
+<li>Short adjectives usually take -er and -est.</li>
+<li>Long adjectives usually use more and most.</li>
+<li>Words ending in consonant + y change y into i.</li>
+<li>Some words have irregular forms.</li>
+<li>Use THAN with comparative degree.</li>
+<li>Use THE with superlative degree.</li>
+<li>Do not use double comparison.</li>
+</ol>
+
+<h3>Common mistakes</h3>
+<ul>
+<li>Wrong: She is more taller than me.</li>
+<li>Correct: She is taller than me.</li>
+<li>Wrong: He is the most tallest boy.</li>
+<li>Correct: He is the tallest boy.</li>
+</ul>
+</article>
+
+<article class="card searchable">
+<h2>D. Error Spotting</h2>
+<p><strong>Definition:</strong> Error spotting means finding and correcting grammatical mistakes in sentences.</p>
+
+<h3>Important areas</h3>
+<ul>
+<li>Subject–verb agreement.</li>
+<li>Tense errors.</li>
+<li>Articles.</li>
+<li>Prepositions.</li>
+<li>Pronouns.</li>
+<li>Adjectives and adverbs.</li>
+<li>Sentence structure.</li>
+<li>Punctuation.</li>
+</ul>
+
+<h3>1. Tense errors</h3>
+<table>
+<tr><th>Wrong</th><th>Correct</th></tr>
+<tr><td>She will went.</td><td>She will go.</td></tr>
+<tr><td>I have seen him yesterday.</td><td>I saw him yesterday.</td></tr>
+<tr><td>She had went.</td><td>She had gone.</td></tr>
+<tr><td>He is working here since 2010.</td><td>He has been working here since 2010.</td></tr>
+<tr><td>She was knowing the answer.</td><td>She knew the answer.</td></tr>
+</table>
+
+<h3>2. Articles – A, An, The</h3>
+<div class="mini"><strong>A</strong><p>Used before a consonant sound.</p><p>A boy, a car, a university.</p></div>
+<div class="mini"><strong>An</strong><p>Used before a vowel sound.</p><p>An apple, an elephant, an honest man.</p></div>
+<div class="mini"><strong>The</strong><p>Used for a particular or specific person or thing.</p><p>The Sun, the Moon, the best student.</p></div>
+
+<h3>3. Prepositions</h3>
+<table>
+<tr><th>Expression</th><th>Example</th></tr>
+<tr><td>Good at</td><td>She is good at English.</td></tr>
+<tr><td>Interested in</td><td>I am interested in computers.</td></tr>
+<tr><td>Fond of</td><td>He is fond of music.</td></tr>
+<tr><td>Angry with</td><td>She is angry with him.</td></tr>
+<tr><td>Afraid of</td><td>I am afraid of snakes.</td></tr>
+<tr><td>Depend on</td><td>We depend on our parents.</td></tr>
+</table>
+
+<h3>More error correction</h3>
+<table>
+<tr><th>Wrong</th><th>Correct</th></tr>
+<tr><td>She is a honest girl.</td><td>She is an honest girl.</td></tr>
+<tr><td>He plays piano.</td><td>He plays the piano.</td></tr>
+<tr><td>She is doctor.</td><td>She is a doctor.</td></tr>
+<tr><td>He is best player.</td><td>He is the best player.</td></tr>
+<tr><td>He is interested for music.</td><td>He is interested in music.</td></tr>
+<tr><td>She is good in maths.</td><td>She is good at maths.</td></tr>
+</table>
+</article>
+</section>
+
+<section class="section" id="oneword">
+<h2 class="section-title">8. Important One-word Questions</h2>
+<p class="section-sub">Learn the questions and answers. These are useful for quick revision.</p>
+<div class="card searchable">
+<table>
+<tr><th>No.</th><th>Question</th><th>Answer</th></tr>
+<tr><td>1</td><td>Who wrote The Pulley?</td><td>George Herbert</td></tr>
+<tr><td>2</td><td>Who wrote Sonnet 30?</td><td>William Shakespeare</td></tr>
+<tr><td>3</td><td>Who wrote Thank You, M'am?</td><td>Langston Hughes</td></tr>
+<tr><td>4</td><td>Who wrote Clothes?</td><td>Chitra Banerjee Divakaruni</td></tr>
+<tr><td>5</td><td>Who wrote Next Sunday?</td><td>R. K. Narayan</td></tr>
+<tr><td>6</td><td>Who wrote The Last Leaf?</td><td>O. Henry</td></tr>
+<tr><td>7</td><td>What is O. Henry's real name?</td><td>William Sydney Porter</td></tr>
+<tr><td>8</td><td>Who wrote My Lord, the Baby?</td><td>Rabindranath Tagore</td></tr>
+<tr><td>9</td><td>Who wrote The Open Window?</td><td>Saki</td></tr>
+<tr><td>10</td><td>What is Saki's real name?</td><td>H. H. Munro</td></tr>
+<tr><td>11</td><td>Who is the main character in Clothes?</td><td>Sumita</td></tr>
+<tr><td>12</td><td>Who is the main character in My Lord, the Baby?</td><td>Raicharan</td></tr>
+<tr><td>13</td><td>Who is Johnsy's friend?</td><td>Sue</td></tr>
+<tr><td>14</td><td>Who painted the last leaf?</td><td>Behrman</td></tr>
+<tr><td>15</td><td>Who tricks Framton Nuttel?</td><td>Vera</td></tr>
+<tr><td>16</td><td>Who is Roger's helper?</td><td>Mrs. Jones</td></tr>
+<tr><td>17</td><td>Who is Mary Kom's husband?</td><td>K. Onler Kom</td></tr>
+<tr><td>18</td><td>Which sport is Mary Kom famous for?</td><td>Boxing</td></tr>
+<tr><td>19</td><td>Which river appears in My Lord, the Baby?</td><td>Padma</td></tr>
+<tr><td>20</td><td>Which illness does Johnsy suffer from?</td><td>Pneumonia</td></tr>
+<tr><td>21</td><td>What is the rhyme scheme of Sonnet 30?</td><td>ABAB CDCD EFEF GG</td></tr>
+<tr><td>22</td><td>How many lines are in a Shakespearean sonnet?</td><td>14</td></tr>
+<tr><td>23</td><td>What does FANBOYS represent?</td><td>Coordinating conjunctions</td></tr>
+<tr><td>24</td><td>How many degrees of comparison are there?</td><td>Three</td></tr>
+</table>
+</div>
+</section>
+
+<section class="section" id="important">
+<h2 class="section-title">9. Important 8-mark Questions</h2>
+<div class="card searchable">
+<p>Prepare these questions first. Write an introduction, important points, themes and conclusion.</p>
+<div class="question"><strong>1. The Pulley</strong><p>Explain the central theme of The Pulley and God's decision to withhold rest.</p></div>
+<div class="question"><strong>2. Sonnet 30</strong><p>Explain memory, sorrow and friendship in Sonnet 30.</p></div>
+<div class="question"><strong>3. Thank You, M'am</strong><p>Explain how Mrs. Jones changes Roger's life through kindness.</p></div>
+<div class="question"><strong>4. Clothes</strong><p>Explain how clothes represent Sumita's identity and transformation.</p></div>
+<div class="question"><strong>5. Next Sunday</strong><p>Discuss humour, irony and procrastination in Next Sunday.</p></div>
+<div class="question"><strong>6. The Last Leaf</strong><p>Explain Behrman's sacrifice and the importance of the last leaf.</p></div>
+<div class="question"><strong>7. My Lord, the Baby</strong><p>Explain Raicharan's loyalty, guilt and ultimate sacrifice.</p></div>
+<div class="question"><strong>8. The Open Window</strong><p>Explain how Vera tricks Framton Nuttel.</p></div>
+<div class="question"><strong>9. Mary Kom</strong><p>Describe Mary Kom's journey from poverty to international success.</p></div>
+
+<h3>How to write an 8-mark answer</h3>
+<ol>
+<li>Introduction – Write the writer's name and lesson name.</li>
+<li>Main explanation – Write 6 to 8 important points.</li>
+<li>Themes – Mention the important message.</li>
+<li>Conclusion – Explain what the lesson teaches us.</li>
+</ol>
+<div class="memory"><strong>Remember:</strong> Do not write only 2 or 3 lines for an 8-mark answer. Explain the topic using enough points and examples.</div>
+</div>
+</section>
+
+<section class="section" id="revision">
+<h2 class="section-title">10. Final Revision Checklist</h2>
+<div class="card">
+<p>Tick the topics after studying them. Your progress is saved only while this page remains open.</p>
+<div class="progress-wrap"><div class="progress" id="progress"></div></div>
+<p class="small" id="progressText">0 of 14 completed</p>
+<div id="checklist">
+</div>
+</div>
+<div class="card">
+<h3>Last-minute memory sheet</h3>
+<div class="grid2">
+<div class="mini"><strong>The Pulley</strong>God, blessings and restlessness.</div>
+<div class="mini"><strong>Sonnet 30</strong>Memory, sadness and friendship.</div>
+<div class="mini"><strong>Thank You, M'am</strong>Kindness and forgiveness.</div>
+<div class="mini"><strong>Clothes</strong>Identity and independence.</div>
+<div class="mini"><strong>Next Sunday</strong>Procrastination and humour.</div>
+<div class="mini"><strong>The Last Leaf</strong>Hope and sacrifice.</div>
+<div class="mini"><strong>My Lord, the Baby</strong>Loyalty and sacrifice.</div>
+<div class="mini"><strong>The Open Window</strong>Imagination and deception.</div>
+<div class="mini"><strong>Mary Kom</strong>Hard work and determination.</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="timetable">
+<h2 class="section-title">11. Last-minute Study Timetable</h2>
+<div class="card">
+<table>
+<tr><th>Study time</th><th>Topic</th></tr>
+<tr><td>45 minutes</td><td>The Pulley and Sonnet 30.</td></tr>
+<tr><td>60 minutes</td><td>Thank You, M'am and Clothes.</td></tr>
+<tr><td>45 minutes</td><td>Next Sunday and The Last Leaf.</td></tr>
+<tr><td>45 minutes</td><td>My Lord, the Baby and The Open Window.</td></tr>
+<tr><td>30 minutes</td><td>Mary Kom.</td></tr>
+<tr><td>45 minutes</td><td>Grammar revision.</td></tr>
+<tr><td>15 minutes</td><td>Writers and one-word questions.</td></tr>
+</table>
+<div class="memory">
+<strong>My advice:</strong>
+<ul>
+<li>Understand the story first.</li>
+<li>Remember the writer's name.</li>
+<li>Learn 5 important themes for each lesson.</li>
+<li>Practise writing one 8-mark answer.</li>
+<li>Revise grammar examples.</li>
+<li>Get enough sleep before the examination.</li>
+</ul>
+</div>
+</div>
+</section>
+
 </main>
+</div>
+
+<footer class="footer">
+<strong>ENGLISH STUDY HUB</strong>
+<p>STC Pollachi · B.Sc. Digital and Cyber Forensic Science</p>
+<p>Simple English · Easy Revision · University Exam Preparation</p>
+<p>Study well. Stay confident. All the best!</p>
+</footer>
+
 <script>
-let baseFont=18;
-document.getElementById('smallerText').addEventListener('click',()=>{baseFont=Math.max(15,baseFont-1);document.body.style.fontSize=baseFont+'px';});
-document.getElementById('largerText').addEventListener('click',()=>{baseFont=Math.min(23,baseFont+1);document.body.style.fontSize=baseFont+'px';});
-document.getElementById('focusBtn').addEventListener('click',()=>{document.body.classList.toggle('focus-mode');const active=document.body.classList.contains('focus-mode');document.getElementById('focusBtn').textContent=active?'✕ Exit focus mode':'📖 Focus mode';if(active)document.querySelector('[data-section=basics]').scrollIntoView({behavior:'smooth',block:'start'});});
-// Add a short memory path to each long answer using the point headings already in the notes.
-document.querySelectorAll('section[data-section="basics"] .card').forEach(card=>{const list=card.querySelector('ol');if(!list)return;const words=[...list.querySelectorAll('li')].map(li=>{const b=li.querySelector('b,strong');return b?b.textContent.replace(/:$/,'').trim():li.textContent.trim().split(/[.!?]/)[0].trim();}).filter(Boolean).slice(0,5);if(!words.length)return;const box=document.createElement('div');box.className='memory-strip';box.innerHTML='<b>Quick memory path</b><div class="memory-words"></div><div class="memory-help">Remember these keywords first, then explain each one in your own simple words.</div>';box.querySelector('.memory-words').textContent=words.join(' → ');const def=card.querySelector('.definition');if(def)def.after(box);else list.before(box);});
-const search=document.getElementById('search'), filters=[...document.querySelectorAll('.filter')], cards=[...document.querySelectorAll('.card,.mcq')], sections=[...document.querySelectorAll('.answer-section')], count=document.getElementById('count'), empty=document.getElementById('empty');
-let current='all';
-function apply(){const q=search.value.trim().toLowerCase();let shown=0;cards.forEach(c=>{const category=(c.dataset.cat||'');const okCat=current==='all'||category===current;const okText=!q||c.innerText.toLowerCase().includes(q);const show=okCat&&okText;c.style.display=show?'':'none';if(show)shown++;});sections.forEach(s=>{const visible=[...s.querySelectorAll('.card,.mcq')].some(c=>c.style.display!=='none');s.style.display=visible?'':'none';});count.textContent=`Showing ${shown} ${shown===1?'answer':'answers'}`;empty.style.display=shown?'none':'block';}
-filters.forEach(b=>b.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));b.classList.add('active');current=b.dataset.filter;apply();}));
-search.addEventListener('input',apply);document.getElementById('clearBtn').addEventListener('click',()=>{search.value='';current='all';filters.forEach(x=>x.classList.toggle('active',x.dataset.filter==='all'));apply();search.focus();});
-const themeBtn=document.getElementById('themeBtn');themeBtn.addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';document.documentElement.dataset.theme=dark?'dark':'light';themeBtn.textContent=dark?'☀ Light mode':'☾ Dark mode';});
-apply();
+const tasks = [
+"The Pulley – Story, themes and symbols",
+"Sonnet 30 – Meaning and poem structure",
+"Thank You, M'am – Characters and moral",
+"Clothes – Story and symbols",
+"Next Sunday – Essay and themes",
+"The Last Leaf – Story and Behrman's sacrifice",
+"My Lord, the Baby – Story and Raicharan",
+"The Open Window – Story and Vera",
+"Mary Kom – Biography and achievements",
+"Clauses and sentences",
+"Subject–verb agreement",
+"Degrees of comparison",
+"Error spotting",
+"One-word questions and writers"
+];
+
+const checklist = document.getElementById("checklist");
+
+tasks.forEach((task,index)=>{
+ const row=document.createElement("div");
+ row.className="checkline";
+ const checkbox=document.createElement("input");
+ checkbox.type="checkbox";
+ checkbox.id="task"+index;
+ checkbox.addEventListener("change",updateProgress);
+ const label=document.createElement("label");
+ label.htmlFor=checkbox.id;
+ label.textContent=task;
+ row.append(checkbox,label);
+ checklist.appendChild(row);
+});
+
+function updateProgress(){
+ const boxes=[...checklist.querySelectorAll("input")];
+ const done=boxes.filter(x=>x.checked).length;
+ document.getElementById("progress").style.width=(done/boxes.length*100)+"%";
+ document.getElementById("progressText").textContent=
+ done+" of "+boxes.length+" completed";
+}
+
+function searchNotes(){
+ const term=document.getElementById("search").value.toLowerCase().trim();
+ const cards=document.querySelectorAll(".searchable");
+ cards.forEach(card=>{
+  card.classList.toggle("hidden",!card.innerText.toLowerCase().includes(term));
+ });
+}
 </script>
-</body></html>
+
+</body>
+</html>
