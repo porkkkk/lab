@@ -4,1352 +4,1606 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101827">
-<title>English Exam Preparation | STC Pollachi</title>
+<meta name="theme-color" content="#080b14">
+<title>Advanced English | Exam Preparation</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 :root {
-  --bg:#f4f6fa;
-  --card:#ffffff;
-  --text:#172033;
-  --muted:#64748b;
-  --primary:#315ee8;
-  --soft:#eaf0ff;
-  --border:#e4e8f0;
-  --green:#16834a;
-  --greenbg:#e9f8ef;
-  --orange:#a75a10;
-  --orangebg:#fff3df;
+  --bg:#080b14;
+  --panel:#101625;
+  --panel2:#151e30;
+  --panel3:#1b2740;
+  --text:#f1f5ff;
+  --muted:#93a1b8;
+  --blue:#6c8cff;
+  --cyan:#48d9e8;
+  --purple:#a78bfa;
+  --green:#4adea4;
+  --orange:#ffbd69;
+  --border:rgba(255,255,255,.075);
+  --sidebar:260px;
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
+  background:
+    radial-gradient(ellipse at 75% 0%,rgba(79,100,220,.13),transparent 35%),
+    var(--bg);
   color:var(--text);
+  font-family:'DM Sans',sans-serif;
   line-height:1.7;
 }
 button,input{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+
+/* SIDEBAR */
+.sidebar{
+  width:var(--sidebar);
+  position:fixed;
+  inset:0 auto 0 0;
+  background:rgba(12,17,29,.96);
+  border-right:1px solid var(--border);
+  padding:25px 17px;
+  z-index:50;
+  overflow-y:auto;
+  backdrop-filter:blur(20px);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 8px 27px;
+  border-bottom:1px solid var(--border);
+}
+.brand-icon{
+  width:43px;height:43px;
+  border-radius:14px;
+  display:grid;place-items:center;
+  font-size:21px;font-weight:800;
+  background:linear-gradient(135deg,#5278ff,#9a70ff);
+  box-shadow:0 8px 25px #5278ff40;
+}
+.brand-name{font:700 16px 'Space Grotesk'}
+.brand-sub{font-size:11px;color:var(--muted)}
+.nav-label{
+  color:#64738c;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1.7px;
+  padding:24px 10px 9px;
+}
+.nav-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  width:100%;
+  padding:11px 12px;
+  border-radius:10px;
+  color:#9ba9c0;
+  font-size:13px;
+  font-weight:600;
+  margin:3px 0;
+  transition:.2s;
+}
+.nav-link:hover,.nav-link.active{
+  background:linear-gradient(90deg,#5477ff25,#5477ff08);
+  color:#fff;
+}
+.nav-link.active{border-left:3px solid var(--blue)}
+.nav-icon{width:20px;text-align:center;font-size:16px}
+.sidebar-bottom{
+  margin-top:28px;
+  padding:15px;
+  background:linear-gradient(135deg,#172748,#171a35);
+  border:1px solid #617bff30;
+  border-radius:14px;
+}
+.sidebar-bottom strong{font-size:13px}
+.sidebar-bottom p{font-size:11px;color:var(--muted);margin:5px 0}
+
+/* MAIN */
+.main{
+  margin-left:var(--sidebar);
+  min-height:100vh;
+}
 .topbar{
+  height:70px;
   position:sticky;
   top:0;
-  z-index:20;
-  background:#101827;
-  color:white;
-  padding:14px 20px;
+  z-index:30;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
-  box-shadow:0 3px 14px #0002;
+  padding:0 35px;
+  background:rgba(8,11,20,.82);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(18px);
 }
-.brand{font-size:17px;font-weight:800}
-.brand span{color:#91adff}
-.topbar small{color:#b9c5d9;font-size:11px}
-.hero{
-  background:linear-gradient(135deg,#17264a,#315ee8);
+.top-left{display:flex;align-items:center;gap:14px}
+.menu-btn{
+  display:none;
+  border:1px solid var(--border);
+  background:var(--panel);
   color:white;
-  padding:40px 22px;
-}
-.hero-inner{max-width:1100px;margin:auto}
-.hero h1{font-size:clamp(27px,5vw,43px);line-height:1.2;margin:0 0 12px}
-.hero p{color:#e2eaff;max-width:650px;margin:0}
-.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.tag{
-  display:inline-block;
-  padding:5px 11px;
-  border-radius:20px;
-  font-size:12px;
-  background:#ffffff20;
-  border:1px solid #ffffff35;
-}
-.layout{
-  max-width:1250px;
-  margin:25px auto;
-  padding:0 16px;
-  display:grid;
-  grid-template-columns:235px minmax(0,1fr);
-  gap:22px;
-  align-items:start;
-}
-.sidebar{
-  position:sticky;
-  top:82px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:14px;
-}
-.sidebar h3{font-size:14px;margin:5px 8px 12px}
-.sidebar a{
-  display:block;
-  color:#475569;
-  text-decoration:none;
-  padding:9px 10px;
-  border-radius:8px;
-  font-size:13px;
-  margin:3px 0;
-}
-.sidebar a:hover{background:var(--soft);color:var(--primary)}
-.main{min-width:0}
-.searchbox{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:12px;
-  margin-bottom:18px;
-}
-.searchbox input{
-  width:100%;
-  border:1px solid var(--border);
-  background:#f8fafc;
   border-radius:9px;
-  padding:13px;
-  outline:none;
-  color:var(--text);
+  padding:8px 11px;
 }
-.searchbox input:focus{border-color:var(--primary)}
-.section{margin-bottom:28px;scroll-margin-top:90px}
-.section-title{
-  font-size:23px;
-  margin:0 0 13px;
-  line-height:1.3;
+.breadcrumb{font-size:12px;color:var(--muted)}
+.breadcrumb b{color:white}
+.top-right{display:flex;align-items:center;gap:10px}
+.status{
+  padding:6px 11px;
+  border-radius:30px;
+  color:var(--green);
+  background:#4adea410;
+  border:1px solid #4adea430;
+  font-size:11px;font-weight:700;
 }
-.section-sub{color:var(--muted);font-size:13px;margin:-5px 0 16px}
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:13px;
-  padding:19px;
-  margin-bottom:14px;
-  box-shadow:0 2px 8px #17203306;
+.content{
+  max-width:1250px;
+  margin:auto;
+  padding:35px;
 }
-.card h2{font-size:21px;margin:0 0 5px;line-height:1.35}
-.card h3{font-size:16px;margin:19px 0 8px}
-.card h4{font-size:14px;margin:15px 0 6px}
-.author{font-size:13px;color:var(--muted);margin-bottom:12px}
-.badge{
-  display:inline-block;
-  border-radius:20px;
-  padding:4px 9px;
+
+/* HERO */
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:42px;
+  border-radius:25px;
+  background:
+    radial-gradient(circle at 90% 15%,#9b7aff45,transparent 30%),
+    radial-gradient(circle at 70% 100%,#31b9dd25,transparent 38%),
+    linear-gradient(120deg,#17264b,#17213a 55%,#252044);
+  border:1px solid #8299ff30;
+  box-shadow:0 20px 60px #0004;
+}
+.hero:after{
+  content:"✦";
+  position:absolute;
+  right:8%;
+  top:4%;
+  font-size:180px;
+  color:#ffffff09;
+}
+.eyebrow{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  padding:6px 11px;
+  background:#ffffff12;
+  border:1px solid #ffffff20;
+  border-radius:30px;
   font-size:11px;
   font-weight:700;
-  background:var(--soft);
-  color:var(--primary);
-  margin:0 4px 5px 0;
+  color:#cbd7ff;
 }
-.badge.green{background:var(--greenbg);color:var(--green)}
-.badge.orange{background:var(--orangebg);color:var(--orange)}
-p{margin:7px 0}
-ul,ol{padding-left:23px;margin:7px 0}
-li{margin:5px 0}
-.points li{padding-left:2px}
-.highlight{
-  background:#f0f5ff;
-  border-left:4px solid var(--primary);
-  border-radius:7px;
-  padding:12px 14px;
-  margin:12px 0;
+.hero h1{
+  font:700 clamp(30px,4vw,48px)/1.15 'Space Grotesk';
+  max-width:650px;
+  margin:22px 0 12px;
+  letter-spacing:-1.5px;
 }
-.memory{
-  background:var(--greenbg);
-  border-left:4px solid var(--green);
-  border-radius:7px;
-  padding:12px 14px;
-  margin:12px 0;
+.gradient-text{
+  background:linear-gradient(90deg,#91aaff,#70e4ec);
+  -webkit-background-clip:text;
+  color:transparent;
 }
-.warning{
-  background:var(--orangebg);
-  border-left:4px solid #d58a25;
-  border-radius:7px;
-  padding:12px 14px;
-  margin:12px 0;
+.hero p{color:#bdc9e4;max-width:580px;font-size:14px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:11px 17px;
+  border-radius:10px;
+  border:1px solid transparent;
+  font-weight:700;
+  font-size:12px;
+  transition:.2s;
 }
-table{
-  border-collapse:collapse;
+.btn-primary{
+  background:linear-gradient(135deg,#6d8dff,#8a70f7);
+  color:white;
+  box-shadow:0 7px 22px #637fff40;
+}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-outline{
+  border-color:#ffffff35;
+  background:#ffffff0d;
+  color:white;
+}
+.btn-outline:hover{background:#ffffff18}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin:23px 0;
+}
+.stat-card{
+  padding:19px;
+  background:linear-gradient(145deg,#131c2e,#101625);
+  border:1px solid var(--border);
+  border-radius:16px;
+}
+.stat-top{display:flex;justify-content:space-between;align-items:center}
+.stat-icon{
+  width:35px;height:35px;
+  display:grid;place-items:center;
+  border-radius:10px;
+  background:#6c8cff19;
+}
+.stat-number{
+  font:700 26px 'Space Grotesk';
+  margin-top:12px;
+}
+.stat-label{font-size:11px;color:var(--muted)}
+.stat-note{font-size:10px;color:var(--green);margin-top:5px}
+
+/* SEARCH */
+.search-wrap{
+  position:relative;
+  margin:25px 0;
+}
+.search-wrap span{
+  position:absolute;left:16px;top:12px;
+  color:var(--muted);font-size:17px;
+}
+.search{
   width:100%;
-  margin:10px 0;
+  padding:14px 18px 14px 45px;
+  background:var(--panel);
+  color:white;
+  border:1px solid var(--border);
+  border-radius:13px;
+  outline:none;
   font-size:13px;
+  transition:.2s;
 }
-th,td{
+.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px #6c8cff19}
+.search::placeholder{color:#68758b}
+
+/* SECTIONS */
+.section{margin-top:42px}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:15px;
+  margin-bottom:19px;
+}
+.section-kicker{
+  color:var(--blue);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+}
+.section h2{
+  font:700 24px 'Space Grotesk';
+  margin:3px 0;
+  letter-spacing:-.5px;
+}
+.section-desc{color:var(--muted);font-size:12px}
+.tag{
+  padding:5px 9px;
+  border-radius:7px;
+  background:#6c8cff16;
+  color:#9eb1ff;
+  font-size:10px;
+  font-weight:700;
+}
+
+/* CARDS */
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card{
+  background:linear-gradient(145deg,#131c2c,#101625);
   border:1px solid var(--border);
-  padding:10px;
-  text-align:left;
-  vertical-align:top;
+  border-radius:16px;
+  padding:20px;
+  transition:.22s;
+  min-width:0;
 }
-th{background:#f0f3fa}
-.grid2{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
+.card:hover{
+  transform:translateY(-3px);
+  border-color:#6c8cff55;
+  box-shadow:0 13px 30px #0003;
 }
-.mini{
-  background:#f8fafc;
+.card h3{font:700 16px 'Space Grotesk';margin:0 0 9px}
+.card p{font-size:12px;color:#aab6ca;margin:7px 0}
+.card-icon{
+  width:39px;height:39px;
+  display:grid;place-items:center;
+  border-radius:11px;
+  background:#6c8cff18;
+  margin-bottom:13px;
+  font-size:19px;
+}
+.card-meta{font-size:10px;color:var(--muted);margin-top:12px}
+
+/* LESSONS */
+.lesson{
+  background:linear-gradient(145deg,#131c2c,#0f1522);
   border:1px solid var(--border);
-  border-radius:9px;
-  padding:12px;
+  border-radius:18px;
+  padding:23px;
+  margin-bottom:17px;
+  scroll-margin-top:90px;
 }
-.mini strong{display:block;margin-bottom:4px}
-.question{
-  padding:10px 0;
-  border-bottom:1px solid var(--border);
+.lesson-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:start;
+  margin-bottom:17px;
 }
-.question:last-child{border:0}
-.question strong{color:#263b6b}
-.writer-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
+.lesson-number{
+  font-size:10px;
+  color:var(--cyan);
+  font-weight:800;
+  letter-spacing:1.5px;
 }
-.writer{
-  padding:12px;
-  background:#f8fafc;
-  border:1px solid var(--border);
-  border-radius:9px;
+.lesson h3{
+  font:700 21px 'Space Grotesk';
+  margin:3px 0;
 }
-.writer strong{display:block}
-.writer small{color:var(--muted)}
-.footer{
-  background:#101827;
-  color:#c5d0e3;
-  text-align:center;
-  padding:28px 15px;
-  margin-top:35px;
+.author{font-size:12px;color:var(--muted)}
+.lesson-badge{
+  padding:6px 10px;
+  border-radius:8px;
+  background:#a78bfa17;
+  color:#c2adff;
+  font-size:10px;
+  white-space:nowrap;
+  font-weight:700;
+}
+.lesson h4{
+  font:700 13px 'Space Grotesk';
+  color:#a9bcff;
+  margin:18px 0 7px;
+}
+.lesson p{font-size:13px;color:#bdc7d9;margin:7px 0}
+.lesson ul{padding-left:20px;margin:8px 0}
+.lesson li{font-size:12px;color:#bdc7d9;padding:3px 0}
+.lesson li::marker{color:var(--cyan)}
+.highlight{
+  padding:13px 15px;
+  border-radius:11px;
+  background:#6c8cff0e;
+  border-left:3px solid var(--blue);
+  color:#d5def2;
+  font-size:12px;
+  margin-top:13px;
+}
+.quote{
+  padding:13px 16px;
+  border-radius:10px;
+  background:#4adea40c;
+  border:1px solid #4adea41c;
+  color:#b9f2d9;
   font-size:12px;
 }
-.progress-wrap{
-  height:7px;
-  background:#e5eaf3;
-  border-radius:20px;
-  overflow:hidden;
-  margin:9px 0;
-}
-.progress{
-  height:100%;
-  width:0%;
-  background:var(--green);
-  transition:width .2s;
-}
-.checkline{
-  display:flex;
-  align-items:flex-start;
-  gap:9px;
-  padding:8px 0;
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:500px}
+th,td{
+  padding:13px 15px;
+  text-align:left;
   border-bottom:1px solid var(--border);
+  font-size:12px;
 }
-.checkline input{margin-top:5px;accent-color:var(--green)}
-.checkline label{font-size:14px;cursor:pointer}
-.small{font-size:12px;color:var(--muted)}
-.hidden{display:none!important}
-@media(max-width:800px){
-  .layout{grid-template-columns:1fr;margin:15px auto}
+th{background:#19243a;color:#b8c8ff;font-weight:700}
+td{color:#c1ccdc}
+tr:last-child td{border-bottom:0}
+
+/* QUESTION CARDS */
+.question{
+  padding:17px;
+  background:#121b2b;
+  border:1px solid var(--border);
+  border-radius:13px;
+  margin-bottom:12px;
+}
+.question strong{display:block;color:#e8edff;font-size:13px}
+.question p{font-size:12px;color:#aebbd0;margin:9px 0 0}
+.q-number{color:var(--cyan);font-size:10px;font-weight:800;margin-right:7px}
+
+/* CHECKLIST */
+.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.check-item{
+  display:flex;align-items:center;gap:10px;
+  background:#121b2b;
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:12px;
+  font-size:12px;color:#c5d0e1;
+}
+.check-item input{
+  accent-color:#6c8cff;
+  width:16px;height:16px;
+}
+.progress-track{
+  height:7px;background:#273249;
+  border-radius:20px;overflow:hidden;margin-top:15px;
+}
+.progress-fill{
+  width:0;height:100%;
+  background:linear-gradient(90deg,#6c8cff,#48d9e8);
+  transition:.3s;
+}
+.progress-text{font-size:11px;color:var(--muted);margin-top:8px}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  border-top:1px solid var(--border);
+  padding:30px 15px;
+  color:#728099;
+  font-size:11px;
+  margin-top:50px;
+}
+.back-top{
+  position:fixed;right:22px;bottom:22px;
+  width:43px;height:43px;border-radius:13px;
+  border:1px solid #8299ff45;
+  background:#202d4b;color:white;
+  font-size:18px;z-index:20;
+  box-shadow:0 8px 25px #0005;
+}
+.no-results{display:none;color:var(--muted);padding:20px;text-align:center}
+
+/* MOBILE */
+@media(max-width:950px){
+  :root{--sidebar:235px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
   .sidebar{
-    position:static;
-    display:flex;
-    flex-wrap:wrap;
-    gap:4px;
-    padding:9px;
+    transform:translateX(-105%);
+    transition:.25s;
+    width:270px;
+    box-shadow:20px 0 60px #0008;
   }
-  .sidebar h3{width:100%;margin:3px 7px}
-  .sidebar a{font-size:12px;padding:7px 9px}
-  .grid2,.writer-grid{grid-template-columns:1fr}
-}
-@media(max-width:480px){
-  .topbar{padding:12px}
-  .brand{font-size:14px}
-  .hero{padding:30px 17px}
-  .layout{padding:0 11px}
-  .card{padding:14px}
-  .card h2{font-size:19px}
-  .section-title{font-size:21px}
-  th,td{padding:7px;font-size:12px}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .topbar{padding:0 16px;height:60px}
+  .menu-btn{display:block}
+  .content{padding:19px 14px}
+  .hero{padding:26px 21px;border-radius:19px}
+  .hero h1{font-size:32px}
+  .stats{gap:9px}
+  .stat-card{padding:14px}
+  .stat-number{font-size:23px}
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .lesson{padding:17px}
+  .lesson h3{font-size:19px}
+  .lesson-top{gap:8px}
+  .checklist{grid-template-columns:1fr}
+  .section h2{font-size:21px}
+  .status{font-size:9px}
+  .breadcrumb{font-size:10px}
 }
 @media print{
-  .topbar,.sidebar,.searchbox,.hero-tags{display:none!important}
-  .layout{display:block;margin:0;padding:0}
-  body{background:white}
-  .card{break-inside:avoid;box-shadow:none}
-  .section{break-inside:auto}
+  .sidebar,.topbar,.search-wrap,.hero-actions,.back-top{display:none!important}
+  .main{margin:0}
+  body{background:white;color:black}
+  .content{padding:0}
+  .card,.lesson,.question{background:white;color:black;border:1px solid #ddd;break-inside:avoid}
+  .lesson p,.lesson li,.card p,.question p{color:#222}
+  .section{break-inside:avoid}
 }
 </style>
 </head>
 
 <body>
 
-<header class="topbar">
-  <div class="brand">ENGLISH <span>STUDY HUB</span></div>
-  <small>STC POLLACHI · B.Sc. DCFS</small>
-</header>
-
-<section class="hero">
-  <div class="hero-inner">
-    <h1>English Exam Preparation</h1>
-    <p>Complete English study notes in simple English. Read the stories, understand the poems, remember the writers and prepare for your university exam.</p>
-    <div class="hero-tags">
-      <span class="tag">9 Literature Lessons</span>
-      <span class="tag">Grammar Notes</span>
-      <span class="tag">5 & 8 Mark Questions</span>
-      <span class="tag">One-word Revision</span>
-      <span class="tag">Mobile + PC</span>
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="brand-icon">A</div>
+    <div>
+      <div class="brand-name">ENGLISH HUB</div>
+      <div class="brand-sub">University Exam Preparation</div>
     </div>
   </div>
-</section>
 
-<div class="layout">
+  <div class="nav-label">MAIN MENU</div>
+  <a class="nav-link active" href="#home"><span class="nav-icon">⌂</span> Dashboard</a>
+  <a class="nav-link" href="#overview"><span class="nav-icon">▦</span> Syllabus Overview</a>
+  <a class="nav-link" href="#writers"><span class="nav-icon">✍</span> Writers & Authors</a>
 
-<nav class="sidebar">
-  <h3>STUDY MENU</h3>
-  <a href="#writers">Writers & Authors</a>
-  <a href="#unit1">Unit I – Poems</a>
-  <a href="#unit2">Unit II</a>
-  <a href="#unit3">Unit III</a>
-  <a href="#unit4">Unit IV</a>
-  <a href="#unit5">Unit V – Mary Kom</a>
-  <a href="#grammar">Grammar</a>
-  <a href="#oneword">One-word Questions</a>
-  <a href="#important">Important Questions</a>
-  <a href="#revision">Revision Checklist</a>
-  <a href="#timetable">Study Timetable</a>
-</nav>
+  <div class="nav-label">LITERATURE</div>
+  <a class="nav-link" href="#unit1"><span class="nav-icon">Ⅰ</span> Unit 1 – Poetry</a>
+  <a class="nav-link" href="#unit2"><span class="nav-icon">Ⅱ</span> Unit 2 – Prose</a>
+  <a class="nav-link" href="#unit3"><span class="nav-icon">Ⅲ</span> Unit 3 – Stories</a>
+  <a class="nav-link" href="#unit4"><span class="nav-icon">Ⅳ</span> Unit 4 – Literature</a>
+  <a class="nav-link" href="#unit5"><span class="nav-icon">Ⅴ</span> Unit 5 – Biography</a>
+
+  <div class="nav-label">EXAM PREPARATION</div>
+  <a class="nav-link" href="#grammar"><span class="nav-icon">Aa</span> Grammar Notes</a>
+  <a class="nav-link" href="#questions"><span class="nav-icon">☷</span> Important Questions</a>
+  <a class="nav-link" href="#eightmarks"><span class="nav-icon">✎</span> 8-Mark Answers</a>
+  <a class="nav-link" href="#revision"><span class="nav-icon">✓</span> Revision Checklist</a>
+
+  <div class="sidebar-bottom">
+    <strong>🎯 Exam Focus</strong>
+    <p>Read the summary, learn the characters, and revise the important points.</p>
+  </div>
+</aside>
 
 <main class="main">
+<header class="topbar">
+  <div class="top-left">
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="breadcrumb">STUDY SPACE / <b>ADVANCED ENGLISH</b></div>
+  </div>
+  <div class="top-right">
+    <span class="status">● DARK MODE</span>
+  </div>
+</header>
 
-<div class="searchbox">
-  <input id="search" type="search" placeholder="Search lesson, writer, theme, question or grammar..." oninput="searchNotes()">
-  <p class="small">Type a word such as Mary Kom, friendship, Pulley, grammar or Behrman.</p>
-</div>
+<div class="content">
 
-<section class="section" id="writers">
-  <h2 class="section-title">1. Writers and Authors</h2>
-  <p class="section-sub">First learn all writer names. They are useful for one-word questions.</p>
-  <div class="card">
-    <div class="writer-grid">
-      <div class="writer"><strong>The Pulley</strong><small>George Herbert</small></div>
-      <div class="writer"><strong>Sonnet 30</strong><small>William Shakespeare</small></div>
-      <div class="writer"><strong>Thank You, M'am</strong><small>Langston Hughes</small></div>
-      <div class="writer"><strong>Clothes</strong><small>Chitra Banerjee Divakaruni</small></div>
-      <div class="writer"><strong>Next Sunday</strong><small>R. K. Narayan</small></div>
-      <div class="writer"><strong>The Last Leaf</strong><small>O. Henry</small></div>
-      <div class="writer"><strong>My Lord, the Baby</strong><small>Rabindranath Tagore</small></div>
-      <div class="writer"><strong>The Open Window</strong><small>Saki (H. H. Munro)</small></div>
-      <div class="writer"><strong>Mary Kom</strong><small>Biography of Mary Kom</small></div>
-    </div>
-    <div class="warning"><strong>Important:</strong> Learn the spelling of every writer's name. Do not confuse O. Henry's real name William Sydney Porter with Saki's real name H. H. Munro.</div>
+<section class="hero" id="home">
+  <span class="eyebrow">✦ YOUR PERSONAL STUDY SPACE</span>
+  <h1>Learn Smart.<br><span class="gradient-text">Write Better. Score Higher.</span></h1>
+  <p>
+    Advanced English exam preparation in simple English.
+    Understand the lessons, remember the main points, and prepare confidently.
+  </p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#unit1">Start Studying →</a>
+    <a class="btn btn-outline" href="#eightmarks">8-Mark Answers</a>
+    <button class="btn btn-outline" onclick="window.print()">⇩ Print Notes</button>
   </div>
 </section>
 
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-top"><span class="stat-icon">📚</span><span class="tag">Literature</span></div>
+    <div class="stat-number">9</div>
+    <div class="stat-label">Lessons covered</div>
+    <div class="stat-note">Poetry, prose and stories</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-top"><span class="stat-icon">✍️</span><span class="tag">Language</span></div>
+    <div class="stat-number">4</div>
+    <div class="stat-label">Grammar areas</div>
+    <div class="stat-note">Basic to exam-ready</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-top"><span class="stat-icon">🎯</span><span class="tag">Preparation</span></div>
+    <div class="stat-number">8M</div>
+    <div class="stat-label">Long-answer revision</div>
+    <div class="stat-note">Point-wise answers</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-top"><span class="stat-icon">⚡</span><span class="tag">Study</span></div>
+    <div class="stat-number" id="progressNumber">0%</div>
+    <div class="stat-label">Your revision progress</div>
+    <div class="stat-note">Tick the checklist below</div>
+  </div>
+</div>
+
+<div class="search-wrap">
+  <span>⌕</span>
+  <input class="search" id="search" placeholder="Search lessons, writers, grammar, questions..." oninput="searchContent()">
+</div>
+
+<section class="section" id="overview">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">GET STARTED</div>
+      <h2>Your Study Overview</h2>
+      <div class="section-desc">Everything organised in one place.</div>
+    </div>
+    <span class="tag">STC POLLACHI</span>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon">📖</div>
+      <h3>Read the Summary</h3>
+      <p>Understand what happens in each poem, story and lesson before memorising answers.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧠</div>
+      <h3>Remember Key Points</h3>
+      <p>Focus on characters, themes, message, important events and the writer's name.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📝</div>
+      <h3>Practise Writing</h3>
+      <p>Write a short introduction, clear points and a simple conclusion for long answers.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="writers">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">QUICK REFERENCE</div>
+      <h2>Writers & Authors</h2>
+      <div class="section-desc">Learn the author names with their lessons.</div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>No.</th><th>Lesson</th><th>Writer / Author</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td>The Pulley</td><td>George Herbert</td><td>Poem</td></tr>
+        <tr><td>02</td><td>Sonnet 30</td><td>William Shakespeare</td><td>Sonnet</td></tr>
+        <tr><td>03</td><td>Thank You, M'am</td><td>Langston Hughes</td><td>Short story</td></tr>
+        <tr><td>04</td><td>Clothes</td><td>Chitra Banerjee Divakaruni</td><td>Short story</td></tr>
+        <tr><td>05</td><td>Next Sunday</td><td>R. K. Narayan</td><td>Prose</td></tr>
+        <tr><td>06</td><td>The Last Leaf</td><td>O. Henry</td><td>Short story</td></tr>
+        <tr><td>07</td><td>My Lord, the Baby</td><td>Rabindranath Tagore</td><td>Short story</td></tr>
+        <tr><td>08</td><td>The Open Window</td><td>Saki (H. H. Munro)</td><td>Short story</td></tr>
+        <tr><td>09</td><td>Mary Kom</td><td>Biography</td><td>Biography</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- UNIT 1 -->
 <section class="section" id="unit1">
-<h2 class="section-title">2. Unit I – Poems</h2>
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">UNIT 01</div>
+      <h2>Poetry</h2>
+      <div class="section-desc">Understand the central idea and message of each poem.</div>
+    </div>
+    <span class="tag">2 LESSONS</span>
+  </div>
 
-<article class="card searchable">
-<h2>Lesson 1: The Pulley</h2>
-<div class="author">Poet: George Herbert</div>
-<span class="badge">Poem</span><span class="badge">Religious poetry</span><span class="badge">Metaphysical poetry</span>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">POEM 01</div>
+        <h3>The Pulley</h3>
+        <div class="author">George Herbert</div>
+      </div>
+      <span class="lesson-badge">Poetry</span>
+    </div>
+    <h4>Simple Summary</h4>
+    <p>
+      The poem explains God's love for human beings. When God created humans,
+      He gave them many gifts such as strength, beauty, wisdom, honour and pleasure.
+      But God did not give them complete rest.
+    </p>
+    <p>
+      God knew that if human beings had everything, they might forget Him.
+      So He kept rest away from them. When people become tired and unhappy,
+      they may turn towards God for peace and comfort.
+    </p>
+    <h4>Important Points</h4>
+    <ul>
+      <li>God created human beings with love.</li>
+      <li>He gave them many blessings and gifts.</li>
+      <li>He kept rest as the one gift that was not given completely.</li>
+      <li>Human restlessness can make people remember God.</li>
+      <li>The poem explains the relationship between God and human beings.</li>
+    </ul>
+    <h4>Main Themes</h4>
+    <ul>
+      <li>God's love and wisdom.</li>
+      <li>Human nature and desire.</li>
+      <li>Faith and spiritual connection.</li>
+      <li>The search for peace and rest.</li>
+    </ul>
+    <div class="highlight"><b>Remember:</b> God gives humans many blessings but keeps rest away so that they will turn towards Him.</div>
+  </article>
 
-<h3>Simple explanation</h3>
-<p>God creates human beings and wants to give them many blessings. He gives them strength, beauty, wisdom, honour and pleasure. But He keeps one blessing, called rest, for Himself.</p>
-<p>God thinks that if humans receive everything, they may become fully satisfied with worldly life. They may forget God and love the gifts more than the giver.</p>
-<p>So God keeps rest away from humans. People may enjoy many things, but they still feel something is missing. This feeling makes them remember God and return to Him.</p>
-
-<h3>Story in easy points</h3>
-<ol class="points">
-<li>God prepares a glass full of blessings.</li>
-<li>He gives strength to humans.</li>
-<li>He gives beauty and wisdom.</li>
-<li>He gives honour and pleasure.</li>
-<li>Only rest remains in the glass.</li>
-<li>God decides to keep rest.</li>
-<li>He thinks humans may forget Him if they have everything.</li>
-<li>Human beings become restless.</li>
-<li>Their tiredness brings them closer to God.</li>
-</ol>
-
-<h3>Important themes</h3>
-<ul>
-<li>God's love and wisdom.</li>
-<li>Human restlessness.</li>
-<li>Faith and spirituality.</li>
-<li>Worldly happiness is not complete happiness.</li>
-<li>Humans need God.</li>
-</ul>
-
-<h3>Important symbols</h3>
-<table>
-<tr><th>Symbol</th><th>Meaning</th></tr>
-<tr><td>Glass of blessings</td><td>God's gifts to humans.</td></tr>
-<tr><td>Strength</td><td>Physical power.</td></tr>
-<tr><td>Beauty</td><td>Good appearance.</td></tr>
-<tr><td>Wisdom</td><td>Knowledge and understanding.</td></tr>
-<tr><td>Honour</td><td>Respect.</td></tr>
-<tr><td>Pleasure</td><td>Happiness.</td></tr>
-<tr><td>Rest</td><td>Complete satisfaction.</td></tr>
-<tr><td>Pulley</td><td>Bringing humans closer to God.</td></tr>
-</table>
-
-<h3>Important literary devices</h3>
-<ul>
-<li><strong>Metaphysical conceit:</strong> An unusual comparison between a pulley and the spiritual life of humans.</li>
-<li><strong>Symbolism:</strong> The glass represents God's blessings.</li>
-<li><strong>Religious imagery:</strong> God and His gifts are central to the poem.</li>
-</ul>
-
-<div class="memory"><strong>Easy memory:</strong> God gives five blessings but keeps rest. Human restlessness makes them remember God.</div>
-
-<h3>Important 5-mark / 8-mark questions</h3>
-<div class="question">1. What blessings does God give to man?</div>
-<div class="question">2. Why does God withhold rest?</div>
-<div class="question">3. Explain the pulley metaphor.</div>
-<div class="question">4. What is the central theme of the poem?</div>
-<div class="question">5. Explain the significance of the glass of blessings.</div>
-<div class="question">6. How does the poem show God's wisdom?</div>
-<div class="question">7. Explain human restlessness and spiritual dependence.</div>
-<div class="question">8. What is the moral lesson of the poem?</div>
-</article>
-
-<article class="card searchable">
-<h2>Lesson 2: Sonnet 30</h2>
-<div class="author">Poet: William Shakespeare</div>
-<span class="badge">Poem</span><span class="badge">Shakespearean Sonnet</span>
-
-<h3>Simple explanation</h3>
-<p>The speaker sits quietly and remembers his past. He thinks about lost opportunities, old problems and friends who have died. These memories make him very sad.</p>
-<p>He feels that all his old sorrows are coming back again. But at the end, he remembers his dear friend. Suddenly, his sadness disappears. Thinking about his friend gives him happiness and comfort.</p>
-
-<h3>Poem in easy points</h3>
-<ol>
-<li>The speaker remembers his past quietly.</li>
-<li>He thinks about things he has lost.</li>
-<li>He remembers his old friends.</li>
-<li>He feels sad about friends who have died.</li>
-<li>His old sorrows return to his mind.</li>
-<li>He feels deep emotional pain.</li>
-<li>He remembers his dear friend.</li>
-<li>His sadness changes into happiness.</li>
-</ol>
-
-<h3>Important themes</h3>
-<ul>
-<li>Memory and the past.</li>
-<li>Friendship and love.</li>
-<li>Death and loss.</li>
-<li>Sadness and regret.</li>
-<li>The healing power of friendship.</li>
-<li>Passage of time.</li>
-</ul>
-
-<h3>Poem structure</h3>
-<table>
-<tr><th>Item</th><th>Answer</th></tr>
-<tr><td>Total lines</td><td>14</td></tr>
-<tr><td>Structure</td><td>Three quatrains and one couplet</td></tr>
-<tr><td>Rhyme scheme</td><td>ABAB CDCD EFEF GG</td></tr>
-<tr><td>Poetic form</td><td>Shakespearean sonnet</td></tr>
-<tr><td>Metre</td><td>Iambic pentameter</td></tr>
-</table>
-
-<h3>Literary devices</h3>
-<ul>
-<li><strong>Metaphor:</strong> Memories are presented like a legal court session.</li>
-<li><strong>Imagery:</strong> Pictures of sadness, loss and death.</li>
-<li><strong>Alliteration:</strong> Repetition of similar starting sounds.</li>
-<li><strong>Financial imagery:</strong> The speaker describes emotional losses using words connected with money and accounts.</li>
-<li><strong>Volta:</strong> The change in mood in the final couplet.</li>
-</ul>
-
-<div class="memory"><strong>Easy memory:</strong> Past memories bring sadness, but remembering a dear friend removes the sadness.</div>
-
-<h3>Important questions</h3>
-<div class="question">1. Explain the meaning of "sessions of sweet silent thought".</div>
-<div class="question">2. Why does the speaker remember his past?</div>
-<div class="question">3. What does "death's dateless night" mean?</div>
-<div class="question">4. Explain the financial imagery.</div>
-<div class="question">5. What is the importance of friendship?</div>
-<div class="question">6. Explain the final two lines.</div>
-<div class="question">7. What are the main themes of Sonnet 30?</div>
-<div class="question">8. Explain the structure of the sonnet.</div>
-</article>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">POEM 02</div>
+        <h3>Sonnet 30</h3>
+        <div class="author">William Shakespeare</div>
+      </div>
+      <span class="lesson-badge">Sonnet</span>
+    </div>
+    <h4>Simple Summary</h4>
+    <p>
+      In Sonnet 30, Shakespeare remembers his past problems and losses.
+      When he thinks about the past, he feels sad. He remembers old friends
+      and things that he has lost.
+    </p>
+    <p>
+      He feels pain because of these memories. But at the end, he remembers
+      a dear friend. This memory brings happiness and makes him feel that
+      his losses are less painful.
+    </p>
+    <h4>Important Points</h4>
+    <ul>
+      <li>The poet thinks about his past.</li>
+      <li>He remembers lost friends and old sadness.</li>
+      <li>He feels sorrow for things he cannot get back.</li>
+      <li>The memory of a dear friend gives him comfort.</li>
+      <li>Love and friendship help him overcome sadness.</li>
+    </ul>
+    <h4>Poetic Form</h4>
+    <ul>
+      <li>It is a Shakespearean sonnet.</li>
+      <li>It has 14 lines.</li>
+      <li>It follows the rhyme scheme ABAB CDCD EFEF GG.</li>
+      <li>The final two lines are called the couplet.</li>
+    </ul>
+    <div class="highlight"><b>Remember:</b> Memories of a true friend can bring happiness even during sadness.</div>
+  </article>
 </section>
 
+<!-- UNIT 2 -->
 <section class="section" id="unit2">
-<h2 class="section-title">3. Unit II – Short Stories</h2>
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">UNIT 02</div>
+      <h2>Prose & Short Stories</h2>
+      <div class="section-desc">Understand the story, characters and message.</div>
+    </div>
+    <span class="tag">3 LESSONS</span>
+  </div>
 
-<article class="card searchable">
-<h2>Lesson 3: Thank You, M'am</h2>
-<div class="author">Writer: Langston Hughes</div>
-<span class="badge">Short story</span>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">LESSON 03</div>
+        <h3>Thank You, M'am</h3>
+        <div class="author">Langston Hughes</div>
+      </div>
+      <span class="lesson-badge">Short Story</span>
+    </div>
+    <h4>Simple Summary</h4>
+    <p>
+      The story is about a boy named Roger who tries to steal the purse of
+      Mrs. Luella Bates Washington Jones. She catches him. Instead of calling
+      the police, she takes him to her home.
+    </p>
+    <p>
+      She gives him food and talks to him. Roger learns that she understands
+      his problems. She trusts him and gives him money to buy the blue suede
+      shoes he wanted. Roger is touched by her kindness.
+    </p>
+    <h4>Main Characters</h4>
+    <ul>
+      <li><b>Mrs. Jones:</b> A strong, kind and understanding woman.</li>
+      <li><b>Roger:</b> A young boy who tries to steal but learns a lesson.</li>
+    </ul>
+    <h4>Important Points</h4>
+    <ul>
+      <li>Roger tries to steal Mrs. Jones's purse.</li>
+      <li>Mrs. Jones catches him and takes him home.</li>
+      <li>She gives him food and takes care of him.</li>
+      <li>She trusts Roger and gives him money for shoes.</li>
+      <li>Roger learns the value of kindness and trust.</li>
+    </ul>
+    <h4>Themes</h4>
+    <ul>
+      <li>Kindness and forgiveness.</li>
+      <li>Trust and understanding.</li>
+      <li>Helping people change their lives.</li>
+    </ul>
+    <div class="highlight"><b>Remember:</b> Kindness and trust can change a person's behaviour.</div>
+  </article>
 
-<h3>Simple story</h3>
-<p>Roger is a young boy who tries to steal Mrs. Jones's purse. She catches him. Instead of taking him to the police, she takes him to her house.</p>
-<p>She asks him to wash his face and gives him food. Roger tells her that he wants money to buy blue suede shoes. Mrs. Jones understands him and gives him money to buy the shoes.</p>
-<p>She also teaches him to behave properly. Roger feels grateful for her kindness and learns a good lesson.</p>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">LESSON 04</div>
+        <h3>Clothes</h3>
+        <div class="author">Chitra Banerjee Divakaruni</div>
+      </div>
+      <span class="lesson-badge">Short Story</span>
+    </div>
+    <h4>Simple Summary</h4>
+    <p>
+      The story is about Sumita, a young Indian woman. She marries Somesh
+      and moves to America. After marriage, she experiences a new culture
+      and a different way of life.
+    </p>
+    <p>
+      Her husband is killed during a robbery. Sumita faces a difficult
+      situation. She thinks about returning to India, but finally decides
+      to stay in America and build an independent life.
+    </p>
+    <h4>Main Character</h4>
+    <ul>
+      <li><b>Sumita:</b> A young woman who faces difficulties and chooses independence.</li>
+      <li><b>Somesh:</b> Sumita's husband.</li>
+    </ul>
+    <h4>Important Points</h4>
+    <ul>
+      <li>Sumita begins a new life after marriage.</li>
+      <li>She moves from India to America.</li>
+      <li>She experiences changes in culture and lifestyle.</li>
+      <li>Her husband's death creates a major problem in her life.</li>
+      <li>She chooses to face life independently.</li>
+    </ul>
+    <h4>Symbols</h4>
+    <ul>
+      <li><b>Sari:</b> Indian culture and tradition.</li>
+      <li><b>Clothes:</b> Identity and changes in life.</li>
+      <li><b>Jeans:</b> A new lifestyle and independence.</li>
+    </ul>
+    <h4>Themes</h4>
+    <ul>
+      <li>Women's independence.</li>
+      <li>Cultural identity.</li>
+      <li>Tradition and modern life.</li>
+      <li>Courage and personal choice.</li>
+    </ul>
+    <div class="highlight"><b>Remember:</b> Sumita chooses independence and decides to build her own future.</div>
+  </article>
 
-<h3>Story in easy points</h3>
-<ol>
-<li>Roger tries to steal Mrs. Jones's purse.</li>
-<li>Mrs. Jones catches him.</li>
-<li>She takes him to her home.</li>
-<li>She asks him to wash his face.</li>
-<li>She gives him food.</li>
-<li>Roger says he wanted blue suede shoes.</li>
-<li>Mrs. Jones understands him.</li>
-<li>She gives him money for the shoes.</li>
-<li>Roger learns about kindness and trust.</li>
-<li>He thanks Mrs. Jones.</li>
-</ol>
-
-<h3>Important characters</h3>
-<div class="grid2">
-<div class="mini"><strong>Mrs. Jones</strong>Kind, strong, generous and understanding.</div>
-<div class="mini"><strong>Roger</strong>A young boy who makes a mistake but learns from it.</div>
-</div>
-
-<h3>Important themes</h3>
-<ul>
-<li>Kindness and generosity.</li>
-<li>Forgiveness.</li>
-<li>Trust and understanding.</li>
-<li>Human values.</li>
-<li>Helping poor children.</li>
-<li>Learning from mistakes.</li>
-</ul>
-
-<h3>Important items</h3>
-<table>
-<tr><th>Item</th><th>Meaning</th></tr>
-<tr><td>Purse</td><td>Roger's attempted theft.</td></tr>
-<tr><td>Blue suede shoes</td><td>Roger's desire.</td></tr>
-<tr><td>Food</td><td>Mrs. Jones's kindness.</td></tr>
-<tr><td>Home</td><td>Safety and guidance.</td></tr>
-</table>
-
-<div class="memory"><strong>Moral:</strong> Kindness and understanding can change a person's life.</div>
-
-<h3>Important questions</h3>
-<div class="question">1. Why did Roger try to steal the purse?</div>
-<div class="question">2. How did Mrs. Jones treat Roger?</div>
-<div class="question">3. Describe Mrs. Jones's character.</div>
-<div class="question">4. Describe Roger's character.</div>
-<div class="question">5. What lesson did Roger learn?</div>
-<div class="question">6. Explain the title of the story.</div>
-<div class="question">7. How does kindness change Roger?</div>
-<div class="question">8. What is the moral of the story?</div>
-</article>
-
-<article class="card searchable">
-<h2>Lesson 4: Clothes</h2>
-<div class="author">Writer: Chitra Banerjee Divakaruni</div>
-<span class="badge">Short story</span><span class="badge">Women's independence</span>
-
-<h3>Simple story</h3>
-<p>Sumita is a young Indian village woman. She lives with her parents. Her family arranges her marriage with Somesh Sen, who lives in California, America.</p>
-<p>Before marriage, her father gives her a beautiful pink sari. She marries Somesh and waits for her visa. After reaching America, she experiences a new culture and a different lifestyle.</p>
-<p>Somesh is kind and supportive. Sumita wants to work in their store and build a new life. But one night, a robber shoots Somesh and he dies.</p>
-<p>Her in-laws offer to take her back to India. However, Sumita decides to stay in America. She wants to become independent and create her own future.</p>
-
-<h3>Story in easy points</h3>
-<ol>
-<li>Sumita is a young woman from an Indian village.</li>
-<li>Her family arranges her marriage with Somesh.</li>
-<li>Somesh lives in California.</li>
-<li>Her father gives her a pink sari.</li>
-<li>She marries Somesh.</li>
-<li>She moves to America.</li>
-<li>She experiences a different culture.</li>
-<li>She wants to help Somesh in his store.</li>
-<li>A robber shoots Somesh.</li>
-<li>Somesh dies.</li>
-<li>Her in-laws offer to take her to India.</li>
-<li>Sumita decides to stay in America.</li>
-<li>She chooses an independent life.</li>
-</ol>
-
-<h3>Important characters</h3>
-<ul>
-<li><strong>Sumita:</strong> Sensitive, brave, determined and independent.</li>
-<li><strong>Somesh:</strong> Kind and supportive husband.</li>
-<li><strong>Father:</strong> Protective and loving.</li>
-<li><strong>In-laws:</strong> Support Sumita during her difficult time.</li>
-</ul>
-
-<h3>Important themes</h3>
-<ul>
-<li>Women's independence.</li>
-<li>Indian and American cultures.</li>
-<li>Love and marriage.</li>
-<li>Identity and transformation.</li>
-<li>Tradition versus modern life.</li>
-<li>Grief and loss.</li>
-<li>Courage and self-confidence.</li>
-</ul>
-
-<h3>Important symbols and items</h3>
-<table>
-<tr><th>Item</th><th>Meaning</th></tr>
-<tr><td>Pink sari</td><td>Tradition and marriage.</td></tr>
-<tr><td>Bangles</td><td>Married identity; breaking them represents grief.</td></tr>
-<tr><td>Blue jeans</td><td>Modern life and independence.</td></tr>
-<tr><td>Red bindi</td><td>Married identity and Indian tradition.</td></tr>
-<tr><td>Clothes</td><td>Changing identity and life.</td></tr>
-</table>
-
-<div class="memory"><strong>Moral:</strong> Be brave. Difficult situations can help us become independent and strong.</div>
-
-<h3>Important questions</h3>
-<div class="question">1. Describe Sumita's character.</div>
-<div class="question">2. Explain Sumita's marriage with Somesh.</div>
-<div class="question">3. What is the importance of the pink sari?</div>
-<div class="question">4. How does Sumita adjust to American culture?</div>
-<div class="question">5. Explain the relationship between Sumita and Somesh.</div>
-<div class="question">6. How does Somesh die?</div>
-<div class="question">7. Why does Sumita decide to stay in America?</div>
-<div class="question">8. Explain the importance of clothes in the story.</div>
-<div class="question">9. How does the story show women's independence?</div>
-<div class="question">10. Explain the cultural differences between India and America.</div>
-</article>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">LESSON 05</div>
+        <h3>Next Sunday</h3>
+        <div class="author">R. K. Narayan</div>
+      </div>
+      <span class="lesson-badge">Prose</span>
+    </div>
+    <h4>Simple Summary</h4>
+    <p>
+      The lesson presents the humorous habit of postponing plans.
+      People often make plans for Sunday, but when Sunday comes,
+      they find reasons to delay those plans.
+    </p>
+    <p>
+      The lesson uses humour to show how people waste time by saying
+      that they will do something later. It reminds readers that
+      postponing work can become a habit.
+    </p>
+    <h4>Important Points</h4>
+    <ul>
+      <li>Sunday is usually a day for rest and personal activities.</li>
+      <li>People make plans for their free time.</li>
+      <li>They often postpone those plans.</li>
+      <li>The writer presents this behaviour in a humorous way.</li>
+      <li>The lesson reminds us to use time properly.</li>
+    </ul>
+    <h4>Themes</h4>
+    <ul>
+      <li>Procrastination.</li>
+      <li>Time management.</li>
+      <li>Human habits and behaviour.</li>
+      <li>Humour and irony.</li>
+    </ul>
+    <div class="highlight"><b>Remember:</b> Do not keep postponing important work. Use your time properly.</div>
+  </article>
 </section>
 
+<!-- UNIT 3 -->
 <section class="section" id="unit3">
-<h2 class="section-title">4. Unit III – Essay and Short Story</h2>
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">UNIT 03</div>
+      <h2>Short Stories</h2>
+      <div class="section-desc">Characters, important events and moral lessons.</div>
+    </div>
+    <span class="tag">3 LESSONS</span>
+  </div>
 
-<article class="card searchable">
-<h2>Lesson 5: Next Sunday</h2>
-<div class="author">Writer: R. K. Narayan</div>
-<span class="badge">Essay</span><span class="badge">Humour</span>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">LESSON 06</div>
+        <h3>The Last Leaf</h3>
+        <div class="author">O. Henry</div>
+      </div>
+      <span class="lesson-badge">Short Story</span>
+    </div>
+    <h4>Simple Summary</h4>
+    <p>
+      The story is about two young artists, Sue and Johnsy. Johnsy becomes
+      seriously ill. She loses hope and believes that she will die when
+      the last leaf on the ivy vine outside her window falls.
+    </p>
+    <p>
+      Sue tries to encourage her. Their old neighbour Behrman hears about
+      Johnsy's belief. During a stormy night, he paints a leaf on the wall
+      so that it looks real.
+    </p>
+    <p>
+      The leaf does not fall. Johnsy sees it and gets hope to live.
+      Behrman catches pneumonia and dies. His painted leaf becomes
+      his masterpiece.
+    </p>
+    <h4>Main Characters</h4>
+    <ul>
+      <li><b>Johnsy:</b> A sick young artist who loses hope.</li>
+      <li><b>Sue:</b> Johnsy's caring friend.</li>
+      <li><b>Behrman:</b> An old artist who sacrifices his life to save Johnsy.</li>
+    </ul>
+    <h4>Important Points</h4>
+    <ul>
+      <li>Johnsy becomes ill and loses hope.</li>
+      <li>She connects her life with the falling ivy leaves.</li>
+      <li>Sue tries to give her courage.</li>
+      <li>Behrman paints a leaf during a storm.</li>
+      <li>Johnsy regains hope after seeing the leaf.</li>
+      <li>Behrman dies after his sacrifice.</li>
+    </ul>
+    <h4>Themes</h4>
+    <ul>
+      <li>Hope and courage.</li>
+      <li>Friendship and love.</li>
+      <li>Sacrifice and kindness.</li>
+      <li>The power of art.</li>
+    </ul>
+    <div class="highlight"><b>Remember:</b> Behrman's painted leaf gives Johnsy hope and saves her life.</div>
+  </article>
 
-<h3>Simple explanation</h3>
-<p>People wait for Sunday because it is a holiday. They plan to complete many activities, repair things, relax and enjoy their free time.</p>
-<p>But unexpected problems and distractions come. They cannot finish their plans. Finally, they postpone the work to the next Sunday.</p>
-<p>The same thing happens again and again. The writer uses humour to show how people waste time and postpone their work.</p>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">LESSON 07</div>
+        <h3>My Lord, the Baby</h3>
+        <div class="author">Rabindranath Tagore</div>
+      </div>
+      <span class="lesson-badge">Short Story</span>
+    </div>
+    <h4>Simple Summary</h4>
+    <p>
+      The story is about Raicharan, a loyal servant who takes care of
+      Anukul's young son. One day, while Raicharan is looking after the
+      child near the Padma River, the baby disappears.
+    </p>
+    <p>
+      Raicharan feels guilty and heartbroken. Later, he has a son of his
+      own named Phailna. He brings up the boy with great care and gives
+      him everything he can.
+    </p>
+    <p>
+      Raicharan later gives Phailna to Anukul, believing that the child
+      should receive the life and position that belonged to Anukul's
+      missing son. The story explores loyalty, guilt and sacrifice.
+    </p>
+    <h4>Main Characters</h4>
+    <ul>
+      <li><b>Raicharan:</b> A loyal servant who feels responsible for the baby's disappearance.</li>
+      <li><b>Anukul:</b> Raicharan's master.</li>
+      <li><b>Phailna:</b> Raicharan's son.</li>
+    </ul>
+    <h4>Important Points</h4>
+    <ul>
+      <li>Raicharan takes care of Anukul's baby.</li>
+      <li>The baby disappears near the Padma River.</li>
+      <li>Raicharan feels deep guilt.</li>
+      <li>He later raises his own son, Phailna.</li>
+      <li>He gives Phailna to Anukul.</li>
+      <li>The story shows the depth of Raicharan's sacrifice.</li>
+    </ul>
+    <h4>Themes</h4>
+    <ul>
+      <li>Loyalty and duty.</li>
+      <li>Parental love.</li>
+      <li>Guilt and sorrow.</li>
+      <li>Sacrifice and responsibility.</li>
+    </ul>
+    <div class="highlight"><b>Remember:</b> Raicharan's actions show his loyalty, guilt and deep sacrifice.</div>
+  </article>
 
-<h3>Important points</h3>
-<ol>
-<li>People wait for Sunday.</li>
-<li>They plan many activities.</li>
-<li>They want to relax and finish household work.</li>
-<li>Some people plan to repair household items.</li>
-<li>Unexpected problems appear.</li>
-<li>They cannot complete their work.</li>
-<li>They postpone the work.</li>
-<li>They say they will do it next Sunday.</li>
-</ol>
-
-<h3>Important themes</h3>
-<ul>
-<li>Procrastination – Postponing work.</li>
-<li>Human nature.</li>
-<li>Time management.</li>
-<li>Household responsibilities.</li>
-<li>Humour and irony.</li>
-</ul>
-
-<h3>Literary techniques</h3>
-<ul>
-<li><strong>Humour:</strong> Makes readers laugh.</li>
-<li><strong>Irony:</strong> People plan work but do not complete it.</li>
-<li><strong>Satire:</strong> Shows people's habits in a funny way.</li>
-</ul>
-
-<div class="memory"><strong>Easy memory:</strong> People plan work on Sunday but postpone it to the next Sunday.</div>
-
-<h3>Important questions</h3>
-<div class="question">1. What is the central idea of Next Sunday?</div>
-<div class="question">2. How do people plan their Sundays?</div>
-<div class="question">3. Why do Sunday plans fail?</div>
-<div class="question">4. Explain the humour in the essay.</div>
-<div class="question">5. What does the title mean?</div>
-<div class="question">6. What does the essay teach us about human nature?</div>
-</article>
-
-<article class="card searchable">
-<h2>Lesson 6: The Last Leaf</h2>
-<div class="author">Writer: O. Henry | Real name: William Sydney Porter</div>
-<span class="badge">Short story</span><span class="badge">Hope and sacrifice</span>
-
-<h3>Simple story</h3>
-<p>Sue and Johnsy are two young artists who live together. Johnsy becomes seriously ill with pneumonia. She looks outside the window and sees leaves falling from an ivy vine.</p>
-<p>She believes that she will die when the last leaf falls. Sue tries to encourage her, but Johnsy loses hope.</p>
-<p>Old Behrman is an elderly painter. He learns about Johnsy's belief. During a terrible storm, he goes outside and paints a leaf on the wall. It looks like a real leaf.</p>
-<p>In the morning, Johnsy sees that the leaf is still there. She gets hope and decides to live. Slowly, she recovers. But Behrman catches pneumonia and dies. His painted leaf becomes his masterpiece.</p>
-
-<h3>Story in easy points</h3>
-<ol>
-<li>Sue and Johnsy are two artists.</li>
-<li>Johnsy suffers from pneumonia.</li>
-<li>She watches the ivy leaves.</li>
-<li>She believes she will die when the last leaf falls.</li>
-<li>Sue tries to give her hope.</li>
-<li>Old Behrman learns about her belief.</li>
-<li>A storm comes at night.</li>
-<li>Behrman paints a leaf on the wall.</li>
-<li>Johnsy sees the leaf in the morning.</li>
-<li>She regains hope.</li>
-<li>Her health improves.</li>
-<li>Behrman dies from pneumonia.</li>
-<li>The painted leaf is his masterpiece.</li>
-</ol>
-
-<h3>Important characters</h3>
-<div class="grid2">
-<div class="mini"><strong>Johnsy</strong>A young artist who becomes ill and loses hope.</div>
-<div class="mini"><strong>Sue</strong>Johnsy's loving and caring friend.</div>
-<div class="mini"><strong>Old Behrman</strong>An old painter who sacrifices his life.</div>
-</div>
-
-<h3>Important themes</h3>
-<ul>
-<li>Friendship and love.</li>
-<li>Hope versus despair.</li>
-<li>Sacrifice and selflessness.</li>
-<li>Will to live.</li>
-<li>Power of art.</li>
-<li>Human kindness.</li>
-</ul>
-
-<h3>Important symbols</h3>
-<table>
-<tr><th>Symbol</th><th>Meaning</th></tr>
-<tr><td>Ivy leaves</td><td>Life and death.</td></tr>
-<tr><td>Last leaf</td><td>Hope and courage.</td></tr>
-<tr><td>Painted leaf</td><td>Sacrifice and art.</td></tr>
-<tr><td>Storm</td><td>Difficulties and danger.</td></tr>
-<tr><td>Pneumonia</td><td>Illness and suffering.</td></tr>
-</table>
-
-<div class="highlight"><strong>Important 8-mark answer: Behrman's sacrifice</strong>
-<p>Behrman is an old painter who dreams of painting a masterpiece. He learns that Johnsy believes she will die when the last ivy leaf falls. During a storm, he paints a leaf on the wall. It looks real and does not fall. Johnsy sees it and regains hope. She slowly recovers. But Behrman catches pneumonia in the cold and dies. His painted leaf becomes his greatest masterpiece. The story teaches us that true love and sacrifice can save another person's life.</p>
-</div>
-
-<div class="memory"><strong>Easy memory:</strong> Behrman paints the last leaf to give Johnsy hope. He dies, but Johnsy lives.</div>
-
-<h3>Important questions</h3>
-<div class="question">1. Describe Johnsy's character.</div>
-<div class="question">2. Explain the friendship between Sue and Johnsy.</div>
-<div class="question">3. How does Behrman help Johnsy?</div>
-<div class="question">4. What is the importance of the last leaf?</div>
-<div class="question">5. Why does Johnsy lose hope?</div>
-<div class="question">6. Explain Behrman's masterpiece.</div>
-<div class="question">7. What is the central theme of the story?</div>
-<div class="question">8. Explain the importance of sacrifice.</div>
-<div class="question">9. How does Johnsy recover?</div>
-<div class="question">10. Why is the ending surprising?</div>
-</article>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">LESSON 08</div>
+        <h3>The Open Window</h3>
+        <div class="author">Saki (H. H. Munro)</div>
+      </div>
+      <span class="lesson-badge">Short Story</span>
+    </div>
+    <h4>Simple Summary</h4>
+    <p>
+      The story is about Framton Nuttel, who visits a house to improve
+      his health. He meets a young girl named Vera. She tells him a
+      frightening story about an open window.
+    </p>
+    <p>
+      Vera says that her aunt's husband and brothers went hunting and
+      never returned. She claims that her aunt keeps the window open
+      because she hopes they will come back.
+    </p>
+    <p>
+      When the men return from hunting, Framton believes they are ghosts.
+      He becomes frightened and runs away. Vera then creates another
+      explanation for his sudden escape.
+    </p>
+    <h4>Main Characters</h4>
+    <ul>
+      <li><b>Vera:</b> A clever young girl who tells imaginary stories.</li>
+      <li><b>Framton Nuttel:</b> A nervous visitor who believes Vera.</li>
+      <li><b>Mrs. Sappleton:</b> Vera's aunt.</li>
+    </ul>
+    <h4>Important Points</h4>
+    <ul>
+      <li>Framton visits Mrs. Sappleton's house.</li>
+      <li>Vera tells him a false story about the open window.</li>
+      <li>Framton believes the story.</li>
+      <li>The hunting party returns home.</li>
+      <li>Framton thinks they are ghosts and runs away.</li>
+      <li>Vera makes up another story to explain his escape.</li>
+    </ul>
+    <h4>Themes</h4>
+    <ul>
+      <li>Imagination and deception.</li>
+      <li>Fear and misunderstanding.</li>
+      <li>Humour and surprise.</li>
+    </ul>
+    <div class="highlight"><b>Remember:</b> Vera's imagination and clever lies create the surprise ending.</div>
+  </article>
 </section>
 
+<!-- UNIT 4 -->
 <section class="section" id="unit4">
-<h2 class="section-title">5. Unit IV – Short Stories</h2>
-
-<article class="card searchable">
-<h2>Lesson 7: My Lord, the Baby</h2>
-<div class="author">Writer: Rabindranath Tagore</div>
-<span class="badge">Short story</span><span class="badge">Love and sacrifice</span>
-
-<h3>Simple story</h3>
-<p>Raicharan starts working for Anukul when he is twelve years old. He is very loyal to his master. Later, Anukul gets married and has a baby boy.</p>
-<p>Raicharan loves the baby very much. One day, he takes the baby near the Padma River. The baby asks for a pretty flower. Raicharan goes to collect flowers. When he returns, the baby has disappeared.</p>
-<p>The baby's mother suspects Raicharan of stealing the child. He is sent away. Later, Raicharan has a son named Phailna. He believes that his son is the reincarnation of the lost baby.</p>
-<p>He sells his property and spends his money on Phailna's education. When Phailna grows up, Raicharan takes him to Anukul and falsely confesses that he stole the baby. He leaves after giving Phailna to his master's family.</p>
-
-<h3>Story in easy points</h3>
-<ol>
-<li>Raicharan works for Anukul from the age of twelve.</li>
-<li>He is very loyal to his master.</li>
-<li>Anukul has a baby boy.</li>
-<li>Raicharan loves the baby.</li>
-<li>He takes the baby near the Padma River.</li>
-<li>The baby asks for a pretty flower.</li>
-<li>Raicharan goes to collect flowers.</li>
-<li>The baby disappears near the river.</li>
-<li>The mother suspects Raicharan.</li>
-<li>Raicharan is sent away.</li>
-<li>Later, he has a son named Phailna.</li>
-<li>He believes Phailna is the lost baby's reincarnation.</li>
-<li>He spends all his money on Phailna.</li>
-<li>He falsely confesses to stealing the baby.</li>
-<li>He gives Phailna to Anukul's family.</li>
-<li>He leaves without asking for anything.</li>
-</ol>
-
-<h3>Important characters</h3>
-<ul>
-<li><strong>Raicharan:</strong> Loyal servant, loving and self-sacrificing.</li>
-<li><strong>Anukul:</strong> Raicharan's master and a magistrate.</li>
-<li><strong>Mistress:</strong> Anukul's wife and mother of the baby.</li>
-<li><strong>Phailna:</strong> Raicharan's biological son.</li>
-<li><strong>Little Master:</strong> Anukul's missing baby.</li>
-</ul>
-
-<h3>Important themes</h3>
-<ul>
-<li>Unconditional love.</li>
-<li>Loyalty and devotion.</li>
-<li>Guilt and regret.</li>
-<li>Parental love.</li>
-<li>Extreme sacrifice.</li>
-<li>Social class discrimination.</li>
-<li>Fate and destiny.</li>
-</ul>
-
-<h3>Important symbols</h3>
-<table>
-<tr><th>Symbol</th><th>Meaning</th></tr>
-<tr><td>Padma River</td><td>Destructive nature and fate.</td></tr>
-<tr><td>Kadamba flowers</td><td>The event that leads to tragedy.</td></tr>
-<tr><td>Gold ornaments</td><td>Wealth and social status.</td></tr>
-<tr><td>Go-cart</td><td>Childhood and innocence.</td></tr>
-</table>
-
-<div class="highlight"><strong>Important 8-mark answer: Raicharan's sacrifice</strong>
-<p>Raicharan is a loyal servant who loves his master's baby deeply. One day, the baby disappears near the Padma River while Raicharan goes to collect flowers. The baby's mother suspects him of stealing the child. Later, Raicharan has a son named Phailna. He believes his son is the reincarnation of his master's lost baby. He sells his property and spends his money on Phailna's education. When Phailna grows up, Raicharan takes him to Anukul and falsely confesses that he stole the baby. He gives Phailna to his master's family and leaves. His actions show unconditional love, guilt and extreme sacrifice.</p>
-</div>
-
-<div class="memory"><strong>Easy memory:</strong> Raicharan loses his master's baby, raises his own son with great sacrifice and finally gives him to his master.</div>
-
-<h3>Important questions</h3>
-<div class="question">1. Describe Raicharan's character.</div>
-<div class="question">2. Explain Raicharan's relationship with Anukul.</div>
-<div class="question">3. How did Raicharan lose the baby?</div>
-<div class="question">4. Why did the mistress suspect Raicharan?</div>
-<div class="question">5. Why was Raicharan sent away?</div>
-<div class="question">6. Why did Raicharan believe Phailna was the reincarnation of the baby?</div>
-<div class="question">7. How did Raicharan sacrifice everything for Phailna?</div>
-<div class="question">8. Explain the false confession.</div>
-<div class="question">9. What is the importance of the Padma River?</div>
-<div class="question">10. Explain the main themes of the story.</div>
-</article>
-
-<article class="card searchable">
-<h2>Lesson 8: The Open Window</h2>
-<div class="author">Writer: Saki | Real name: H. H. Munro</div>
-<span class="badge">Short story</span><span class="badge">Humour and suspense</span>
-
-<h3>Simple story</h3>
-<p>Framton Nuttel visits a house to improve his health. He meets a young girl named Vera. Vera is clever and imaginative.</p>
-<p>She tells him a false story that her aunt's husband and brothers disappeared while hunting. She says that they went out through the open window and never returned.</p>
-<p>Framton believes her story. Suddenly, three men return from hunting through the open window. Framton thinks they are ghosts and runs away in fear.</p>
-<p>Vera then creates another story to explain why Framton ran away. The story ends with a surprising and funny twist.</p>
-
-<h3>Story in easy points</h3>
-<ol>
-<li>Framton Nuttel visits a house.</li>
-<li>He meets a young girl named Vera.</li>
-<li>Vera tells him a false story.</li>
-<li>She says her aunt's family disappeared while hunting.</li>
-<li>Framton believes her.</li>
-<li>Three men return through the open window.</li>
-<li>Framton thinks they are ghosts.</li>
-<li>He becomes frightened and runs away.</li>
-<li>Vera invents another story.</li>
-<li>The ending shows Vera's cleverness.</li>
-</ol>
-
-<h3>Important characters</h3>
-<ul>
-<li><strong>Vera:</strong> Clever, imaginative and mischievous.</li>
-<li><strong>Framton Nuttel:</strong> Nervous and easily frightened.</li>
-<li><strong>Mrs. Sappleton:</strong> Vera's aunt.</li>
-<li><strong>Mr. Sappleton:</strong> Returns from hunting.</li>
-</ul>
-
-<h3>Important themes</h3>
-<ul>
-<li>Imagination and deception.</li>
-<li>Humour and irony.</li>
-<li>Human gullibility.</li>
-<li>Suspense and surprise.</li>
-<li>Power of storytelling.</li>
-</ul>
-
-<h3>Important items</h3>
-<table>
-<tr><th>Item</th><th>Meaning</th></tr>
-<tr><td>Open window</td><td>Centre of Vera's invented story.</td></tr>
-<tr><td>Hunting party</td><td>Reality that frightens Framton.</td></tr>
-<tr><td>Vera's story</td><td>Imagination and deception.</td></tr>
-</table>
-
-<div class="memory"><strong>Easy memory:</strong> Vera tells a false story. Framton believes it and runs away when the hunters return.</div>
-
-<h3>Important questions</h3>
-<div class="question">1. Describe Vera's character.</div>
-<div class="question">2. How does Vera trick Framton Nuttel?</div>
-<div class="question">3. Describe Framton Nuttel.</div>
-<div class="question">4. What is the significance of the open window?</div>
-<div class="question">5. How does Saki create suspense?</div>
-<div class="question">6. Explain the humorous ending.</div>
-<div class="question">7. What is the main theme of the story?</div>
-<div class="question">8. How does Vera show her imagination?</div>
-</article>
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">UNIT 04</div>
+      <h2>Literary Revision</h2>
+      <div class="section-desc">Revise important ideas and writing techniques.</div>
+    </div>
+    <span class="tag">REVISION</span>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-icon">💡</div>
+      <h3>Theme</h3>
+      <p>The main idea or message of a literary work. Example: Hope is an important theme in The Last Leaf.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">👤</div>
+      <h3>Characterisation</h3>
+      <p>The way a writer presents a character's personality, actions and behaviour.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <h3>Symbolism</h3>
+      <p>When an object represents a deeper meaning. Example: The last leaf represents hope.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎭</div>
+      <h3>Irony</h3>
+      <p>A difference between what is expected and what actually happens.</p>
+    </div>
+  </div>
 </section>
 
+<!-- UNIT 5 -->
 <section class="section" id="unit5">
-<h2 class="section-title">6. Unit V – Biography</h2>
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">UNIT 05</div>
+      <h2>Biography</h2>
+      <div class="section-desc">Life, achievements and inspiration.</div>
+    </div>
+    <span class="tag">1 LESSON</span>
+  </div>
 
-<article class="card searchable">
-<h2>Lesson 9: Mary Kom – The Magnificent Mary</h2>
-<div class="author">Biography: Mary Kom | Famous Indian boxer</div>
-<span class="badge">Biography</span><span class="badge">Inspiration</span>
-
-<h3>Simple biography</h3>
-<p>Mary Kom was born in a poor farming family in Manipur. From childhood, she was interested in sports. She was inspired by boxer Dingko Singh and decided to become a boxer.</p>
-<p>Her family initially opposed her decision. She faced poverty, lack of sports facilities and gender discrimination. But she worked hard and won the Manipur State Championship in 2000.</p>
-<p>She became a six-time World Champion. She won a bronze medal at the 2012 London Olympics and gold at the 2014 Asian Games. She continued her career even after becoming a mother.</p>
-<p>Mary Kom became an inspiration to women and young athletes. Her life teaches us the value of hard work, courage and determination.</p>
-
-<h3>Biography in easy points</h3>
-<ol>
-<li>Mary Kom was born in a poor farming family in Manipur.</li>
-<li>She was interested in sports from childhood.</li>
-<li>She was inspired by Dingko Singh.</li>
-<li>She decided to become a boxer.</li>
-<li>Her family initially opposed her decision.</li>
-<li>She faced poverty and a lack of training facilities.</li>
-<li>She won the Manipur State Championship in 2000.</li>
-<li>She won her first World Championship gold in 2002.</li>
-<li>She married K. Onler Kom in 2005.</li>
-<li>She continued boxing after becoming a mother.</li>
-<li>She won Olympic bronze in London in 2012.</li>
-<li>She won Asian Games gold in 2014.</li>
-<li>She won her sixth World Championship gold in 2018.</li>
-<li>She became an inspiration for women.</li>
-</ol>
-
-<h3>Important achievements</h3>
-<table>
-<tr><th>Year</th><th>Achievement</th></tr>
-<tr><td>2000</td><td>Manipur State Championship.</td></tr>
-<tr><td>2001</td><td>World Championship Silver.</td></tr>
-<tr><td>2002</td><td>First World Championship Gold.</td></tr>
-<tr><td>2005</td><td>Married K. Onler Kom.</td></tr>
-<tr><td>2007</td><td>Twin sons born.</td></tr>
-<tr><td>2012</td><td>London Olympic Bronze.</td></tr>
-<tr><td>2014</td><td>Asian Games Gold.</td></tr>
-<tr><td>2018</td><td>Sixth World Championship Gold.</td></tr>
-</table>
-
-<h3>Six World Championship gold medals</h3>
-<div class="grid2">
-<div class="mini"><strong>2002</strong>Antalya, Turkey</div>
-<div class="mini"><strong>2005</strong>Podolsk, Russia</div>
-<div class="mini"><strong>2006</strong>New Delhi, India</div>
-<div class="mini"><strong>2008</strong>Ningbo, China</div>
-<div class="mini"><strong>2010</strong>Bridgetown, Barbados</div>
-<div class="mini"><strong>2018</strong>New Delhi, India</div>
-</div>
-
-<h3>Important awards</h3>
-<ul>
-<li>Padma Shri – 2006.</li>
-<li>Rajiv Gandhi Khel Ratna – 2009.</li>
-<li>Padma Bhushan – 2013.</li>
-<li>Padma Vibhushan – 2020.</li>
-</ul>
-
-<h3>Important themes</h3>
-<ul>
-<li>Hard work and determination.</li>
-<li>Women's empowerment.</li>
-<li>Overcoming poverty.</li>
-<li>Gender equality.</li>
-<li>Family support.</li>
-<li>Discipline and dedication.</li>
-</ul>
-
-<div class="highlight"><strong>Important 8-mark answer: Mary Kom as a role model</strong>
-<p>Mary Kom is one of India's greatest women boxers. She was born in a poor farming family in Manipur. She was inspired by Dingko Singh and decided to become a boxer. She faced poverty, family opposition and gender discrimination. Through hard work and determination, she became a six-time World Champion. She won a bronze medal at the 2012 London Olympics and gold at the 2014 Asian Games. She continued boxing after becoming a mother. She also established a boxing academy to train young people. Mary Kom teaches us that hard work, confidence and determination can help us achieve our dreams.</p>
-</div>
-
-<div class="memory"><strong>Easy memory:</strong> Mary Kom = Boxing + Six World Championship gold medals + Olympic Bronze + Determination.</div>
-
-<h3>Important questions</h3>
-<div class="question">1. Describe Mary Kom's early life.</div>
-<div class="question">2. How did Dingko Singh inspire her?</div>
-<div class="question">3. What challenges did she face?</div>
-<div class="question">4. How did she balance motherhood and boxing?</div>
-<div class="question">5. What are her World Championship achievements?</div>
-<div class="question">6. What did she achieve at the 2012 Olympics?</div>
-<div class="question">7. Mention her important awards.</div>
-<div class="question">8. How did she break gender stereotypes?</div>
-<div class="question">9. Why is Mary Kom a role model?</div>
-<div class="question">10. What is the message of her life?</div>
-</article>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">LESSON 09</div>
+        <h3>Mary Kom</h3>
+        <div class="author">Biography of the Indian boxer</div>
+      </div>
+      <span class="lesson-badge">Biography</span>
+    </div>
+    <h4>Simple Summary</h4>
+    <p>
+      Mary Kom is a famous Indian boxer from Manipur. She came from a
+      simple family and worked hard to achieve her dream. She faced many
+      difficulties but never gave up.
+    </p>
+    <p>
+      She became an internationally recognised boxer. Her achievements
+      include several World Championship titles and a bronze medal at
+      the 2012 London Olympics. She also won gold at the 2014 Asian Games.
+    </p>
+    <p>
+      Mary Kom is an inspiration to young people, especially women.
+      Her life teaches us that hard work, courage and determination
+      can help us achieve our goals.
+    </p>
+    <h4>Important Points</h4>
+    <ul>
+      <li>Mary Kom is from Manipur, India.</li>
+      <li>She became interested in boxing and worked hard to improve.</li>
+      <li>She faced financial and social difficulties.</li>
+      <li>She won several World Championship titles.</li>
+      <li>She won a bronze medal at the 2012 London Olympics.</li>
+      <li>She won gold at the 2014 Asian Games.</li>
+      <li>She inspires women and young athletes.</li>
+    </ul>
+    <h4>Qualities of Mary Kom</h4>
+    <ul>
+      <li>Hardworking.</li>
+      <li>Determined.</li>
+      <li>Brave and confident.</li>
+      <li>Disciplined.</li>
+      <li>Never gives up.</li>
+    </ul>
+    <h4>Message</h4>
+    <div class="highlight">
+      <b>Remember:</b> Mary Kom's life teaches us to work hard, believe in ourselves and never give up on our dreams.
+    </div>
+  </article>
 </section>
 
+<!-- GRAMMAR -->
 <section class="section" id="grammar">
-<h2 class="section-title">7. Grammar – Complete Revision</h2>
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">LANGUAGE SKILLS</div>
+      <h2>Grammar Made Easy</h2>
+      <div class="section-desc">Simple definitions, rules and examples.</div>
+    </div>
+    <span class="tag">4 TOPICS</span>
+  </div>
 
-<article class="card searchable">
-<h2>A. Clauses and Sentences</h2>
-<h3>What is a sentence?</h3>
-<p>A sentence is a group of words that gives complete meaning.</p>
-<ul>
-<li>She is reading.</li>
-<li>He plays football.</li>
-<li>They are going to college.</li>
-</ul>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">GRAMMAR 01</div>
+        <h3>Clauses and Sentences</h3>
+      </div>
+      <span class="lesson-badge">Grammar</span>
+    </div>
+    <h4>What is a Sentence?</h4>
+    <p>A sentence is a group of words that gives a complete meaning.</p>
+    <div class="quote">Example: She is reading a book.</div>
+    <h4>What is a Clause?</h4>
+    <p>A clause is a group of words that contains a subject and a verb.</p>
+    <div class="quote">Example: When I came home, my mother was cooking.</div>
+    <h4>Types of Clauses</h4>
+    <ul>
+      <li><b>Main / Independent Clause:</b> Gives complete meaning. Example: I went to school.</li>
+      <li><b>Subordinate / Dependent Clause:</b> Does not give complete meaning alone. Example: Because I was sick.</li>
+      <li><b>Noun Clause:</b> Works like a noun. Example: I know what he wants.</li>
+      <li><b>Adjective Clause:</b> Describes a noun. Example: The boy who won is my friend.</li>
+      <li><b>Adverb Clause:</b> Tells when, why, where or how. Example: I stayed home because it rained.</li>
+    </ul>
+    <h4>Types of Sentences</h4>
+    <ul>
+      <li><b>Simple:</b> One independent clause. Example: She sings.</li>
+      <li><b>Compound:</b> Two independent clauses joined together. Example: I came and he left.</li>
+      <li><b>Complex:</b> One main clause and one dependent clause. Example: I slept because I was tired.</li>
+    </ul>
+    <h4>Common Joining Words</h4>
+    <p><b>FANBOYS:</b> For, And, Nor, But, Or, Yet, So.</p>
+  </article>
 
-<h3>What is a clause?</h3>
-<p>A clause is a group of words that has a subject and a verb.</p>
-<ul>
-<li>She smiled.</li>
-<li>Because he was late.</li>
-<li>When the rain stopped.</li>
-</ul>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">GRAMMAR 02</div>
+        <h3>Subject–Verb Agreement (Concord)</h3>
+      </div>
+      <span class="lesson-badge">Grammar</span>
+    </div>
+    <h4>Meaning</h4>
+    <p>The subject and verb must agree in number. A singular subject normally takes a singular verb, and a plural subject takes a plural verb.</p>
+    <h4>Important Rules</h4>
+    <ul>
+      <li>He, She, It + singular verb: He plays football.</li>
+      <li>I, You, We, They + plural form of verb: They play football.</li>
+      <li>Two subjects joined by AND usually take a plural verb: Ravi and Arun are friends.</li>
+      <li>Each and Every take a singular verb: Each student is ready.</li>
+      <li>Everyone and Someone take singular verbs: Everyone is happy.</li>
+      <li>Neither...nor / Either...or: The verb generally agrees with the nearer subject.</li>
+      <li>Uncountable nouns take singular verbs: Water is important.</li>
+      <li>A collective noun can take a singular verb when treated as one group: The team is ready.</li>
+    </ul>
+    <h4>Correct the Sentences</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Incorrect</th><th>Correct</th></tr></thead>
+        <tbody>
+          <tr><td>He go to school.</td><td>He goes to school.</td></tr>
+          <tr><td>They is happy.</td><td>They are happy.</td></tr>
+          <tr><td>She have a pen.</td><td>She has a pen.</td></tr>
+          <tr><td>Each students are ready.</td><td>Each student is ready.</td></tr>
+          <tr><td>The boys plays.</td><td>The boys play.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
 
-<h3>Sentence and clause difference</h3>
-<table>
-<tr><th>Sentence</th><th>Clause</th></tr>
-<tr><td>Gives complete meaning.</td><td>May give complete or incomplete meaning.</td></tr>
-<tr><td>Can stand alone.</td><td>May depend on another clause.</td></tr>
-<tr><td>Example: She is happy.</td><td>Example: Because she is happy.</td></tr>
-</table>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">GRAMMAR 03</div>
+        <h3>Degrees of Comparison</h3>
+      </div>
+      <span class="lesson-badge">Grammar</span>
+    </div>
+    <h4>Meaning</h4>
+    <p>Degrees of comparison are used to compare people, animals, places or things.</p>
+    <h4>Three Degrees</h4>
+    <ul>
+      <li><b>Positive:</b> Describes one person or thing. Example: Ravi is tall.</li>
+      <li><b>Comparative:</b> Compares two people or things. Example: Ravi is taller than Arun.</li>
+      <li><b>Superlative:</b> Compares more than two. Example: Ravi is the tallest boy.</li>
+    </ul>
+    <h4>Important Examples</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Positive</th><th>Comparative</th><th>Superlative</th></tr></thead>
+        <tbody>
+          <tr><td>Tall</td><td>Taller</td><td>Tallest</td></tr>
+          <tr><td>Small</td><td>Smaller</td><td>Smallest</td></tr>
+          <tr><td>Big</td><td>Bigger</td><td>Biggest</td></tr>
+          <tr><td>Beautiful</td><td>More beautiful</td><td>Most beautiful</td></tr>
+          <tr><td>Good</td><td>Better</td><td>Best</td></tr>
+          <tr><td>Bad</td><td>Worse</td><td>Worst</td></tr>
+          <tr><td>Little</td><td>Less</td><td>Least</td></tr>
+          <tr><td>Many / Much</td><td>More</td><td>Most</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Remember</h4>
+    <ul>
+      <li>Comparative degree usually uses THAN.</li>
+      <li>Superlative degree usually uses THE.</li>
+      <li>Do not use double comparison: more better is incorrect. Use better.</li>
+    </ul>
+  </article>
 
-<h3>Types of clauses</h3>
-<div class="mini">
-<strong>1. Independent clause</strong>
-<p>Gives complete meaning.</p>
-<p>Example: She is studying.</p>
-</div>
-<div class="mini">
-<strong>2. Dependent clause</strong>
-<p>Does not give complete meaning alone.</p>
-<p>Example: Because he was sick.</p>
-</div>
-<div class="mini">
-<strong>3. Noun clause</strong>
-<p>Works like a noun.</p>
-<p>Example: I know what you said.</p>
-</div>
-<div class="mini">
-<strong>4. Adjective clause</strong>
-<p>Describes a noun.</p>
-<p>Example: The boy who won the prize is my friend.</p>
-</div>
-<div class="mini">
-<strong>5. Adverb clause</strong>
-<p>Explains time, reason or condition.</p>
-<p>Example: Call me when you arrive.</p>
-</div>
-
-<h3>Compound sentence</h3>
-<p>A compound sentence has two independent clauses joined together.</p>
-<div class="highlight"><strong>FANBOYS</strong><br>
-F – For<br>A – And<br>N – Nor<br>B – But<br>O – Or<br>Y – Yet<br>S – So
-</div>
-<p>Examples:</p>
-<ul>
-<li>I wanted to go, but it was raining.</li>
-<li>She studied hard, so she passed.</li>
-<li>He was tired, yet he continued working.</li>
-</ul>
-</article>
-
-<article class="card searchable">
-<h2>B. Subject–Verb Agreement (Concord)</h2>
-<p><strong>Definition:</strong> The verb must agree with the subject in number and person.</p>
-
-<h3>Important rules</h3>
-<div class="question"><strong>Rule 1: Singular subject</strong><p>Use a singular verb.</p><p>He plays football. She writes a letter.</p></div>
-<div class="question"><strong>Rule 2: Plural subject</strong><p>Use a plural verb.</p><p>They play football. Boys sing.</p></div>
-<div class="question"><strong>Rule 3: Subjects joined by AND</strong><p>Usually take a plural verb.</p><p>Ram and Ravi are friends.</p><p>Exception: Bread and butter is my favourite breakfast.</p></div>
-<div class="question"><strong>Rule 4: Either/or and Neither/nor</strong><p>The verb agrees with the nearest subject.</p><p>Neither the teacher nor the students are present.</p></div>
-<div class="question"><strong>Rule 5: Each and Every</strong><p>Take singular verbs.</p><p>Each student has a book.</p></div>
-<div class="question"><strong>Rule 6: Mathematics and News</strong><p>Take singular verbs.</p><p>Mathematics is difficult. The news is good.</p></div>
-<div class="question"><strong>Rule 7: A number of / The number of</strong><p>A number of students are absent.</p><p>The number of students is increasing.</p></div>
-<div class="question"><strong>Rule 8: There is / There are</strong><p>There is a book. There are many books.</p></div>
-<div class="question"><strong>Rule 9: Collective nouns</strong><p>The team is playing. The group is ready.</p></div>
-<div class="question"><strong>Rule 10: Time, money and distance</strong><p>When considered as one unit, use singular verbs.</p><p>Ten kilometres is a long distance.</p></div>
-
-<h3>Important error corrections</h3>
-<table>
-<tr><th>Wrong</th><th>Correct</th></tr>
-<tr><td>He play cricket.</td><td>He plays cricket.</td></tr>
-<tr><td>They plays football.</td><td>They play football.</td></tr>
-<tr><td>She have a pen.</td><td>She has a pen.</td></tr>
-<tr><td>Each student have a book.</td><td>Each student has a book.</td></tr>
-<tr><td>Mathematics are difficult.</td><td>Mathematics is difficult.</td></tr>
-<tr><td>The news are good.</td><td>The news is good.</td></tr>
-<tr><td>There is many students.</td><td>There are many students.</td></tr>
-<tr><td>A number of students has arrived.</td><td>A number of students have arrived.</td></tr>
-<tr><td>The number of students have increased.</td><td>The number of students has increased.</td></tr>
-<tr><td>Neither the teacher nor the students is present.</td><td>Neither the teacher nor the students are present.</td></tr>
-</table>
-</article>
-
-<article class="card searchable">
-<h2>C. Degrees of Comparison</h2>
-<p><strong>Definition:</strong> Degrees of comparison are used to compare people, places or things.</p>
-
-<h3>Three types</h3>
-<div class="grid2">
-<div class="mini"><strong>Positive</strong><p>Describes one person or thing.</p><p>Ram is tall.</p></div>
-<div class="mini"><strong>Comparative</strong><p>Compares two things.</p><p>Ram is taller than Ravi.</p></div>
-<div class="mini"><strong>Superlative</strong><p>Compares three or more.</p><p>Ram is the tallest boy.</p></div>
-</div>
-
-<h3>Important comparison table</h3>
-<table>
-<tr><th>Positive</th><th>Comparative</th><th>Superlative</th></tr>
-<tr><td>Tall</td><td>Taller</td><td>Tallest</td></tr>
-<tr><td>Small</td><td>Smaller</td><td>Smallest</td></tr>
-<tr><td>Big</td><td>Bigger</td><td>Biggest</td></tr>
-<tr><td>Fast</td><td>Faster</td><td>Fastest</td></tr>
-<tr><td>Happy</td><td>Happier</td><td>Happiest</td></tr>
-<tr><td>Easy</td><td>Easier</td><td>Easiest</td></tr>
-<tr><td>Beautiful</td><td>More beautiful</td><td>Most beautiful</td></tr>
-<tr><td>Difficult</td><td>More difficult</td><td>Most difficult</td></tr>
-<tr><td>Good</td><td>Better</td><td>Best</td></tr>
-<tr><td>Bad</td><td>Worse</td><td>Worst</td></tr>
-<tr><td>Little</td><td>Less</td><td>Least</td></tr>
-<tr><td>Many</td><td>More</td><td>Most</td></tr>
-</table>
-
-<h3>Important rules</h3>
-<ol>
-<li>Short adjectives usually take -er and -est.</li>
-<li>Long adjectives usually use more and most.</li>
-<li>Words ending in consonant + y change y into i.</li>
-<li>Some words have irregular forms.</li>
-<li>Use THAN with comparative degree.</li>
-<li>Use THE with superlative degree.</li>
-<li>Do not use double comparison.</li>
-</ol>
-
-<h3>Common mistakes</h3>
-<ul>
-<li>Wrong: She is more taller than me.</li>
-<li>Correct: She is taller than me.</li>
-<li>Wrong: He is the most tallest boy.</li>
-<li>Correct: He is the tallest boy.</li>
-</ul>
-</article>
-
-<article class="card searchable">
-<h2>D. Error Spotting</h2>
-<p><strong>Definition:</strong> Error spotting means finding and correcting grammatical mistakes in sentences.</p>
-
-<h3>Important areas</h3>
-<ul>
-<li>Subject–verb agreement.</li>
-<li>Tense errors.</li>
-<li>Articles.</li>
-<li>Prepositions.</li>
-<li>Pronouns.</li>
-<li>Adjectives and adverbs.</li>
-<li>Sentence structure.</li>
-<li>Punctuation.</li>
-</ul>
-
-<h3>1. Tense errors</h3>
-<table>
-<tr><th>Wrong</th><th>Correct</th></tr>
-<tr><td>She will went.</td><td>She will go.</td></tr>
-<tr><td>I have seen him yesterday.</td><td>I saw him yesterday.</td></tr>
-<tr><td>She had went.</td><td>She had gone.</td></tr>
-<tr><td>He is working here since 2010.</td><td>He has been working here since 2010.</td></tr>
-<tr><td>She was knowing the answer.</td><td>She knew the answer.</td></tr>
-</table>
-
-<h3>2. Articles – A, An, The</h3>
-<div class="mini"><strong>A</strong><p>Used before a consonant sound.</p><p>A boy, a car, a university.</p></div>
-<div class="mini"><strong>An</strong><p>Used before a vowel sound.</p><p>An apple, an elephant, an honest man.</p></div>
-<div class="mini"><strong>The</strong><p>Used for a particular or specific person or thing.</p><p>The Sun, the Moon, the best student.</p></div>
-
-<h3>3. Prepositions</h3>
-<table>
-<tr><th>Expression</th><th>Example</th></tr>
-<tr><td>Good at</td><td>She is good at English.</td></tr>
-<tr><td>Interested in</td><td>I am interested in computers.</td></tr>
-<tr><td>Fond of</td><td>He is fond of music.</td></tr>
-<tr><td>Angry with</td><td>She is angry with him.</td></tr>
-<tr><td>Afraid of</td><td>I am afraid of snakes.</td></tr>
-<tr><td>Depend on</td><td>We depend on our parents.</td></tr>
-</table>
-
-<h3>More error correction</h3>
-<table>
-<tr><th>Wrong</th><th>Correct</th></tr>
-<tr><td>She is a honest girl.</td><td>She is an honest girl.</td></tr>
-<tr><td>He plays piano.</td><td>He plays the piano.</td></tr>
-<tr><td>She is doctor.</td><td>She is a doctor.</td></tr>
-<tr><td>He is best player.</td><td>He is the best player.</td></tr>
-<tr><td>He is interested for music.</td><td>He is interested in music.</td></tr>
-<tr><td>She is good in maths.</td><td>She is good at maths.</td></tr>
-</table>
-</article>
+  <article class="lesson searchable">
+    <div class="lesson-top">
+      <div>
+        <div class="lesson-number">GRAMMAR 04</div>
+        <h3>Error Spotting</h3>
+      </div>
+      <span class="lesson-badge">Grammar</span>
+    </div>
+    <h4>Meaning</h4>
+    <p>Error spotting means finding and correcting a grammatical mistake in a sentence.</p>
+    <h4>Common Mistakes</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Wrong Sentence</th><th>Correct Sentence</th><th>Reason</th></tr></thead>
+        <tbody>
+          <tr><td>She go to college.</td><td>She goes to college.</td><td>Subject–verb agreement</td></tr>
+          <tr><td>He is senior than me.</td><td>He is senior to me.</td><td>Correct preposition</td></tr>
+          <tr><td>I have a apple.</td><td>I have an apple.</td><td>Article</td></tr>
+          <tr><td>She is more taller.</td><td>She is taller.</td><td>Degree of comparison</td></tr>
+          <tr><td>They was playing.</td><td>They were playing.</td><td>Correct verb</td></tr>
+          <tr><td>He did not went.</td><td>He did not go.</td><td>Base verb after did</td></tr>
+          <tr><td>One of the boy.</td><td>One of the boys.</td><td>Plural noun after one of</td></tr>
+          <tr><td>She is good in English.</td><td>She is good at English.</td><td>Preposition</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>How to Find Errors</h4>
+    <ul>
+      <li>Check the subject and verb.</li>
+      <li>Check the tense.</li>
+      <li>Check articles: a, an and the.</li>
+      <li>Check prepositions.</li>
+      <li>Check singular and plural nouns.</li>
+      <li>Check comparison words.</li>
+    </ul>
+  </article>
 </section>
 
-<section class="section" id="oneword">
-<h2 class="section-title">8. Important One-word Questions</h2>
-<p class="section-sub">Learn the questions and answers. These are useful for quick revision.</p>
-<div class="card searchable">
-<table>
-<tr><th>No.</th><th>Question</th><th>Answer</th></tr>
-<tr><td>1</td><td>Who wrote The Pulley?</td><td>George Herbert</td></tr>
-<tr><td>2</td><td>Who wrote Sonnet 30?</td><td>William Shakespeare</td></tr>
-<tr><td>3</td><td>Who wrote Thank You, M'am?</td><td>Langston Hughes</td></tr>
-<tr><td>4</td><td>Who wrote Clothes?</td><td>Chitra Banerjee Divakaruni</td></tr>
-<tr><td>5</td><td>Who wrote Next Sunday?</td><td>R. K. Narayan</td></tr>
-<tr><td>6</td><td>Who wrote The Last Leaf?</td><td>O. Henry</td></tr>
-<tr><td>7</td><td>What is O. Henry's real name?</td><td>William Sydney Porter</td></tr>
-<tr><td>8</td><td>Who wrote My Lord, the Baby?</td><td>Rabindranath Tagore</td></tr>
-<tr><td>9</td><td>Who wrote The Open Window?</td><td>Saki</td></tr>
-<tr><td>10</td><td>What is Saki's real name?</td><td>H. H. Munro</td></tr>
-<tr><td>11</td><td>Who is the main character in Clothes?</td><td>Sumita</td></tr>
-<tr><td>12</td><td>Who is the main character in My Lord, the Baby?</td><td>Raicharan</td></tr>
-<tr><td>13</td><td>Who is Johnsy's friend?</td><td>Sue</td></tr>
-<tr><td>14</td><td>Who painted the last leaf?</td><td>Behrman</td></tr>
-<tr><td>15</td><td>Who tricks Framton Nuttel?</td><td>Vera</td></tr>
-<tr><td>16</td><td>Who is Roger's helper?</td><td>Mrs. Jones</td></tr>
-<tr><td>17</td><td>Who is Mary Kom's husband?</td><td>K. Onler Kom</td></tr>
-<tr><td>18</td><td>Which sport is Mary Kom famous for?</td><td>Boxing</td></tr>
-<tr><td>19</td><td>Which river appears in My Lord, the Baby?</td><td>Padma</td></tr>
-<tr><td>20</td><td>Which illness does Johnsy suffer from?</td><td>Pneumonia</td></tr>
-<tr><td>21</td><td>What is the rhyme scheme of Sonnet 30?</td><td>ABAB CDCD EFEF GG</td></tr>
-<tr><td>22</td><td>How many lines are in a Shakespearean sonnet?</td><td>14</td></tr>
-<tr><td>23</td><td>What does FANBOYS represent?</td><td>Coordinating conjunctions</td></tr>
-<tr><td>24</td><td>How many degrees of comparison are there?</td><td>Three</td></tr>
-</table>
-</div>
+<!-- QUESTIONS -->
+<section class="section" id="questions">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">EXAM PRACTICE</div>
+      <h2>Important Questions</h2>
+      <div class="section-desc">Revise these questions from the lessons and grammar topics.</div>
+    </div>
+    <span class="tag">QUESTION BANK</span>
+  </div>
+
+  <h3 style="font:700 17px 'Space Grotesk';margin:25px 0 13px">One-Word / Short Questions</h3>
+  <div class="question searchable"><strong><span class="q-number">01</span>Who wrote “The Pulley”?</strong><p>Answer: George Herbert.</p></div>
+  <div class="question searchable"><strong><span class="q-number">02</span>Who wrote “Sonnet 30”?</strong><p>Answer: William Shakespeare.</p></div>
+  <div class="question searchable"><strong><span class="q-number">03</span>Who is the author of “Thank You, M'am”?</strong><p>Answer: Langston Hughes.</p></div>
+  <div class="question searchable"><strong><span class="q-number">04</span>Who is the main character in “Clothes”?</strong><p>Answer: Sumita.</p></div>
+  <div class="question searchable"><strong><span class="q-number">05</span>Who wrote “The Last Leaf”?</strong><p>Answer: O. Henry.</p></div>
+  <div class="question searchable"><strong><span class="q-number">06</span>Who is Johnsy's friend?</strong><p>Answer: Sue.</p></div>
+  <div class="question searchable"><strong><span class="q-number">07</span>Who painted the last leaf?</strong><p>Answer: Behrman.</p></div>
+  <div class="question searchable"><strong><span class="q-number">08</span>Who is the clever girl in “The Open Window”?</strong><p>Answer: Vera.</p></div>
+  <div class="question searchable"><strong><span class="q-number">09</span>Who is the servant in “My Lord, the Baby”?</strong><p>Answer: Raicharan.</p></div>
+  <div class="question searchable"><strong><span class="q-number">10</span>Which sport is Mary Kom famous for?</strong><p>Answer: Boxing.</p></div>
+
+  <h3 style="font:700 17px 'Space Grotesk';margin:28px 0 13px">Five-Mark Questions</h3>
+  <div class="question searchable"><strong>1. Explain the central idea of “The Pulley”.</strong><p>Write about God's blessings, the gift of rest, human restlessness and the connection between humans and God.</p></div>
+  <div class="question searchable"><strong>2. Explain the message of “Sonnet 30”.</strong><p>Write about memories, sadness, lost friends and the comfort given by friendship.</p></div>
+  <div class="question searchable"><strong>3. Describe the kindness of Mrs. Jones.</strong><p>Explain how she catches Roger, takes him home, feeds him and gives him money.</p></div>
+  <div class="question searchable"><strong>4. Explain the importance of clothes in “Clothes”.</strong><p>Write about Sumita's identity, Indian traditions, cultural changes and independence.</p></div>
+  <div class="question searchable"><strong>5. What is the message of “Next Sunday”?</strong><p>Explain procrastination, postponing plans and the importance of using time properly.</p></div>
+  <div class="question searchable"><strong>6. Explain Behrman's sacrifice in “The Last Leaf”.</strong><p>Write about his painting of the leaf during the storm and how it gives Johnsy hope.</p></div>
+  <div class="question searchable"><strong>7. Describe Raicharan's loyalty.</strong><p>Explain his responsibility, guilt and sacrifice in bringing up and giving Phailna to Anukul.</p></div>
+  <div class="question searchable"><strong>8. Explain Vera's role in “The Open Window”.</strong><p>Write about her imaginary story, Framton's fear and the surprise ending.</p></div>
+  <div class="question searchable"><strong>9. Write about Mary Kom's achievements.</strong><p>Include her background, boxing career, world titles, Olympic medal and determination.</p></div>
+  <div class="question searchable"><strong>10. Explain subject–verb agreement with examples.</strong><p>Explain singular and plural subjects and give correct sentence examples.</p></div>
 </section>
 
-<section class="section" id="important">
-<h2 class="section-title">9. Important 8-mark Questions</h2>
-<div class="card searchable">
-<p>Prepare these questions first. Write an introduction, important points, themes and conclusion.</p>
-<div class="question"><strong>1. The Pulley</strong><p>Explain the central theme of The Pulley and God's decision to withhold rest.</p></div>
-<div class="question"><strong>2. Sonnet 30</strong><p>Explain memory, sorrow and friendship in Sonnet 30.</p></div>
-<div class="question"><strong>3. Thank You, M'am</strong><p>Explain how Mrs. Jones changes Roger's life through kindness.</p></div>
-<div class="question"><strong>4. Clothes</strong><p>Explain how clothes represent Sumita's identity and transformation.</p></div>
-<div class="question"><strong>5. Next Sunday</strong><p>Discuss humour, irony and procrastination in Next Sunday.</p></div>
-<div class="question"><strong>6. The Last Leaf</strong><p>Explain Behrman's sacrifice and the importance of the last leaf.</p></div>
-<div class="question"><strong>7. My Lord, the Baby</strong><p>Explain Raicharan's loyalty, guilt and ultimate sacrifice.</p></div>
-<div class="question"><strong>8. The Open Window</strong><p>Explain how Vera tricks Framton Nuttel.</p></div>
-<div class="question"><strong>9. Mary Kom</strong><p>Describe Mary Kom's journey from poverty to international success.</p></div>
+<!-- 8 MARKS -->
+<section class="section" id="eightmarks">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">LONG ANSWER PREPARATION</div>
+      <h2>8-Mark Answers</h2>
+      <div class="section-desc">Simple English answers arranged in easy-to-remember points.</div>
+    </div>
+    <span class="tag">IMPORTANT</span>
+  </div>
 
-<h3>How to write an 8-mark answer</h3>
-<ol>
-<li>Introduction – Write the writer's name and lesson name.</li>
-<li>Main explanation – Write 6 to 8 important points.</li>
-<li>Themes – Mention the important message.</li>
-<li>Conclusion – Explain what the lesson teaches us.</li>
-</ol>
-<div class="memory"><strong>Remember:</strong> Do not write only 2 or 3 lines for an 8-mark answer. Explain the topic using enough points and examples.</div>
-</div>
+  <article class="lesson searchable">
+    <div class="lesson-top"><div><div class="lesson-number">8 MARKS · 01</div><h3>The Pulley – Central Idea</h3><div class="author">George Herbert</div></div><span class="lesson-badge">Poetry</span></div>
+    <p>George Herbert's poem “The Pulley” explains God's love and wisdom in creating human beings.</p>
+    <ul>
+      <li>God created human beings with great love.</li>
+      <li>He gave them many gifts and blessings.</li>
+      <li>These gifts include strength, beauty, wisdom, honour and pleasure.</li>
+      <li>God kept complete rest away from human beings.</li>
+      <li>He knew that people might forget Him if they had everything.</li>
+      <li>Human beings become restless even after receiving many gifts.</li>
+      <li>This restlessness makes them search for peace and remember God.</li>
+      <li>The poem shows the connection between God and human beings.</li>
+    </ul>
+    <div class="highlight"><b>Conclusion:</b> The poem teaches that God's wisdom guides human beings towards Him.</div>
+  </article>
+
+  <article class="lesson searchable">
+    <div class="lesson-top"><div><div class="lesson-number">8 MARKS · 02</div><h3>Sonnet 30 – Theme and Message</h3><div class="author">William Shakespeare</div></div><span class="lesson-badge">Poetry</span></div>
+    <p>Sonnet 30 is about memories, sadness, loss and friendship.</p>
+    <ul>
+      <li>The poet remembers his past during quiet moments.</li>
+      <li>He thinks about old problems and lost opportunities.</li>
+      <li>He remembers people who are no longer with him.</li>
+      <li>These memories make him feel sad.</li>
+      <li>He feels that he has lost many things in life.</li>
+      <li>At the end, he remembers a dear friend.</li>
+      <li>The memory of the friend brings happiness and comfort.</li>
+      <li>The poem shows that true friendship is very valuable.</li>
+    </ul>
+    <div class="highlight"><b>Conclusion:</b> Love and friendship can reduce sadness and give comfort.</div>
+  </article>
+
+  <article class="lesson searchable">
+    <div class="lesson-top"><div><div class="lesson-number">8 MARKS · 03</div><h3>Kindness of Mrs. Jones</h3><div class="author">Thank You, M'am – Langston Hughes</div></div><span class="lesson-badge">Story</span></div>
+    <p>Mrs. Jones is the central character who teaches Roger an important lesson through kindness.</p>
+    <ul>
+      <li>Roger tries to steal Mrs. Jones's purse.</li>
+      <li>She catches him and takes him to her home.</li>
+      <li>She does not immediately hand him over to the police.</li>
+      <li>She understands that Roger needs guidance.</li>
+      <li>She gives him food and makes him feel comfortable.</li>
+      <li>She speaks to him about his behaviour.</li>
+      <li>She trusts him and gives him money to buy blue suede shoes.</li>
+      <li>Roger is touched by her kindness and respect.</li>
+    </ul>
+    <div class="highlight"><b>Conclusion:</b> Mrs. Jones shows that kindness, trust and understanding can change a person's life.</div>
+  </article>
+
+  <article class="lesson searchable">
+    <div class="lesson-top"><div><div class="lesson-number">8 MARKS · 04</div><h3>Sumita's Independence</h3><div class="author">Clothes – Chitra Banerjee Divakaruni</div></div><span class="lesson-badge">Story</span></div>
+    <p>The story “Clothes” explains the life and personal choices of Sumita.</p>
+    <ul>
+      <li>Sumita is a young Indian woman.</li>
+      <li>She marries Somesh and moves to America.</li>
+      <li>She experiences a different culture and lifestyle.</li>
+      <li>Clothes represent her identity and changing life.</li>
+      <li>Her husband's death creates a difficult situation.</li>
+      <li>She faces the choice of returning to India or staying in America.</li>
+      <li>She decides to remain in America and become independent.</li>
+      <li>Her decision shows courage and confidence.</li>
+    </ul>
+    <div class="highlight"><b>Conclusion:</b> Sumita's story teaches us about courage, cultural identity and women's independence.</div>
+  </article>
+
+  <article class="lesson searchable">
+    <div class="lesson-top"><div><div class="lesson-number">8 MARKS · 05</div><h3>Message of Next Sunday</h3><div class="author">R. K. Narayan</div></div><span class="lesson-badge">Prose</span></div>
+    <p>“Next Sunday” presents the habit of postponing plans in a humorous way.</p>
+    <ul>
+      <li>People make many plans for their free time.</li>
+      <li>Sunday is often selected for these activities.</li>
+      <li>When Sunday comes, people find reasons to delay their plans.</li>
+      <li>They keep saying that they will do the work later.</li>
+      <li>This behaviour shows procrastination.</li>
+      <li>The writer uses humour to present this common habit.</li>
+      <li>The lesson reminds us that time is valuable.</li>
+      <li>We should complete important work without unnecessary delay.</li>
+    </ul>
+    <div class="highlight"><b>Conclusion:</b> The lesson teaches us to avoid procrastination and use our time wisely.</div>
+  </article>
+
+  <article class="lesson searchable">
+    <div class="lesson-top"><div><div class="lesson-number">8 MARKS · 06</div><h3>Behrman's Sacrifice</h3><div class="author">The Last Leaf – O. Henry</div></div><span class="lesson-badge">Story</span></div>
+    <p>Behrman is an old artist who makes a great sacrifice to save Johnsy.</p>
+    <ul>
+      <li>Johnsy becomes seriously ill.</li>
+      <li>She loses hope and believes she will die when the last ivy leaf falls.</li>
+      <li>Sue tries to encourage her friend.</li>
+      <li>Behrman learns about Johnsy's belief.</li>
+      <li>He goes outside during a stormy night.</li>
+      <li>He paints a leaf on the wall so that it looks real.</li>
+      <li>Johnsy sees the leaf and slowly regains hope.</li>
+      <li>Behrman catches pneumonia and dies after his sacrifice.</li>
+    </ul>
+    <div class="highlight"><b>Conclusion:</b> Behrman's painted leaf becomes his masterpiece because it saves Johnsy's life.</div>
+  </article>
+
+  <article class="lesson searchable">
+    <div class="lesson-top"><div><div class="lesson-number">8 MARKS · 07</div><h3>Raicharan's Loyalty and Sacrifice</h3><div class="author">My Lord, the Baby – Rabindranath Tagore</div></div><span class="lesson-badge">Story</span></div>
+    <p>Raicharan is a loyal servant whose life is affected by the disappearance of his master's baby.</p>
+    <ul>
+      <li>Raicharan takes care of Anukul's baby.</li>
+      <li>He looks after the child with love and responsibility.</li>
+      <li>One day, the baby disappears near the Padma River.</li>
+      <li>Raicharan feels guilty and deeply sad.</li>
+      <li>Later, he has a son named Phailna.</li>
+      <li>He brings up Phailna with care and affection.</li>
+      <li>He finally gives Phailna to Anukul.</li>
+      <li>His actions show loyalty, guilt and sacrifice.</li>
+    </ul>
+    <div class="highlight"><b>Conclusion:</b> Raicharan's story shows the pain of guilt and the power of parental love and sacrifice.</div>
+  </article>
+
+  <article class="lesson searchable">
+    <div class="lesson-top"><div><div class="lesson-number">8 MARKS · 08</div><h3>Vera's Cleverness</h3><div class="author">The Open Window – Saki</div></div><span class="lesson-badge">Story</span></div>
+    <p>Vera is a clever young girl who uses her imagination to create a frightening story.</p>
+    <ul>
+      <li>Framton Nuttel visits Mrs. Sappleton's house.</li>
+      <li>He meets Vera, who is young and imaginative.</li>
+      <li>Vera tells him a false story about an open window.</li>
+      <li>She says that her aunt's family disappeared while hunting.</li>
+      <li>Framton believes the story and becomes frightened.</li>
+      <li>The hunting party returns through the open window.</li>
+      <li>Framton thinks they are ghosts and runs away.</li>
+      <li>Vera invents another story to explain his sudden escape.</li>
+    </ul>
+    <div class="highlight"><b>Conclusion:</b> Vera's imagination creates humour, deception and an unexpected ending.</div>
+  </article>
+
+  <article class="lesson searchable">
+    <div class="lesson-top"><div><div class="lesson-number">8 MARKS · 09</div><h3>Mary Kom – An Inspiring Life</h3><div class="author">Biography</div></div><span class="lesson-badge">Biography</span></div>
+    <p>Mary Kom is a famous Indian boxer who became an inspiration through hard work and determination.</p>
+    <ul>
+      <li>Mary Kom comes from Manipur, India.</li>
+      <li>She came from a simple family background.</li>
+      <li>She developed an interest in boxing.</li>
+      <li>She worked hard and faced many challenges.</li>
+      <li>She won several World Championship titles.</li>
+      <li>She won a bronze medal at the 2012 London Olympics.</li>
+      <li>She won gold at the 2014 Asian Games.</li>
+      <li>She became an inspiration to women and young athletes.</li>
+    </ul>
+    <div class="highlight"><b>Conclusion:</b> Mary Kom teaches us that determination, discipline and hard work help us achieve our dreams.</div>
+  </article>
 </section>
 
+<!-- REVISION -->
 <section class="section" id="revision">
-<h2 class="section-title">10. Final Revision Checklist</h2>
-<div class="card">
-<p>Tick the topics after studying them. Your progress is saved only while this page remains open.</p>
-<div class="progress-wrap"><div class="progress" id="progress"></div></div>
-<p class="small" id="progressText">0 of 14 completed</p>
-<div id="checklist">
-</div>
-</div>
-<div class="card">
-<h3>Last-minute memory sheet</h3>
-<div class="grid2">
-<div class="mini"><strong>The Pulley</strong>God, blessings and restlessness.</div>
-<div class="mini"><strong>Sonnet 30</strong>Memory, sadness and friendship.</div>
-<div class="mini"><strong>Thank You, M'am</strong>Kindness and forgiveness.</div>
-<div class="mini"><strong>Clothes</strong>Identity and independence.</div>
-<div class="mini"><strong>Next Sunday</strong>Procrastination and humour.</div>
-<div class="mini"><strong>The Last Leaf</strong>Hope and sacrifice.</div>
-<div class="mini"><strong>My Lord, the Baby</strong>Loyalty and sacrifice.</div>
-<div class="mini"><strong>The Open Window</strong>Imagination and deception.</div>
-<div class="mini"><strong>Mary Kom</strong>Hard work and determination.</div>
-</div>
-</div>
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">FINAL PREPARATION</div>
+      <h2>Revision Checklist</h2>
+      <div class="section-desc">Tick each topic after you finish studying it.</div>
+    </div>
+    <span class="tag">YOUR PROGRESS</span>
+  </div>
+
+  <div class="card">
+    <h3>📌 Study Progress</h3>
+    <p>Complete each topic and track your revision.</p>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-text" id="progressText">0 of 13 topics completed</div>
+  </div>
+
+  <div class="checklist" style="margin-top:15px">
+    <label class="check-item"><input type="checkbox" class="revision-check"> The Pulley</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> Sonnet 30</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> Thank You, M'am</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> Clothes</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> Next Sunday</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> The Last Leaf</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> My Lord, the Baby</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> The Open Window</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> Mary Kom</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> Clauses and Sentences</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> Subject–Verb Agreement</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> Degrees of Comparison</label>
+    <label class="check-item"><input type="checkbox" class="revision-check"> Error Spotting</label>
+  </div>
 </section>
 
-<section class="section" id="timetable">
-<h2 class="section-title">11. Last-minute Study Timetable</h2>
-<div class="card">
-<table>
-<tr><th>Study time</th><th>Topic</th></tr>
-<tr><td>45 minutes</td><td>The Pulley and Sonnet 30.</td></tr>
-<tr><td>60 minutes</td><td>Thank You, M'am and Clothes.</td></tr>
-<tr><td>45 minutes</td><td>Next Sunday and The Last Leaf.</td></tr>
-<tr><td>45 minutes</td><td>My Lord, the Baby and The Open Window.</td></tr>
-<tr><td>30 minutes</td><td>Mary Kom.</td></tr>
-<tr><td>45 minutes</td><td>Grammar revision.</td></tr>
-<tr><td>15 minutes</td><td>Writers and one-word questions.</td></tr>
-</table>
-<div class="memory">
-<strong>My advice:</strong>
-<ul>
-<li>Understand the story first.</li>
-<li>Remember the writer's name.</li>
-<li>Learn 5 important themes for each lesson.</li>
-<li>Practise writing one 8-mark answer.</li>
-<li>Revise grammar examples.</li>
-<li>Get enough sleep before the examination.</li>
-</ul>
-</div>
-</div>
+<section class="section">
+  <div class="card">
+    <div class="section-kicker">LAST-MINUTE TIPS</div>
+    <h2 style="font:700 22px 'Space Grotesk';margin:7px 0 15px">How to Write an 8-Mark Answer</h2>
+    <div class="grid-2">
+      <div>
+        <h3>1. Introduction</h3>
+        <p>Write the lesson name and author's name. Give a short introduction.</p>
+      </div>
+      <div>
+        <h3>2. Main Points</h3>
+        <p>Write 6–8 clear points about the story, poem or character.</p>
+      </div>
+      <div>
+        <h3>3. Simple English</h3>
+        <p>Use short sentences. Avoid difficult words and confusing grammar.</p>
+      </div>
+      <div>
+        <h3>4. Conclusion</h3>
+        <p>Finish with the message or moral of the lesson.</p>
+      </div>
+    </div>
+    <div class="highlight">
+      <b>Important:</b> These are revision notes and suggested questions, not a guaranteed university question paper. Check your prescribed textbook and class materials for exact wording and details.
+    </div>
+  </div>
 </section>
-
-</main>
-</div>
 
 <footer class="footer">
-<strong>ENGLISH STUDY HUB</strong>
-<p>STC Pollachi · B.Sc. Digital and Cyber Forensic Science</p>
-<p>Simple English · Easy Revision · University Exam Preparation</p>
-<p>Study well. Stay confident. All the best!</p>
+  <div style="font:700 15px 'Space Grotesk';color:#dce5ff">ENGLISH HUB</div>
+  <p>Advanced English · Exam Preparation Dashboard</p>
+  <p>Study smart. Stay focused. Give your best.</p>
 </footer>
 
+</div>
+</main>
+
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
 <script>
-const tasks = [
-"The Pulley – Story, themes and symbols",
-"Sonnet 30 – Meaning and poem structure",
-"Thank You, M'am – Characters and moral",
-"Clothes – Story and symbols",
-"Next Sunday – Essay and themes",
-"The Last Leaf – Story and Behrman's sacrifice",
-"My Lord, the Baby – Story and Raicharan",
-"The Open Window – Story and Vera",
-"Mary Kom – Biography and achievements",
-"Clauses and sentences",
-"Subject–verb agreement",
-"Degrees of comparison",
-"Error spotting",
-"One-word questions and writers"
-];
+function toggleMenu(){
+  document.getElementById('sidebar').classList.toggle('open');
+}
 
-const checklist = document.getElementById("checklist");
-
-tasks.forEach((task,index)=>{
- const row=document.createElement("div");
- row.className="checkline";
- const checkbox=document.createElement("input");
- checkbox.type="checkbox";
- checkbox.id="task"+index;
- checkbox.addEventListener("change",updateProgress);
- const label=document.createElement("label");
- label.htmlFor=checkbox.id;
- label.textContent=task;
- row.append(checkbox,label);
- checklist.appendChild(row);
+document.querySelectorAll('.nav-link').forEach(link=>{
+  link.addEventListener('click',()=>{
+    document.querySelectorAll('.nav-link').forEach(x=>x.classList.remove('active'));
+    link.classList.add('active');
+    document.getElementById('sidebar').classList.remove('open');
+  });
 });
 
+function searchContent(){
+  const term=document.getElementById('search').value.toLowerCase().trim();
+  const items=document.querySelectorAll('.searchable');
+  items.forEach(item=>{
+    item.style.display=item.innerText.toLowerCase().includes(term)?'':'none';
+  });
+}
+
+const checks=document.querySelectorAll('.revision-check');
 function updateProgress(){
- const boxes=[...checklist.querySelectorAll("input")];
- const done=boxes.filter(x=>x.checked).length;
- document.getElementById("progress").style.width=(done/boxes.length*100)+"%";
- document.getElementById("progressText").textContent=
- done+" of "+boxes.length+" completed";
+  const done=[...checks].filter(c=>c.checked).length;
+  const percent=Math.round(done/checks.length*100);
+  document.getElementById('progressFill').style.width=percent+'%';
+  document.getElementById('progressText').textContent=done+' of '+checks.length+' topics completed';
+  document.getElementById('progressNumber').textContent=percent+'%';
 }
+checks.forEach(c=>c.addEventListener('change',updateProgress));
 
-function searchNotes(){
- const term=document.getElementById("search").value.toLowerCase().trim();
- const cards=document.querySelectorAll(".searchable");
- cards.forEach(card=>{
-  card.classList.toggle("hidden",!card.innerText.toLowerCase().includes(term));
- });
-}
+const sections=document.querySelectorAll('main section[id]');
+const navLinks=document.querySelectorAll('.nav-link');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(section=>{
+    if(window.scrollY>=section.offsetTop-130) current=section.id;
+  });
+  navLinks.forEach(link=>{
+    link.classList.toggle('active',link.getAttribute('href')==='#'+current);
+  });
+});
 </script>
-
 </body>
 </html>
