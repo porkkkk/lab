@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Exam Revision | B.Sc DCFS</title>
+<style>
+:root{--bg:#080d18;--panel:#111a2b;--panel2:#172338;--text:#edf3ff;--muted:#aab8cf;--line:#263650;--accent:#70a5ff;--green:#62dfb0;--yellow:#ffd479;--code:#080f1c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 0%,#172b4b 0,transparent 35%),var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial}
+header{padding:30px max(18px,calc((100% - 1180px)/2));border-bottom:1px solid var(--line);background:#0b1424eF}
+h1{font-size:clamp(27px,5vw,43px);line-height:1.15;margin:8px 0}h2{font-size:25px;margin:0 0 14px}h3{font-size:19px;margin:22px 0 8px;color:#cfe0ff}
+p{margin:8px 0}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.tag{display:inline-block;border:1px solid #35527c;border-radius:99px;padding:3px 10px;color:#cfe0ff;font-size:12px;margin:3px}
+.sub{color:var(--muted);max-width:850px}.wrap{max-width:1180px;margin:auto;padding:20px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.tools input{flex:1;min-width:220px;background:#101d31;color:var(--text);border:1px solid var(--line);padding:13px 15px;border-radius:12px;font-size:15px}
+button{background:#244574;color:white;border:1px solid #426ba5;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:650}button:hover{filter:brightness(1.15)}
+.layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:20px;align-items:start}.nav{position:sticky;top:12px;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:15px;max-height:calc(100vh - 24px);overflow:auto}.nav strong{display:block;margin-bottom:8px}.nav a{display:block;color:#c4d5ef;padding:6px 8px;border-radius:8px;font-size:14px}.nav a:hover{background:var(--panel2);text-decoration:none}
+main{min-width:0}.card{background:linear-gradient(150deg,#121e31,#0f1828);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:17px;box-shadow:0 12px 30px #0002}.unit{scroll-margin-top:12px}.unithead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px}.unithead small{color:var(--green);font-weight:700;letter-spacing:.08em}
+ul,ol{padding-left:23px}li{margin:5px 0}.def{border-left:3px solid var(--accent);padding:10px 13px;background:#17263d;border-radius:0 10px 10px 0;margin:12px 0}.memory{border-left:3px solid var(--yellow);padding:9px 13px;background:#2a2519;border-radius:0 9px 9px 0;color:#ffebc2;margin:12px 0}
+pre{background:var(--code);border:1px solid #263852;padding:15px;border-radius:12px;overflow:auto;color:#d9e8ff;font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}th,td{border:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}th{background:#1b2b45;color:#dce9ff}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mini{background:var(--panel2);border:1px solid var(--line);padding:13px;border-radius:12px}
+.kicker{color:var(--green);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+footer{text-align:center;color:var(--muted);padding:30px}
+.hide{display:none!important}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.nav{position:static;max-height:none}.navlinks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}.card{padding:17px}.grid{grid-template-columns:1fr}pre{font-size:12px}}
+@media print{body{background:white;color:#111}.nav,.tools,button{display:none}.card{break-inside:avoid;background:white;color:#111;border:1px solid #aaa;box-shadow:none}pre{white-space:pre-wrap;color:#111;background:#f5f5f5}header{background:white;color:#111}}
+</style>
+</head>
+<body>
+<header>
+ <div class="kicker">STC Pollachi · B.Sc Digital & Cyber Forensic Science</div>
+ <h1>Essentials of Java Programming</h1>
+ <p class="sub">Complete five-unit quick revision · Simple English · Point-wise 8-mark answers · Easy Java programs</p>
+ <span class="tag">75 Marks</span><span class="tag">5 Units</span><span class="tag">8-Mark Focus</span>
+ <div class="tools"><input id="search" placeholder="Search a topic: constructor, thread, MVC..." oninput="filterTopics()"><button onclick="window.print()">Print / Save PDF</button><button onclick="clearSearch()">Show all</button></div>
+</header>
+<div class="wrap layout">
+<aside class="nav"><strong>QUICK INDEX</strong><div class="navlinks">
+<a href="#u1">Unit I · Java basics</a><a href="#u2">Unit II · Classes</a><a href="#u3">Unit III · Packages</a><a href="#u4">Unit IV · Threads & I/O</a><a href="#u5">Unit V · AWT & Swing</a><a href="#last">Last-minute memory</a></div></aside>
+<main id="content">
+<section class="card unit" id="u1">
+<div class="unithead"><div><small>UNIT I</small><h2>Overview of Java, Data Types, Arrays & Control Statements</h2></div><span class="tag">Basics</span></div>
+<h3>1. Introduction to Java</h3>
+<div class="def"><b>Definition:</b> Java is a high-level, object-oriented programming language. It was developed by James Gosling at Sun Microsystems. Java programs run using the Java Virtual Machine (JVM).</div>
+<ul><li><b>Simple:</b> Java syntax is easy to learn compared with many older languages.</li><li><b>Object-oriented:</b> Programs use classes and objects.</li><li><b>Platform-independent:</b> Bytecode can run on systems with a JVM.</li><li><b>Secure:</b> Java provides bytecode verification and controlled memory access.</li><li><b>Robust:</b> Exception handling helps manage errors.</li><li><b>Multithreaded:</b> It can perform more than one task at a time.</li><li><b>Portable:</b> Java bytecode can be moved between supported systems.</li></ul>
+<div class="memory">Remember: WORA = Write Once, Run Anywhere. javac compiles .java into bytecode (.class); JVM runs the bytecode.</div>
+<h3>2. OOP Principles</h3>
+<table><tr><th>Principle</th><th>Simple meaning</th><th>Example</th></tr><tr><td>Encapsulation</td><td>Combining data and methods; protecting data.</td><td>private bank balance accessed using deposit()</td></tr><tr><td>Inheritance</td><td>Child class receives features from parent class.</td><td>Dog extends Animal</td></tr><tr><td>Polymorphism</td><td>One name/interface, many forms.</td><td>same sound() method behaves differently</td></tr><tr><td>Abstraction</td><td>Showing important features and hiding internal details.</td><td>Driving a car without knowing engine details</td></tr></table>
+<h3>3. Data Types and Variables</h3>
+<div class="def"><b>Data type:</b> It tells Java what kind of value a variable can store. <b>Variable:</b> A named memory location used to store a value.</div>
+<table><tr><th>Type</th><th>Use</th><th>Example</th></tr><tr><td>byte, short, int, long</td><td>Whole numbers</td><td>int age = 20;</td></tr><tr><td>float, double</td><td>Decimal numbers</td><td>double mark = 85.5;</td></tr><tr><td>char</td><td>One character</td><td>char grade = 'A';</td></tr><tr><td>boolean</td><td>true or false</td><td>boolean pass = true;</td></tr></table>
+<p>Two broad groups: <b>Primitive</b> types store simple values; <b>non-primitive/reference</b> types refer to objects, such as String, arrays and classes.</p>
+<h3>4. Arrays</h3>
+<div class="def">An array stores multiple values of the same data type using one variable name. Array size is fixed after creation and elements are accessed by index starting at 0.</div>
+<pre>class ArrayDemo {
+  public static void main(String[] args) {
+    int[] marks = {80, 90, 75};
+    for (int i = 0; i &lt; marks.length; i++) {
+      System.out.println(marks[i]);
+    }
+  }
+}</pre>
+<p><b>Output:</b> 80, 90, 75 (each on a new line). Types: one-dimensional and multidimensional arrays.</p>
+<h3>5. Array and Vector</h3>
+<table><tr><th>Array</th><th>Vector</th></tr><tr><td>Fixed size.</td><td>Grows or shrinks automatically.</td></tr><tr><td>Can store primitive values or objects.</td><td>Stores objects; use wrapper classes for primitive values.</td></tr><tr><td>Not synchronized by default.</td><td>Methods are synchronized.</td></tr><tr><td>Part of core language.</td><td>Class in java.util package.</td></tr><tr><td>Example: int[] a = new int[5];</td><td>Vector&lt;String&gt; v = new Vector&lt;&gt;();</td></tr></table>
+<pre>import java.util.Vector;
+class VectorDemo {
+  public static void main(String[] args) {
+    Vector&lt;String&gt; v = new Vector&lt;&gt;();
+    v.add("Java");
+    v.add("Python");
+    System.out.println(v.get(0));
+    System.out.println(v.size());
+  }
+}</pre>
+<h3>6. Operators</h3>
+<table><tr><th>Type</th><th>Operators</th><th>Meaning</th></tr><tr><td>Arithmetic</td><td>+ - * / %</td><td>Math operations; % gives remainder.</td></tr><tr><td>Relational</td><td>== != &gt; &lt; &gt;= &lt;=</td><td>Compare values.</td></tr><tr><td>Logical</td><td>&amp;&amp; || !</td><td>Combine conditions.</td></tr><tr><td>Assignment</td><td>= += -= *=</td><td>Assign values.</td></tr><tr><td>Unary</td><td>++ --</td><td>Increase/decrease by one.</td></tr><tr><td>Ternary</td><td>?:</td><td>Short if-else expression.</td></tr><tr><td>Bitwise</td><td>&amp; | ^ ~</td><td>Work on bits.</td></tr></table>
+<div class="memory">Example: 10 % 3 = 1 because the remainder is 1.</div>
+<h3>7. Control Statements</h3>
+<p><b>Selection:</b> if, if-else, else-if, switch. <b>Iteration:</b> for, while, do-while. <b>Jump:</b> break, continue, return.</p>
+<table><tr><th>Loop</th><th>When condition is checked</th><th>Important point</th></tr><tr><td>while</td><td>Before the body</td><td>May run zero times.</td></tr><tr><td>do-while</td><td>After the body</td><td>Runs at least once.</td></tr><tr><td>for</td><td>Before each iteration</td><td>Useful when count is known.</td></tr></table>
+<h3>8. Program: Largest of Three Numbers (if-else)</h3>
+<pre>class Largest {
+  public static void main(String[] args) {
+    int a = 10, b = 25, c = 15;
+    if (a &gt;= b &amp;&amp; a &gt;= c)
+      System.out.println("Largest = " + a);
+    else if (b &gt;= a &amp;&amp; b &gt;= c)
+      System.out.println("Largest = " + b);
+    else
+      System.out.println("Largest = " + c);
+  }
+}</pre>
+<p><b>Output:</b> Largest = 25. <b>Explanation:</b> if checks whether a is largest; else-if checks b; otherwise c is largest.</p>
+</section>
+
+<section class="card unit" id="u2">
+<div class="unithead"><div><small>UNIT II</small><h2>Classes, Objects, Methods, Constructors & Inheritance</h2></div><span class="tag">OOP coding</span></div>
+<h3>1. Class and Object</h3>
+<div class="def"><b>Class:</b> A blueprint or design used to create objects. It contains variables and methods. <b>Object:</b> An instance of a class with its own data.</div>
+<ul><li>Class defines the structure.</li><li>Variables store data (state).</li><li>Methods perform actions (behaviour).</li><li>One class can create many objects.</li></ul>
+<pre>class Student {
+  int mark;
+  void display() {
+    System.out.println(mark);
+  }
+}
+class Demo {
+  public static void main(String[] args) {
+    Student s = new Student();
+    s.mark = 90;
+    s.display();
+  }
+}</pre>
+<h3>2. Declaring Objects and Reference Variables</h3>
+<pre>Student s;              // reference declaration
+s = new Student();      // object creation
+Student t = s;          // reference assignment</pre>
+<p><b>Important:</b> new creates an object in memory. A reference variable stores the reference to that object. After <code>t = s</code>, both refer to the same object; a second object is not created.</p>
+<h3>3. Methods</h3>
+<div class="def">A method is a named block of code that performs one task. It supports code reuse and modular programming.</div>
+<pre>int add(int a, int b) {
+  return a + b;
+}</pre>
+<p><b>void</b> means the method returns no value. <b>return</b> sends a result back to the caller.</p>
+<h3>4. Constructors and Constructor Overloading</h3>
+<div class="def">A constructor is a special member used to initialize an object. Its name is the same as the class name and it has no return type. It runs automatically when an object is created using new.</div>
+<ul><li><b>Default constructor:</b> No parameters. If no constructor is written, Java supplies a default constructor.</li><li><b>Parameterized constructor:</b> Receives values to initialize an object.</li><li><b>Constructor overloading:</b> More than one constructor with different parameter lists.</li></ul>
+<pre>class Student {
+  int mark;
+  Student() {
+    mark = 0;
+  }
+  Student(int m) {
+    mark = m;
+  }
+  void show() {
+    System.out.println(mark);
+  }
+}
+class Demo {
+  public static void main(String[] args) {
+    Student a = new Student();
+    Student b = new Student(90);
+    a.show();
+    b.show();
+  }
+}</pre>
+<p><b>Output:</b> 0 then 90.</p>
+<h3>5. this Keyword</h3>
+<div class="def">this refers to the current object. It is commonly used when a parameter name and an instance-variable name are the same.</div>
+<pre>class Student {
+  int mark;
+  Student(int mark) {
+    this.mark = mark;
+  }
+  void show() {
+    System.out.println(this.mark);
+  }
+}</pre>
+<p>Here <code>this.mark</code> means the object's variable; <code>mark</code> means the constructor parameter.</p>
+<h3>6. Method Overloading and Overriding</h3>
+<table><tr><th>Overloading</th><th>Overriding</th></tr><tr><td>Same method name, different parameter list.</td><td>Child class redefines inherited method.</td></tr><tr><td>Usually in the same class.</td><td>Requires inheritance.</td></tr><tr><td>Compile-time polymorphism.</td><td>Runtime polymorphism.</td></tr><tr><td>Parameters must differ.</td><td>Method signature must match (with valid return type rules).</td></tr></table>
+<pre>// Overloading
+class Calc {
+  int add(int a, int b) { return a + b; }
+  int add(int a, int b, int c) { return a + b + c; }
+}</pre>
+<pre>// Overriding
+class Animal {
+  void sound() { System.out.println("Animal sound"); }
+}
+class Dog extends Animal {
+  @Override
+  void sound() { System.out.println("Bark"); }
+}</pre>
+<h3>7. Inheritance</h3>
+<div class="def">Inheritance is the process in which one class gets accessible fields and methods from another class. It improves code reuse.</div>
+<ul><li>Parent class is also called superclass.</li><li>Child class is also called subclass.</li><li>Use <code>extends</code> for class inheritance.</li><li>Java supports single, multilevel and hierarchical class inheritance.</li><li>Multiple inheritance of classes is not supported directly; interfaces provide multiple inheritance of type.</li></ul>
+<pre>class Animal {
+  void eat() {
+    System.out.println("Eating");
+  }
+}
+class Dog extends Animal {
+  void bark() {
+    System.out.println("Barking");
+  }
+}
+class Demo {
+  public static void main(String[] args) {
+    Dog d = new Dog();
+    d.eat();
+    d.bark();
+  }
+}</pre>
+<p><b>Output:</b> Eating / Barking.</p>
+</section>
+
+<section class="card unit" id="u3">
+<div class="unithead"><div><small>UNIT III</small><h2>Packages, Member Access, Interfaces & Exception Handling</h2></div><span class="tag">Very important</span></div>
+<h3>1. Package</h3>
+<div class="def">A package is a group of related classes and interfaces. It organizes programs, avoids name conflicts and controls access.</div>
+<ul><li>Write <code>package packname;</code> as the first statement.</li><li>Package names normally match folder names.</li><li>Built-in packages include java.lang, java.util, java.io, java.awt and javax.swing.</li><li>User-defined packages are created by programmers.</li></ul>
+<h3>2. Creating and Importing a Package</h3>
+<pre>// File: pack1/Message.java
+package pack1;
+public class Message {
+  public void show() {
+    System.out.println("Hello Package");
+  }
+}
+
+// File: Test.java
+import pack1.Message;
+class Test {
+  public static void main(String[] args) {
+    Message m = new Message();
+    m.show();
+  }
+}</pre>
+<p>Compile from the parent folder: <code>javac pack1/Message.java</code>, then <code>javac Test.java</code>; run using <code>java Test</code>.</p>
+<h3>3. Member Access / Access Modifiers</h3>
+<div class="def">Access modifiers decide where a class member (variable or method) can be used.</div>
+<table><tr><th>Modifier</th><th>Same class</th><th>Same package</th><th>Subclass outside package</th><th>Other outside class</th></tr><tr><td>private</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr><tr><td>default (no keyword)</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr><tr><td>protected</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td></tr><tr><td>public</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr></table>
+<p><b>Default access:</b> If no access modifier is written, the member can be accessed only inside the same package. It is also called package-private.</p>
+<h3>4. Interface</h3>
+<div class="def">An interface is a contract that tells a class which methods it must provide. A class uses the <code>implements</code> keyword.</div>
+<ul><li>It supports abstraction.</li><li>A class can implement more than one interface.</li><li>Interface fields are public, static and final by default.</li><li>Traditional abstract interface methods are public and abstract by default.</li><li>Interfaces can be used to achieve multiple inheritance of type.</li></ul>
+<pre>interface Printable {
+  void print();
+}
+interface Showable {
+  void show();
+}
+class Demo implements Printable, Showable {
+  public void print() {
+    System.out.println("Print");
+  }
+  public void show() {
+    System.out.println("Show");
+  }
+  public static void main(String[] args) {
+    Demo d = new Demo();
+    d.print();
+    d.show();
+  }
+}</pre>
+<p><b>Output:</b> Print / Show.</p>
+<h3>5. Exception Handling</h3>
+<div class="def">An exception is an abnormal event or runtime problem that interrupts the normal flow of a program. Exception handling manages the problem without an uncontrolled program stop.</div>
+<ul><li><b>try:</b> Contains code that may cause an exception.</li><li><b>catch:</b> Handles the exception.</li><li><b>finally:</b> Runs after try/catch in normal completion paths; commonly used to release resources.</li><li><b>throw:</b> Manually throws an exception.</li><li><b>throws:</b> Declares that a method may pass an exception to its caller.</li></ul>
+<pre>class ExceptionDemo {
+  public static void main(String[] args) {
+    try {
+      int a = 10 / 0;
+    }
+    catch (ArithmeticException e) {
+      System.out.println("Cannot divide by zero");
+    }
+    finally {
+      System.out.println("Program completed");
+    }
+  }
+}</pre>
+<p><b>Output:</b> Cannot divide by zero / Program completed.</p>
+<h3>6. throw and throws</h3>
+<table><tr><th>throw</th><th>throws</th></tr><tr><td>Used inside a method or block.</td><td>Written in the method declaration.</td></tr><tr><td>Actually throws an exception object.</td><td>Declares possible exceptions.</td></tr><tr><td>Followed by an exception object.</td><td>Followed by exception class names.</td></tr><tr><td>Example: throw new IOException();</td><td>Example: void read() throws IOException</td></tr></table>
+<h3>7. Multiple catch blocks</h3>
+<pre>try {
+  int n = 10 / 0;
+}
+catch (ArithmeticException e) {
+  System.out.println("Math error");
+}
+catch (Exception e) {
+  System.out.println("Other error");
+}</pre>
+<p>Only the first matching catch runs. Put specific exception catches before general catches such as Exception.</p>
+</section>
+
+<section class="card unit" id="u4">
+<div class="unithead"><div><small>UNIT IV</small><h2>Multithreading, Files, Streams & String Handling</h2></div><span class="tag">Programs likely</span></div>
+<h3>1. Thread and Multithreading</h3>
+<div class="def">A thread is a small independent path of execution inside a program. Multithreading means running two or more threads concurrently in one program.</div>
+<ul><li>Improves CPU use and responsiveness.</li><li>Threads share the same process memory.</li><li>Useful for file operations, network tasks and user interfaces.</li><li>Threads are lighter than separate processes.</li></ul>
+<h3>2. Creating a Thread using Runnable</h3>
+<ol><li>Create a class that implements Runnable.</li><li>Write the task inside run().</li><li>Create a Thread object and pass the Runnable object.</li><li>Call start() to begin a new thread.</li></ol>
+<pre>class MyTask implements Runnable {
+  public void run() {
+    System.out.println("Thread is running");
+  }
+}
+class Demo {
+  public static void main(String[] args) {
+    MyTask task = new MyTask();
+    Thread t = new Thread(task);
+    t.start();
+  }
+}</pre>
+<p><b>Output:</b> Thread is running.</p>
+<div class="memory">Remember: start() starts a new thread and then the JVM calls run(). Calling run() directly is just a normal method call.</div>
+<h3>3. Thread Life Cycle</h3>
+<ol><li><b>New:</b> Thread object is created.</li><li><b>Runnable:</b> start() is called; thread is ready or running under scheduler control.</li><li><b>Blocked / Waiting / Timed Waiting:</b> Thread temporarily cannot continue (for example, waiting for a lock or sleep time).</li><li><b>Terminated:</b> run() finishes or the thread ends.</li></ol>
+<p>Simple diagram to draw: New → Runnable → Running → Waiting/Blocked → Runnable → Terminated. Java's official state names group ready and running under RUNNABLE.</p>
+<h3>4. Important Thread Methods</h3>
+<table><tr><th>Method</th><th>Use</th></tr><tr><td>start()</td><td>Starts a new thread.</td></tr><tr><td>run()</td><td>Contains the task.</td></tr><tr><td>sleep(ms)</td><td>Pauses current thread for a time.</td></tr><tr><td>join()</td><td>Waits for another thread to finish.</td></tr><tr><td>isAlive()</td><td>Checks whether thread is alive.</td></tr><tr><td>getName()/setName()</td><td>Gets or changes thread name.</td></tr><tr><td>currentThread()</td><td>Gets the currently running thread.</td></tr><tr><td>yield()</td><td>Hints that another thread may run.</td></tr></table>
+<h3>5. Synchronization</h3>
+<div class="def">Synchronization controls access to shared data. A synchronized method allows only one thread at a time to execute it on the same object.</div>
+<ul><li>Prevents race conditions.</li><li>Protects shared data from mixed or incorrect updates.</li><li>Uses an object's lock/monitor.</li></ul>
+<pre>synchronized void withdraw(int amount) {
+  balance = balance - amount;
+}</pre>
+<h3>6. Files and Java I/O</h3>
+<div class="def">A file stores data permanently. Java I/O classes read data from a source and write data to a destination. Many of these classes are in java.io.</div>
+<p>Common file operations: create, read, write, append, close and delete.</p>
+<h3>7. Stream Classes</h3>
+<div class="def">A stream is a flow of data between a program and an input/output source.</div>
+<table><tr><th>Byte streams</th><th>Character streams</th></tr><tr><td>Handle 8-bit bytes.</td><td>Handle text characters.</td></tr><tr><td>Useful for images, audio and binary files.</td><td>Useful for text files.</td></tr><tr><td>InputStream / OutputStream.</td><td>Reader / Writer.</td></tr><tr><td>Examples: FileInputStream, FileOutputStream.</td><td>Examples: FileReader, FileWriter.</td></tr></table>
+<h3>8. Program: Read a Text File using FileReader</h3>
+<pre>import java.io.FileReader;
+import java.io.IOException;
+
+class ReadFile {
+  public static void main(String[] args) {
+    try {
+      FileReader r = new FileReader("data.txt");
+      int ch;
+      while ((ch = r.read()) != -1) {
+        System.out.print((char) ch);
+      }
+      r.close();
+    }
+    catch (IOException e) {
+      System.out.println("File error");
+    }
+  }
+}</pre>
+<p>Place data.txt in the program's working directory. read() returns -1 when the end of the file is reached. close() closes the file.</p>
+<h3>9. String, StringBuffer and StringBuilder</h3>
+<div class="def">A String is a sequence of characters. String objects are immutable, which means their contents cannot be changed after creation.</div>
+<table><tr><th>String</th><th>StringBuffer</th><th>StringBuilder</th></tr><tr><td>Immutable.</td><td>Mutable.</td><td>Mutable.</td></tr><tr><td>Changing creates a new String.</td><td>Can change same object.</td><td>Can change same object.</td></tr><tr><td>Safe to share because immutable.</td><td>Methods are synchronized (thread-safe).</td><td>Not synchronized; generally faster for single-thread work.</td></tr></table>
+<pre>class StringDemo {
+  public static void main(String[] args) {
+    StringBuffer s = new StringBuffer("Hello");
+    s.append(" Java");
+    s.insert(5, " World");
+    System.out.println(s);
+  }
+}</pre>
+<p>Common methods: length(), charAt(), substring(), equals(), append(), insert(), delete(), reverse(). append/insert/delete/reverse are common mutable-buffer methods.</p>
+</section>
+
+<section class="card unit" id="u5">
+<div class="unithead"><div><small>UNIT V</small><h2>AWT, Events, Swing Components & MVC</h2></div><span class="tag">GUI</span></div>
+<h3>1. AWT</h3>
+<div class="def">AWT means Abstract Window Toolkit. It is Java's original GUI toolkit, used to create windows, buttons, labels, text fields, menus and graphics. AWT classes are mainly in java.awt.</div>
+<ul><li>Component is the base class for visual controls.</li><li>Container holds other components.</li><li>Frame creates a normal application window.</li><li>Panel groups components.</li><li>Layout managers arrange components.</li></ul>
+<h3>2. Important AWT Components</h3>
+<table><tr><th>Component</th><th>Purpose</th></tr><tr><td>Label</td><td>Displays text.</td></tr><tr><td>Button</td><td>Clickable button.</td></tr><tr><td>TextField</td><td>Single-line text input.</td></tr><tr><td>TextArea</td><td>Multi-line text input.</td></tr><tr><td>Checkbox</td><td>On/off selection.</td></tr><tr><td>Choice</td><td>Drop-down selection.</td></tr><tr><td>List</td><td>Displays selectable items.</td></tr><tr><td>Frame</td><td>Main window.</td></tr></table>
+<h3>3. Event Delegation Model</h3>
+<div class="def">The event delegation model is Java's way of handling user actions. An event source creates an event and sends it to a registered listener.</div>
+<ol><li><b>Event source:</b> Component where action happens, such as Button.</li><li><b>Event object:</b> Contains details about the action, such as ActionEvent.</li><li><b>Event listener:</b> Object that waits for and handles the event, such as ActionListener.</li><li>Register listener using addActionListener().</li><li>Write handling code inside actionPerformed().</li></ol>
+<pre>import java.awt.*;
+import java.awt.event.*;
+
+class EventDemo extends Frame implements ActionListener {
+  Button b;
+  EventDemo() {
+    b = new Button("Click");
+    add(b);
+    b.addActionListener(this);
+    setSize(250, 150);
+    setVisible(true);
+  }
+  public void actionPerformed(ActionEvent e) {
+    System.out.println("Button clicked");
+  }
+  public static void main(String[] args) {
+    new EventDemo();
+  }
+}</pre>
+<h3>4. Swing</h3>
+<div class="def">Swing is a Java GUI toolkit built on top of AWT. It provides richer, lightweight and more customizable components. Most Swing component names start with J.</div>
+<p>Swing classes are mainly in <code>javax.swing</code>. Event handling classes are commonly in <code>java.awt.event</code>.</p>
+<h3>5. Important Swing Components</h3>
+<table><tr><th>Component</th><th>Use</th></tr><tr><td>JFrame</td><td>Main application window.</td></tr><tr><td>JLabel</td><td>Displays text or image.</td></tr><tr><td>JTextField</td><td>Single-line input.</td></tr><tr><td>JPasswordField</td><td>Password input.</td></tr><tr><td>JButton</td><td>Clickable button.</td></tr><tr><td>JCheckBox</td><td>Multiple independent choices.</td></tr><tr><td>JRadioButton</td><td>One choice in a ButtonGroup.</td></tr><tr><td>JList</td><td>List of selectable items.</td></tr><tr><td>JComboBox</td><td>Drop-down list.</td></tr><tr><td>JTextArea</td><td>Multi-line text.</td></tr></table>
+<h3>6. Login Form using Swing</h3>
+<pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class Login extends JFrame implements ActionListener {
+  JTextField user;
+  JPasswordField pass;
+  JButton login;
+  JLabel result;
+
+  Login() {
+    setTitle("Login Form");
+    setLayout(new FlowLayout());
+    add(new JLabel("Username:"));
+    user = new JTextField(15);
+    add(user);
+    add(new JLabel("Password:"));
+    pass = new JPasswordField(15);
+    add(pass);
+    login = new JButton("Login");
+    add(login);
+    result = new JLabel("");
+    add(result);
+    login.addActionListener(this);
+    setSize(250, 200);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setVisible(true);
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    if (user.getText().equals("admin") &&
+        new String(pass.getPassword()).equals("1234"))
+      result.setText("Login successful");
+    else
+      result.setText("Invalid login");
+  }
+
+  public static void main(String[] args) {
+    new Login();
+  }
+}</pre>
+<p><b>Note:</b> This is a simple classroom demonstration only; real applications should not store passwords in plain text.</p>
+<h3>7. AWT and Swing Differences</h3>
+<table><tr><th>AWT</th><th>Swing</th></tr><tr><td>Older GUI toolkit.</td><td>Built on top of AWT.</td></tr><tr><td>Components are mostly heavyweight.</td><td>Most components are lightweight.</td></tr><tr><td>Fewer components.</td><td>Richer component set.</td></tr><tr><td>Look depends more on operating system.</td><td>Supports pluggable look and feel.</td></tr><tr><td>Button, Label, TextField.</td><td>JButton, JLabel, JTextField.</td></tr><tr><td>java.awt package.</td><td>javax.swing package.</td></tr></table>
+<h3>8. MVC Architecture</h3>
+<div class="def">MVC means Model–View–Controller. It divides a GUI component into three parts so that data, appearance and user-action handling are organized separately.</div>
+<ul><li><b>Model:</b> Stores data or state. Example: whether a checkbox is selected.</li><li><b>View:</b> Displays the component on screen.</li><li><b>Controller:</b> Handles user actions and updates the model.</li></ul>
+<p><b>Working:</b> User clicks a checkbox → Controller receives the action → Model state changes → View displays the updated state.</p>
+<div class="memory">Memory trick: Model = Data, View = Display, Controller = Action.</div>
+<h3>9. JLabel, JTextField, JList and JComboBox</h3>
+<table><tr><th>Component</th><th>Purpose</th><th>Example</th></tr><tr><td>JLabel</td><td>Displays text/image; user does not type into it.</td><td>“Enter Name”</td></tr><tr><td>JTextField</td><td>Accepts one line of text.</td><td>Username input</td></tr><tr><td>JList</td><td>Shows a list; can allow multiple selection.</td><td>Choose subjects</td></tr><tr><td>JComboBox</td><td>Drop-down; normally selects one item.</td><td>Choose country</td></tr></table>
+</section>
+
+<section class="card" id="last">
+<div class="unithead"><div><small>FINAL 10-MINUTE REVISION</small><h2>Easy Memory Sheet</h2></div></div>
+<div class="grid">
+<div class="mini"><b>Unit I</b><p>Java = WORA · OOP = Encapsulation, Inheritance, Polymorphism, Abstraction · % = remainder · do-while runs once minimum.</p></div>
+<div class="mini"><b>Unit II</b><p>Class = blueprint · Object = instance · constructor = initialize · this = current object · extends = inheritance.</p></div>
+<div class="mini"><b>Unit III</b><p>Package = group of classes · interface = contract · try/catch/finally · throw = throw now · throws = declare.</p></div>
+<div class="mini"><b>Unit IV</b><p>Thread = execution path · start() begins thread · run() task · byte streams = binary · character streams = text.</p></div>
+<div class="mini"><b>Unit V</b><p>AWT = original GUI · Swing = richer GUI · Event source + event + listener · MVC = Model, View, Controller.</p></div>
+<div class="mini"><b>8-mark structure</b><p>Definition → 6–8 points → syntax/program → output → short conclusion. Underline keywords.</p></div>
+</div>
+<h3>Paper-based topics worth revising</h3>
+<ul><li>Java program structure and execution process.</li><li>Array vs Vector.</li><li>Methods and constructors; constructor overloading.</li><li>Inheritance and interfaces.</li><li>Package creation/importing and member access.</li><li>Multiple catch blocks; throw vs throws.</li><li>Thread using Runnable and thread life cycle.</li><li>Byte streams vs character streams; FileReader.</li><li>AWT event delegation model.</li><li>MVC architecture; AWT vs Swing; Swing components.</li></ul>
+<p class="memory">Exam reminder: Write neat headings, number your points, draw the thread life-cycle/MVC diagram if asked, and never forget the output below a program.</p>
+</section>
+</main></div>
+<footer>Made for quick Java revision · Read, recall, write once, revise again.</footer>
+<script>
+function filterTopics(){
+ const q=document.getElementById('search').value.toLowerCase().trim();
+ document.querySelectorAll('main section').forEach(sec=>{
+   let matched=false;
+   sec.querySelectorAll('h2,h3,p,li,td,th,pre,.def,.memory').forEach(el=>{
+     const yes=!q||el.innerText.toLowerCase().includes(q);
+     el.classList.toggle('hide',!yes);
+     if(yes)matched=true;
+   });
+   sec.classList.toggle('hide',!!q&&!matched);
+ });
+}
+function clearSearch(){document.getElementById('search').value='';filterTopics();}
+</script>
+</body></html>
