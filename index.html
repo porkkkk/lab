@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Java Exam Notes – Easy English</title>
+<style>
+:root{
+ --page:#0b1220;--paper:#121d2e;--ink:#e5edf8;--muted:#9aabc2;
+ --blue:#8bb8ff;--bluepale:#1b2d47;--green:#75d6ad;--greenpale:#17352f;
+ --line:#2a3a50;--code:#0b1422;--yellow:#382f1b
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--page);color:var(--ink);font:17px/1.75 Arial,Helvetica,sans-serif}
+header{background:#101a2a;border-bottom:1px solid var(--line);padding:26px 18px}
+.hero{max-width:1000px;margin:auto}
+.eyebrow{font-size:13px;font-weight:bold;color:var(--green);letter-spacing:.05em}
+h1{font-size:clamp(27px,5vw,38px);line-height:1.25;margin:7px 0;color:#f0f5ff}
+header p{margin:7px 0;color:var(--muted);max-width:760px}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+input{flex:1;min-width:210px;padding:12px 14px;border:1px solid #344760;border-radius:9px;font-size:16px;background:#0b1422;color:var(--ink)}
+button{border:0;border-radius:9px;padding:11px 15px;background:var(--blue);color:#fff;font-size:15px;font-weight:bold;cursor:pointer}
+button.secondary{background:#26364d;color:#e5edf8}
+.page{max-width:1000px;margin:20px auto;padding:0 16px;display:grid;grid-template-columns:215px minmax(0,1fr);gap:18px}
+nav{background:#121d2e;border:1px solid var(--line);border-radius:12px;padding:15px;height:max-content;position:sticky;top:12px}
+nav b{display:block;margin-bottom:7px;color:#e5edf8}
+nav a{display:block;text-decoration:none;color:#b9cce5;padding:7px 8px;border-radius:7px;font-size:15px}
+nav a:hover{background:var(--bluepale)}
+main{min-width:0}
+.unit{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:17px}
+.unit-title{border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:15px}
+.unit-title small{color:var(--green);font-weight:bold;letter-spacing:.07em}
+h2{font-size:25px;line-height:1.35;margin:4px 0;color:#d9e8ff}
+h3{font-size:20px;line-height:1.4;color:#8bb8ff;margin:24px 0 8px}
+p{margin:8px 0}
+ul,ol{padding-left:25px;margin:8px 0 14px}
+li{padding-left:2px;margin:4px 0}
+.definition{background:var(--bluepale);border-left:4px solid #6b94cf;border-radius:5px;padding:11px 14px;margin:10px 0}
+.remember{background:var(--yellow);border-left:4px solid #e1bd56;border-radius:5px;padding:10px 14px;margin:12px 0}
+.output{background:var(--greenpale);border-left:4px solid #65a88c;border-radius:5px;padding:9px 13px;margin:10px 0}
+pre{background:#080f1c;border:1px solid #38506f;border-radius:8px;padding:14px;overflow-x:auto;white-space:pre;font:14px/1.65 Consolas,Monaco,monospace;color:#e6edf7}
+pre .syntax-keyword{color:#ff79c6;font-weight:600}
+pre .syntax-type{color:#8be9fd}
+pre .syntax-string{color:#f1fa8c}
+pre .syntax-comment{color:#8b9bb4;font-style:italic}
+pre .syntax-number{color:#bd93f9}
+pre .syntax-method{color:#50fa7b}
+pre .syntax-annotation{color:#ffb86c}
+pre .syntax-operator{color:#ff79c6}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+th{background:#1c2b40;color:#dce9fb}
+.tip{color:var(--muted);font-size:15px}
+.diagram{background:#17263a;border:1px dashed #496487;border-radius:9px;text-align:center;padding:12px;margin:12px 0;font-weight:bold;color:#a9ccff}
+.question{padding:0 0 16px;margin:0 0 17px;border-bottom:1px solid var(--line)}
+.question:last-child{border:0}
+.hide{display:none!important}
+footer{text-align:center;color:var(--muted);padding:25px 12px;font-size:14px}
+@media(max-width:760px){
+ body{font-size:16px}
+ .page{grid-template-columns:1fr;margin-top:12px}
+ nav{position:static}
+ .navlinks{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+ .unit{padding:16px}
+ h2{font-size:22px}
+ h3{font-size:19px}
+ table{font-size:14px;display:block;overflow-x:auto}
+ pre{font-size:13px}
+}
+@media print{
+ body{background:#fff;font-size:12pt;color:#111}
+ header{padding:10px 0}
+ .actions,nav,button{display:none!important}
+ .page{display:block;margin:0;padding:0}
+ .unit{border:0;padding:8px 0;break-inside:auto;background:#fff;color:#111}
+ h2,h3{color:#111}
+ pre{white-space:pre-wrap;overflow-wrap:anywhere}
+}
+
+::selection{background:#315f9e;color:#fff}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8bb8ff;outline-offset:2px}
+@media print{
+ body{background:#fff;color:#111}
+ header{background:#fff;color:#111}
+ header h1{color:#111}
+}
+</style>
+</head>
+<body>
+<header><div class="hero">
+<div class="eyebrow">B.Sc DIGITAL AND CYBER FORENSIC SCIENCE · STC POLLACHI</div>
+<h1>Java Exam Notes – Easy English</h1>
+<p>Simple words, short points and easy programs. Read one question at a time. No crowded design and no difficult decorations.</p>
+<div class="actions">
+<input id="search" type="search" placeholder="Find a topic, for example: constructor, thread, Swing" oninput="filterNotes()">
+<button onclick="window.print()">Print / Save PDF</button>
+<button class="secondary" onclick="clearSearch()">Show all notes</button>
+</div>
+</div></header>
+<div class="page">
+<nav><b>Choose a unit</b><div class="navlinks">
+<a href="#unit1">Unit I – Java basics</a><a href="#unit2">Unit II – Classes</a>
+<a href="#unit3">Unit III – Package & errors</a><a href="#unit4">Unit IV – Threads & files</a>
+<a href="#unit5">Unit V – AWT & Swing</a><a href="#quick">Last-minute revision</a>
+</div></nav>
+<main id="notes">
+<section class="unit" id="unit1">
+<div class="unit-title"><small>UNIT I</small><h2>Java Basics</h2></div>
+<div class="question"><h3>1. Introduction to Java</h3>
+<div class="definition"><b>Meaning:</b> Java is a computer programming language. We use it to write programs, apps and software.</div>
+<p><b>Important points:</b></p><ol><li>James Gosling and his team developed Java.</li><li>It was first called Oak.</li><li>It was renamed Java.</li><li>Java was released in 1995.</li><li>Java uses classes and objects.</li><li>Java can run on different operating systems with a JVM.</li><li>Java supports many threads.</li><li>Java has tools to handle errors and protect programs.</li></ol>
+<div class="remember"><b>Remember:</b> WORA means “Write Once, Run Anywhere”.</div>
+<p><b>How a Java program runs:</b></p><div class="diagram">Program.java → javac compiler → Program.class (bytecode) → JVM → Output</div>
+<p>The compiler changes Java code into bytecode. The JVM runs the bytecode.</p></div>
+<div class="question"><h3>2. Four OOP Principles</h3><div class="definition"><b>Meaning:</b> OOP means Object-Oriented Programming. It uses classes and objects to build a program.</div>
+<table><tr><th>Principle</th><th>Easy meaning</th><th>Example</th></tr>
+<tr><td>Encapsulation</td><td>Keep data and its methods together. Protect the data.</td><td>Bank account</td></tr>
+<tr><td>Inheritance</td><td>A child class gets features from a parent class.</td><td>Dog gets features from Animal</td></tr>
+<tr><td>Polymorphism</td><td>One method name can work in different ways.</td><td>Different sound() methods</td></tr>
+<tr><td>Abstraction</td><td>Show only what is needed and hide inside details.</td><td>Driving a car</td></tr></table>
+<p><b>Advantages:</b> Saves code, protects data, makes programs easier to change and keeps code organised.</p></div>
+<div class="question"><h3>3. Data Types and Variables</h3><div class="definition"><b>Data type:</b> Tells Java what kind of value can be stored. <b>Variable:</b> A named place used to store a value.</div>
+<table><tr><th>Type</th><th>Stores</th><th>Example</th></tr><tr><td>int</td><td>Whole number</td><td>int age = 20;</td></tr><tr><td>float</td><td>Decimal number</td><td>float mark = 85.5f;</td></tr><tr><td>double</td><td>Decimal number</td><td>double price = 20.5;</td></tr><tr><td>char</td><td>One letter</td><td>char grade = 'A';</td></tr><tr><td>boolean</td><td>true or false</td><td>boolean pass = true;</td></tr><tr><td>long</td><td>Large whole number</td><td>long n = 100000L;</td></tr></table>
+<p>Primitive types store simple values. Reference types point to objects, such as String, arrays and class objects.</p>
+<pre>class Demo {
+  public static void main(String[] args) {
+    int age = 20;
+    double mark = 85.5;
+    char grade = 'A';
+    boolean pass = true;
+
+    System.out.println(age);
+    System.out.println(mark);
+    System.out.println(grade);
+    System.out.println(pass);
+  }
+}</pre></div>
+<div class="question"><h3>4. Arrays</h3><div class="definition"><b>Meaning:</b> An array keeps many values of the same type under one name.</div>
+<ol><li>An array stores more than one value.</li><li>All values have the same data type.</li><li>Each value has a number called an index.</li><li>The first index is 0.</li><li>Array size is fixed after it is created.</li><li>Arrays can be one-dimensional or multidimensional.</li></ol>
+<pre>class Demo {
+  public static void main(String[] args) {
+    int a[] = {10, 20, 30};
+
+    for(int i = 0; i &lt; a.length; i++) {
+      System.out.println(a[i]);
+    }
+  }
+}</pre><div class="output"><b>Output:</b><br>10<br>20<br>30</div></div>
+<div class="question"><h3>5. Difference Between Array and Vector</h3>
+<table><tr><th>Array</th><th>Vector</th></tr><tr><td>Size is fixed.</td><td>Size can grow or become smaller.</td></tr><tr><td>Can store simple values and objects.</td><td>Stores objects. Use wrapper classes for numbers.</td></tr><tr><td>Not synchronised by default.</td><td>Its main methods are synchronised.</td></tr><tr><td>Does not resize automatically.</td><td>Can grow when values are added.</td></tr><tr><td>Example: int a[] = new int[5];</td><td>Example: Vector&lt;String&gt; v = new Vector&lt;&gt;();</td></tr></table>
+<pre>import java.util.Vector;
+class Demo {
+  public static void main(String[] args) {
+    Vector&lt;String&gt; v = new Vector&lt;&gt;();
+    v.add("Java");
+    v.add("Python");
+    System.out.println(v.get(0));
+    System.out.println(v.size());
+  }
+}</pre><div class="output"><b>Output:</b> Java, then 2.</div></div>
+<div class="question"><h3>6. Operators</h3><div class="definition">Operators are signs used to do work on values.</div>
+<table><tr><th>Type</th><th>Signs</th><th>Use</th></tr><tr><td>Arithmetic</td><td>+ - * / %</td><td>Math work</td></tr><tr><td>Relational</td><td>== != &gt; &lt; &gt;= &lt;=</td><td>Compare values</td></tr><tr><td>Logical</td><td>&amp;&amp; || !</td><td>Join conditions</td></tr><tr><td>Assignment</td><td>= += -=</td><td>Give a value</td></tr><tr><td>Unary</td><td>++ --</td><td>Add or subtract 1</td></tr><tr><td>Ternary</td><td>?:</td><td>Short if-else</td></tr><tr><td>Bitwise</td><td>&amp; | ^ ~</td><td>Work on bits</td></tr></table>
+<div class="remember"><b>Easy example:</b> 10 % 3 = 1. The % sign gives the remainder.</div></div>
+<div class="question"><h3>7. Control Statements and Loops</h3><div class="definition">Control statements decide which part of a program runs and how many times it runs.</div>
+<ul><li><b>Decision:</b> if, if-else and switch.</li><li><b>Loop:</b> for, while and do-while.</li><li><b>Jump:</b> break, continue and return.</li></ul>
+<table><tr><th>while</th><th>do-while</th><th>for</th></tr><tr><td>Checks the condition before running.</td><td>Runs once, then checks the condition.</td><td>Useful when we know the number of repeats.</td></tr><tr><td>May run zero times.</td><td>Runs at least one time.</td><td>Checks the condition before each repeat.</td></tr></table>
+<pre>// while loop
+int i = 1;
+while(i &lt;= 3) {
+  System.out.println(i);
+  i++;
+}
+
+// do-while loop
+int j = 1;
+do {
+  System.out.println(j);
+  j++;
+} while(j &lt;= 3);
+
+// for loop
+for(int k = 1; k &lt;= 3; k++) {
+  System.out.println(k);
+}</pre></div>
+<div class="question"><h3>8. Program to Find the Largest of Three Numbers</h3>
+<pre>class Largest {
+  public static void main(String[] args) {
+    int a = 10, b = 25, c = 15;
+
+    if(a &gt;= b &amp;&amp; a &gt;= c) {
+      System.out.println(a);
+    }
+    else if(b &gt;= a &amp;&amp; b &gt;= c) {
+      System.out.println(b);
+    }
+    else {
+      System.out.println(c);
+    }
+  }
+}</pre><div class="output"><b>Output:</b> 25</div>
+<p><b>Explanation:</b> First, the program checks whether a is the largest. If not, it checks b. If both are not largest, c is the largest. The program prints the largest number.</p></div>
+</section>
+
+<section class="unit" id="unit2">
+<div class="unit-title"><small>UNIT II</small><h2>Classes and Objects</h2></div>
+<div class="question"><h3>1. Class and Object</h3><div class="definition"><b>Class:</b> A class is a plan used to make objects. <b>Object:</b> An object is made from a class.</div>
+<ul><li>A class has variables and methods.</li><li>Variables store information.</li><li>Methods do a task.</li><li>One class can make many objects.</li><li>Objects use the class methods and variables.</li></ul>
+<pre>class Student {
+  int mark;
+  void display() {
+    System.out.println(mark);
+  }
+}
+class Demo {
+  public static void main(String[] args) {
+    Student s = new Student();
+    s.mark = 90;
+    s.display();
+  }
+}</pre><div class="output"><b>Output:</b> 90</div></div>
+<div class="question"><h3>2. Declaring an Object and Reference Variable</h3><div class="definition">A reference variable holds the reference used to find and use an object.</div>
+<pre>Student s;              // Declare reference
+s = new Student();      // Make an object
+Student a = new Student(); // Do both together</pre>
+<ul><li>Student is the class name.</li><li>s is the reference variable.</li><li>new makes an object.</li><li>Use the reference to call methods and use variables.</li></ul></div>
+<div class="question"><h3>3. Assigning One Object Reference to Another</h3>
+<pre>Student s1 = new Student();
+Student s2 = s1;</pre>
+<ul><li>s1 points to an object.</li><li>s2 = s1 makes s2 point to the same object.</li><li>It does not make a second object.</li><li>A change made using s1 can be seen using s2.</li></ul></div>
+<div class="question"><h3>4. Constructors and Constructor Overloading</h3><div class="definition"><b>Meaning:</b> A constructor is a special part of a class. It gives starting values to an object when the object is made.</div>
+<p><b>Points:</b></p><ol><li>Its name is the same as the class name.</li><li>It has no return type.</li><li>It runs when an object is made with new.</li><li>It gives starting values to variables.</li><li>It can take values as input.</li><li>A class can have more than one constructor.</li></ol>
+<p><b>Types:</b> A no-argument constructor has no input. A parameterised constructor takes input values.</p>
+<p><b>Constructor overloading:</b> Writing more than one constructor with different input lists.</p>
+<pre>class Student {
+  int mark;
+
+  Student() {
+    mark = 0;
+  }
+
+  Student(int m) {
+    mark = m;
+  }
+
+  void show() {
+    System.out.println(mark);
+  }
+
+  public static void main(String[] args) {
+    Student s1 = new Student();
+    Student s2 = new Student(90);
+    s1.show();
+    s2.show();
+  }
+}</pre><div class="output"><b>Output:</b><br>0<br>90</div></div>
+<div class="question"><h3>5. this Keyword</h3><div class="definition"><b>Meaning:</b> this means the current object.</div>
+<ul><li>It is used to refer to the current object's variable.</li><li>It helps when a variable and input value have the same name.</li><li>It can call another method in the same class.</li><li>this() can call another constructor in the same class.</li></ul>
+<pre>class Student {
+  int mark;
+
+  Student(int mark) {
+    this.mark = mark;
+  }
+
+  void show() {
+    System.out.println(this.mark);
+  }
+
+  public static void main(String[] args) {
+    Student s = new Student(90);
+    s.show();
+  }
+}</pre><div class="output"><b>Output:</b> 90</div><p>Here, this.mark means the class variable. mark means the input value.</p></div>
+<div class="question"><h3>6. Method Overloading and Method Overriding</h3>
+<div class="definition"><b>Overloading:</b> Same method name with different input values. <b>Overriding:</b> A child class gives a new version of a parent class method.</div>
+<table><tr><th>Overloading</th><th>Overriding</th></tr><tr><td>Same method name.</td><td>Same method name.</td></tr><tr><td>Input list must be different.</td><td>Method signature is the same.</td></tr><tr><td>Can be in one class.</td><td>Uses parent and child classes.</td></tr><tr><td>Does not need inheritance.</td><td>Needs inheritance.</td></tr><tr><td>Called compile-time polymorphism.</td><td>Called run-time polymorphism.</td></tr></table>
+<p><b>Overloading example:</b></p><pre>class Add {
+  int sum(int a, int b) {
+    return a + b;
+  }
+  int sum(int a, int b, int c) {
+    return a + b + c;
+  }
+}</pre>
+<p><b>Overriding example:</b></p><pre>class Animal {
+  void sound() {
+    System.out.println("Animal sound");
+  }
+}
+class Dog extends Animal {
+  @Override
+  void sound() {
+    System.out.println("Bark");
+  }
+}</pre></div>
+<div class="question"><h3>7. Inheritance</h3><div class="definition"><b>Meaning:</b> Inheritance allows a child class to use the methods and allowed variables of a parent class.</div>
+<ol><li>It saves time and code.</li><li>It avoids writing the same code again.</li><li>The old class is called the parent or superclass.</li><li>The new class is called the child or subclass.</li><li>Use the word extends.</li><li>Java supports single, multilevel and hierarchical class inheritance.</li></ol>
+<pre>class Animal {
+  void eat() {
+    System.out.println("Eating");
+  }
+}
+class Dog extends Animal {
+  void bark() {
+    System.out.println("Barking");
+  }
+  public static void main(String[] args) {
+    Dog d = new Dog();
+    d.eat();
+    d.bark();
+  }
+}</pre><div class="output"><b>Output:</b><br>Eating<br>Barking</div></div>
+</section>
+
+<section class="unit" id="unit3">
+<div class="unit-title"><small>UNIT III</small><h2>Packages, Interfaces and Exception Handling</h2></div>
+<div class="question"><h3>1. Package</h3><div class="definition"><b>Meaning:</b> A package is a folder-like group of related Java classes and interfaces.</div>
+<ol><li>It keeps related classes together.</li><li>It makes programs neat and easy to find.</li><li>It helps avoid class-name clashes.</li><li>It helps control access to classes and members.</li><li>It helps reuse code.</li></ol>
+<p><b>Types:</b> Built-in packages are provided by Java, such as java.util and java.io. User-made packages are created by the programmer.</p></div>
+<div class="question"><h3>2. Create and Use a Package</h3>
+<p><b>File 1 – Message.java</b></p><pre>package mypack;
+
+public class Message {
+  public void display() {
+    System.out.println("Hello Java");
+  }
+}</pre>
+<p><b>File 2 – Test.java</b></p><pre>import mypack.Message;
+
+class Test {
+  public static void main(String[] args) {
+    Message m = new Message();
+    m.display();
+  }
+}</pre>
+<div class="output"><b>Output:</b> Hello Java</div>
+<p><b>Steps:</b></p><ol><li>Write package mypack at the top of the first file.</li><li>Create a public class inside it.</li><li>Save the file in a folder named mypack.</li><li>Use import to bring the class into another file.</li><li>Make an object and call its method.</li></ol>
+<p class="tip">Compile from the parent folder: javac mypack/Message.java, then javac Test.java, then run java Test.</p></div>
+<div class="question"><h3>3. Access Modifiers and Default Access</h3><div class="definition"><b>Meaning:</b> Access modifiers decide where a variable or method can be used.</div>
+<table><tr><th>Word</th><th>Easy meaning</th></tr><tr><td>private</td><td>Can be used only inside its own class.</td></tr><tr><td>default</td><td>Can be used inside the same package.</td></tr><tr><td>protected</td><td>Same package, and also by child classes in other packages through inheritance.</td></tr><tr><td>public</td><td>Can be used from any package when the class is accessible.</td></tr></table>
+<p><b>Default access:</b> If we do not write private, protected or public, Java gives default access. It can be used only inside the same package.</p>
+<table><tr><th>Access</th><th>Same class</th><th>Same package</th><th>Child class in another package</th><th>Other class in another package</th></tr><tr><td>private</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr><tr><td>default</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr><tr><td>protected</td><td>Yes</td><td>Yes</td><td>Yes*</td><td>No</td></tr><tr><td>public</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr></table><p class="tip">*Protected access outside the package is allowed through inheritance, subject to Java's access rules.</p></div>
+<div class="question"><h3>4. Interface</h3><div class="definition"><b>Meaning:</b> An interface is like a rule list. It tells a class which methods it must provide.</div>
+<ol><li>Use the word interface to create it.</li><li>A class uses implements to use an interface.</li><li>It helps hide details and show required actions.</li><li>A class can use more than one interface.</li><li>This allows a class to follow more than one set of rules.</li><li>Interface variables are public, static and final by default.</li><li>Normal abstract methods are public and abstract by default.</li></ol>
+<p><b>Program – Using Two Interfaces</b></p><pre>interface A {
+  void show();
+}
+interface B {
+  void display();
+}
+class Demo implements A, B {
+  public void show() {
+    System.out.println("Interface A");
+  }
+  public void display() {
+    System.out.println("Interface B");
+  }
+  public static void main(String[] args) {
+    Demo d = new Demo();
+    d.show();
+    d.display();
+  }
+}</pre><div class="output"><b>Output:</b><br>Interface A<br>Interface B</div>
+<p>Demo uses both A and B. It writes both methods. This is multiple inheritance using interfaces.</p></div>
+<div class="question"><h3>5. Exception Handling</h3><div class="definition"><b>Meaning:</b> An exception is a problem that happens while a program is running. Exception handling lets the program deal with the problem.</div>
+<p><b>Examples:</b> Dividing by zero, using a wrong array position and opening a missing file.</p>
+<table><tr><th>Word</th><th>Easy meaning</th></tr><tr><td>try</td><td>Put code that may cause a problem here.</td></tr><tr><td>catch</td><td>Write what to do if the problem happens.</td></tr><tr><td>finally</td><td>Write clean-up work here.</td></tr><tr><td>throw</td><td>Send an exception now.</td></tr><tr><td>throws</td><td>Tell the caller that a method may cause an exception.</td></tr></table>
+<p><b>Program – Multiple catch blocks</b></p><pre>class Demo {
+  public static void main(String[] args) {
+    try {
+      int a = 10 / 0;
+    }
+    catch(ArithmeticException e) {
+      System.out.println("Math Error");
+    }
+    catch(Exception e) {
+      System.out.println("Other Error");
+    }
+    finally {
+      System.out.println("Completed");
+    }
+  }
+}</pre><div class="output"><b>Output:</b><br>Math Error<br>Completed</div>
+<ol><li>try contains the risky code.</li><li>catch handles the problem.</li><li>More than one catch can be used.</li><li>The first matching catch runs.</li><li>finally is used for clean-up work.</li><li>This helps the program handle errors in a better way.</li></ol></div>
+<div class="question"><h3>6. Difference Between throw and throws</h3>
+<table><tr><th>throw</th><th>throws</th></tr><tr><td>Used inside a method or block.</td><td>Written after the method name and parameters.</td></tr><tr><td>Sends an exception.</td><td>Warns that the method may pass an exception to its caller.</td></tr><tr><td>Followed by an exception object.</td><td>Followed by an exception class name.</td></tr><tr><td>Example: throw new IOException();</td><td>Example: void read() throws IOException</td></tr></table>
+<div class="remember"><b>Remember:</b> throw = send an error. throws = say an error may happen.</div></div>
+</section>
+
+<section class="unit" id="unit4">
+<div class="unit-title"><small>UNIT IV</small><h2>Threads, Files, Streams and Strings</h2></div>
+<div class="question"><h3>1. Multithreading</h3><div class="definition"><b>Meaning:</b> Multithreading means a program can work on more than one task at the same time.</div>
+<ol><li>A thread is one path of work inside a program.</li><li>Java can run many threads.</li><li>Threads can work at the same time.</li><li>Threads in one program share its memory.</li><li>It helps a program stay active while another task is running.</li><li>It can make better use of the computer's processor.</li><li>It is useful in games, music players and network programs.</li></ol>
+<p><b>Example:</b> A music player can play a song while downloading another file.</p></div>
+<div class="question"><h3>2. Create a Thread Using Runnable</h3>
+<p><b>Steps:</b> Make a class, use implements Runnable, write run(), make a Thread object and call start().</p>
+<pre>class MyTask implements Runnable {
+  public void run() {
+    System.out.println("Thread is running");
+  }
+}
+class Demo {
+  public static void main(String[] args) {
+    MyTask obj = new MyTask();
+    Thread t = new Thread(obj);
+    t.start();
+  }
+}</pre><div class="output"><b>Output:</b> Thread is running</div>
+<ul><li>Runnable is used to describe the task.</li><li>run() contains the work.</li><li>Thread makes a thread to do the work.</li><li>start() starts the new thread.</li></ul>
+<div class="remember"><b>Remember:</b> Use start() to start a new thread. Do not call run() directly if you want a new thread.</div></div>
+<div class="question"><h3>3. Thread Life Cycle</h3><div class="definition">The thread life cycle means the different stages a thread passes through.</div>
+<div class="diagram">NEW → RUNNABLE → WAITING / BLOCKED → RUNNABLE → TERMINATED</div>
+<ol><li><b>New:</b> The thread object has been made.</li><li><b>Runnable:</b> The thread is ready to run or is running.</li><li><b>Blocked:</b> The thread is waiting to get a lock.</li><li><b>Waiting:</b> The thread is waiting for another action.</li><li><b>Timed waiting:</b> The thread waits for a set time, such as during sleep().</li><li><b>Terminated:</b> The work has finished.</li></ol>
+<p class="tip">In Java, ready and running are both shown as RUNNABLE in the official thread states.</p></div>
+<div class="question"><h3>4. Important Thread Methods</h3>
+<table><tr><th>Method</th><th>Easy meaning</th></tr><tr><td>start()</td><td>Starts a new thread.</td></tr><tr><td>run()</td><td>Contains the thread's work.</td></tr><tr><td>sleep()</td><td>Makes the current thread pause for some time.</td></tr><tr><td>join()</td><td>Waits for another thread to finish.</td></tr><tr><td>isAlive()</td><td>Checks whether a thread is still running.</td></tr><tr><td>getName()</td><td>Gets the thread name.</td></tr><tr><td>setName()</td><td>Changes the thread name.</td></tr><tr><td>yield()</td><td>Gives other threads a chance to run.</td></tr></table></div>
+<div class="question"><h3>5. Synchronization</h3><div class="definition"><b>Meaning:</b> Synchronization controls how threads use shared data. It helps one thread at a time use a synchronized method on the same object.</div>
+<ol><li>It controls access to shared data.</li><li>It helps stop two threads changing the same data at the same time.</li><li>It helps prevent wrong results.</li><li>It uses an object lock.</li><li>Other threads wait until the lock is free.</li></ol>
+<pre>synchronized void display() {
+  System.out.println("Hello");
+}</pre></div>
+<div class="question"><h3>6. Files in Java</h3><div class="definition"><b>Meaning:</b> A file stores information on a computer so it can be used later.</div>
+<p><b>Common file work:</b></p><ol><li>Create a file.</li><li>Read information from a file.</li><li>Write information to a file.</li><li>Add new information to a file.</li><li>Close a file after use.</li><li>Delete a file when it is not needed.</li></ol>
+<p>Java file input and output classes are mainly in the java.io package.</p></div>
+<div class="question"><h3>7. Stream Classes: Byte Stream and Character Stream</h3><div class="definition"><b>Meaning:</b> A stream is a flow of information between a program and a file or another input/output place.</div>
+<table><tr><th>Byte stream</th><th>Character stream</th></tr><tr><td>Works with bytes.</td><td>Works with text characters.</td></tr><tr><td>Used for images, audio and other binary files.</td><td>Used mainly for text files.</td></tr><tr><td>InputStream reads bytes.</td><td>Reader reads characters.</td></tr><tr><td>OutputStream writes bytes.</td><td>Writer writes characters.</td></tr><tr><td>Example: FileInputStream.</td><td>Example: FileReader.</td></tr></table></div>
+<div class="question"><h3>8. Read a File Using FileReader</h3>
+<p><b>Program:</b></p><pre>import java.io.*;
+
+class ReadFile {
+  public static void main(String[] args) {
+    try {
+      FileReader r = new FileReader("data.txt");
+      int ch;
+
+      while((ch = r.read()) != -1) {
+        System.out.print((char)ch);
+      }
+
+      r.close();
+    }
+    catch(IOException e) {
+      System.out.println("File Error");
+    }
+  }
+}</pre>
+<p><b>Explanation:</b></p><ol><li>Import java.io to use file classes.</li><li>FileReader opens data.txt.</li><li>read() reads one character.</li><li>The loop continues while a character is found.</li><li>-1 means the file has ended.</li><li>The character is printed.</li><li>close() closes the file.</li></ol>
+<div class="remember">Keep a file named data.txt in the program's working folder before running this program.</div></div>
+<div class="question"><h3>9. String, StringBuffer and StringBuilder</h3><div class="definition"><b>String:</b> A String stores text. A String cannot be changed after it is made. This is called immutable.</div>
+<table><tr><th>String</th><th>StringBuffer</th><th>StringBuilder</th></tr><tr><td>Cannot change its text.</td><td>Can change its text.</td><td>Can change its text.</td></tr><tr><td>A new String is made when changed.</td><td>Its methods are synchronised.</td><td>Its methods are not synchronised.</td></tr><tr><td>Good for text that does not change.</td><td>Useful when thread safety is needed.</td><td>Usually faster when only one thread uses it.</td></tr></table>
+<p><b>String program:</b></p><pre>class Demo {
+  public static void main(String[] args) {
+    String s = "Hello";
+    System.out.println(s.length());
+    System.out.println(s.toUpperCase());
+  }
+}</pre><div class="output"><b>Output:</b><br>5<br>HELLO</div>
+<p><b>StringBuffer program:</b></p><pre>class Demo {
+  public static void main(String[] args) {
+    StringBuffer s = new StringBuffer("Hello");
+    s.append(" Java");
+    System.out.println(s);
+  }
+}</pre><div class="output"><b>Output:</b> Hello Java</div></div>
+</section>
+
+<section class="unit" id="unit5">
+<div class="unit-title"><small>UNIT V</small><h2>AWT and Swing</h2></div>
+<div class="question"><h3>1. AWT</h3><div class="definition"><b>Meaning:</b> AWT means Abstract Window Toolkit. It is used to make windows and other items that users can see and use.</div>
+<ol><li>It can make windows.</li><li>It provides buttons and labels.</li><li>It provides text boxes.</li><li>It can make menus.</li><li>It can handle mouse and keyboard actions.</li><li>It has layout tools to arrange items.</li><li>AWT classes are in java.awt.</li><li>Swing is built using AWT.</li></ol></div>
+<div class="question"><h3>2. AWT Components and Layouts</h3>
+<table><tr><th>Component</th><th>Use</th></tr><tr><td>Label</td><td>Shows text.</td></tr><tr><td>Button</td><td>A button that can be clicked.</td></tr><tr><td>TextField</td><td>One-line text box.</td></tr><tr><td>TextArea</td><td>Large text box with many lines.</td></tr><tr><td>Checkbox</td><td>Tick or untick an option.</td></tr><tr><td>Choice</td><td>Drop-down choice.</td></tr><tr><td>List</td><td>Shows a list of items.</td></tr><tr><td>Frame</td><td>Main window.</td></tr><tr><td>Panel</td><td>Holds and groups items.</td></tr></table>
+<p><b>Layout tools:</b></p><ul><li>FlowLayout – Places items one after another.</li><li>BorderLayout – Places items in five areas.</li><li>GridLayout – Places items in rows and columns.</li><li>CardLayout – Shows one item or panel at a time.</li></ul></div>
+<div class="question"><h3>3. Event Delegation Model</h3><div class="definition"><b>Meaning:</b> It is the way Java handles actions like clicking a button or pressing a key.</div>
+<p><b>Three parts:</b></p><ol><li><b>Event source:</b> The item where the action happens. Example: Button.</li><li><b>Event object:</b> Holds information about the action. Example: ActionEvent.</li><li><b>Event listener:</b> Waits for the action and handles it. Example: ActionListener.</li></ol>
+<p><b>How it works:</b></p><ol><li>The user clicks a button.</li><li>The button creates an event.</li><li>Java sends the event to the listener.</li><li>The listener runs its actionPerformed() method.</li><li>The program does the required work.</li></ol>
+<pre>import java.awt.*;
+import java.awt.event.*;
+
+class Demo extends Frame implements ActionListener {
+  Button b;
+
+  Demo() {
+    b = new Button("Click");
+    add(b);
+    b.addActionListener(this);
+
+    setLayout(new FlowLayout());
+    setSize(300, 200);
+    setVisible(true);
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    System.out.println("Button Clicked");
+  }
+
+  public static void main(String[] args) {
+    new Demo();
+  }
+}</pre><div class="output"><b>Output after clicking:</b> Button Clicked</div></div>
+<div class="question"><h3>4. Swing</h3><div class="definition"><b>Meaning:</b> Swing is a Java tool used to make windows, buttons, text boxes and other screen items.</div>
+<ol><li>Swing is built on AWT.</li><li>It has many ready-made screen items.</li><li>It has buttons, labels and text boxes.</li><li>It has lists and drop-down boxes.</li><li>Most Swing items are lightweight.</li><li>It can change its look and style.</li><li>Swing classes are mainly in javax.swing.</li></ol></div>
+<div class="question"><h3>5. Swing Components</h3>
+<table><tr><th>Component</th><th>Easy meaning</th></tr><tr><td>JFrame</td><td>Main window.</td></tr><tr><td>JLabel</td><td>Shows text or a picture.</td></tr><tr><td>JTextField</td><td>One-line text box.</td></tr><tr><td>JPasswordField</td><td>Password box.</td></tr><tr><td>JButton</td><td>Button.</td></tr><tr><td>JCheckBox</td><td>Tick box; more than one can be selected.</td></tr><tr><td>JRadioButton</td><td>Choice button, often used with ButtonGroup.</td></tr><tr><td>JList</td><td>List of items.</td></tr><tr><td>JComboBox</td><td>Drop-down list.</td></tr><tr><td>JTextArea</td><td>Text box with many lines.</td></tr></table></div>
+<div class="question"><h3>6. Simple Login Form Using Swing</h3>
+<pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class Login extends JFrame implements ActionListener {
+  JTextField user;
+  JPasswordField pass;
+  JButton b;
+  JLabel result;
+
+  Login() {
+    setTitle("Login Form");
+    setLayout(new FlowLayout());
+
+    add(new JLabel("Username"));
+    user = new JTextField(15);
+    add(user);
+
+    add(new JLabel("Password"));
+    pass = new JPasswordField(15);
+    add(pass);
+
+    b = new JButton("Login");
+    add(b);
+
+    result = new JLabel("");
+    add(result);
+
+    b.addActionListener(this);
+    setSize(250, 200);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setVisible(true);
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    if(user.getText().equals("admin") &&
+       new String(pass.getPassword()).equals("1234")) {
+      result.setText("Login Successful");
+    } else {
+      result.setText("Invalid Login");
+    }
+  }
+
+  public static void main(String[] args) {
+    new Login();
+  }
+}</pre>
+<p><b>Explanation:</b></p><ol><li>Import Swing, AWT and event classes.</li><li>Make a JFrame window.</li><li>Add a username box.</li><li>Add a password box.</li><li>Add a Login button.</li><li>Connect the button to ActionListener.</li><li>Check the entered username and password.</li><li>Show a success or error message.</li></ol>
+<div class="remember">This is only a simple exam example. Real login systems should not keep passwords as plain text.</div></div>
+<div class="question"><h3>7. Difference Between AWT and Swing</h3>
+<table><tr><th>AWT</th><th>Swing</th></tr><tr><td>Older Java screen toolkit.</td><td>Newer toolkit built on AWT.</td></tr><tr><td>Most controls use operating-system screen items.</td><td>Most controls are drawn by Java.</td></tr><tr><td>Has fewer controls.</td><td>Has more controls.</td></tr><tr><td>Less choice to change appearance.</td><td>More choice to change appearance.</td></tr><tr><td>Uses java.awt.</td><td>Uses javax.swing.</td></tr><tr><td>Button, Label, TextField.</td><td>JButton, JLabel, JTextField.</td></tr></table></div>
+<div class="question"><h3>8. MVC Architecture</h3><div class="definition"><b>Meaning:</b> MVC means Model, View and Controller. It splits a program into three parts.</div>
+<div class="diagram">MODEL = DATA<br>↓<br>VIEW = WHAT THE USER SEES<br>↑<br>CONTROLLER = HANDLES USER ACTIONS</div>
+<ol><li><b>Model:</b> Keeps the data. Example: whether a box is ticked.</li><li><b>View:</b> Shows the data on the screen.</li><li><b>Controller:</b> Handles the user's action and updates the model.</li></ol>
+<p><b>Example:</b> When a user clicks a checkbox, the controller handles the click, the model changes its value and the view shows the new value.</p>
+<p><b>Advantages:</b></p><ul><li>Keeps the program organised.</li><li>Makes changes easier.</li><li>Makes testing easier.</li><li>Separates data from the screen.</li><li>Helps maintain large programs.</li></ul></div>
+<div class="question"><h3>9. JLabel, JTextField, JList and JComboBox</h3>
+<table><tr><th>Item</th><th>Use</th><th>Example</th></tr><tr><td>JLabel</td><td>Shows text or picture.</td><td>Name:</td></tr><tr><td>JTextField</td><td>Lets the user type one line.</td><td>Enter name</td></tr><tr><td>JList</td><td>Shows a list of choices.</td><td>Choose subjects</td></tr><tr><td>JComboBox</td><td>Shows choices in a drop-down.</td><td>Choose a country</td></tr></table>
+<pre>String[] subjects = {"Java", "Python", "C"};
+JLabel l = new JLabel("Name");
+JTextField t = new JTextField(15);
+JList&lt;String&gt; list = new JList&lt;&gt;(subjects);
+JComboBox&lt;String&gt; box = new JComboBox&lt;&gt;(subjects);</pre></div>
+</section>
+
+<section class="unit" id="quick">
+<div class="unit-title"><small>LAST-MINUTE REVISION</small><h2>Remember These Easy Words</h2></div>
+<table><tr><th>Unit</th><th>Remember</th></tr>
+<tr><td>I – Java</td><td>OOP = Encapsulation, Inheritance, Polymorphism, Abstraction. Array = same type of values. % = remainder.</td></tr>
+<tr><td>II – Classes</td><td>Class = plan. Object = thing made from the plan. Constructor = gives starting values. this = current object.</td></tr>
+<tr><td>III – Package</td><td>Package = group of classes. Interface = list of methods a class agrees to provide. try/catch = handle a problem.</td></tr>
+<tr><td>IV – Threads</td><td>Thread = one path of work. start() = start thread. Byte stream = bytes. Character stream = text.</td></tr>
+<tr><td>V – GUI</td><td>AWT and Swing = make windows. MVC = Model, View, Controller. JButton = button.</td></tr></table>
+<h3>How to write an 8-mark answer</h3>
+<ol><li>Write the question title.</li><li>Write a short meaning in 1 or 2 lines.</li><li>Write 6 to 8 easy points.</li><li>Add a small example or difference table.</li><li>For a program question, write the full program.</li><li>Write the output.</li><li>Explain the main code in simple words.</li></ol>
+<div class="remember"><b>Study tip:</b> Read one heading. Close the notes. Try to say the meaning and 4 points in your own words. Then check the answer. This is easier than trying to memorise every sentence.</div>
+<h3>Topics shown in the question papers you shared</h3>
+<ul><li>Java program structure and execution.</li><li>Array and Vector.</li><li>Class, methods and constructors.</li><li>Inheritance and interfaces.</li><li>Package creation and importing.</li><li>Multiple catch blocks.</li><li>Thread using Runnable and thread life cycle.</li><li>StringBuffer and StringBuilder.</li><li>AWT event handling.</li><li>MVC and Swing components.</li></ul>
+</section>
+</main></div>
+<footer>Java revision notes · Easy English · Read slowly and practise the examples</footer>
+<script>
+function filterNotes(){
+ const q=document.getElementById('search').value.toLowerCase().trim();
+ document.querySelectorAll('main .question, main section.unit').forEach(el=>{
+   if(el.classList.contains('unit')) return;
+   el.classList.toggle('hide', q && !el.innerText.toLowerCase().includes(q));
+ });
+ document.querySelectorAll('main section.unit').forEach(sec=>{
+   const questions=[...sec.querySelectorAll('.question')];
+   const has=questions.some(q=>!q.classList.contains('hide'));
+   sec.classList.toggle('hide', !!q && !has && sec.id!=='quick');
+ });
+}
+function clearSearch(){document.getElementById('search').value='';filterNotes();}
+</script>
+
+<script>
+/* Colour Java examples only. The original code text and notes stay unchanged. */
+(function () {
+  const javaKeywords = new Set([
+    "abstract","assert","break","case","catch","class","const","continue","default",
+    "do","else","enum","extends","final","finally","for","if","implements","import",
+    "instanceof","interface","native","new","package","private","protected","public",
+    "return","static","strictfp","super","switch","synchronized","this","throw",
+    "throws","transient","try","volatile","while","void","boolean","byte","char",
+    "double","float","int","long","short","true","false","null"
+  ]);
+  const javaTypes = new Set([
+    "String","StringBuffer","StringBuilder","System","Object","Class","Thread",
+    "Runnable","Exception","IOException","File","FileReader","FileWriter",
+    "BufferedReader","BufferedWriter","InputStream","OutputStream","Scanner",
+    "Vector","ArrayList","JFrame","JLabel","JTextField","JButton","JList",
+    "JComboBox","JPanel","JOptionPane","ActionListener","ActionEvent","Graphics",
+    "Color","Font","FlowLayout","BorderLayout","GridLayout"
+  ]);
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"]/g, c => ({
+      "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;"
+    })[c]);
+  }
+
+  function highlightJava(source) {
+    const tokenPattern = /(\/\/[^\n]*|\/\*[\s\S]*?\*\/|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|@[A-Za-z_$][\w$]*|\b\d+(?:\.\d+)?\b|\b[A-Za-z_$][\w$]*\b|[=+\-*\/%<>!&|?:]+)/g;
+    let result = "", last = 0, match;
+    while ((match = tokenPattern.exec(source)) !== null) {
+      result += escapeHtml(source.slice(last, match.index));
+      const token = match[0];
+      let cls = "";
+      if (token.startsWith("//") || token.startsWith("/*")) cls = "syntax-comment";
+      else if (token[0] === '"' || token[0] === "'") cls = "syntax-string";
+      else if (token[0] === "@") cls = "syntax-annotation";
+      else if (/^\d/.test(token)) cls = "syntax-number";
+      else if (javaKeywords.has(token)) cls = "syntax-keyword";
+      else if (javaTypes.has(token)) cls = "syntax-type";
+      else if (/^[A-Za-z_$][\w$]*$/.test(token) && /\s*\(/.test(source.slice(tokenPattern.lastIndex))) cls = "syntax-method";
+      else if (/^[=+\-*\/%<>!&|?:]+$/.test(token)) cls = "syntax-operator";
+      result += cls ? '<span class="' + cls + '">' + escapeHtml(token) + '</span>' : escapeHtml(token);
+      last = tokenPattern.lastIndex;
+    }
+    return result + escapeHtml(source.slice(last));
+  }
+
+  document.querySelectorAll("pre").forEach(pre => {
+    if (pre.dataset.coloured === "yes") return;
+    const original = pre.textContent;
+    pre.innerHTML = highlightJava(original);
+    pre.dataset.coloured = "yes";
+  });
+})();
+</script>
+
+</body></html>
