@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090e1b">
+<title>Java Master Notes | University 8+ Mark Guide</title>
+<style>
+:root{--bg:#080d18;--surface:#101a2b;--surface2:#142239;--surface3:#1b2d49;--text:#edf3ff;--muted:#a8b7d1;--line:#293c5c;--accent:#8aa9ff;--accent2:#72e0bd;--gold:#ffd78a;--shadow:0 18px 55px #0005}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#17264a 0,transparent 35%),var(--bg);color:var(--text);font:15.5px/1.75 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent)}button,input{font:inherit}.top{position:sticky;top:0;z-index:20;background:#080e1beF;border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}.topin{max-width:1500px;margin:auto;display:flex;align-items:center;gap:14px;padding:11px 22px}.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,#8ba9ff,#6de0bc);display:grid;place-items:center;color:#081321;font-weight:950}.brand{font-weight:800;letter-spacing:.2px}.brand small{display:block;color:var(--muted);font-size:11px;font-weight:500}.topright{margin-left:auto;display:flex;gap:8px}.btn{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:8px 12px;border-radius:10px;cursor:pointer}.btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+.layout{max-width:1500px;margin:auto;display:grid;grid-template-columns:270px minmax(0,1fr);gap:26px;padding:24px}
+.side{position:sticky;top:76px;height:calc(100vh - 95px);overflow:auto;padding:16px 12px;background:#0d1728cc;border:1px solid var(--line);border-radius:18px}
+.side h3{margin:8px 10px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#8095bb}.nav a{display:flex;gap:10px;align-items:center;padding:9px 11px;border-radius:10px;text-decoration:none;color:var(--muted);font-size:13px;margin:2px 0}.nav a:hover,.nav a.active{background:#203457;color:#fff}.nav .num{font-size:10px;color:var(--accent2);width:24px}
+main{min-width:0}.hero{border:1px solid #354d76;border-radius:24px;padding:clamp(22px,4vw,42px);background:linear-gradient(125deg,#17294a,#122139 55%,#12302f);box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"JAVA";position:absolute;right:15px;bottom:-48px;font-size:clamp(90px,18vw,210px);font-weight:950;letter-spacing:-12px;color:#ffffff08;pointer-events:none}.eyebrow{color:var(--accent2);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:800}.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.1;letter-spacing:-1.5px;margin:12px 0}.hero p{max-width:700px;color:#c0cde4;margin:0}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.pill{border:1px solid #496083;background:#ffffff0b;padding:5px 10px;border-radius:99px;font-size:11px;color:#d7e3fa}
+.searchrow{display:flex;gap:10px;margin:20px 0}.search{flex:1;min-width:0;background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:13px;padding:13px 16px;outline:none}.search:focus{border-color:var(--accent);box-shadow:0 0 0 3px #8aa9ff20}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 25px}.stat{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:14px}.stat b{display:block;font-size:23px;color:var(--accent2)}.stat span{font-size:11px;color:var(--muted)}
+.unit{margin:34px 0 18px}.unithead{display:flex;align-items:end;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:16px}.unitno{color:var(--accent2);font-weight:900;font-size:12px;letter-spacing:1px}.unit h2{font-size:clamp(24px,3vw,34px);margin:2px 0 0;letter-spacing:-.7px}.unitdesc{color:var(--muted);font-size:12px;margin-left:auto}
+.qa{background:linear-gradient(180deg,#111d30,#0e1828);border:1px solid var(--line);border-radius:17px;margin:14px 0;overflow:hidden;box-shadow:0 8px 25px #0002}.qhead{padding:17px 20px;display:flex;align-items:flex-start;gap:12px;background:#ffffff04}.qnum{flex:none;background:#243b62;color:#b9d0ff;border-radius:9px;padding:3px 9px;font-size:12px;font-weight:800}.qhead h3{font-size:17px;line-height:1.4;margin:1px 0}.mark{margin-left:auto;white-space:nowrap;color:var(--gold);font-size:11px;border:1px solid #7b6338;padding:3px 8px;border-radius:99px}.answer{padding:0 20px 20px}.def{border-left:3px solid var(--accent2);padding:10px 14px;background:#112b2a;border-radius:0 10px 10px 0;margin:8px 0 14px;color:#d9fff2}.answer h4{font-size:14px;color:#b9ccf5;margin:18px 0 6px}.answer p{margin:8px 0;color:#dce6f8}.answer ul,.answer ol{padding-left:23px;margin:7px 0}.answer li{padding:2px 0;color:#dce6f8}.answer strong{color:#fff}.note{padding:10px 13px;background:#19263b;border:1px solid #304461;border-radius:10px;color:#c1d2ee;margin:12px 0}.memory{border-left:3px solid var(--gold);padding:8px 12px;background:#30291c55;color:#ffe5ae;border-radius:0 8px 8px 0;margin:12px 0}
+pre{background:#070d18;border:1px solid #293b58;border-radius:12px;padding:15px;overflow:auto;color:#d9e7ff;font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:2;margin:10px 0}code{font-family:ui-monospace,Consolas,monospace;color:#a9e9d5;background:#1c3040;padding:1px 5px;border-radius:5px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}th{background:#1b2b45;color:#c9d9ff}td{color:#dce6f8}
+.diagram{background:#080f1d;border:1px dashed #466083;padding:14px;border-radius:12px;text-align:center;white-space:pre-wrap;font:13px/1.7 ui-monospace,Consolas,monospace;color:#c9dcff}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.toolbar button{font-size:12px}
+.hide{display:none!important}.empty{display:none;padding:20px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+footer{text-align:center;padding:35px 15px;color:#8294b3;font-size:12px}
+.light{--bg:#edf2fa;--surface:#fff;--surface2:#e5ecf8;--surface3:#dbe5f5;--text:#17243b;--muted:#52627d;--line:#cbd6e8;background:var(--bg);color:var(--text)}
+.light .top{background:#f6f8fbee}.light .side{background:#fff}.light .qa{background:#fff}.light .qhead{background:#f2f6fc}.light .answer p,.light .answer li,.light td{color:#273851}.light .def{background:#e8f7f1;color:#174d3d}.light pre{background:#101a2b;color:#e4efff}.light .note{background:#eef3fb;color:#33445f}.light .hero{color:white}
+@media(max-width:900px){.layout{grid-template-columns:1fr;padding:15px}.side{position:relative;top:auto;height:auto;display:flex;overflow-x:auto;gap:5px;padding:8px}.side h3{display:none}.nav{display:flex;gap:4px}.nav a{white-space:nowrap}.topin{padding:9px 14px}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){body{font-size:14.5px}.layout{padding:10px}.hero{border-radius:17px}.hero:after{font-size:100px}.stats{gap:8px}.stat{padding:10px}.stat b{font-size:19px}.qhead{padding:14px;gap:8px}.answer{padding:0 14px 16px}.qhead h3{font-size:15px}.mark{font-size:9px}.unitdesc{display:none}table{font-size:11px}th,td{padding:7px}.topright .btn span{display:none}}
+@media print{body{background:white;color:black}.top,.side,.searchrow,.toolbar{display:none!important}.layout{display:block;padding:0}.hero{background:white;color:black;box-shadow:none;border:1px solid #aaa}.hero p{color:#333}.qa,.stat{break-inside:avoid;background:white;color:black;box-shadow:none;border:1px solid #aaa}.answer p,.answer li,td{color:#222}.unit{break-before:page}pre{white-space:pre-wrap;color:black;background:#f5f5f5}.qhead h3,.unit h2{color:black}.def{background:#eef8f2;color:#111}}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin"><div class="logo">J</div><div class="brand">JAVA MASTER NOTES<small>University examination · 8+ mark answer guide</small></div><div class="topright"><button class="btn" onclick="toggleTheme()">◐ <span>Theme</span></button><button class="btn" onclick="window.print()">⤓ <span>Save PDF</span></button></div></div></div>
+<div class="layout">
+<aside class="side"><h3>Course navigation</h3><div class="nav">
+<a href="#home">⌂ Overview</a><a href="#unit1"><span class="num">01</span> Unit I · Java Basics</a><a href="#unit2"><span class="num">02</span> Unit II · Classes</a><a href="#unit3"><span class="num">03</span> Unit III · Packages</a><a href="#unit4"><span class="num">04</span> Unit IV · Threads & I/O</a><a href="#unit5"><span class="num">05</span> Unit V · AWT & Swing</a><a href="#extra">✦ Extra revision topics</a><a href="#last">✓ Last-minute revision</a>
+</div></aside>
+<main>
+<section class="hero" id="home"><div class="eyebrow">B.Sc. Digital & Cyber Forensic Science · Java</div><h1>Java Exam<br>Preparation Guide</h1><p>Full-length, easy-English answers designed for 8 marks and above. Definitions, explained points, diagrams, comparison tables, complete programs and outputs — arranged unit by unit.</p><div class="pills"><span class="pill">5 COMPLETE UNITS</span><span class="pill">15 UNIVERSITY QUESTIONS</span><span class="pill">SIMPLE ENGLISH</span><span class="pill">MOBILE + DESKTOP</span></div></section>
+<div class="searchrow"><input id="search" class="search" placeholder="⌕  Search any question or Java topic..." oninput="filter()"><button class="btn" onclick="clearSearch()">Clear</button></div>
+<div class="stats"><div class="stat"><b>05</b><span>Units covered</span></div><div class="stat"><b>15</b><span>Question paper questions</span></div><div class="stat"><b>8+</b><span>Mark answer depth</span></div><div class="stat"><b>100%</b><span>Responsive layout</span></div></div>
+<div class="toolbar"><button class="btn" onclick="expandAll(true)">＋ Expand all answers</button><button class="btn" onclick="expandAll(false)">－ Collapse all answers</button></div>
+<div id="empty" class="empty">No matching topic found. Try another keyword.</div>
+
+<section class="unit" id="unit1"><div class="unithead"><div><div class="unitno">UNIT 01</div><h2>An Overview of Java</h2></div><div class="unitdesc">Fundamentals · OOP · Control flow</div></div>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q1</span><h3>Explain the principles of Object-Oriented Programming with examples.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> Object-Oriented Programming (OOP) is a programming method in which a program is designed using classes and objects. Objects contain data and methods that work with the data.</div>
+<p>In OOP, objects interact with one another to complete a task. Java is an object-oriented programming language. The main principles help programmers create organised, reusable and secure programs.</p>
+<h4>1. Encapsulation</h4><ul><li>Encapsulation means combining data and methods inside one class.</li><li>It protects data from unwanted outside access.</li><li>Data can be declared <code>private</code> and accessed through public methods.</li><li>Example: A bank account keeps its balance private. The user changes it through deposit and withdraw methods.</li></ul>
+<h4>2. Inheritance</h4><ul><li>Inheritance allows one class to use accessible properties and methods of another class.</li><li>The existing class is called the parent or superclass.</li><li>The new class is called the child or subclass.</li><li>Java uses the <code>extends</code> keyword for class inheritance.</li><li>Example: Dog can inherit the eat() method from Animal.</li></ul>
+<h4>3. Polymorphism</h4><ul><li>Polymorphism means one name can have many forms.</li><li>The same method name can perform different tasks.</li><li>Method overloading is compile-time polymorphism.</li><li>Method overriding is runtime polymorphism.</li><li>Example: A sound() method can print different sounds for Dog and Cat.</li></ul>
+<h4>4. Abstraction</h4><ul><li>Abstraction means showing important features and hiding internal working details.</li><li>It makes a program easier to use.</li><li>Java supports abstraction through abstract classes and interfaces.</li><li>Example: A driver uses a steering wheel without knowing the complete working of the engine.</li></ul>
+<h4>Small Java example</h4><pre>class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks");
+    }
+}
+class Demo {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.sound();
+        d.bark();
+    }
+}</pre>
+<h4>Advantages of OOP</h4><ol><li>Code can be reused through inheritance.</li><li>Data can be protected through encapsulation.</li><li>Programs become easier to maintain.</li><li>Abstraction reduces complexity.</li><li>Polymorphism provides flexibility.</li></ol>
+<div class="memory"><b>Remember:</b> Four principles = Encapsulation, Inheritance, Polymorphism and Abstraction (EIPA).</div>
+<p><b>Conclusion:</b> OOP makes Java programs reusable, secure, flexible and easy to maintain.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q2</span><h3>Write a Java program to find the largest of three numbers using if-else.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> The if-else statement is a decision-making statement. It checks a condition and executes the matching block.</div>
+<h4>Algorithm</h4><ol><li>Start the program.</li><li>Declare three integer variables a, b and c.</li><li>Check whether a is greater than or equal to b and c.</li><li>If true, print a as the largest.</li><li>Otherwise check whether b is greater than or equal to a and c.</li><li>If true, print b; otherwise print c.</li><li>Stop the program.</li></ol>
+<h4>Java program</h4><pre>class Largest {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 25;
+        int c = 15;
+
+        if (a >= b && a >= c) {
+            System.out.println("Largest = " + a);
+        }
+        else if (b >= a && b >= c) {
+            System.out.println("Largest = " + b);
+        }
+        else {
+            System.out.println("Largest = " + c);
+        }
+    }
+}</pre>
+<h4>Output</h4><pre>Largest = 25</pre>
+<h4>Explanation</h4><ol><li>Three numbers are stored in a, b and c.</li><li>The first if checks whether a is the largest.</li><li>The <code>&amp;&amp;</code> operator means both conditions must be true.</li><li>If the first condition is false, the else-if checks b.</li><li>If both conditions are false, c is the largest.</li><li>The System.out.println() statement displays the result.</li></ol>
+<p><b>Conclusion:</b> The if-else ladder compares all three values and prints the largest number.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q3</span><h3>Differentiate between while, do-while and for loops with examples.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> A loop is a control statement that repeats a block of code while a condition is satisfied.</div>
+<h4>1. while loop</h4><ul><li>It is an entry-controlled loop.</li><li>The condition is checked before the loop body executes.</li><li>If the condition is false at the beginning, the body does not execute.</li><li>It is useful when the number of repetitions is not known.</li></ul><pre>int i = 1;
+while (i <= 3) {
+    System.out.println(i);
+    i++;
+}</pre>
+<h4>2. do-while loop</h4><ul><li>It is an exit-controlled loop.</li><li>The body executes before the condition is checked.</li><li>It executes at least one time.</li><li>It is useful when the task must happen once before checking the condition.</li></ul><pre>int i = 1;
+do {
+    System.out.println(i);
+    i++;
+} while (i <= 3);</pre>
+<h4>3. for loop</h4><ul><li>It is an entry-controlled loop.</li><li>Initialisation, condition and update are written in one line.</li><li>It is useful when the number of repetitions is known.</li><li>It makes counting loops easy to read.</li></ul><pre>for (int i = 1; i <= 3; i++) {
+    System.out.println(i);
+}</pre>
+<h4>Difference table</h4><table><tr><th>while</th><th>do-while</th><th>for</th></tr><tr><td>Checks condition first</td><td>Executes body first</td><td>Checks condition first</td></tr><tr><td>May run zero times</td><td>Runs at least once</td><td>May run zero times</td></tr><tr><td>Initialisation is separate</td><td>Initialisation is separate</td><td>Initialisation is in loop header</td></tr><tr><td>Good when repetitions are unknown</td><td>Good when one execution is required</td><td>Good when repetitions are known</td></tr></table>
+<p>All three examples print 1, 2 and 3.</p><p><b>Conclusion:</b> The three loops repeat statements, but they differ in when they test the condition and how their control parts are written.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">TOPIC</span><h3>Java introduction, data types, variables, arrays, Vector, operators and control statements</h3><span class="mark">8+ MARK NOTES</span></div><div class="answer">
+<h4>Introduction to Java</h4><div class="def">Java is a high-level, class-based, object-oriented programming language. Java source code is compiled into bytecode, which is executed by the Java Virtual Machine (JVM).</div>
+<ul><li><b>Simple:</b> Its syntax is easier to learn than many low-level languages.</li><li><b>Object-oriented:</b> Uses classes and objects.</li><li><b>Platform-independent:</b> Bytecode runs on systems with a compatible JVM.</li><li><b>Secure:</b> Includes runtime checks and security features.</li><li><b>Robust:</b> Provides exception handling and automatic memory management.</li><li><b>Multithreaded:</b> Supports multiple threads in one program.</li><li><b>Portable:</b> Programs can be moved between supported systems.</li></ul>
+<h4>Data types and variables</h4><p>A data type tells what kind of value a variable can store. A variable is a named storage location.</p><table><tr><th>Group</th><th>Types</th><th>Meaning</th></tr><tr><td>Integer</td><td>byte, short, int, long</td><td>Whole numbers</td></tr><tr><td>Decimal</td><td>float, double</td><td>Numbers with decimal values</td></tr><tr><td>Character</td><td>char</td><td>One character</td></tr><tr><td>Boolean</td><td>boolean</td><td>true or false</td></tr></table><p>Variable types: local (inside a method/block), instance (belongs to an object), static (shared by the class).</p><h4>Arrays</h4><p>An array stores multiple values of the same type in one variable. Its size is fixed and its index starts at zero.</p><pre>int[] marks = {70, 80, 90};
+System.out.println(marks[0]); // 70</pre>
+<h4>Vector</h4><p>Vector is a growable array from <code>java.util</code>. It stores objects, allows duplicates, keeps insertion order and provides methods such as add(), get(), remove(), size() and clear(). Its methods are synchronized.</p><pre>import java.util.Vector;
+class Demo {
+    public static void main(String[] args) {
+        Vector&lt;String&gt; names = new Vector&lt;&gt;();
+        names.add("Alice");
+        names.add("Bob");
+        System.out.println(names.get(0));
+        System.out.println(names.size());
+    }
+}</pre>
+<h4>Operators</h4><table><tr><th>Type</th><th>Operators</th><th>Use</th></tr><tr><td>Arithmetic</td><td>+ - * / %</td><td>Mathematics</td></tr><tr><td>Relational</td><td>== != &gt; &lt; &gt;= &lt;=</td><td>Compare values</td></tr><tr><td>Logical</td><td>&amp;&amp; || !</td><td>Combine conditions</td></tr><tr><td>Assignment</td><td>= += -= *=</td><td>Assign values</td></tr><tr><td>Unary</td><td>++ -- + -</td><td>One-value operations</td></tr><tr><td>Ternary</td><td>?:</td><td>Short if-else choice</td></tr><tr><td>Bitwise</td><td>&amp; | ^ ~</td><td>Work on bits</td></tr></table>
+<h4>Control statements</h4><ul><li><b>Selection:</b> if, if-else, switch — chooses a path.</li><li><b>Iteration:</b> for, while, do-while, enhanced for — repeats code.</li><li><b>Jump:</b> break exits a loop/switch; continue skips to the next iteration; return exits a method.</li></ul></div></article>
+</section>
+
+<section class="unit" id="unit2"><div class="unithead"><div><div class="unitno">UNIT 02</div><h2>Introducing Classes</h2></div><div class="unitdesc">Objects · Constructors · Inheritance</div></div>
+<article class="qa"><div class="qhead"><span class="qnum">Q1</span><h3>Describe constructors in Java and explain constructor overloading with an example.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> A constructor is a special member of a class that initialises an object when it is created.</div>
+<h4>Features of constructors</h4><ol><li>The constructor name must be the same as the class name.</li><li>It does not have a return type, not even void.</li><li>It is called automatically when an object is created using <code>new</code>.</li><li>It is mainly used to give initial values to instance variables.</li><li>A constructor can receive parameters.</li><li>A class can contain more than one constructor.</li><li>If no constructor is written, Java supplies a default no-argument constructor.</li></ol>
+<h4>Types</h4><ul><li><b>No-argument constructor:</b> Takes no parameters.</li><li><b>Parameterized constructor:</b> Receives values from the object-creation statement.</li></ul>
+<h4>Constructor overloading</h4><p>Constructor overloading means defining more than one constructor in the same class with different parameter lists. The compiler selects the constructor that matches the arguments.</p>
+<pre>class Box {
+    double width, height, depth;
+
+    Box() {
+        width = height = depth = 1;
+    }
+
+    Box(double w, double h, double d) {
+        width = w;
+        height = h;
+        depth = d;
+    }
+
+    Box(double side) {
+        width = height = depth = side;
+    }
+
+    void volume() {
+        System.out.println(width * height * depth);
+    }
+}
+class Demo {
+    public static void main(String[] args) {
+        Box b1 = new Box();
+        Box b2 = new Box(2, 3, 4);
+        Box b3 = new Box(5);
+
+        b1.volume();
+        b2.volume();
+        b3.volume();
+    }
+}</pre>
+<h4>Output</h4><pre>1.0
+24.0
+125.0</pre>
+<h4>Explanation</h4><ol><li>The first constructor sets all dimensions to 1.</li><li>The second constructor receives three dimensions.</li><li>The third constructor receives one side and creates a cube.</li><li>Each object calls a constructor based on the supplied arguments.</li></ol>
+<p><b>Advantages:</b> Objects can be created in different ways, initialisation becomes flexible and code duplication is reduced.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q2</span><h3>Write a Java program to demonstrate the use of the this keyword.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> The <code>this</code> keyword is a reference to the current object — the object whose method or constructor is running.</div>
+<h4>Uses of this</h4><ol><li>It refers to the current object.</li><li>It distinguishes instance variables from local variables or parameters with the same name.</li><li>It can call another constructor in the same class using <code>this()</code>.</li><li>It can call a current class method.</li><li>It can pass the current object as an argument.</li><li>It can return the current object from a method.</li></ol>
+<h4>Program</h4><pre>class Student {
+    int age;
+    String name;
+
+    Student(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    void display() {
+        System.out.println("Name: " + this.name);
+        System.out.println("Age: " + this.age);
+    }
+
+    public static void main(String[] args) {
+        Student s = new Student(20, "Anu");
+        s.display();
+    }
+}</pre>
+<h4>Output</h4><pre>Name: Anu
+Age: 20</pre>
+<h4>Explanation</h4><ol><li>The class contains age and name instance variables.</li><li>The constructor also receives parameters with the same names.</li><li><code>this.age</code> refers to the instance variable.</li><li><code>age</code> refers to the constructor parameter.</li><li>The same rule applies to name.</li><li>The display() method prints the current object's values.</li></ol>
+<div class="memory"><b>Remember:</b> this.variable = current object's variable. variable = local parameter.</div></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q3</span><h3>Compare method overloading and method overriding with suitable examples.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Method overloading:</b> Defining methods with the same name but different parameter lists in one class or an inherited class context.</div>
+<div class="def"><b>Method overriding:</b> A subclass provides its own implementation of an inherited instance method with a compatible signature.</div>
+<h4>Method overloading example</h4><pre>class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static void main(String[] args) {
+        Calculator c = new Calculator();
+        System.out.println(c.add(2, 3));
+        System.out.println(c.add(2, 3, 4));
+    }
+}</pre>
+<h4>Method overriding example</h4><pre>class Animal {
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+class Test {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        a.sound();
+    }
+}</pre>
+<h4>Difference table</h4><table><tr><th>Method overloading</th><th>Method overriding</th></tr><tr><td>Same method name with different parameters.</td><td>Subclass redefines an inherited method.</td></tr><tr><td>Can happen in one class.</td><td>Requires inheritance.</td></tr><tr><td>Parameter list must differ.</td><td>Method signature is the same, with compatible return type.</td></tr><tr><td>Compile-time selection.</td><td>Runtime method selection for overridden instance methods.</td></tr><tr><td>Return type alone cannot overload a method.</td><td>Return type must be compatible.</td></tr><tr><td>Used to provide different ways to call a method.</td><td>Used to provide specialised child-class behaviour.</td></tr></table>
+<p><b>Conclusion:</b> Overloading gives one method name different parameter forms, while overriding changes inherited behaviour in a child class.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">TOPIC</span><h3>Class, object, declaring objects, reference assignment, methods, inheritance and keywords</h3><span class="mark">8+ MARK NOTES</span></div><div class="answer">
+<h4>Class and object</h4><div class="def">A class is a blueprint that defines fields and methods. An object is an instance of that class created in memory.</div><pre>class Student {
+    String name;
+    void show() {
+        System.out.println(name);
+    }
+}
+class Demo {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.name = "Ravi";
+        s.show();
+    }
+}</pre>
+<h4>Declaring an object</h4><ol><li>Reference declaration: <code>Student s;</code></li><li>Object creation: <code>s = new Student();</code></li><li>Combined: <code>Student s = new Student();</code></li><li>Use the dot operator to access members: <code>s.name</code> and <code>s.show()</code>.</li></ol>
+<h4>Assigning object references</h4><p>When one reference variable is assigned to another, both references point to the same object. Assignment does not create a second object.</p><pre>Student s1 = new Student();
+Student s2 = s1; // both refer to same object</pre>
+<h4>Methods</h4><p>A method is a named block of code that performs a task. It can accept parameters and return a value. A method declared with <code>void</code> does not return a value.</p>
+<h4>Inheritance</h4><p>Inheritance allows a child class to receive accessible members from a parent class. Java uses <code>extends</code>. Common class forms are single, multilevel and hierarchical inheritance. Multiple inheritance of classes is not supported; interfaces provide a way for a class to implement multiple contracts.</p>
+<h4>Keywords</h4><p>Keywords are reserved words with special meaning in Java. Examples: <code>class</code>, <code>public</code>, <code>static</code>, <code>void</code>, <code>int</code>, <code>if</code>, <code>else</code>, <code>new</code>, <code>this</code>, <code>extends</code> and <code>return</code>. They cannot be used as identifiers.</p></div></article>
+</section>
+
+<section class="unit" id="unit3"><div class="unithead"><div><div class="unitno">UNIT 03</div><h2>Packages and Interfaces</h2></div><div class="unitdesc">Package creation · Access · Exceptions</div></div>
+<article class="qa"><div class="qhead"><span class="qnum">Q1</span><h3>Explain the steps to create and use a user-defined package in Java.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> A package is a group of related classes and interfaces. It is used to organise Java programs and control access.</div>
+<h4>Advantages</h4><ol><li>Organises related classes and interfaces.</li><li>Avoids class-name conflicts between projects.</li><li>Supports code reuse.</li><li>Provides access protection.</li><li>Makes large programs easier to maintain.</li><li>Helps divide a project into logical sections.</li></ol>
+<h4>Steps to create a package</h4><ol><li>Choose a package name, for example <code>mypack</code>.</li><li>Write the package statement as the first non-comment statement in the source file.</li><li>Declare the class as public if it must be accessed from outside the package.</li><li>Save the source file in the matching folder or compile with the destination option.</li><li>Compile the class.</li><li>Import the class in another program.</li><li>Create its object and call its public methods.</li></ol>
+<h4>Program 1 – Create a package class</h4><pre>// File: mypack/Message.java
+package mypack;
+
+public class Message {
+    public void show() {
+        System.out.println("Welcome to Java Package");
+    }
+}</pre>
+<h4>Program 2 – Use the package</h4><pre>// File: Test.java
+import mypack.Message;
+
+class Test {
+    public static void main(String[] args) {
+        Message m = new Message();
+        m.show();
+    }
+}</pre>
+<h4>Compile and run</h4><pre>javac mypack/Message.java
+javac Test.java
+java Test</pre>
+<h4>Output</h4><pre>Welcome to Java Package</pre>
+<p><b>Conclusion:</b> User-defined packages organise classes and make Java projects reusable and easier to manage.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q2</span><h3>Write a Java program to demonstrate multiple inheritance using interfaces.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> Multiple inheritance means receiving features or contracts from more than one parent. Java does not allow a class to extend two classes, but a class can implement multiple interfaces.</div>
+<h4>Important points</h4><ol><li>An interface is declared using the <code>interface</code> keyword.</li><li>A class implements an interface using <code>implements</code>.</li><li>A class can implement more than one interface.</li><li>The class provides implementations for the required abstract methods.</li><li>Interface abstract methods are public, so implementations must be public.</li><li>This supports flexible program design.</li></ol>
+<h4>Program</h4><pre>interface Printable {
+    void print();
+}
+
+interface Showable {
+    void show();
+}
+
+class Demo implements Printable, Showable {
+
+    public void print() {
+        System.out.println("Printing");
+    }
+
+    public void show() {
+        System.out.println("Showing");
+    }
+
+    public static void main(String[] args) {
+        Demo d = new Demo();
+        d.print();
+        d.show();
+    }
+}</pre>
+<h4>Output</h4><pre>Printing
+Showing</pre>
+<h4>Explanation</h4><ol><li>Printable declares the print() method.</li><li>Showable declares the show() method.</li><li>Demo implements both interfaces.</li><li>Demo defines both methods.</li><li>The main method creates one Demo object.</li><li>The object calls both methods.</li></ol>
+<p><b>Conclusion:</b> Interfaces allow a Java class to implement multiple contracts, providing multiple inheritance of type.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q3</span><h3>Analyse the differences between throw and throws in exception handling.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Exception:</b> An exception is an object that represents an error or unexpected condition during program execution. Exception handling helps a program respond to the problem.</div>
+<h4>Exception-handling keywords</h4><ul><li><b>try:</b> contains code that may cause an exception.</li><li><b>catch:</b> handles an exception.</li><li><b>throw:</b> manually throws an exception object.</li><li><b>throws:</b> declares exceptions that a method may pass to its caller.</li><li><b>finally:</b> contains cleanup code that normally runs after try/catch, even when an exception is thrown or a return is used.</li></ul>
+<h4>throw</h4><ul><li>Used inside a method or block.</li><li>Used to explicitly throw an exception object.</li><li>Followed by an exception object.</li><li>Example: <code>throw new IllegalArgumentException("Invalid");</code></li></ul>
+<h4>throws</h4><ul><li>Used in a method declaration.</li><li>Declares the exception types a method may throw.</li><li>Followed by exception class names.</li><li>Important for checked exceptions that are not handled inside the method.</li><li>Example: <code>void read() throws IOException</code></li></ul>
+<h4>Difference table</h4><table><tr><th>throw</th><th>throws</th></tr><tr><td>Written inside a method or block.</td><td>Written in a method header.</td></tr><tr><td>Actually throws an exception object.</td><td>Declares possible exception types.</td></tr><tr><td>Followed by an object.</td><td>Followed by class names.</td></tr><tr><td>Usually throws one object at a time.</td><td>Can declare multiple exception types separated by commas.</td></tr><tr><td>Transfers control to exception handling.</td><td>Places handling responsibility on the caller for declared checked exceptions.</td></tr></table>
+<h4>Program using both</h4><pre>class Demo {
+    static void checkAge(int age) throws Exception {
+        if (age < 18) {
+            throw new Exception("Not eligible");
+        }
+        System.out.println("Eligible");
+    }
+
+    public static void main(String[] args) {
+        try {
+            checkAge(15);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}</pre>
+<h4>Output</h4><pre>Not eligible</pre>
+<p><b>Conclusion:</b> throw is used to throw an exception, while throws declares that a method may pass an exception to its caller.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">TOPIC</span><h3>Interface, package, member access and exception handling – extra notes</h3><span class="mark">8+ MARK NOTES</span></div><div class="answer">
+<h4>Interface</h4><p>An interface defines a contract that implementing classes follow. It supports abstraction and allows a class to implement more than one interface. Interfaces can contain constants, abstract methods, default methods and static methods.</p>
+<h4>Importing packages</h4><ul><li><code>import java.util.Scanner;</code> imports one class.</li><li><code>import java.util.*;</code> imports accessible types from java.util.</li><li>A fully qualified name can be used without an import statement.</li></ul>
+<h4>Access control</h4><table><tr><th>Modifier</th><th>Same class</th><th>Same package</th><th>Subclass outside package</th><th>Unrelated class outside package</th></tr><tr><td>private</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr><tr><td>default</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr><tr><td>protected</td><td>Yes</td><td>Yes</td><td>Yes, under subclass rules</td><td>No</td></tr><tr><td>public</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr></table>
+<h4>Types of exceptions</h4><ul><li><b>System-generated:</b> Created automatically by the Java runtime, for example division by zero.</li><li><b>Manually generated:</b> Created by the programmer using throw.</li><li><b>Checked exceptions:</b> Must be caught or declared, for example IOException and ClassNotFoundException.</li><li><b>Unchecked exceptions:</b> Runtime exceptions that the compiler does not force the programmer to catch, for example ArithmeticException and NullPointerException.</li></ul>
+<h4>Other exception features</h4><ul><li><b>Custom exception:</b> Create a class extending Exception to represent an application-specific problem.</li><li><b>Chained exception:</b> Connects one exception as the cause of another; getCause() reads the cause.</li><li><b>finally:</b> Commonly used to close files and release resources.</li></ul>
+<pre>class MyException extends Exception {
+    MyException(String message) {
+        super(message);
+    }
+}</pre></div></article>
+</section>
+
+<section class="unit" id="unit4"><div class="unithead"><div><div class="unitno">UNIT 04</div><h2>Multithreading and I/O</h2></div><div class="unitdesc">Threads · Files · Streams · Strings</div></div>
+<article class="qa"><div class="qhead"><span class="qnum">Q1</span><h3>Explain the life cycle of a thread with a neat diagram.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> The thread life cycle describes the different states a thread passes through from creation until its execution finishes.</div>
+<h4>Thread states</h4><ol><li><b>New:</b> A Thread object is created, but start() has not been called.</li><li><b>Runnable:</b> The thread has started and is ready to run or waiting for CPU time.</li><li><b>Running:</b> The thread's run() method is executing. This is a helpful learning description; Java officially includes ready and running in RUNNABLE.</li><li><b>Blocked:</b> The thread is waiting to get a monitor lock.</li><li><b>Waiting:</b> The thread waits for another thread to perform an action, for example after join() without a timeout.</li><li><b>Timed Waiting:</b> The thread waits for a specified time, for example during sleep() or timed wait().</li><li><b>Terminated:</b> The run() method has finished or ended due to an uncaught error.</li></ol>
+<h4>Life-cycle diagram</h4><div class="diagram">          Thread object created
+                   |
+                   v
+                  NEW
+                   |
+                start()
+                   |
+                   v
+               RUNNABLE  <-------------------+
+                   |                         |
+            CPU schedules                    |
+                   |                         |
+                   v                         |
+                RUNNING                      |
+             /     |      \                  |
+            /      |       \                 |
+      sleep()   wait()    lock unavailable   |
+          |        |            |             |
+          v        v            v             |
+    TIMED WAIT   WAITING      BLOCKED         |
+          |        |            |             |
+          +--------+------------+-------------+
+             time ends / notified / lock acquired
+                   |
+                   v
+               RUNNABLE
+
+          RUNNING -- run() ends --> TERMINATED</div>
+<h4>Important thread methods</h4><table><tr><th>Method</th><th>Purpose</th></tr><tr><td>start()</td><td>Starts a new thread.</td></tr><tr><td>run()</td><td>Contains the task performed by the thread.</td></tr><tr><td>sleep()</td><td>Pauses the current thread for a time.</td></tr><tr><td>join()</td><td>Waits for another thread to finish.</td></tr><tr><td>isAlive()</td><td>Checks whether a thread is still active.</td></tr><tr><td>setName()</td><td>Changes the thread name.</td></tr><tr><td>getName()</td><td>Returns the thread name.</td></tr><tr><td>interrupt()</td><td>Requests interruption of a thread.</td></tr></table>
+<h4>Simple thread program</h4><pre>class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running");
+    }
+}
+class Demo {
+    public static void main(String[] args) {
+        MyThread t = new MyThread();
+        t.start();
+    }
+}</pre>
+<p><b>Conclusion:</b> A thread moves through different states while the JVM and operating system manage its execution.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q2</span><h3>Write a Java program to read the contents of a file using FileReader.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> FileReader is a character-stream class used to read text characters from a file. It belongs to the <code>java.io</code> package.</div>
+<h4>Important points</h4><ol><li>Import the java.io package or FileReader and IOException.</li><li>Create a FileReader object with the file name.</li><li>Use read() to read one character at a time.</li><li>read() returns -1 when the end of the file is reached.</li><li>Convert the integer character value to char for printing.</li><li>Close the reader after reading.</li><li>Handle IOException if the file cannot be read.</li></ol>
+<h4>Program</h4><pre>import java.io.FileReader;
+import java.io.IOException;
+
+class ReadFile {
+    public static void main(String[] args) {
+        try {
+            FileReader fr = new FileReader("notes.txt");
+            int ch;
+
+            while ((ch = fr.read()) != -1) {
+                System.out.print((char) ch);
+            }
+
+            fr.close();
+        }
+        catch (IOException e) {
+            System.out.println("File error: " + e.getMessage());
+        }
+    }
+}</pre>
+<h4>Sample file: notes.txt</h4><pre>Welcome to Java
+File handling example</pre>
+<h4>Output</h4><pre>Welcome to Java
+File handling example</pre>
+<h4>Explanation</h4><ol><li>FileReader opens notes.txt for reading.</li><li>The variable ch stores each character read.</li><li>The while loop continues until read() returns -1.</li><li>Each character is printed using System.out.print().</li><li>close() releases the file resource.</li><li>catch handles file-related input/output errors.</li></ol>
+<p><b>Conclusion:</b> FileReader is useful for reading text files one character at a time.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q3</span><h3>Analyse the difference between byte streams and character streams in Java.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> A stream is a flow of data between a program and a source or destination. Java I/O provides byte streams and character streams.</div>
+<h4>1. Byte streams</h4><ul><li>Byte streams read and write raw 8-bit bytes.</li><li>They are suitable for binary data.</li><li>They are used for images, audio and other binary files.</li><li>The main abstract classes are InputStream and OutputStream.</li><li>Examples include FileInputStream and FileOutputStream.</li></ul>
+<h4>2. Character streams</h4><ul><li>Character streams read and write characters.</li><li>They are suitable for text files.</li><li>They work with character encoding.</li><li>The main abstract classes are Reader and Writer.</li><li>Examples include FileReader and FileWriter.</li></ul>
+<h4>Difference table</h4><table><tr><th>Byte streams</th><th>Character streams</th></tr><tr><td>Handle raw bytes.</td><td>Handle characters/text.</td></tr><tr><td>Suitable for binary files.</td><td>Suitable for text files.</td></tr><tr><td>Use InputStream and OutputStream.</td><td>Use Reader and Writer.</td></tr><tr><td>Example: FileInputStream.</td><td>Example: FileReader.</td></tr><tr><td>Do not perform character decoding as a character reader does.</td><td>Convert encoded bytes to characters and characters to encoded bytes.</td></tr><tr><td>Useful for copying image/audio bytes.</td><td>Useful for reading/writing text.</td></tr></table>
+<h4>Example byte stream</h4><pre>import java.io.*;
+class ByteDemo {
+    public static void main(String[] args) throws IOException {
+        FileInputStream in = new FileInputStream("photo.jpg");
+        int data;
+        while ((data = in.read()) != -1) {
+            // Process each byte
+        }
+        in.close();
+    }
+}</pre>
+<h4>Example character stream</h4><pre>import java.io.*;
+class CharDemo {
+    public static void main(String[] args) throws IOException {
+        FileReader in = new FileReader("notes.txt");
+        int ch;
+        while ((ch = in.read()) != -1) {
+            System.out.print((char) ch);
+        }
+        in.close();
+    }
+}</pre>
+<p><b>Conclusion:</b> Use byte streams for raw binary data and character streams for text data.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">TOPIC</span><h3>Multithreaded concepts, file classes, stream classes and String handling</h3><span class="mark">8+ MARK NOTES</span></div><div class="answer">
+<h4>Multithreading</h4><p>Multithreading means performing multiple paths of execution concurrently inside one process. It improves responsiveness. A process is a program in execution; a thread is an execution path inside that process. Process-based multitasking runs multiple programs, while thread-based multitasking runs multiple tasks within one program.</p>
+<h4>Creating threads</h4><p>Two common ways are extending Thread and implementing Runnable. Override run() with the task and call start() to begin a new thread. Calling run() directly is just a normal method call.</p><pre>class Task implements Runnable {
+    public void run() {
+        System.out.println("Task running");
+    }
+}
+class Demo {
+    public static void main(String[] args) {
+        Thread t = new Thread(new Task());
+        t.start();
+    }
+}</pre>
+<h4>Synchronization</h4><p>Synchronization controls access to shared data. It prevents two threads from entering a synchronized section protected by the same object lock at the same time. This helps prevent race conditions.</p><pre>class Counter {
+    int count = 0;
+    synchronized void increase() {
+        count++;
+    }
+}</pre>
+<h4>File class</h4><p>The File class represents a file or directory path. Common methods include exists(), isFile(), isDirectory(), getName(), getPath(), length(), delete(), mkdir(), mkdirs(), list() and listFiles().</p>
+<h4>Stream classes</h4><p>Java I/O is based on four main abstract classes: InputStream, OutputStream, Reader and Writer. Subclasses provide file and other input/output operations.</p><table><tr><th>Class</th><th>Purpose</th></tr><tr><td>FileInputStream</td><td>Reads file bytes</td></tr><tr><td>FileOutputStream</td><td>Writes file bytes</td></tr><tr><td>FileReader</td><td>Reads text characters</td></tr><tr><td>FileWriter</td><td>Writes text characters</td></tr><tr><td>BufferedReader</td><td>Reads text efficiently using a buffer</td></tr><tr><td>BufferedWriter</td><td>Writes text efficiently using a buffer</td></tr></table>
+<h4>String handling</h4><p>String is a sequence of characters. String objects are immutable: once created, their contents cannot be changed. Common methods are length(), charAt(), equals(), compareTo(), substring(), concat(), toUpperCase(), toLowerCase(), trim() and indexOf(). Use equals() to compare contents; == compares references.</p>
+<pre>String word = "Java";
+System.out.println(word.length());       // 4
+System.out.println(word.charAt(0));      // J
+System.out.println(word.toUpperCase());  // JAVA
+System.out.println(word.equals("Java"));// true</pre>
+<h4>StringBuffer and StringBuilder</h4><ul><li><b>StringBuffer:</b> Mutable character sequence; its methods are synchronized and useful when shared thread-safe modification is needed.</li><li><b>StringBuilder:</b> Mutable character sequence; not synchronized and generally faster when thread safety is not required.</li><li>Both support append(), insert(), delete(), replace(), reverse(), length() and capacity().</li></ul></div></article>
+</section>
+
+<section class="unit" id="unit5"><div class="unithead"><div><div class="unitno">UNIT 05</div><h2>AWT and Swing</h2></div><div class="unitdesc">GUI · Events · MVC · Swing</div></div>
+<article class="qa"><div class="qhead"><span class="qnum">Q1</span><h3>Explain the event delegation model in Java AWT with an example.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> The event delegation model is Java's method of handling user actions. A component generates an event and sends it to a registered listener that handles the event.</div>
+<h4>Main parts</h4><ol><li><b>Event source:</b> The component that generates the event, such as a Button.</li><li><b>Event object:</b> Contains information about the event, such as ActionEvent.</li><li><b>Event listener:</b> An object that receives and handles the event, such as ActionListener.</li></ol>
+<h4>Working steps</h4><ol><li>Create the GUI component.</li><li>Implement the required listener interface.</li><li>Register the listener with the event source using a method such as addActionListener().</li><li>The user performs an action, such as clicking the button.</li><li>The source creates an event object.</li><li>The registered listener receives the event.</li><li>The listener's event-handling method runs, for example actionPerformed().</li></ol>
+<h4>Diagram</h4><div class="diagram">USER CLICKS BUTTON
+        |
+        v
+   EVENT SOURCE
+      Button
+        |
+        v
+    EVENT OBJECT
+    ActionEvent
+        |
+        v
+   EVENT LISTENER
+   ActionListener
+        |
+        v
+  actionPerformed()
+        |
+        v
+   ACTION IS DONE</div>
+<h4>Program</h4><pre>import java.awt.*;
+import java.awt.event.*;
+
+class ButtonDemo extends Frame
+        implements ActionListener {
+
+    Button b;
+
+    ButtonDemo() {
+        b = new Button("Click Me");
+        add(b);
+
+        b.addActionListener(this);
+
+        setLayout(new FlowLayout());
+        setSize(300, 200);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        setTitle("Button Clicked");
+    }
+
+    public static void main(String[] args) {
+        new ButtonDemo();
+    }
+}</pre>
+<h4>Explanation</h4><ol><li>Frame creates the window.</li><li>Button creates a clickable control.</li><li>ActionListener is implemented by the class.</li><li>addActionListener(this) registers the current object.</li><li>When the button is clicked, actionPerformed() is called.</li><li>The window title changes.</li></ol>
+<p><b>Conclusion:</b> Event delegation separates event generation from event handling and makes GUI programs easier to organise.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q2</span><h3>Write a Java program to create a simple login form using Swing components.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>Definition:</b> Swing is a Java GUI library used to create windows and user-interface components such as labels, text fields and buttons.</div>
+<h4>Components used</h4><ul><li>JFrame – creates the login window.</li><li>JLabel – displays Username and Password text.</li><li>JTextField – accepts username.</li><li>JPasswordField – accepts password input.</li><li>JButton – creates the Login button.</li><li>ActionListener – handles the button click.</li></ul>
+<h4>Java program</h4><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class LoginForm {
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame("Login Form");
+
+        JLabel l1 = new JLabel("Username:");
+        JTextField t1 = new JTextField(15);
+
+        JLabel l2 = new JLabel("Password:");
+        JPasswordField t2 = new JPasswordField(15);
+
+        JButton b = new JButton("Login");
+        JLabel result = new JLabel("");
+
+        f.setLayout(new FlowLayout());
+
+        f.add(l1);
+        f.add(t1);
+        f.add(l2);
+        f.add(t2);
+        f.add(b);
+        f.add(result);
+
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String user = t1.getText();
+                String pass =
+                    new String(t2.getPassword());
+
+                if (user.equals("admin") &&
+                    pass.equals("1234")) {
+                    result.setText("Login Successful");
+                } else {
+                    result.setText("Invalid Login");
+                }
+            }
+        });
+
+        f.setSize(300, 220);
+        f.setDefaultCloseOperation(
+            JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);
+    }
+}</pre>
+<h4>Expected output</h4><div class="diagram">        LOGIN FORM
+
+Username: [____________]
+
+Password: [____________]
+
+          [ Login ]
+
+     Login Successful</div>
+<h4>Explanation</h4><ol><li>Import Swing and event packages.</li><li>Create the JFrame window.</li><li>Create username and password labels and fields.</li><li>Create the Login button.</li><li>Add all components to the frame.</li><li>Register an ActionListener for the button.</li><li>When clicked, getText() reads the username and getPassword() reads the password.</li><li>The if condition checks the entered values and displays the result.</li></ol>
+<div class="note">This is an exam demonstration with sample credentials. A real application must not store passwords directly in source code.</div>
+<p><b>Conclusion:</b> Swing components can be combined with event handling to create a simple interactive login form.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">Q3</span><h3>Analyse the differences between AWT and Swing components.</h3><span class="mark">8+ MARKS</span></div><div class="answer">
+<div class="def"><b>AWT:</b> Abstract Window Toolkit is Java's original GUI toolkit. <b>Swing:</b> A richer GUI component library built on top of AWT.</div>
+<h4>AWT features</h4><ul><li>Used to create windows and basic GUI components.</li><li>Uses native platform peers for its heavyweight components.</li><li>Provides Button, Label, TextField, Frame and other controls.</li><li>Its appearance can depend on the operating system.</li><li>Classes are mainly in the java.awt package.</li></ul>
+<h4>Swing features</h4><ul><li>Provides more GUI components than AWT.</li><li>Most Swing components are lightweight.</li><li>Provides JButton, JLabel, JTextField, JFrame and JPasswordField.</li><li>Supports pluggable look and feel.</li><li>Classes are mainly in javax.swing.</li><li>Uses AWT infrastructure for events, graphics and top-level windows.</li></ul>
+<h4>Difference table</h4><table><tr><th>AWT</th><th>Swing</th></tr><tr><td>Original Java GUI toolkit.</td><td>Built on top of AWT.</td></tr><tr><td>Uses heavyweight native-peer components.</td><td>Most components are lightweight.</td></tr><tr><td>Provides fewer basic controls.</td><td>Provides a richer component set.</td></tr><tr><td>Look and feel depends more on platform peers.</td><td>Supports pluggable look and feel.</td></tr><tr><td>Button</td><td>JButton</td></tr><tr><td>Label</td><td>JLabel</td></tr><tr><td>TextField</td><td>JTextField</td></tr><tr><td>Frame</td><td>JFrame</td></tr><tr><td>Package: java.awt</td><td>Package: javax.swing</td></tr></table>
+<p><b>Conclusion:</b> AWT provides basic GUI controls, while Swing offers a richer and more flexible component set for Java desktop applications.</p></div></article>
+
+<article class="qa"><div class="qhead"><span class="qnum">TOPIC</span><h3>AWT components, layout managers, MVC architecture and Swing packages</h3><span class="mark">8+ MARK NOTES</span></div><div class="answer">
+<h4>AWT components</h4><table><tr><th>Component</th><th>Purpose</th></tr><tr><td>Label</td><td>Displays text.</td></tr><tr><td>Button</td><td>Performs an action when clicked.</td></tr><tr><td>TextField</td><td>Accepts one line of text.</td></tr><tr><td>TextArea</td><td>Accepts multiple lines.</td></tr><tr><td>Checkbox</td><td>Allows selection.</td></tr><tr><td>Choice</td><td>Drop-down list.</td></tr><tr><td>List</td><td>Displays a list of choices.</td></tr><tr><td>Scrollbar</td><td>Allows scrolling.</td></tr><tr><td>Canvas</td><td>Blank drawing area.</td></tr></table>
+<h4>Containers</h4><ul><li>Component is the base class for visual AWT elements.</li><li>Container can hold other components.</li><li>Panel groups components.</li><li>Frame creates a standard window.</li><li>Dialog creates a dialog window.</li></ul>
+<h4>Layout managers</h4><ul><li><b>FlowLayout:</b> places components left to right and then moves to the next line.</li><li><b>BorderLayout:</b> divides the area into North, South, East, West and Center.</li><li><b>GridLayout:</b> arranges components in equal-sized rows and columns.</li><li><b>CardLayout:</b> shows one component/card at a time.</li><li><b>GridBagLayout:</b> flexible grid arrangement.</li></ul>
+<h4>MVC architecture</h4><div class="def">MVC means Model–View–Controller. It separates an application into data, display and user-action handling.</div><ul><li><b>Model:</b> stores data and component state. Example: whether a checkbox is selected.</li><li><b>View:</b> controls how data is displayed. Example: the checkbox's appearance.</li><li><b>Controller:</b> handles user actions and updates the model. Example: responds to a click.</li></ul><p>Advantages: separation of responsibilities, easier maintenance, easier testing, flexibility and code reuse.</p>
+<h4>Swing packages</h4><table><tr><th>Package</th><th>Use</th></tr><tr><td>javax.swing</td><td>Main Swing components.</td></tr><tr><td>javax.swing.event</td><td>Swing events.</td></tr><tr><td>javax.swing.border</td><td>Component borders.</td></tr><tr><td>javax.swing.filechooser</td><td>File chooser support.</td></tr><tr><td>javax.swing.colorchooser</td><td>Colour chooser.</td></tr><tr><td>javax.swing.table</td><td>Table components.</td></tr><tr><td>javax.swing.tree</td><td>Tree components.</td></tr><tr><td>javax.swing.text</td><td>Text components.</td></tr><tr><td>javax.swing.undo</td><td>Undo and redo.</td></tr></table></div></article>
+</section>
+
+<section class="unit" id="extra"><div class="unithead"><div><div class="unitno">EXTRA REVISION</div><h2>Additional topics checklist</h2></div><div class="unitdesc">Every topic you listed</div></div>
+<article class="qa"><div class="qhead"><span class="qnum">A</span><h3>Complete topic checklist with simple definitions</h3><span class="mark">REVISION</span></div><div class="answer">
+<table><tr><th>Topic</th><th>Simple meaning</th></tr>
+<tr><td>Introduction to Java</td><td>High-level, object-oriented language that runs bytecode using JVM.</td></tr>
+<tr><td>Data types and variables</td><td>Data type defines the kind of value; variable stores a value.</td></tr>
+<tr><td>Arrays</td><td>Fixed-size collection of values of the same type.</td></tr>
+<tr><td>Vector</td><td>Growable collection of objects from java.util.</td></tr>
+<tr><td>Operators</td><td>Symbols that perform calculations, comparisons and logic.</td></tr>
+<tr><td>Control statements</td><td>Statements that choose, repeat or jump through program flow.</td></tr>
+<tr><td>Declaring objects</td><td>Creating a reference variable and an instance using new.</td></tr>
+<tr><td>Assigning object references</td><td>Copying a reference so two variables can point to the same object.</td></tr>
+<tr><td>Constructors</td><td>Special class members used to initialise objects.</td></tr>
+<tr><td>Keywords</td><td>Reserved words with special meaning in Java.</td></tr>
+<tr><td>Inheritance</td><td>Subclass receives accessible members from superclass.</td></tr>
+<tr><td>Package</td><td>Group of related classes and interfaces.</td></tr>
+<tr><td>Member access</td><td>Rules that control where class members can be used.</td></tr>
+<tr><td>Importing package</td><td>Allows a program to use types from another package by simple name.</td></tr>
+<tr><td>Default access</td><td>No modifier; accessible within the same package.</td></tr>
+<tr><td>Interface</td><td>Contract that a class can implement.</td></tr>
+<tr><td>Exception handling</td><td>Handling unexpected problems using try, catch, throw, throws and finally.</td></tr>
+<tr><td>Thread</td><td>One path of execution inside a process.</td></tr>
+<tr><td>Multithreading</td><td>Concurrent execution of multiple threads in one program.</td></tr>
+<tr><td>Files</td><td>Permanent storage for program data.</td></tr>
+<tr><td>Stream classes</td><td>Classes that read or write data between program and source/destination.</td></tr>
+<tr><td>String</td><td>Immutable sequence of characters.</td></tr>
+<tr><td>AWT</td><td>Java's original GUI toolkit.</td></tr>
+<tr><td>AWT components</td><td>Controls such as Button, Label and TextField.</td></tr>
+<tr><td>MVC architecture</td><td>Model stores data, View displays it, Controller handles actions.</td></tr>
+<tr><td>Swing</td><td>Rich Java GUI component library built on AWT.</td></tr>
+<tr><td>Swing packages</td><td>Packages containing Swing controls, events, borders, tables and other GUI support.</td></tr>
+</table></div></article>
+</section>
+
+<section class="unit" id="last"><div class="unithead"><div><div class="unitno">FINAL REVISION</div><h2>Remember these before the exam</h2></div></div>
+<article class="qa"><div class="qhead"><span class="qnum">✓</span><h3>Fast memory sheet</h3></div><div class="answer">
+<ul><li><b>OOP:</b> Encapsulation, Inheritance, Polymorphism, Abstraction.</li><li><b>Class:</b> Blueprint. <b>Object:</b> Instance of class.</li><li><b>Constructor:</b> Same name as class; no return type; initialises object.</li><li><b>this:</b> Current object.</li><li><b>Overloading:</b> Same name, different parameters.</li><li><b>Overriding:</b> Child class redefines inherited method.</li><li><b>Inheritance:</b> extends.</li><li><b>Interface:</b> implements.</li><li><b>Package:</b> Group of related classes and interfaces.</li><li><b>Exception keywords:</b> try, catch, throw, throws, finally.</li><li><b>throw:</b> Throws an exception object. <b>throws:</b> Declares possible exception types.</li><li><b>Thread:</b> start() starts a new thread; run() contains its task.</li><li><b>FileReader:</b> Reads text characters.</li><li><b>Byte streams:</b> Binary bytes. <b>Character streams:</b> Text characters.</li><li><b>String:</b> Immutable. <b>StringBuffer:</b> Mutable and synchronized. <b>StringBuilder:</b> Mutable and not synchronized.</li><li><b>AWT:</b> java.awt. <b>Swing:</b> javax.swing.</li><li><b>Event delegation:</b> Source → Event object → Listener.</li><li><b>MVC:</b> Model = data, View = display, Controller = actions.</li></ul>
+<h4>How to build an 8+ mark answer</h4><ol><li>Write the definition in 2–3 lines.</li><li>Explain 6–8 main points in separate numbered paragraphs.</li><li>Add a neat diagram or comparison table if the question asks for it.</li><li>For a program, write imports, class, main method, logic and output.</li><li>Explain the important lines of the program.</li><li>Finish with a short conclusion.</li></ol>
+<div class="memory"><b>Important:</b> These are expanded study answers, not a guarantee of a particular mark. Match the wording and terminology taught by your lecturer and write neatly with examples.</div>
+</div></article></section>
+<footer>JAVA MASTER NOTES · Simple English · Five Units · Responsive Study Interface</footer>
+</main></div>
+<script>
+function filter(){const q=document.getElementById('search').value.trim().toLowerCase();let shown=0;document.querySelectorAll('.qa').forEach(card=>{const ok=card.innerText.toLowerCase().includes(q);card.classList.toggle('hide',!ok);if(ok)shown++});document.querySelectorAll('.unit').forEach(unit=>{const any=[...unit.querySelectorAll('.qa')].some(x=>!x.classList.contains('hide'));unit.classList.toggle('hide',!any)});document.getElementById('empty').style.display=shown?'none':'block'}
+function clearSearch(){document.getElementById('search').value='';filter()}
+function expandAll(open){document.querySelectorAll('.qa').forEach(q=>q.classList.toggle('open',open))}
+function toggleTheme(){document.body.classList.toggle('light')}
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('active'));a.classList.add('active')}));
+</script>
+</body></html>
