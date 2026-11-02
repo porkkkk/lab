@@ -9,41 +9,45 @@
 :root{
   --bg:#0b1220;--panel:#111c2e;--panel2:#17243a;--text:#edf3fb;
   --muted:#aab8ca;--line:#2b3a50;--accent:#65b8ff;--green:#83dfb0;
-  --code:#07101d;--shadow:0 12px 35px rgba(0,0,0,.22)
+  --code:#fff7e8;--shadow:0 12px 35px rgba(0,0,0,.22)
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.68}
-button,input{font:inherit}
-a{color:inherit}
-.topbar{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,system-ui,sans-serif;line-height:1.68}
+button,input,select{font:inherit}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.96);border-bottom:1px solid var(--line)}
 .topinner{max-width:1250px;margin:auto;padding:13px 22px;display:flex;align-items:center;gap:16px}
-.brand{font-weight:850;letter-spacing:.2px;font-size:16px;white-space:nowrap}
+.brand{font-weight:850;font-size:16px;white-space:nowrap}
 .brand span{color:var(--accent)}
-.search{flex:1;min-width:100px;background:#17243a;border:1px solid var(--line);border-radius:12px;color:var(--text);padding:10px 13px;outline:none}
-.search:focus{border-color:var(--accent)}
+.search{flex:1;min-width:100px;background:#17243a;border:1px solid var(--line);border-radius:12px;color:white;padding:10px 13px}
 .layout{max-width:1250px;margin:26px auto;padding:0 22px;display:grid;grid-template-columns:275px minmax(0,1fr);gap:24px}
 .sidebar{align-self:start;position:sticky;top:82px;max-height:calc(100vh - 105px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}
-.sidebar h3{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:4px 8px 12px}
+.sidebar h3{font-size:13px;color:var(--muted);text-transform:uppercase;margin:4px 8px 12px}
 .nav a{display:block;text-decoration:none;color:#c5d2e2;padding:8px 10px;border-radius:9px;font-size:13px;margin:2px 0}
 .nav a:hover{background:var(--panel2);color:white}
 .nav .unit{font-weight:800;color:var(--accent);margin-top:13px}
 main{min-width:0}
-.hero{background:linear-gradient(135deg,#142a45,#17243a 58%,#1b3045);border:1px solid #2d4966;border-radius:22px;padding:30px;margin-bottom:22px;box-shadow:var(--shadow)}
+.hero{background:linear-gradient(135deg,#142a45,#17243a 58%,#1b3045);border:1px solid #2d4966;border-radius:22px;padding:30px;margin-bottom:22px}
 .eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
 h1{font-size:clamp(27px,4vw,42px);line-height:1.16;margin:9px 0 12px}
-.hero p{color:#c7d5e5;margin:0;max-width:750px}
+.hero p{color:#c7d5e5;margin:0}
 .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.pill{background:#0c1a2b;border:1px solid #36516c;border-radius:999px;padding:6px 12px;font-size:12px;color:#dceafa}
-.examtip{margin-top:18px;padding:13px 15px;background:rgba(5,13,23,.35);border-radius:12px;color:#dceafa;font-size:13px}
-.dashboard{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:0 0 22px}.unit-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;display:block;transition:.18s}.unit-card:hover{border-color:var(--accent);transform:translateY(-2px)}.unit-card b{display:block;color:var(--accent);font-size:14px}.unit-card span{display:block;color:var(--muted);font-size:12px;margin-top:4px}.jumpbox{display:flex;gap:10px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:18px}.jumpbox select{flex:1;min-width:190px;background:#17243a;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:10px}.unit-heading{margin:30px 0 13px;padding:14px 17px;border-left:4px solid var(--accent);background:#101d30;border-radius:0 13px 13px 0}
+.pill{background:#0c1a2b;border:1px solid #36516c;border-radius:999px;padding:6px 12px;font-size:12px}
+.examtip{margin-top:18px;padding:13px 15px;background:#0c1a2b;border-radius:12px;font-size:13px}
+.dashboard{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:0 0 22px;width:100%}
+.unit-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;display:block;min-width:0;overflow-wrap:anywhere}
+.unit-card b{display:block;color:var(--accent);font-size:14px}
+.unit-card span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.jumpbox{display:flex;gap:10px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:18px}
+.jumpbox select{flex:1;min-width:190px;background:#17243a;color:white;border:1px solid var(--line);border-radius:9px;padding:10px}
+.unit-heading{margin:30px 0 13px;padding:14px 17px;border-left:4px solid var(--accent);background:#101d30;border-radius:0 13px 13px 0}
 .unit-heading h2{margin:0;font-size:21px}
 .unit-heading p{margin:3px 0 0;color:var(--muted);font-size:13px}
-.qa{background:var(--panel);border:1px solid var(--line);border-radius:17px;margin:13px 0;overflow:hidden;box-shadow:0 5px 18px rgba(0,0,0,.12)}
+.qa{background:var(--panel);border:1px solid var(--line);border-radius:17px;margin:13px 0;overflow:hidden}
 .qhead{padding:17px 19px;display:flex;align-items:flex-start;gap:12px;cursor:pointer}
 .num{flex:none;width:31px;height:31px;display:grid;place-items:center;background:#203b59;color:#a9d8ff;border-radius:9px;font-weight:850;font-size:13px}
 .qtitle{font-size:17px;font-weight:780;line-height:1.4;flex:1}
-.toggle{color:var(--muted);font-size:20px;line-height:1}
+.toggle{color:var(--muted);font-size:20px}
 .answer{padding:0 20px 22px 62px;border-top:1px solid var(--line)}
 .answer h3{font-size:15px;color:var(--green);margin:19px 0 7px}
 .answer h4{font-size:14px;color:#c9e3ff;margin:14px 0 5px}
@@ -53,14 +57,24 @@ h1{font-size:clamp(27px,4vw,42px);line-height:1.16;margin:9px 0 12px}
 .answer table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px;display:block;overflow-x:auto}
 .answer th,.answer td{border:1px solid var(--line);padding:8px 10px;text-align:left;min-width:100px}
 .answer th{background:#1b2b42;color:#d9ecff}
-pre{background:var(--code);color:#e7f1ff;border:1px solid #293b53;border-radius:12px;padding:14px 15px;overflow-x:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;margin:10px 0;white-space:pre}
-.output{background:#0c1726;border:1px dashed #38516d;border-radius:10px;padding:10px 13px;color:#bfe6d2;font:13px/1.6 ui-monospace,monospace;white-space:pre-wrap;margin:8px 0}
+pre{background:#fff7e8!important;color:#172033!important;border:1px solid #e8c98e!important;border-radius:12px;padding:14px 15px;overflow-x:auto;font:600 13px/1.6 monospace;margin:10px 0;white-space:pre}
+.output{background:#0c1726;border:1px dashed #38516d;border-radius:10px;padding:10px 13px;color:#bfe6d2;font:13px/1.6 monospace;white-space:pre-wrap;margin:8px 0}
 .conclusion{margin-top:13px;padding:11px 13px;background:#142b2a;border-left:3px solid var(--green);border-radius:8px;color:#d9f7e8}
 .hidden{display:none!important}
 .footer{text-align:center;color:var(--muted);font-size:12px;padding:35px 10px}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
 .smallbtn{background:#1a2b42;color:#e7f2ff;border:1px solid #354b65;border-radius:10px;padding:8px 12px;cursor:pointer;font-size:12px}
 .smallbtn:hover{border-color:var(--accent)}
+.exam-plan{margin:0 0 22px;padding:20px;background:linear-gradient(135deg,#172c42,#19283a);border:1px solid #38516a;border-radius:18px}
+.exam-plan h2{font-size:clamp(20px,3vw,27px);margin:6px 0 7px;color:#f4f8ff}
+.exam-plan p{margin:0;color:#d1deec}
+.exam-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}
+.exam-grid article{background:#0e1a29;border:1px solid #344a61;border-radius:12px;padding:13px;min-width:0}
+.exam-grid b,.exam-grid strong,.exam-grid span{display:block}
+.exam-grid b{font-size:13px;color:#c7d9ec}
+.exam-grid strong{font-size:20px;color:#8bd7b3;margin:5px 0}
+.exam-grid span{font-size:12px;color:#afc0d2;line-height:1.45}
+.exam-reminder{margin-top:13px;padding:13px 15px;background:#102b2a;border-left:4px solid #83dfb0;border-radius:9px;color:#dff8e9;font-size:14px}
 @media(max-width:850px){
  .dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}
  .layout{grid-template-columns:1fr;margin:16px auto;padding:0 14px}
@@ -73,11 +87,20 @@ pre{background:var(--code);color:#e7f1ff;border:1px solid #293b53;border-radius:
  .answer{padding:0 16px 20px}
  .qhead{padding:15px}
  .qtitle{font-size:15px}
+ .exam-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-@media(max-width:420px){
+@media(max-width:600px){
+ .dashboard{grid-template-columns:1fr!important;gap:9px!important}
+ .unit-card{width:100%;padding:15px 16px}
+ .unit-card b{font-size:15px}
+ .unit-card span{font-size:13px}
+ .exam-plan{padding:16px}
+ .exam-grid{grid-template-columns:1fr}
  .nav{grid-template-columns:1fr}
- .unit-heading h2{font-size:18px}
- .answer table{font-size:12px}
+ .topinner{min-width:0}
+ .layout{min-width:0}
+ .answer{min-width:0}
+ pre{font-size:12px}
 }
 @media print{
  body{background:white;color:#111}
@@ -96,30 +119,76 @@ pre{background:var(--code);color:#e7f1ff;border:1px solid #293b53;border-radius:
   <div class="brand">PYTHON <span>EXAM NOTES</span></div>
   <input id="search" class="search" type="search" placeholder="Search questions or keywords...">
 </div></header>
+
 <div class="layout">
 <aside class="sidebar">
   <h3>Question index</h3>
   <nav class="nav" id="nav">
     <a class="unit" href="#unit1">UNIT I – Python Basics</a>
-    <a href="#q1">1. Variables & operators</a><a href="#q2">2. print() & input()</a><a href="#q3">3. String types</a><a href="#q4">4. Control statements</a><a href="#q5">5. Augmented assignment</a><a href="#q6">6. break & continue</a>
+    <a href="#q1">1. Variables & operators</a>
+    <a href="#q2">2. print() & input()</a>
+    <a href="#q3">3. String types</a>
+    <a href="#q4">4. Control statements</a>
+    <a href="#q5">5. Augmented assignment</a>
+    <a href="#q6">6. break & continue</a>
     <a class="unit" href="#unit2">UNIT II – Functions & Sequences</a>
-    <a href="#q7">7. Functions</a><a href="#q8">8. Parameters & keywords</a><a href="#q9">9. Recursion</a><a href="#q10">10. Lists & tuples</a><a href="#q11">11. Slicing & unpacking</a><a href="#q12">12. List comprehension</a>
+    <a href="#q7">7. Functions</a>
+    <a href="#q8">8. Parameters & keywords</a>
+    <a href="#q9">9. Recursion</a>
+    <a href="#q10">10. Lists & tuples</a>
+    <a href="#q11">11. Slicing & unpacking</a>
+    <a href="#q12">12. List comprehension</a>
     <a class="unit" href="#unit3">UNIT III – Strings</a>
-    <a href="#q13">13. String formatting</a><a href="#q14">14. Concatenation & repetition</a><a href="#q15">15. Whitespace & case</a><a href="#q16">16. Compare & search</a><a href="#q17">17. Split & join</a><a href="#q18">18. Replace & test</a>
+    <a href="#q13">13. String formatting</a>
+    <a href="#q14">14. Concatenation & repetition</a>
+    <a href="#q15">15. Whitespace & case</a>
+    <a href="#q16">16. Compare & search</a>
+    <a href="#q17">17. Split & join</a>
+    <a href="#q18">18. Replace & test</a>
     <a class="unit" href="#unit4">UNIT IV – Privilege Escalation</a>
-    <a href="#q19">19. Boot & logon scripts</a><a href="#q20">20. Suspicious logon scripts</a><a href="#q21">21. Execution-flow hijacking</a><a href="#q22">22. Suspicious libraries</a><a href="#q23">23. Antivirus protection</a><a href="#q24">24. Alternate Data Streams</a>
+    <a href="#q19">19. Boot & logon scripts</a>
+    <a href="#q20">20. Suspicious logon scripts</a>
+    <a href="#q21">21. Execution-flow hijacking</a>
+    <a href="#q22">22. Suspicious libraries</a>
+    <a href="#q23">23. Antivirus protection</a>
+    <a href="#q24">24. Alternate Data Streams</a>
     <a class="unit" href="#unit5">UNIT V – Credentials & User Data</a>
-    <a href="#q25">25. Browser passwords</a><a href="#q26">26. Network sniffing</a><a href="#q27">27. Deceptive connections</a><a href="#q28">28. User account monitoring</a><a href="#q29">29. File discovery</a><a href="#q30">30. Honeypot files</a>
+    <a href="#q25">25. Browser passwords</a>
+    <a href="#q26">26. Network sniffing</a>
+    <a href="#q27">27. Deceptive connections</a>
+    <a href="#q28">28. User account monitoring</a>
+    <a href="#q29">29. File discovery</a>
+    <a href="#q30">30. Honeypot files</a>
   </nav>
 </aside>
+
 <main>
 <section class="hero">
   <div class="eyebrow">Complete exam preparation • 30 questions</div>
   <h1>Python Programming<br>for Cyber Security</h1>
-  <p>All 30 important questions with full questions, simple explanations, headings, syntax, Python programs and outputs. Read one topic at a time and revise the key points.</p>
-  <div class="stats"><span class="pill">30 Questions & Answers</span><span class="pill">5-mark and 8-mark style</span><span class="pill">Mobile + PC friendly</span><span class="pill">Easy English</span></div>
-  <div class="examtip"><b>Exam writing tip:</b> Start with a definition. Add headings, 5–10 clear points, syntax or a program where needed, output and a short conclusion. Write relevant content for every question.</div>
+  <p>All 30 important questions with simple explanations, headings, syntax, Python programs and outputs. Read one topic at a time and revise the key points.</p>
+  <div class="stats">
+    <span class="pill">30 Questions & Answers</span>
+    <span class="pill">5-mark and 8-mark style</span>
+    <span class="pill">Mobile + PC friendly</span>
+    <span class="pill">Easy English</span>
+  </div>
+  <div class="examtip"><b>Exam writing tip:</b> Start with a definition. Add headings, clear points, syntax or a program where needed, output and a short conclusion. Write relevant content for every question.</div>
 </section>
+
+<section class="exam-plan">
+  <div class="eyebrow">A message for students</div>
+  <h2>Dear students, study well!</h2>
+  <p>Focus on important points, keywords, syntax, headings, subheadings, diagrams, programs and a simple explanation for every question.</p>
+  <div class="exam-grid">
+    <article><b>5-mark answer</b><strong>3 pages</strong><span>About 13 minutes for each question</span></article>
+    <article><b>8-mark answer</b><strong>4 pages</strong><span>About 20 minutes for each question</span></article>
+    <article><b>1-mark questions</b><strong>10 minutes</strong><span>Read carefully and answer clearly</span></article>
+    <article><b>Final checking</b><strong>5 minutes</strong><span>Check answers, question numbers and programs</span></article>
+  </div>
+  <div class="exam-reminder"><b>Best wishes!</b> Read each question carefully. The question itself may give you clues and ideas. Write the points you know in a clear order. Try every question you can. Without attempting a question and writing relevant content, it is difficult to get marks.</div>
+</section>
+
 <section class="dashboard" aria-label="Unit dashboard">
   <a class="unit-card" href="#unit1"><b>UNIT I</b><span>Python basics • Q1–Q6</span></a>
   <a class="unit-card" href="#unit2"><b>UNIT II</b><span>Functions & sequences • Q7–Q12</span></a>
@@ -127,8 +196,9 @@ pre{background:var(--code);color:#e7f1ff;border:1px solid #293b53;border-radius:
   <a class="unit-card" href="#unit4"><b>UNIT IV</b><span>Privilege escalation • Q19–Q24</span></a>
   <a class="unit-card" href="#unit5"><b>UNIT V</b><span>Credentials & user data • Q25–Q30</span></a>
 </section>
+
 <div class="jumpbox">
-  <select id="unitSelect" aria-label="Select a unit">
+  <select id="unitSelect">
     <option value="">Select a unit...</option>
     <option value="unit1">Unit I – Python Basics</option>
     <option value="unit2">Unit II – Functions and Sequences</option>
@@ -136,12 +206,27 @@ pre{background:var(--code);color:#e7f1ff;border:1px solid #293b53;border-radius:
     <option value="unit4">Unit IV – Performing Privilege Escalation</option>
     <option value="unit5">Unit V – Credentials and User Data</option>
   </select>
-  <select id="questionSelect" aria-label="Select a question">
+  <select id="questionSelect">
     <option value="">Select a question...</option>
-    <option value="q1">Question 1</option><option value="q2">Question 2</option><option value="q3">Question 3</option><option value="q4">Question 4</option><option value="q5">Question 5</option><option value="q6">Question 6</option><option value="q7">Question 7</option><option value="q8">Question 8</option><option value="q9">Question 9</option><option value="q10">Question 10</option><option value="q11">Question 11</option><option value="q12">Question 12</option><option value="q13">Question 13</option><option value="q14">Question 14</option><option value="q15">Question 15</option><option value="q16">Question 16</option><option value="q17">Question 17</option><option value="q18">Question 18</option><option value="q19">Question 19</option><option value="q20">Question 20</option><option value="q21">Question 21</option><option value="q22">Question 22</option><option value="q23">Question 23</option><option value="q24">Question 24</option><option value="q25">Question 25</option><option value="q26">Question 26</option><option value="q27">Question 27</option><option value="q28">Question 28</option><option value="q29">Question 29</option><option value="q30">Question 30</option>
+    <option value="q1">Question 1</option><option value="q2">Question 2</option>
+    <option value="q3">Question 3</option><option value="q4">Question 4</option>
+    <option value="q5">Question 5</option><option value="q6">Question 6</option>
+    <option value="q7">Question 7</option><option value="q8">Question 8</option>
+    <option value="q9">Question 9</option><option value="q10">Question 10</option>
+    <option value="q11">Question 11</option><option value="q12">Question 12</option>
+    <option value="q13">Question 13</option><option value="q14">Question 14</option>
+    <option value="q15">Question 15</option><option value="q16">Question 16</option>
+    <option value="q17">Question 17</option><option value="q18">Question 18</option>
+    <option value="q19">Question 19</option><option value="q20">Question 20</option>
+    <option value="q21">Question 21</option><option value="q22">Question 22</option>
+    <option value="q23">Question 23</option><option value="q24">Question 24</option>
+    <option value="q25">Question 25</option><option value="q26">Question 26</option>
+    <option value="q27">Question 27</option><option value="q28">Question 28</option>
+    <option value="q29">Question 29</option><option value="q30">Question 30</option>
   </select>
   <button class="smallbtn" onclick="goToSelection()">Go to selected topic</button>
 </div>
+
 <div class="toolbar">
   <button class="smallbtn" onclick="expandAll()">Expand all answers</button>
   <button class="smallbtn" onclick="collapseAll()">Close all answers</button>
@@ -149,580 +234,3 @@ pre{background:var(--code);color:#e7f1ff;border:1px solid #293b53;border-radius:
 </div>
 
 <div class="unit-heading" id="unit1"><h2>UNIT I – Introduction to Python Programming</h2><p>Questions 1–6</p></div>
-
-<article class="qa" id="q1"><div class="qhead"><span class="num">01</span><div class="qtitle">Explain variables, assignment statements and arithmetic operations in Python.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. Variables</h3><p><b>Definition:</b> A variable is a name used to store a value in Python.</p>
-<pre>name = "Rahul"
-age = 20
-mark = 85.5
-
-print(name)
-print(age)
-print(mark)</pre><div class="output">Rahul
-20
-85.5</div>
-<p><b>Important points:</b></p><ul><li>Variables store data.</li><li>They are created when a value is assigned.</li><li>Python does not require us to declare the data type.</li><li>A variable value can be changed.</li><li>Variables can store numbers, text and other data.</li></ul>
-<h3>2. Assignment statements</h3><p><b>Definition:</b> An assignment statement gives a value to a variable.</p><pre>variable = value</pre>
-<p><b>Types of assignment:</b></p><h4>A. Simple assignment</h4><pre>x = 10</pre><h4>B. Multiple assignment</h4><pre>a, b = 10, 20</pre><h4>C. Chained assignment</h4><pre>x = y = 100</pre><h4>D. Reassignment</h4><pre>x = 50
-x = 90
-print(x)</pre><div class="output">90</div>
-<h3>3. Arithmetic operations</h3><p><b>Definition:</b> Arithmetic operators perform mathematical calculations.</p>
-<table><tr><th>Operator</th><th>Name</th><th>Example</th><th>Result</th></tr><tr><td>+</td><td>Addition</td><td>10 + 5</td><td>15</td></tr><tr><td>-</td><td>Subtraction</td><td>10 - 5</td><td>5</td></tr><tr><td>*</td><td>Multiplication</td><td>10 * 5</td><td>50</td></tr><tr><td>/</td><td>Division</td><td>10 / 5</td><td>2.0</td></tr><tr><td>//</td><td>Floor division</td><td>10 // 3</td><td>3</td></tr><tr><td>%</td><td>Modulus</td><td>10 % 3</td><td>1</td></tr><tr><td>**</td><td>Power</td><td>2 ** 3</td><td>8</td></tr></table>
-<h3>Program</h3><pre>a = 10
-b = 3
-
-print("Addition:", a + b)
-print("Subtraction:", a - b)
-print("Multiplication:", a * b)
-print("Division:", a / b)
-print("Floor Division:", a // b)
-print("Modulus:", a % b)
-print("Power:", a ** b)</pre><div class="output">Addition: 13
-Subtraction: 7
-Multiplication: 30
-Division: 3.3333333333333335
-Floor Division: 3
-Modulus: 1
-Power: 1000</div>
-<div class="conclusion"><b>Conclusion:</b> Variables store values, assignment statements give values to variables, and arithmetic operators perform calculations.</div></div></article>
-
-<article class="qa" id="q2"><div class="qhead"><span class="num">02</span><div class="qtitle">Explain the print() and input() functions with examples.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. print() function</h3><p><b>Definition:</b> The <code>print()</code> function displays information on the screen.</p><pre>print(value)</pre><pre>name = "Rahul"
-age = 20
-
-print(name)
-print(age)
-print("Welcome to Python")</pre><div class="output">Rahul
-20
-Welcome to Python</div><p><b>Uses:</b> Displays messages, variable values and calculation results. It helps the user see the program output.</p>
-<h3>2. input() function</h3><p><b>Definition:</b> The <code>input()</code> function gets information from the user through the keyboard.</p><pre>variable = input("Enter value:")</pre><pre>name = input("Enter your name: ")
-print("Welcome", name)</pre><div class="output">Enter your name: Rahul
-Welcome Rahul</div>
-<h3>3. Type conversion</h3><p>The <code>input()</code> function returns a string by default.</p><ul><li><code>int()</code> – converts a value into an integer.</li><li><code>float()</code> – converts a value into a decimal number.</li><li><code>str()</code> – converts a value into a string.</li></ul>
-<h3>Program</h3><pre>a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-
-total = a + b
-print("Sum =", total)</pre><div class="output">Enter first number: 10
-Enter second number: 20
-Sum = 30</div>
-<table><tr><th>print()</th><th>input()</th></tr><tr><td>Displays information</td><td>Accepts information</td></tr><tr><td>Gives output</td><td>Gets input</td></tr><tr><td>Shows results</td><td>Gets user values</td></tr></table>
-<div class="conclusion"><b>Conclusion:</b> <code>print()</code> displays output, while <code>input()</code> receives information from the user.</div></div></article>
-
-<article class="qa" id="q3"><div class="qhead"><span class="num">03</span><div class="qtitle">Explain different types of strings in Python.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> A string is a collection of characters used to store text in Python. Examples are <code>"Python"</code>, <code>"Hello"</code> and <code>"Computer"</code>.</p>
-<h3>Types of strings</h3><h4>1. Single-quoted string</h4><p>A string enclosed within single quotation marks.</p><pre>name = 'Python'
-print(name)</pre><div class="output">Python</div>
-<h4>2. Double-quoted string</h4><p>A string enclosed within double quotation marks.</p><pre>name = "Python"
-print(name)</pre><div class="output">Python</div>
-<h4>3. Triple-quoted string</h4><p>A string enclosed within three single or double quotation marks. It can store multiple lines of text.</p><pre>message = """Welcome
-to
-Python"""
-
-print(message)</pre><div class="output">Welcome
-to
-Python</div>
-<h3>String operations</h3><h4>A. Concatenation</h4><p>Joining strings using <code>+</code>.</p><pre>print("Hello" + " Python")</pre><div class="output">Hello Python</div>
-<h4>B. Repetition</h4><p>Repeating a string using <code>*</code>.</p><pre>print("Hi " * 3)</pre><div class="output">Hi Hi Hi</div>
-<h3>Important points</h3><ul><li>Strings store text data.</li><li>Strings are written inside quotation marks.</li><li>Strings are immutable. Their original characters cannot be changed directly.</li><li>Strings support concatenation and repetition.</li><li>Python provides many built-in string methods.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Strings are used to store and process text in Python programs.</div></div></article>
-
-<article class="qa" id="q4"><div class="qhead"><span class="num">04</span><div class="qtitle">Explain control statements in Python.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Control statements control the order in which a program runs. They help a program make decisions and repeat actions.</p>
-<h3>Types of control statements</h3><h4>1. Selection statements</h4><p>Used to make decisions. Types are <code>if</code>, <code>if-else</code> and <code>if-elif-else</code>.</p><pre>age = 18
-
-if age >= 18:
-    print("Eligible to vote")
-else:
-    print("Not eligible")</pre><div class="output">Eligible to vote</div>
-<h4>2. Iteration statements</h4><p>Used to repeat a block of code. Types are <code>for</code> loop and <code>while</code> loop.</p><p><b>For loop:</b></p><pre>for i in range(1, 6):
-    print(i)</pre><div class="output">1
-2
-3
-4
-5</div><p><b>While loop:</b></p><pre>i = 1
-while i <= 5:
-    print(i)
-    i += 1</pre>
-<h4>3. Jump statements</h4><p>Used to change the normal flow of a loop. Types include <code>break</code>, <code>continue</code> and <code>pass</code>.</p><pre>for i in range(5):
-    if i == 3:
-        break
-    print(i)</pre><div class="output">0
-1
-2</div>
-<h3>Advantages</h3><ul><li>Helps in decision-making.</li><li>Reduces repeated code.</li><li>Makes programs easier to understand.</li><li>Controls program execution.</li><li>Helps solve different problems.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Control statements help Python programs make decisions, repeat tasks and change their execution flow.</div></div></article>
-
-<article class="qa" id="q5"><div class="qhead"><span class="num">05</span><div class="qtitle">Explain augmented assignment operators with examples.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Augmented assignment operators perform an operation and update a variable in one step.</p>
-<table><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr><tr><td>+=</td><td>Add and assign</td><td>x += 5</td></tr><tr><td>-=</td><td>Subtract and assign</td><td>x -= 5</td></tr><tr><td>*=</td><td>Multiply and assign</td><td>x *= 5</td></tr><tr><td>/=</td><td>Divide and assign</td><td>x /= 5</td></tr><tr><td>//=</td><td>Floor divide and assign</td><td>x //= 5</td></tr><tr><td>%=</td><td>Modulus and assign</td><td>x %= 5</td></tr><tr><td>**=</td><td>Power and assign</td><td>x **= 2</td></tr></table>
-<h3>Program</h3><pre>x = 10
-
-x += 5
-print("Addition:", x)
-
-x -= 3
-print("Subtraction:", x)
-
-x *= 2
-print("Multiplication:", x)
-
-x /= 4
-print("Division:", x)</pre><div class="output">Addition: 15
-Subtraction: 12
-Multiplication: 24
-Division: 6.0</div>
-<h3>Explanation</h3><ul><li><code>x += 5</code> means <code>x = x + 5</code>.</li><li><code>x -= 3</code> means <code>x = x - 3</code>.</li><li><code>x *= 2</code> means <code>x = x * 2</code>.</li><li><code>x /= 4</code> means <code>x = x / 4</code>.</li></ul>
-<h3>Advantages</h3><ul><li>Reduces code length.</li><li>Easy to write.</li><li>Updates variables quickly.</li><li>Improves readability.</li><li>Useful in calculations and loops.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Augmented assignment operators make Python programs shorter and easier to write.</div></div></article>
-
-<article class="qa" id="q6"><div class="qhead"><span class="num">06</span><div class="qtitle">Explain break and continue statements with examples.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. break statement</h3><p><b>Definition:</b> The <code>break</code> statement stops a loop completely.</p><pre>for i in range(5):
-    if i == 3:
-        break
-    print(i)</pre><div class="output">0
-1
-2</div><p><b>Explanation:</b> When the value becomes 3, the loop stops completely.</p>
-<h3>2. continue statement</h3><p><b>Definition:</b> The <code>continue</code> statement skips the current iteration and moves to the next iteration.</p><pre>for i in range(5):
-    if i == 3:
-        continue
-    print(i)</pre><div class="output">0
-1
-2
-4</div><p><b>Explanation:</b> The value 3 is skipped, but the loop continues.</p>
-<h3>Difference between break and continue</h3><table><tr><th>break</th><th>continue</th></tr><tr><td>Stops the complete loop</td><td>Skips current iteration</td></tr><tr><td>Moves outside the loop</td><td>Moves to next iteration</td></tr><tr><td>Stops remaining iterations</td><td>Remaining iterations continue</td></tr><tr><td>Used to exit a loop</td><td>Used to skip a value</td></tr></table>
-<h3>Advantages</h3><ul><li>Controls loop execution.</li><li>Avoids unnecessary processing.</li><li>Helps skip unwanted values.</li><li>Makes programs flexible.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> <code>break</code> stops the loop, while <code>continue</code> skips only the current iteration.</div></div></article>
-
-<div class="unit-heading" id="unit2"><h2>UNIT II – Functions and Sequences</h2><p>Questions 7–12</p></div>
-
-<article class="qa" id="q7"><div class="qhead"><span class="num">07</span><div class="qtitle">Explain functions in Python with an example.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> A function is a reusable block of code that performs a particular task. It helps us avoid writing the same code again and again.</p>
-<h3>Syntax</h3><pre>def function_name():
-    statements
-
-function_name()</pre>
-<h3>Types of functions</h3><h4>1. Built-in functions</h4><p>These functions are already available in Python. Examples: <code>print()</code>, <code>input()</code>, <code>len()</code> and <code>type()</code>.</p>
-<h4>2. User-defined functions</h4><p>These functions are created by programmers using the <code>def</code> keyword.</p>
-<h3>Example program</h3><pre>def greet():
-    print("Welcome to Python")
-
-greet()</pre><div class="output">Welcome to Python</div>
-<h3>Function with return value</h3><pre>def add():
-    a = 10
-    b = 20
-    return a + b
-
-result = add()
-print(result)</pre><div class="output">30</div>
-<h3>Advantages</h3><ul><li>Avoids repeated code.</li><li>Saves programming time.</li><li>Makes programs easy to understand.</li><li>Makes debugging easier.</li><li>Supports code reuse.</li><li>Divides large programs into smaller parts.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Functions make Python programs simple, organized and reusable.</div></div></article>
-
-<article class="qa" id="q8"><div class="qhead"><span class="num">08</span><div class="qtitle">Explain functions with multiple parameters and keyword arguments.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. Multiple parameters</h3><p><b>Definition:</b> A function with more than one parameter is called a function with multiple parameters.</p><pre>def function_name(a, b):
-    statements</pre><p><b>Example:</b></p><pre>def add(a, b):
-    print("Sum =", a + b)
-
-add(10, 20)</pre><div class="output">Sum = 30</div><p><code>a</code> and <code>b</code> are parameters. The values 10 and 20 are arguments. The function adds the two values.</p>
-<h3>2. Keyword arguments</h3><p><b>Definition:</b> Keyword arguments are arguments passed using parameter names. The order of values does not matter.</p><pre>function_name(parameter=value)</pre><p><b>Example:</b></p><pre>def student(name, age):
-    print("Name:", name)
-    print("Age:", age)
-
-student(age=20, name="Anu")</pre><div class="output">Name: Anu
-Age: 20</div>
-<h3>Difference</h3><table><tr><th>Multiple parameters</th><th>Keyword arguments</th></tr><tr><td>Function accepts many parameters</td><td>Values are passed using names</td></tr><tr><td>Values can be passed by position</td><td>Order does not matter</td></tr><tr><td>Example: add(10, 20)</td><td>Example: student(age=20, name="Anu")</td></tr></table>
-<h3>Advantages</h3><ul><li>Makes functions flexible.</li><li>Reduces repeated code.</li><li>Improves readability.</li><li>Helps pass different values.</li><li>Reduces confusion.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Multiple parameters allow functions to accept many values, while keyword arguments make function calls clearer.</div></div></article>
-
-<article class="qa" id="q9"><div class="qhead"><span class="num">09</span><div class="qtitle">Explain recursion with an example.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Recursion is a process in which a function calls itself to solve a problem. A recursive function must have a stopping condition called the base condition.</p>
-<h3>Important parts</h3><ol><li><b>Recursive function:</b> A function that calls itself.</li><li><b>Base condition:</b> Stops the function.</li><li><b>Recursive call:</b> Calls the same function again.</li></ol>
-<h3>Syntax</h3><pre>def function_name():
-    if condition:
-        return
-    function_name()</pre>
-<h3>Example: Factorial program</h3><pre>def factorial(n):
-    if n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
-
-print(factorial(5))</pre><div class="output">120</div>
-<h3>Explanation</h3><p>Factorial of 5 is:</p><pre>5 × 4 × 3 × 2 × 1 = 120</pre><p>Working:</p><pre>factorial(5)
-     |
-5 * factorial(4)
-     |
-4 * factorial(3)
-     |
-3 * factorial(2)
-     |
-2 * factorial(1)
-     |
-     1</pre>
-<h3>Advantages</h3><ul><li>Reduces repeated code.</li><li>Useful for mathematical problems.</li><li>Makes some programs shorter.</li><li>Useful for tree and directory problems.</li></ul>
-<h3>Disadvantages</h3><ul><li>Uses more memory for function calls.</li><li>Can be slower than loops.</li><li>Missing a base condition may cause infinite recursion.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Recursion is a technique where a function calls itself until the base condition is reached.</div></div></article>
-
-<article class="qa" id="q10"><div class="qhead"><span class="num">10</span><div class="qtitle">Explain lists and tuples with examples.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. Lists</h3><p><b>Definition:</b> A list is a collection of items stored in a single variable. Lists use square brackets <code>[ ]</code>.</p><pre>fruits = ["Apple", "Mango", "Orange"]
-
-print(fruits)
-print(fruits[0])</pre><div class="output">['Apple', 'Mango', 'Orange']
-Apple</div>
-<p><b>Features of lists:</b></p><ul><li>Lists are ordered.</li><li>Lists allow duplicate values.</li><li>Lists can store different data types.</li><li>Lists are mutable, meaning they can be changed.</li><li>Lists use square brackets.</li></ul>
-<p><b>Changing a list:</b></p><pre>numbers = [10, 20, 30]
-numbers[0] = 100
-print(numbers)</pre><div class="output">[100, 20, 30]</div>
-<h3>2. Tuples</h3><p><b>Definition:</b> A tuple is a collection of items stored in a single variable. Tuples use parentheses <code>( )</code>.</p><pre>numbers = (10, 20, 30)
-
-print(numbers)
-print(numbers[0])</pre><div class="output">(10, 20, 30)
-10</div>
-<p><b>Features of tuples:</b></p><ul><li>Tuples are ordered.</li><li>Tuples allow duplicate values.</li><li>Tuples can store different data types.</li><li>Tuples are immutable.</li><li>Tuples use parentheses.</li></ul>
-<h3>Difference between list and tuple</h3><table><tr><th>List</th><th>Tuple</th></tr><tr><td>Uses [ ]</td><td>Uses ( )</td></tr><tr><td>Mutable</td><td>Immutable</td></tr><tr><td>Values can be changed</td><td>Values cannot be changed directly</td></tr><tr><td>Flexible for editing</td><td>Useful for fixed data</td></tr></table>
-<div class="conclusion"><b>Conclusion:</b> Lists and tuples store multiple values. Lists can be changed, but tuples cannot be changed directly.</div></div></article>
-
-<article class="qa" id="q11"><div class="qhead"><span class="num">11</span><div class="qtitle">Explain sequence slicing and unpacking with examples.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. Sequence slicing</h3><p><b>Definition:</b> Slicing is the process of extracting a part of a sequence. It works with strings, lists and tuples.</p><h4>Syntax</h4><pre>sequence[start:end]</pre><ul><li>Start – starting position.</li><li>End – ending position, not included.</li></ul>
-<p><b>Example:</b></p><pre>name = "Python"
-print(name[1:4])</pre><div class="output">yth</div>
-<h3>Types of slicing</h3><table><tr><th>Slicing</th><th>Meaning</th></tr><tr><td>a[1:4]</td><td>Extract part</td></tr><tr><td>a[:4]</td><td>From beginning</td></tr><tr><td>a[2:]</td><td>Till end</td></tr><tr><td>a[:]</td><td>Full sequence</td></tr><tr><td>a[::2]</td><td>Skip elements</td></tr><tr><td>a[::-1]</td><td>Reverse sequence</td></tr></table>
-<pre>numbers = [10, 20, 30, 40, 50]
-
-print(numbers[1:4])
-print(numbers[::-1])</pre><div class="output">[20, 30, 40]
-[50, 40, 30, 20, 10]</div>
-<h3>2. Sequence unpacking</h3><p><b>Definition:</b> Unpacking means assigning the elements of a sequence to different variables.</p><pre>numbers = (10, 20, 30)
-
-a, b, c = numbers
-
-print(a)
-print(b)
-print(c)</pre><div class="output">10
-20
-30</div>
-<h3>Advantages</h3><ul><li>Makes data access easy.</li><li>Extracts required elements.</li><li>Helps reverse sequences.</li><li>Assigns values to multiple variables.</li><li>Reduces code length.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Slicing extracts part of a sequence, while unpacking assigns sequence elements to different variables.</div></div></article>
-
-<article class="qa" id="q12"><div class="qhead"><span class="num">12</span><div class="qtitle">Explain list comprehension with an example.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> List comprehension is a short and simple way to create a new list in Python. It creates a list using a single line of code.</p>
-<h3>Syntax</h3><pre>new_list = [expression for item in sequence]</pre>
-<h3>Example: Create square numbers</h3><pre>numbers = [1, 2, 3, 4, 5]
-squares = [x*x for x in numbers]
-print(squares)</pre><div class="output">[1, 4, 9, 16, 25]</div>
-<h3>Example with condition</h3><pre>numbers = [1, 2, 3, 4, 5, 6]
-even = [x for x in numbers if x % 2 == 0]
-print(even)</pre><div class="output">[2, 4, 6]</div>
-<h3>Explanation</h3><ol><li><code>numbers</code> contains the original values.</li><li><code>for x in numbers</code> reads each value.</li><li><code>x*x</code> calculates the square.</li><li>The result is stored in a new list.</li><li>The <code>if</code> condition selects only even numbers.</li></ol>
-<h3>Advantages</h3><ul><li>Requires less code.</li><li>Easy to understand.</li><li>Creates lists quickly.</li><li>Supports conditions.</li><li>Improves code readability.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> List comprehension is a simple and short method used to create new lists in Python.</div></div></article>
-
-<div class="unit-heading" id="unit3"><h2>UNIT III – Strings</h2><p>Questions 13–18</p></div>
-
-<article class="qa" id="q13"><div class="qhead"><span class="num">13</span><div class="qtitle">Explain string formatting with an example.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> String formatting is the process of inserting variable values into a string. It helps display information in a proper format.</p>
-<h3>Methods of string formatting</h3><h4>1. Using % operator</h4><pre>name = "Anu"
-age = 20
-print("My name is %s and age is %d" % (name, age))</pre>
-<h4>2. Using format() method</h4><pre>name = "Anu"
-age = 20
-print("My name is {} and age is {}".format(name, age))</pre>
-<h4>3. Using f-string</h4><p>An f-string is a simple and modern method.</p><pre>name = "Anu"
-age = 20
-print(f"My name is {name} and age is {age}")</pre><div class="output">My name is Anu and age is 20</div>
-<h3>Advantages</h3><ul><li>Makes output clear.</li><li>Inserts variables into strings.</li><li>Improves readability.</li><li>Supports numbers and text.</li><li>Useful in reports and messages.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> String formatting helps display variable values in a clear and readable form.</div></div></article>
-
-<article class="qa" id="q14"><div class="qhead"><span class="num">14</span><div class="qtitle">Explain string concatenation and repetition.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. String concatenation</h3><p><b>Definition:</b> Concatenation means joining two or more strings using the <code>+</code> operator.</p><pre>a = "Hello"
-b = "Python"
-result = a + " " + b
-print(result)</pre><div class="output">Hello Python</div>
-<h3>2. String repetition</h3><p><b>Definition:</b> Repetition means repeating a string multiple times using the <code>*</code> operator.</p><pre>text = "Python "
-print(text * 3)</pre><div class="output">Python Python Python</div>
-<h3>Difference</h3><table><tr><th>Concatenation</th><th>Repetition</th></tr><tr><td>Joins strings</td><td>Repeats strings</td></tr><tr><td>Uses +</td><td>Uses *</td></tr><tr><td>Combines two or more strings</td><td>Repeats one string</td></tr></table>
-<h3>Advantages</h3><ul><li>Easy text processing.</li><li>Reduces manual work.</li><li>Helps create messages.</li><li>Useful in text-based applications.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Concatenation joins strings, while repetition creates multiple copies of a string.</div></div></article>
-
-<article class="qa" id="q15"><div class="qhead"><span class="num">15</span><div class="qtitle">Explain how to remove whitespace and change character case in strings.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. Removing whitespace</h3><p><b>Definition:</b> Whitespace means extra spaces before or after text. Python provides <code>strip()</code> to remove spaces.</p><h4>strip()</h4><p>Removes spaces from both sides.</p><pre>text = "  Hello Python  "
-print(text.strip())</pre><div class="output">Hello Python</div>
-<h4>lstrip()</h4><p>Removes spaces from the left side.</p><pre>text = "  Hello"
-print(text.lstrip())</pre>
-<h4>rstrip()</h4><p>Removes spaces from the right side.</p><pre>text = "Hello  "
-print(text.rstrip())</pre>
-<h3>2. Changing character case</h3><table><tr><th>Method</th><th>Purpose</th></tr><tr><td>upper()</td><td>Converts to uppercase</td></tr><tr><td>lower()</td><td>Converts to lowercase</td></tr><tr><td>title()</td><td>Capitalizes each word</td></tr><tr><td>capitalize()</td><td>Capitalizes first character</td></tr><tr><td>swapcase()</td><td>Changes uppercase to lowercase and vice versa</td></tr></table>
-<h3>Program</h3><pre>text = "hello python"
-
-print(text.upper())
-print(text.lower())
-print(text.title())
-print(text.capitalize())</pre><div class="output">HELLO PYTHON
-hello python
-Hello Python
-Hello python</div>
-<h3>Advantages</h3><ul><li>Removes unwanted spaces.</li><li>Improves text readability.</li><li>Helps compare text.</li><li>Useful in data cleaning.</li><li>Helps validate user input.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Python string methods help remove unwanted spaces and change the case of characters.</div></div></article>
-
-<article class="qa" id="q16"><div class="qhead"><span class="num">16</span><div class="qtitle">Explain string comparison and substring searching.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. String comparison</h3><p><b>Definition:</b> String comparison checks whether two strings are equal or different. Python uses comparison operators.</p><table><tr><th>Operator</th><th>Meaning</th></tr><tr><td>==</td><td>Equal</td></tr><tr><td>!=</td><td>Not equal</td></tr><tr><td>&gt;</td><td>Greater than</td></tr><tr><td>&lt;</td><td>Less than</td></tr><tr><td>&gt;=</td><td>Greater than or equal</td></tr><tr><td>&lt;=</td><td>Less than or equal</td></tr></table><p>Python compares strings based on character order and Unicode values.</p><pre>a = "Python"
-b = "Python"
-
-print(a == b)
-print(a != b)</pre><div class="output">True
-False</div>
-<h3>2. Substring searching</h3><p><b>Definition:</b> Substring searching means finding a small part of a string inside another string.</p><h4>A. find() method</h4><p>Returns the position of the substring. If it is not found, it returns -1.</p><pre>text = "Python Programming"
-print(text.find("Program"))</pre><div class="output">7</div>
-<h4>B. in operator</h4><p>Checks whether a substring exists.</p><pre>text = "Python"
-print("Py" in text)</pre><div class="output">True</div>
-<h3>Advantages</h3><ul><li>Helps search text.</li><li>Checks matching values.</li><li>Useful in password validation.</li><li>Helps search keywords.</li><li>Useful in text processing.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> String comparison checks whether strings match, while substring searching finds a word or part of a string.</div></div></article>
-
-<article class="qa" id="q17"><div class="qhead"><span class="num">17</span><div class="qtitle">Explain string splitting and joining with examples.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. split() method</h3><p><b>Definition:</b> The <code>split()</code> method divides a string into smaller parts and returns a list.</p><pre>string.split(separator)</pre><pre>text = "Python Java C++"
-print(text.split())</pre><div class="output">['Python', 'Java', 'C++']</div>
-<h3>2. join() method</h3><p><b>Definition:</b> The <code>join()</code> method combines multiple strings into a single string.</p><pre>separator.join(sequence)</pre><pre>words = ["Python", "Java", "C++"]
-print(" ".join(words))</pre><div class="output">Python Java C++</div>
-<p><b>Another example:</b></p><pre>words = ["Apple", "Mango", "Orange"]
-print("-".join(words))</pre><div class="output">Apple-Mango-Orange</div>
-<h3>Difference</h3><table><tr><th>split()</th><th>join()</th></tr><tr><td>Divides a string</td><td>Combines strings</td></tr><tr><td>Returns a list</td><td>Returns a string</td></tr><tr><td>Uses a separator to split</td><td>Uses a separator to join</td></tr></table>
-<h3>Advantages</h3><ul><li>Helps process text.</li><li>Useful in file handling.</li><li>Helps separate words.</li><li>Makes text processing easy.</li><li>Useful in data cleaning.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> <code>split()</code> divides a string into a list, while <code>join()</code> combines list elements into a string.</div></div></article>
-
-<article class="qa" id="q18"><div class="qhead"><span class="num">18</span><div class="qtitle">Explain string replacement and character-testing methods.</div><span class="toggle">−</span></div><div class="answer">
-<h3>1. String replacement</h3><p><b>Definition:</b> String replacement means changing an old word or character into a new word or character. Python uses <code>replace()</code>.</p><pre>string.replace(old, new)</pre><pre>text = "I like Java"
-new_text = text.replace("Java", "Python")
-print(new_text)</pre><div class="output">I like Python</div>
-<ul><li><code>replace()</code> changes the selected text.</li><li>It returns a new string.</li><li>The original string does not change.</li><li>It is useful in text editing.</li></ul>
-<h3>2. Character-testing methods</h3><p>These methods check the type of characters in a string.</p><table><tr><th>Method</th><th>Purpose</th></tr><tr><td>isalpha()</td><td>Checks alphabets</td></tr><tr><td>isdigit()</td><td>Checks digits</td></tr><tr><td>isalnum()</td><td>Checks alphabets and numbers</td></tr><tr><td>islower()</td><td>Checks lowercase</td></tr><tr><td>isupper()</td><td>Checks uppercase</td></tr></table>
-<h3>Program</h3><pre>a = "Python"
-b = "12345"
-c = "Python123"
-
-print(a.isalpha())
-print(b.isdigit())
-print(c.isalnum())
-print(a.islower())
-print(a.isupper())</pre><div class="output">True
-True
-True
-False
-False</div>
-<h3>Advantages</h3><ul><li>Helps validate user input.</li><li>Detects unwanted characters.</li><li>Useful in form validation.</li><li>Helps clean text.</li><li>Makes text processing easy.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> The <code>replace()</code> method changes text, while character-testing methods check the type of characters in a string.</div></div></article>
-
-<div class="unit-heading" id="unit4"><h2>UNIT IV – Performing Privilege Escalation</h2><p>Questions 19–24</p></div>
-
-<article class="qa" id="q19"><div class="qhead"><span class="num">19</span><div class="qtitle">Explain boot and logon initialization scripts.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Boot and logon initialization scripts are programs that run automatically when a computer starts or when a user logs in. They help configure the computer and user settings.</p>
-<h3>Types of initialization scripts</h3><h4>1. Boot scripts</h4><p>Boot scripts run when the operating system starts.</p><p><b>Uses:</b></p><ul><li>Start background services.</li><li>Configure network settings.</li><li>Load system drivers.</li><li>Apply system settings.</li></ul><p><b>Common Linux locations:</b></p><pre>/etc/init.d/
-/etc/rc.local</pre><p>Systemd service files are also used.</p>
-<h4>2. Logon scripts</h4><p>Logon scripts run when a user signs in.</p><p><b>Uses:</b></p><ul><li>Connect network drives.</li><li>Set environment variables.</li><li>Start required applications.</li><li>Apply user settings.</li></ul><p><b>Common Windows locations:</b></p><pre>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
-
-C:\Windows\System32\GroupPolicy\User\Scripts\Logon</pre>
-<h3>Working process</h3><pre>Computer Starts
-      |
-      v
-Boot Script Runs
-      |
-      v
-User Logs In
-      |
-      v
-Logon Script Runs
-      |
-      v
-User Environment Ready</pre>
-<h3>Security risks</h3><ul><li>Attackers may modify scripts.</li><li>Malicious programs may run automatically.</li><li>Unauthorized accounts may be created.</li><li>Security settings may be changed.</li><li>Attackers may maintain access to the system.</li></ul>
-<h3>Detection and prevention</h3><ul><li>Check startup folders regularly.</li><li>Review logon scripts.</li><li>Monitor file changes.</li><li>Restrict write permissions.</li><li>Allow only trusted administrators to modify scripts.</li><li>Use antivirus protection.</li><li>Enable system auditing.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Boot and logon scripts automate system tasks, but they must be protected from unauthorized changes.</div></div></article>
-
-<article class="qa" id="q20"><div class="qhead"><span class="num">20</span><div class="qtitle">Explain how to detect suspicious logon scripts.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Suspicious logon scripts are scripts that perform unwanted or unauthorized activities when a user logs in. They may run harmful programs or change system settings.</p>
-<h3>Common script types</h3><ul><li><code>.bat</code> – Batch file.</li><li><code>.cmd</code> – Command file.</li><li><code>.ps1</code> – PowerShell file.</li><li><code>.vbs</code> – VBScript file.</li></ul>
-<h3>Common locations</h3><p><b>Windows:</b></p><pre>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
-
-C:\Windows\System32\GroupPolicy\User\Scripts\Logon</pre><p><b>Linux:</b></p><pre>/etc/profile
-/etc/bash.bashrc
-~/.bash_profile
-~/.bashrc</pre>
-<h3>Signs of suspicious logon scripts</h3><ul><li>Unknown scripts in startup folders.</li><li>Recently modified script files.</li><li>Unwanted commands.</li><li>Unknown programs starting automatically.</li><li>Unexpected changes in system settings.</li><li>Scripts from unknown sources.</li></ul>
-<h3>Detection methods</h3><ol><li><b>Check startup folders:</b> Review files stored in startup locations.</li><li><b>Check script files:</b> Look for unknown .bat, .cmd, .ps1 and .vbs files.</li><li><b>Monitor file changes:</b> Check recently modified files.</li><li><b>Review Group Policy:</b> Check whether unknown logon scripts are configured.</li><li><b>Use antivirus:</b> Scan suspicious files using security software.</li></ol>
-<h3>Example commands</h3><pre>dir C:\ /s /b *.bat</pre><pre>dir C:\ /s /b *.ps1</pre><pre>Get-ChildItem -Path C:\ -Recurse -Include *.bat,*.cmd,*.ps1</pre>
-<h3>Prevention</h3><ul><li>Restrict script folder permissions.</li><li>Do not store passwords in scripts.</li><li>Allow trusted administrators only.</li><li>Enable logging and auditing.</li><li>Review scripts regularly.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Detecting suspicious logon scripts helps prevent unauthorized programs from running automatically.</div></div></article>
-
-<article class="qa" id="q21"><div class="qhead"><span class="num">21</span><div class="qtitle">Explain execution-flow hijacking.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Execution-flow hijacking is a technique in which an attacker changes the normal execution path of a program so that unwanted or malicious code runs. In simple words, the attacker tries to make a program run the wrong code.</p>
-<h3>How it works</h3><ol><li>A program normally searches for the files or libraries it needs.</li><li>An attacker finds a weak point in this process.</li><li>The attacker may place an untrusted file in a location the program searches.</li><li>The program may load the wrong file.</li><li>Unwanted code may run instead of the expected code.</li></ol>
-<h3>Common methods</h3><h4>1. DLL hijacking</h4><p>An application may load an untrusted DLL file instead of the correct one.</p><h4>2. PATH hijacking</h4><p>An application may run an unwanted program because it finds it in an unsafe search location.</p><h4>3. Library hijacking</h4><p>A program may load a harmful library instead of the genuine library.</p>
-<h3>Security risks</h3><ul><li>Unauthorized code execution.</li><li>Data theft.</li><li>Malware infection.</li><li>Privilege escalation.</li><li>System damage.</li></ul>
-<h3>Detection methods</h3><ul><li>Monitor unusual program activity.</li><li>Check unexpected libraries.</li><li>Review application directories.</li><li>Check file permissions.</li><li>Use antivirus and endpoint protection.</li><li>Monitor suspicious file changes.</li></ul>
-<h3>Prevention</h3><ul><li>Use trusted libraries.</li><li>Keep software updated.</li><li>Restrict folder permissions.</li><li>Avoid unsafe search paths.</li><li>Use application security tools.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Execution-flow hijacking changes the normal program execution path. Proper file permissions and trusted libraries help prevent it.</div></div></article>
-
-<article class="qa" id="q22"><div class="qhead"><span class="num">22</span><div class="qtitle">Explain how to detect suspicious Python libraries.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> A Python library is a collection of ready-made code used in Python programs. A suspicious Python library may contain harmful code or perform unwanted activities.</p>
-<h3>Why suspicious libraries are dangerous</h3><ul><li>They may steal sensitive information.</li><li>They may download unwanted files.</li><li>They may run hidden commands.</li><li>They may change system settings.</li><li>They may create unauthorized network connections.</li></ul>
-<h3>Signs of suspicious libraries</h3><ul><li>Unknown library names.</li><li>Libraries downloaded from untrusted websites.</li><li>Unexpected changes in library files.</li><li>Unusual network activity.</li><li>Hidden or encoded code.</li><li>Libraries requesting unnecessary permissions.</li></ul>
-<h3>Detection methods</h3><h4>1. Check installed libraries</h4><pre>pip list</pre><p>It displays installed Python packages.</p><h4>2. Check library details</h4><pre>pip show package_name</pre><p>It displays information about a package.</p><h4>3. Check library location</h4><pre>import sys
-print(sys.path)</pre><p>It displays the locations Python searches for modules.</p><h4>4. Review source code</h4><p>Check unknown libraries for unusual commands or hidden activities.</p><h4>5. Use antivirus software</h4><p>Scan suspicious library files.</p><h4>6. Verify package sources</h4><p>Install libraries only from trusted sources.</p>
-<h3>Prevention</h3><ul><li>Use trusted packages.</li><li>Update libraries regularly.</li><li>Remove unused libraries.</li><li>Check package information.</li><li>Avoid unknown downloads.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Detecting suspicious Python libraries helps protect systems from harmful code and unauthorized activities.</div></div></article>
-
-<article class="qa" id="q23"><div class="qhead"><span class="num">23</span><div class="qtitle">Explain methods to detect attempts to disable antivirus software.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Disabling antivirus means stopping or weakening security software that protects a computer from malware. Attackers may try to disable antivirus software to avoid detection.</p>
-<h3>Why attackers disable antivirus</h3><ul><li>To run harmful programs.</li><li>To hide malware activities.</li><li>To avoid security alerts.</li><li>To continue unauthorized access.</li><li>To steal information.</li></ul>
-<h3>Signs of antivirus disabling attempts</h3><ul><li>Antivirus protection suddenly stops.</li><li>Real-time protection is turned off.</li><li>Security services stop unexpectedly.</li><li>Unknown programs change security settings.</li><li>Security alerts are missing.</li><li>Antivirus files or settings are changed without permission.</li></ul>
-<h3>Detection methods</h3><ol><li><b>Monitor antivirus status:</b> Check whether antivirus protection is active.</li><li><b>Check security logs:</b> Review logs for unexpected changes.</li><li><b>Monitor services:</b> Check whether antivirus services have stopped.</li><li><b>Check user permissions:</b> Identify unauthorized changes to security settings.</li><li><b>Use endpoint protection:</b> Security monitoring tools can alert administrators about suspicious activity.</li></ol>
-<h3>Prevention</h3><ul><li>Enable real-time protection.</li><li>Restrict access to security settings.</li><li>Keep antivirus updated.</li><li>Enable security alerts.</li><li>Use strong administrator passwords.</li><li>Monitor system logs regularly.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Monitoring antivirus status and system logs helps detect attempts to disable security protection.</div></div></article>
-
-<article class="qa" id="q24"><div class="qhead"><span class="num">24</span><div class="qtitle">Explain Alternate Data Streams (ADS) and their detection.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Alternate Data Streams (ADS) are a feature of the NTFS file system in Windows. They allow additional data to be stored along with a normal file. In simple words, one file can contain extra hidden information.</p>
-<h3>Features of ADS</h3><ul><li>ADS is supported by the NTFS file system.</li><li>Extra information can be attached to a file.</li><li>The extra data may not appear in normal directory listings.</li><li>Attackers may misuse ADS to hide information.</li><li>Digital forensic investigators check ADS during investigations.</li></ul>
-<h3>Example</h3><p>A normal file:</p><pre>document.txt</pre><p>An additional stream can be attached to it:</p><pre>document.txt:hidden</pre>
-<h3>How ADS can be misused</h3><ul><li>Hiding unwanted files.</li><li>Storing suspicious information.</li><li>Hiding data from normal file listings.</li><li>Making forensic investigation difficult.</li></ul>
-<h3>Detection methods</h3><h4>1. Using Command Prompt</h4><pre>dir /r</pre><p>This displays alternate data streams in a directory.</p><h4>2. Using PowerShell</h4><pre>Get-Item document.txt -Stream *</pre><p>This lists streams attached to the specified file.</p><h4>3. Use forensic tools</h4><p>Digital forensic tools can help identify and examine hidden streams.</p><h4>4. Monitor unusual files</h4><p>Check files with unexpected additional streams.</p>
-<h3>Prevention</h3><ul><li>Scan files regularly.</li><li>Use updated antivirus software.</li><li>Monitor suspicious file activity.</li><li>Restrict unauthorized access.</li><li>Perform regular forensic checks.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> ADS is an NTFS feature used to store additional data. Detecting hidden streams helps identify suspicious files and activities.</div></div></article>
-
-<div class="unit-heading" id="unit5"><h2>UNIT V – Accessing Credentials and Collecting User Data</h2><p>Questions 25–30</p></div>
-
-<article class="qa" id="q25"><div class="qhead"><span class="num">25</span><div class="qtitle">Explain how to protect passwords stored in web browsers.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Browser password protection means keeping saved usernames and passwords safe from unauthorized access. Browsers such as Google Chrome allow users to save login details.</p>
-<h3>Working of Chrome password management</h3><ol><li>The user saves login details in Chrome.</li><li>Chrome encrypts the password.</li><li>The encrypted data is stored in a password database.</li><li>Chrome uses the saved information when the user visits the website.</li></ol>
-<h3>Chrome password database</h3><ul><li><b>Origin URL:</b> Website address.</li><li><b>Username:</b> Saved login name.</li><li><b>Password value:</b> Encrypted password.</li><li><b>Date created:</b> Time when the credential was saved.</li></ul><p>The database uses SQLite format.</p>
-<h3>Encryption methods</h3><ul><li><b>Windows:</b> Uses Data Protection API (DPAPI). Encryption keys are linked to the user account.</li><li><b>macOS:</b> Uses Keychain.</li><li><b>Linux:</b> Uses system keyring services.</li></ul>
-<h3>Security threats</h3><ul><li>Malware may try to steal passwords.</li><li>Attackers may steal browser cookies.</li><li>Unauthorized users may access browser profiles.</li><li>Weak passwords may be guessed.</li><li>Shared computers may expose saved credentials.</li></ul>
-<h3>Protection methods</h3><ol><li>Use strong and unique passwords.</li><li>Enable Multi-Factor Authentication (MFA).</li><li>Avoid saving passwords on shared computers.</li><li>Keep browsers updated.</li><li>Use antivirus protection.</li><li>Check saved passwords regularly.</li><li>Remove unused credentials.</li></ol>
-<h3>Role in digital forensics</h3><p>Investigators may examine browser databases, login records and user profile information with proper authorization.</p>
-<div class="conclusion"><b>Conclusion:</b> Browser password protection helps prevent credential theft and unauthorized access.</div></div></article>
-
-<article class="qa" id="q26"><div class="qhead"><span class="num">26</span><div class="qtitle">Explain network sniffing and its security risks.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Network sniffing is the process of capturing and analyzing data packets that travel through a computer network. A tool used for capturing packets is called a packet sniffer or network analyzer.</p>
-<h3>Working of network sniffing</h3><pre>Sender
-   |
-   v
-Data Packets
-   |
-   v
-Computer Network
-   |
-   v
-Packet Sniffer
-   |
-   v
-Packet Analysis</pre>
-<h3>Types of network sniffing</h3><h4>1. Passive sniffing</h4><ul><li>Only monitors network traffic.</li><li>Does not change communication.</li><li>Is difficult to detect.</li><li>Mainly used in hub-based networks.</li></ul>
-<h4>2. Active sniffing</h4><ul><li>Involves modifying network traffic to capture packets.</li><li>Commonly used in switched networks.</li><li>May involve ARP poisoning and MAC flooding.</li></ul>
-<h3>Network sniffing process</h3><ol><li><b>Packet capture:</b> Collects packets moving through a network.</li><li><b>Packet filtering:</b> Selects the required packets.</li><li><b>Packet analysis:</b> Examines source IP, destination IP, protocol type, port number and data content.</li></ol>
-<h3>Tools</h3><ul><li>Wireshark.</li><li>Scapy.</li><li>Network analyzers.</li></ul>
-<h3>Security risks</h3><ul><li>Password theft.</li><li>Data theft.</li><li>Monitoring private communication.</li><li>Capturing sensitive information.</li><li>Network attacks.</li></ul>
-<h3>Prevention</h3><ol><li>Use HTTPS.</li><li>Use SSH instead of Telnet.</li><li>Disable insecure protocols.</li><li>Use VPN for remote access.</li><li>Use strong encryption.</li><li>Enable Multi-Factor Authentication.</li><li>Use secure Wi-Fi such as WPA3.</li></ol>
-<div class="conclusion"><b>Conclusion:</b> Network sniffing is useful for network monitoring, but unauthorized sniffing can expose private information and passwords.</div></div></article>
-
-<article class="qa" id="q27"><div class="qhead"><span class="num">27</span><div class="qtitle">Explain deceptive network connections.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Deceptive network connections are fake or misleading network communications created to detect attackers and protect real network resources. They help security teams monitor suspicious activities.</p>
-<h3>Objectives</h3><ul><li>Detect unauthorized users.</li><li>Mislead attackers.</li><li>Monitor malicious activities.</li><li>Protect real network resources.</li><li>Improve network security.</li></ul>
-<h3>Working principle</h3><ol><li>Fake network connections are created.</li><li>Decoy servers or services respond.</li><li>Attackers may interact with fake systems.</li><li>Security tools record their activities.</li><li>Administrators examine the collected information.</li></ol>
-<h3>Techniques used</h3><h4>1. Dummy network traffic</h4><p>Creates fake HTTP, FTP, DNS or ICMP traffic.</p><h4>2. Honeypot systems</h4><p>Uses fake computers or servers to attract attackers and record their actions.</p><h4>3. Fake network services</h4><p>Creates services that look like real SSH, FTP, web or database services.</p><h4>4. Decoy communication</h4><p>Sends harmless network packets to confuse traffic analysis.</p>
-<h3>Applications</h3><ul><li>Intrusion Detection Systems (IDS).</li><li>Honeypot deployment.</li><li>Malware analysis.</li><li>Threat intelligence collection.</li><li>Network security monitoring.</li></ul>
-<h3>Advantages</h3><ul><li>Helps detect attackers.</li><li>Collects useful security information.</li><li>Protects real resources.</li><li>Supports digital forensics.</li><li>Improves network security.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> Deceptive network connections use fake network activities to detect attackers and improve network protection.</div></div></article>
-
-<article class="qa" id="q28"><div class="qhead"><span class="num">28</span><div class="qtitle">Explain user account monitoring.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> User account monitoring is the process of checking and recording user activities on a computer or network. It helps identify unauthorized access and unusual account activities.</p>
-<h3>Objectives</h3><ul><li>Detect unauthorized logins.</li><li>Monitor user activities.</li><li>Identify suspicious account changes.</li><li>Protect sensitive information.</li><li>Support digital forensic investigations.</li></ul>
-<h3>Activities monitored</h3><ol><li>Successful login attempts.</li><li>Failed login attempts.</li><li>Account creation.</li><li>Account deletion.</li><li>Password changes.</li><li>Permission changes.</li><li>Unusual login times.</li></ol>
-<h3>Monitoring process</h3><pre>User Login
-    |
-    v
-Activity Recording
-    |
-    v
-Log Collection
-    |
-    v
-Activity Analysis
-    |
-    v
-Suspicious Activity?
-    |
-    v
-Alert Administrator</pre>
-<h3>Detection methods</h3><ul><li>Enable account activity logging.</li><li>Review security logs regularly.</li><li>Monitor failed login attempts.</li><li>Generate alerts for unusual activities.</li><li>Check account permission changes.</li><li>Remove inactive accounts.</li></ul>
-<h3>Advantages</h3><ul><li>Detects unauthorized access.</li><li>Protects user accounts.</li><li>Helps identify suspicious activities.</li><li>Supports digital forensics.</li><li>Improves system security.</li></ul>
-<h3>Example</h3><p>If an employee's account has five failed login attempts, the administrator receives an alert and investigates the activity.</p>
-<div class="conclusion"><b>Conclusion:</b> User account monitoring helps detect unauthorized login attempts and protects computer systems.</div></div></article>
-
-<article class="qa" id="q29"><div class="qhead"><span class="num">29</span><div class="qtitle">Explain file and directory discovery.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> File and directory discovery is the process of searching, locating and identifying files and folders stored on a computer or network. It helps security professionals find important, hidden or suspicious files.</p>
-<h3>Purpose</h3><ul><li>Locate important files.</li><li>Identify confidential information.</li><li>Detect hidden files.</li><li>Find suspicious files.</li><li>Support digital forensic investigations.</li></ul>
-<h3>Types of files discovered</h3><table><tr><th>File type</th><th>Purpose</th></tr><tr><td>Documents</td><td>Store reports and records</td></tr><tr><td>Images</td><td>Store visual evidence</td></tr><tr><td>Videos</td><td>Store video evidence</td></tr><tr><td>Database files</td><td>Store user information</td></tr><tr><td>System files</td><td>Store system settings</td></tr><tr><td>Hidden files</td><td>May contain suspicious data</td></tr><tr><td>Log files</td><td>Record system activities</td></tr></table>
-<h3>File discovery process</h3><ol><li><b>Scan storage devices:</b> Search hard disks, SSDs and USB drives.</li><li><b>Search files:</b> Use file names, extensions and keywords.</li><li><b>Examine directory structure:</b> Check how files and folders are organized.</li><li><b>Identify suspicious files:</b> Find unknown or unusual files.</li><li><b>Analyze the files:</b> Examine important files using suitable forensic tools.</li></ol>
-<h3>Python example</h3><p>The following program lists files in the current folder.</p><pre>import os
-
-path = "."
-
-for file in os.listdir(path):
-    print(file)</pre><p>Output depends on the files in the selected folder.</p>
-<h3>Advantages</h3><ul><li>Helps find important information.</li><li>Detects suspicious files.</li><li>Supports digital forensics.</li><li>Helps investigate cybercrime.</li><li>Improves file management.</li></ul>
-<div class="conclusion"><b>Conclusion:</b> File and directory discovery helps investigators locate and examine important files during security investigations.</div></div></article>
-
-<article class="qa" id="q30"><div class="qhead"><span class="num">30</span><div class="qtitle">Explain honeypot files and folders.</div><span class="toggle">−</span></div><div class="answer">
-<p><b>Definition:</b> Honeypot files and folders are fake but realistic-looking files created to attract unauthorized users. They do not contain real confidential information. They help detect suspicious activities.</p>
-<h3>Purpose</h3><ul><li>Detect unauthorized access.</li><li>Identify insider threats.</li><li>Protect valuable information.</li><li>Collect digital evidence.</li><li>Monitor suspicious activities.</li></ul>
-<h3>How it works</h3><h4>Step 1 – Create fake files</h4><p>The administrator creates files such as:</p><pre>Employee_Salary.xlsx
-Passwords.txt
-Company_Records.docx</pre>
-<h4>Step 2 – Place files in suitable locations</h4><p>These files are placed in shared folders or commonly searched directories.</p>
-<h4>Step 3 – Enable monitoring</h4><p>Security software watches the files.</p>
-<h4>Step 4 – Generate alerts</h4><p>When someone accesses a honeypot file, an alert is sent to the administrator.</p>
-<h4>Step 5 – Investigate the activity</h4><p>The administrator checks the logs to identify suspicious access.</p>
-<h3>Applications</h3><ol><li>Digital forensics.</li><li>Insider threat detection.</li><li>Malware analysis.</li><li>Incident response.</li><li>Network security.</li></ol>
-<h3>Advantages</h3><ul><li>Detects unauthorized access early.</li><li>Collects useful evidence.</li><li>Helps identify suspicious users.</li><li>Improves system security.</li><li>Protects real confidential data.</li></ul>
-<h3>Limitations</h3><ul><li>Requires continuous monitoring.</li><li>Experienced attackers may identify fake files.</li><li>Needs proper access permissions.</li><li>Alerts must be checked regularly.</li></ul>
-<h3>Example</h3><p>A company creates a fake file called <code>Employee_Salary.xlsx</code>. When an unauthorized employee opens the file, the system records the username and access time and sends an alert to the security administrator.</p>
-<div class="conclusion"><b>Conclusion:</b> Honeypot files and folders help detect unauthorized access and collect useful evidence during security investigations.</div></div></article>
-
-<div class="footer">Python Programming for Cyber Security • Exam revision notes • 30 questions</div>
-</main>
-</div>
-<script>
-const cards=[...document.querySelectorAll('.qa')];
-cards.forEach(card=>{
-  const head=card.querySelector('.qhead');
-  head.addEventListener('click',()=>{
-    card.classList.toggle('closed');
-    const answer=card.querySelector('.answer');
-    const icon=card.querySelector('.toggle');
-    answer.style.display=card.classList.contains('closed')?'none':'block';
-    icon.textContent=card.classList.contains('closed')?'+':'−';
-  });
-});
-function goToSelection(){
-  const q=document.getElementById('questionSelect').value;
-  const u=document.getElementById('unitSelect').value;
-  const target=q || u;
-  if(target){document.getElementById(target).scrollIntoView({behavior:'smooth',block:'start'});}
-}
-function expandAll(){cards.forEach(c=>{c.classList.remove('closed');c.querySelector('.answer').style.display='block';c.querySelector('.toggle').textContent='−';});}
-function collapseAll(){cards.forEach(c=>{c.classList.add('closed');c.querySelector('.answer').style.display='none';c.querySelector('.toggle').textContent='+';});}
-const search=document.getElementById('search');
-search.addEventListener('input',()=>{
-  const term=search.value.trim().toLowerCase();
-  cards.forEach(card=>{
-    const match=card.innerText.toLowerCase().includes(term);
-    card.classList.toggle('hidden',!!term&&!match);
-  });
-  document.querySelectorAll('.unit-heading').forEach(h=>{
-    const next=[];
-    let el=h.nextElementSibling;
-    while(el && !el.classList.contains('unit-heading')){if(el.classList.contains('qa'))next.push(el);el=el.nextElementSibling;}
-    h.classList.toggle('hidden',!!term&&!next.some(c=>!c.classList.contains('hidden')));
-  });
-});
-</script>
-</body>
- </html>
