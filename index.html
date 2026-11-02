@@ -3,234 +3,530 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101827">
-<title>Python Programming for Cyber Security | Exam Notes</title>
+<meta name="theme-color" content="#090d18">
+<title>Python Programming for Cyber Security — Exam Guide</title>
 <style>
 :root{
-  --bg:#0b1220;--panel:#111c2e;--panel2:#17243a;--text:#edf3fb;
-  --muted:#aab8ca;--line:#2b3a50;--accent:#65b8ff;--green:#83dfb0;
-  --code:#fff7e8;--shadow:0 12px 35px rgba(0,0,0,.22)
+ --bg:#070b14;--surface:#101827;--surface2:#151f31;--surface3:#1b2940;
+ --line:#293a54;--text:#edf4ff;--muted:#a7b6cc;--blue:#72b7ff;
+ --cyan:#67e8f9;--green:#86efac;--yellow:#fcd88a;--purple:#c4b5fd;
+ --red:#fca5a5;--shadow:0 16px 40px #0005;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,system-ui,sans-serif;line-height:1.68}
-button,input,select{font:inherit}
-.topbar{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.96);border-bottom:1px solid var(--line)}
-.topinner{max-width:1250px;margin:auto;padding:13px 22px;display:flex;align-items:center;gap:16px}
-.brand{font-weight:850;font-size:16px;white-space:nowrap}
-.brand span{color:var(--accent)}
-.search{flex:1;min-width:100px;background:#17243a;border:1px solid var(--line);border-radius:12px;color:white;padding:10px 13px}
-.layout{max-width:1250px;margin:26px auto;padding:0 22px;display:grid;grid-template-columns:275px minmax(0,1fr);gap:24px}
-.sidebar{align-self:start;position:sticky;top:82px;max-height:calc(100vh - 105px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}
-.sidebar h3{font-size:13px;color:var(--muted);text-transform:uppercase;margin:4px 8px 12px}
-.nav a{display:block;text-decoration:none;color:#c5d2e2;padding:8px 10px;border-radius:9px;font-size:13px;margin:2px 0}
-.nav a:hover{background:var(--panel2);color:white}
-.nav .unit{font-weight:800;color:var(--accent);margin-top:13px}
-main{min-width:0}
-.hero{background:linear-gradient(135deg,#142a45,#17243a 58%,#1b3045);border:1px solid #2d4966;border-radius:22px;padding:30px;margin-bottom:22px}
-.eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
-h1{font-size:clamp(27px,4vw,42px);line-height:1.16;margin:9px 0 12px}
-.hero p{color:#c7d5e5;margin:0}
-.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.pill{background:#0c1a2b;border:1px solid #36516c;border-radius:999px;padding:6px 12px;font-size:12px}
-.examtip{margin-top:18px;padding:13px 15px;background:#0c1a2b;border-radius:12px;font-size:13px}
-.dashboard{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:0 0 22px;width:100%}
-.unit-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;display:block;min-width:0;overflow-wrap:anywhere}
-.unit-card b{display:block;color:var(--accent);font-size:14px}
-.unit-card span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
-.jumpbox{display:flex;gap:10px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:18px}
-.jumpbox select{flex:1;min-width:190px;background:#17243a;color:white;border:1px solid var(--line);border-radius:9px;padding:10px}
-.unit-heading{margin:30px 0 13px;padding:14px 17px;border-left:4px solid var(--accent);background:#101d30;border-radius:0 13px 13px 0}
-.unit-heading h2{margin:0;font-size:21px}
-.unit-heading p{margin:3px 0 0;color:var(--muted);font-size:13px}
-.qa{background:var(--panel);border:1px solid var(--line);border-radius:17px;margin:13px 0;overflow:hidden}
-.qhead{padding:17px 19px;display:flex;align-items:flex-start;gap:12px;cursor:pointer}
-.num{flex:none;width:31px;height:31px;display:grid;place-items:center;background:#203b59;color:#a9d8ff;border-radius:9px;font-weight:850;font-size:13px}
-.qtitle{font-size:17px;font-weight:780;line-height:1.4;flex:1}
-.toggle{color:var(--muted);font-size:20px}
-.answer{padding:0 20px 22px 62px;border-top:1px solid var(--line)}
-.answer h3{font-size:15px;color:var(--green);margin:19px 0 7px}
-.answer h4{font-size:14px;color:#c9e3ff;margin:14px 0 5px}
-.answer p{margin:7px 0;color:#d6e0ed}
-.answer ul,.answer ol{padding-left:21px;margin:7px 0;color:#d6e0ed}
-.answer li{margin:4px 0}
-.answer table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px;display:block;overflow-x:auto}
-.answer th,.answer td{border:1px solid var(--line);padding:8px 10px;text-align:left;min-width:100px}
-.answer th{background:#1b2b42;color:#d9ecff}
-pre{background:#fff7e8!important;color:#172033!important;border:1px solid #e8c98e!important;border-radius:12px;padding:14px 15px;overflow-x:auto;font:600 13px/1.6 monospace;margin:10px 0;white-space:pre}
-.output{background:#0c1726;border:1px dashed #38516d;border-radius:10px;padding:10px 13px;color:#bfe6d2;font:13px/1.6 monospace;white-space:pre-wrap;margin:8px 0}
-.conclusion{margin-top:13px;padding:11px 13px;background:#142b2a;border-left:3px solid var(--green);border-radius:8px;color:#d9f7e8}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.75 Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+button,input{font:inherit}
+.topbar{position:sticky;top:0;z-index:20;background:#080e1beF;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.top-inner{max-width:1500px;margin:auto;padding:12px 22px;display:flex;align-items:center;gap:14px}
+.brandmark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#2563eb,#06b6d4);font-weight:900;color:white;box-shadow:0 8px 24px #0284c755}
+.brand{font-weight:850;letter-spacing:.2px;line-height:1.25}.brand small{display:block;color:var(--muted);font-weight:500;font-size:11px;letter-spacing:1.4px;text-transform:uppercase}
+.top-spacer{flex:1}
+.pill{border:1px solid var(--line);border-radius:999px;padding:6px 11px;color:var(--muted);font-size:12px}
+.hero{max-width:1500px;margin:auto;padding:35px 22px 25px}
+.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:stretch}
+.hero-main{padding:30px;border:1px solid #294263;border-radius:24px;background:radial-gradient(circle at 90% 5%,#1d4775 0,transparent 38%),linear-gradient(135deg,#101e34,#0d1524);box-shadow:var(--shadow)}
+.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:2px;font-weight:800;text-transform:uppercase}
+h1{font-size:clamp(28px,4vw,48px);line-height:1.12;letter-spacing:-1.3px;margin:12px 0}
+.hero p{color:#bdcbe0;max-width:780px;margin:10px 0}
+.hero-side{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{padding:20px;border-radius:18px;border:1px solid var(--line);background:var(--surface)}
+.stat strong{font-size:28px;display:block;color:var(--blue);line-height:1.3}
+.stat span{font-size:12px;color:var(--muted)}
+.layout{max-width:1500px;margin:auto;padding:0 22px 60px;display:grid;grid-template-columns:270px minmax(0,1fr);gap:22px;align-items:start}
+.sidebar{position:sticky;top:78px;border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:16px;max-height:calc(100vh - 96px);overflow:auto}
+.side-title{font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:800;margin:5px 8px 10px}
+.unit-link{width:100%;display:flex;align-items:center;gap:10px;text-align:left;padding:11px 12px;border:1px solid transparent;border-radius:12px;background:transparent;color:#c9d6e8;cursor:pointer;margin:3px 0;font-size:13px}
+.unit-link:hover{background:var(--surface2);border-color:var(--line)}
+.unit-link.active{background:#18304d;border-color:#32608d;color:#fff}
+.unit-num{width:27px;height:27px;display:grid;place-items:center;border-radius:8px;background:#243752;color:var(--cyan);font-weight:800;font-size:11px;flex-shrink:0}
+.tools{display:flex;gap:9px;margin-bottom:17px;flex-wrap:wrap}
+.searchbox{flex:1;min-width:220px;position:relative}
+.searchbox input{width:100%;padding:13px 15px 13px 42px;border-radius:13px;background:var(--surface);border:1px solid var(--line);color:var(--text);outline:none}
+.searchbox input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #60a5fa22}
+.search-icon{position:absolute;left:15px;top:11px;color:var(--muted)}
+.action{padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface2);color:var(--text);cursor:pointer;font-weight:650;font-size:13px}
+.action:hover{border-color:var(--blue);background:#1b304b}
+.unit-heading{margin:28px 0 13px;padding:19px 20px;border-radius:17px;border:1px solid #294263;background:linear-gradient(110deg,#142a45,#101827);scroll-margin-top:100px}
+.unit-heading h2{margin:0;color:#eaf4ff;font-size:22px;line-height:1.3}
+.unit-heading p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.part-label{margin:18px 3px 8px;color:var(--cyan);font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.question{background:linear-gradient(145deg,#111c2d,#0e1624);border:1px solid var(--line);border-radius:18px;margin:12px 0;padding:22px;box-shadow:0 8px 25px #0002;scroll-margin-top:105px}
+.question:hover{border-color:#3d587a}
+.question h3{font-size:18px;line-height:1.45;margin:0 0 15px;color:#f7faff}
+.qnum{display:inline-grid;place-items:center;min-width:31px;height:29px;padding:0 7px;margin-right:8px;border-radius:9px;background:#183b5b;color:var(--cyan);font-size:13px}
+.answer-tag{display:inline-block;margin:0 0 13px;padding:4px 9px;border:1px solid #28523e;border-radius:999px;background:#10271e;color:var(--green);font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase}
+.question h4{font-size:14px;color:var(--yellow);margin:17px 0 5px;letter-spacing:.2px}
+.question p{margin:6px 0;color:#d5e0ef}
+.question ul,.question ol{padding-left:23px;margin:6px 0 12px;color:#d5e0ef}
+.question li{padding:3px 0}
+.question b{color:#f5f8ff}
+code{font-family:Consolas,Monaco,monospace;color:#a7f3d0;background:#07111e;border:1px solid #1d2c41;padding:2px 6px;border-radius:6px;font-size:.92em}
+pre{position:relative;white-space:pre-wrap;overflow-wrap:anywhere;overflow-x:auto;background:#080f1c;border:1px solid #263b56;color:#e2e8f0;padding:17px 18px;border-radius:13px;line-height:1.65;font:13.5px/1.65 Consolas,Monaco,monospace;margin:10px 0 14px}
+pre:before{content:"PYTHON / COMMAND";display:block;color:#7187a4;font:800 9px/1.2 system-ui;letter-spacing:1.5px;margin-bottom:9px}
+.{color:#c4b5fd}.{color:#86efac}.{color:#fbbf24}.{color:#8192a8;font-style:italic}.{color:#7dd3fc}.{color:#f9a8d4}
+.tip{border:1px solid #28533f;border-left:4px solid var(--green);padding:11px 14px;background:#10231d;border-radius:10px;color:#d1fae5;margin:13px 0}
+.exam-tip{border:1px solid #594a2c;border-left:4px solid var(--yellow);background:#211c12;color:#f8e7bd;padding:14px 16px;border-radius:13px;margin:18px 0}
+table{width:100%;border-collapse:collapse;margin:10px 0;background:#0b1422;border-radius:10px;overflow:hidden}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}th{color:var(--cyan);background:#17263b}td{color:#d5e0ef}
+.notice{background:#121f32;border:1px solid #304766;border-left:4px solid var(--blue);padding:15px 17px;border-radius:13px;margin:0 0 18px;color:#dce8f7}
+.notice b{color:white}
+.progress-wrap{height:6px;background:#1c2a3e;border-radius:99px;overflow:hidden;margin-top:8px}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#3b82f6,#22d3ee);transition:width .2s}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.quick .stat{padding:14px}
+footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid var(--line);font-size:13px}
 .hidden{display:none!important}
-.footer{text-align:center;color:var(--muted);font-size:12px;padding:35px 10px}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
-.smallbtn{background:#1a2b42;color:#e7f2ff;border:1px solid #354b65;border-radius:10px;padding:8px 12px;cursor:pointer;font-size:12px}
-.smallbtn:hover{border-color:var(--accent)}
-.exam-plan{margin:0 0 22px;padding:20px;background:linear-gradient(135deg,#172c42,#19283a);border:1px solid #38516a;border-radius:18px}
-.exam-plan h2{font-size:clamp(20px,3vw,27px);margin:6px 0 7px;color:#f4f8ff}
-.exam-plan p{margin:0;color:#d1deec}
-.exam-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}
-.exam-grid article{background:#0e1a29;border:1px solid #344a61;border-radius:12px;padding:13px;min-width:0}
-.exam-grid b,.exam-grid strong,.exam-grid span{display:block}
-.exam-grid b{font-size:13px;color:#c7d9ec}
-.exam-grid strong{font-size:20px;color:#8bd7b3;margin:5px 0}
-.exam-grid span{font-size:12px;color:#afc0d2;line-height:1.45}
-.exam-reminder{margin-top:13px;padding:13px 15px;background:#102b2a;border-left:4px solid #83dfb0;border-radius:9px;color:#dff8e9;font-size:14px}
-@media(max-width:850px){
- .dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}
- .layout{grid-template-columns:1fr;margin:16px auto;padding:0 14px}
- .sidebar{position:relative;top:auto;max-height:none}
- .nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}
- .topinner{padding:10px 14px;flex-wrap:wrap}
- .brand{font-size:14px}
- .search{order:2;flex-basis:100%}
- .hero{padding:23px 19px}
- .answer{padding:0 16px 20px}
- .qhead{padding:15px}
- .qtitle{font-size:15px}
- .exam-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:relative;top:auto;max-height:none}.unit-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.hero-grid{grid-template-columns:1fr}.hero-side{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:600px){
- .dashboard{grid-template-columns:1fr!important;gap:9px!important}
- .unit-card{width:100%;padding:15px 16px}
- .unit-card b{font-size:15px}
- .unit-card span{font-size:13px}
- .exam-plan{padding:16px}
- .exam-grid{grid-template-columns:1fr}
- .nav{grid-template-columns:1fr}
- .topinner{min-width:0}
- .layout{min-width:0}
- .answer{min-width:0}
- pre{font-size:12px}
+ body{font-size:15px}.top-inner{padding:10px 13px}.hero{padding:20px 13px}.hero-main{padding:22px 18px;border-radius:18px}.hero-side{grid-template-columns:repeat(2,1fr)}.stat{padding:14px}.stat strong{font-size:23px}
+ .layout{padding:0 12px 40px;gap:14px}.sidebar{padding:12px;border-radius:15px}.unit-nav{grid-template-columns:1fr 1fr}.unit-link{font-size:11px;padding:9px 7px;gap:6px}.unit-num{width:23px;height:23px}
+ .question{padding:16px 14px;border-radius:15px}.question h3{font-size:16px}.unit-heading{padding:15px}.unit-heading h2{font-size:19px}.tools{gap:7px}.action{flex:1;padding:10px 8px;font-size:12px}.searchbox{flex-basis:100%}
+ pre{font-size:12px;padding:13px}.quick{grid-template-columns:1fr 1fr}
 }
 @media print{
- body{background:white;color:#111}
- .topbar,.sidebar,.toolbar,.toggle{display:none!important}
- .layout{display:block;max-width:none;margin:0;padding:0}
- .hero,.unit-heading,.qa{background:white;color:#111;box-shadow:none;border:1px solid #bbb;break-inside:avoid}
- .hero p,.answer p,.answer li,.answer ul,.answer ol,.qtitle{color:#111}
- .answer{display:block!important;border-color:#ddd}
- pre,.output{background:#f4f4f4;color:#111;border:1px solid #ccc;white-space:pre-wrap}
- .answer h3,.answer h4{color:#111}
+ body{background:white;color:#111}.topbar,.sidebar,.tools,.hero-side{display:none!important}.layout{display:block;padding:0}.hero{padding:10px}.hero-main,.unit-heading,.question{background:white;color:#111;box-shadow:none;border:1px solid #bbb}.hero-main h1,.question h3,.question b{color:#111}.question p,.question li{color:#222}.question{break-inside:avoid}.unit-heading{break-after:avoid}pre{background:#f4f4f4;color:#111;border:1px solid #bbb}pre:before{color:#555}.notice,.exam-tip,.tip{background:#f7f7f7;color:#111}
 }
+
+.code-note{margin:-5px 0 15px;padding:10px 13px;border-radius:9px;background:#101f30;border:1px solid #29415d;color:#c8d8eb;font-size:13px;line-height:1.6}
+.code-note b{color:#7dd3fc}
+.answer-guide{margin-top:17px;padding:13px 15px;border:1px solid #34465f;background:#121d2d;border-radius:11px;color:#d7e4f5;font-size:14px}
+.answer-guide b{color:#fcd88a}
+.answer-guide ul{margin:6px 0 0}
+pre{font-size:14px;line-height:1.8;padding:18px 20px;letter-spacing:.15px;color:#d9fbe8}
+@media(max-width:600px){pre{font-size:13px;line-height:1.75;padding:14px 12px}.code-note{font-size:12px}.answer-guide{font-size:13px}}
 </style>
 </head>
 <body>
-<header class="topbar"><div class="topinner">
-  <div class="brand">PYTHON <span>EXAM NOTES</span></div>
-  <input id="search" class="search" type="search" placeholder="Search questions or keywords...">
+<div class="topbar"><div class="top-inner">
+ <div class="brandmark">Py</div><div class="brand">CYBER SECURITY NOTES<small>Python programming • exam preparation</small></div>
+ <div class="top-spacer"></div><span class="pill">30 IMPORTANT QUESTIONS</span>
+</div></div>
+<header class="hero"><div class="hero-grid">
+ <div class="hero-main"><div class="eyebrow">University exam study guide</div>
+ <h1>Python Programming<br>for Cyber Security</h1>
+ <p>Simple English answers with clear headings, key points, syntax, examples and easy-to-read code. Choose a unit and study one question at a time.</p>
+ <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+ <p class="small" id="progressText">30 questions ready for revision</p>
+ </div>
+ <div class="hero-side">
+ <div class="stat"><strong>30</strong><span>Important questions</span></div>
+ <div class="stat"><strong>5</strong><span>Study units</span></div>
+ <div class="stat"><strong>8+</strong><span>Mark answer structure</span></div>
+ <div class="stat"><strong>100%</strong><span>Mobile + PC friendly</span></div>
+ </div>
 </div></header>
+<div class="layout"><aside class="sidebar"><div class="side-title">Select a unit</div><nav class="unit-nav" id="unitNav"></nav><div class="exam-tip"><b>Exam writing plan</b><br>5 marks: about 3 pages • 13 minutes<br>8 marks: about 4 pages • 20 minutes<br>1 mark: 10 minutes<br>Final checking: 5 minutes</div><p class="small">Tip: Learn the definition, headings, keywords, syntax and one example.</p></aside><main class="main-content">
+<div class="notice"><b>Dear students — study well!</b><br>
+Focus on important points, keywords, syntax, headings, subheadings, diagrams, programs and simple explanations. Read each question carefully; it may give you clues and ideas. Proper content and attending the exam are important for passing.
+</div>
+<div class="tools">
+ <div class="searchbox"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="Search questions, topics or keywords…"></div>
+ <button class="action" onclick="showAll()">Show all answers</button>
+ <button class="action" onclick="hideAll()">Focus mode</button>
+ <button class="action" onclick="window.print()">Print / PDF</button>
+</div>
+<div id="content">
 
-<div class="layout">
-<aside class="sidebar">
-  <h3>Question index</h3>
-  <nav class="nav" id="nav">
-    <a class="unit" href="#unit1">UNIT I – Python Basics</a>
-    <a href="#q1">1. Variables & operators</a>
-    <a href="#q2">2. print() & input()</a>
-    <a href="#q3">3. String types</a>
-    <a href="#q4">4. Control statements</a>
-    <a href="#q5">5. Augmented assignment</a>
-    <a href="#q6">6. break & continue</a>
-    <a class="unit" href="#unit2">UNIT II – Functions & Sequences</a>
-    <a href="#q7">7. Functions</a>
-    <a href="#q8">8. Parameters & keywords</a>
-    <a href="#q9">9. Recursion</a>
-    <a href="#q10">10. Lists & tuples</a>
-    <a href="#q11">11. Slicing & unpacking</a>
-    <a href="#q12">12. List comprehension</a>
-    <a class="unit" href="#unit3">UNIT III – Strings</a>
-    <a href="#q13">13. String formatting</a>
-    <a href="#q14">14. Concatenation & repetition</a>
-    <a href="#q15">15. Whitespace & case</a>
-    <a href="#q16">16. Compare & search</a>
-    <a href="#q17">17. Split & join</a>
-    <a href="#q18">18. Replace & test</a>
-    <a class="unit" href="#unit4">UNIT IV – Privilege Escalation</a>
-    <a href="#q19">19. Boot & logon scripts</a>
-    <a href="#q20">20. Suspicious logon scripts</a>
-    <a href="#q21">21. Execution-flow hijacking</a>
-    <a href="#q22">22. Suspicious libraries</a>
-    <a href="#q23">23. Antivirus protection</a>
-    <a href="#q24">24. Alternate Data Streams</a>
-    <a class="unit" href="#unit5">UNIT V – Credentials & User Data</a>
-    <a href="#q25">25. Browser passwords</a>
-    <a href="#q26">26. Network sniffing</a>
-    <a href="#q27">27. Deceptive connections</a>
-    <a href="#q28">28. User account monitoring</a>
-    <a href="#q29">29. File discovery</a>
-    <a href="#q30">30. Honeypot files</a>
-  </nav>
-</aside>
+<section class="unit-heading" id="unit1"><h2>UNIT I — Introduction to Python Programming</h2><p>Variables • Input / Output • Strings • Control statements</p></section><div class="sub">Half I</div>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">1.</span>Explain variables, assignment statements and arithmetic operations in Python.</h3>
+<h4>Meaning of variable</h4><p>A <b>variable</b> is a name used to store a value in a program. Python creates a variable when we assign a value to it.</p>
+<h4>Rules for variable names</h4><ul><li>A name can contain letters, numbers and underscore (_).</li><li>It must not start with a number.</li><li>Spaces and special symbols are not allowed.</li><li>Python keywords cannot be used as variable names.</li><li>Names are case-sensitive: <code>age</code> and <code>Age</code> are different.</li></ul>
+<h4>Assignment statement</h4><p>The <code>=</code> symbol assigns a value to a variable.</p><pre>name = "Ravi"
+age = 20
+mark = 85.5</pre><div class="code-note"><b>Easy explanation:</b> These lines create three variables. Each variable stores one value: a name, an age and a mark.</div>
+<h4>Arithmetic operators</h4><ul><li><code>+</code> Addition — adds two values.</li><li><code>-</code> Subtraction — finds the difference.</li><li><code>*</code> Multiplication — multiplies values.</li><li><code>/</code> Division — gives a decimal result.</li><li><code>//</code> Floor division — gives the whole-number quotient.</li><li><code>%</code> Modulus — gives the remainder.</li><li><code>**</code> Power — raises a number to a power.</li></ul>
+<pre>a = 10
+b = 3
+print(a + b)   # 13
+print(a - b)   # 7
+print(a * b)   # 30
+print(a / b)   # 3.333...
+print(a // b)  # 3
+print(a % b)   # 1
+print(a ** b)  # 1000</pre><div class="code-note"><b>Easy explanation:</b> First, a and b store 10 and 3. Each print line shows one maths operation and its result.</div><p><b>Conclusion:</b> Variables store data, assignment gives values to variables, and arithmetic operators perform calculations.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
 
-<main>
-<section class="hero">
-  <div class="eyebrow">Complete exam preparation • 30 questions</div>
-  <h1>Python Programming<br>for Cyber Security</h1>
-  <p>All 30 important questions with simple explanations, headings, syntax, Python programs and outputs. Read one topic at a time and revise the key points.</p>
-  <div class="stats">
-    <span class="pill">30 Questions & Answers</span>
-    <span class="pill">5-mark and 8-mark style</span>
-    <span class="pill">Mobile + PC friendly</span>
-    <span class="pill">Easy English</span>
-  </div>
-  <div class="examtip"><b>Exam writing tip:</b> Start with a definition. Add headings, clear points, syntax or a program where needed, output and a short conclusion. Write relevant content for every question.</div>
-</section>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">2.</span>Explain the print() and input() functions with examples.</h3>
+<p><code>print()</code> displays information on the screen. <code>input()</code> receives information typed by the user. The value returned by <code>input()</code> is a string by default.</p>
+<h4>Syntax</h4><pre>print(value)
+variable = input("Message")</pre><div class="code-note"><b>Easy explanation:</b> This is the general pattern: print() shows a value on the screen.</div>
+<h4>Example</h4><pre>name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+print("Hello", name)
+print("Your age is", age)</pre><div class="code-note"><b>Easy explanation:</b> input() asks the user to type a name. int() changes the typed age into a whole number. print() displays the answers.</div>
+<h4>Important points</h4><ul><li><code>print()</code> can display text, numbers and variables.</li><li>It can display many values separated by commas.</li><li><code>input()</code> shows a message and waits for the user.</li><li>Use <code>int()</code> to convert input into an integer.</li><li>Use <code>float()</code> to convert input into a decimal number.</li></ul>
+<p><b>Conclusion:</b> These two functions help a program communicate with the user.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
 
-<section class="exam-plan">
-  <div class="eyebrow">A message for students</div>
-  <h2>Dear students, study well!</h2>
-  <p>Focus on important points, keywords, syntax, headings, subheadings, diagrams, programs and a simple explanation for every question.</p>
-  <div class="exam-grid">
-    <article><b>5-mark answer</b><strong>3 pages</strong><span>About 13 minutes for each question</span></article>
-    <article><b>8-mark answer</b><strong>4 pages</strong><span>About 20 minutes for each question</span></article>
-    <article><b>1-mark questions</b><strong>10 minutes</strong><span>Read carefully and answer clearly</span></article>
-    <article><b>Final checking</b><strong>5 minutes</strong><span>Check answers, question numbers and programs</span></article>
-  </div>
-  <div class="exam-reminder"><b>Best wishes!</b> Read each question carefully. The question itself may give you clues and ideas. Write the points you know in a clear order. Try every question you can. Without attempting a question and writing relevant content, it is difficult to get marks.</div>
-</section>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">3.</span>Explain different types of strings in Python.</h3>
+<p>A <b>string</b> is a group of characters written inside quotation marks. Strings are used to store text.</p>
+<h4>Types / ways of writing strings</h4><ul><li><b>Single-quoted:</b> text inside one pair of single quotes.</li><li><b>Double-quoted:</b> text inside double quotes.</li><li><b>Triple-quoted:</b> uses three single or double quotes; useful for multi-line text.</li><li><b>Raw string:</b> starts with <code>r</code>; backslashes are treated mostly as normal characters, useful for paths and patterns.</li><li><b>Formatted string (f-string):</b> starts with <code>f</code>; allows variables inside braces.</li></ul>
+<pre>a = 'Hello'
+b = "Python"
+c = """This is
+a multi-line string"""
+path = r"C:\Users\Student"
+name = "Anu"
+message = f"Welcome {name}"
+print(a, b, c, path, message)</pre><div class="code-note"><b>Easy explanation:</b> These examples show text written with single quotes, double quotes, three quotes and a raw string. An f-string can place a variable inside a sentence.</div>
+<p>Strings are <b>immutable</b>, which means their characters cannot be changed directly after creation.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
 
-<section class="dashboard" aria-label="Unit dashboard">
-  <a class="unit-card" href="#unit1"><b>UNIT I</b><span>Python basics • Q1–Q6</span></a>
-  <a class="unit-card" href="#unit2"><b>UNIT II</b><span>Functions & sequences • Q7–Q12</span></a>
-  <a class="unit-card" href="#unit3"><b>UNIT III</b><span>Strings • Q13–Q18</span></a>
-  <a class="unit-card" href="#unit4"><b>UNIT IV</b><span>Privilege escalation • Q19–Q24</span></a>
-  <a class="unit-card" href="#unit5"><b>UNIT V</b><span>Credentials & user data • Q25–Q30</span></a>
-</section>
+<div class="sub">Half II</div>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">4.</span>Explain control statements in Python.</h3>
+<p>Control statements decide the order in which program instructions run. They help a program make decisions and repeat work.</p>
+<h4>1. Conditional statements</h4><p><code>if</code>, <code>elif</code> and <code>else</code> run code based on a condition.</p>
+<pre>mark = 75
+if mark >= 50:
+    print("Pass")
+else:
+    print("Fail")</pre><div class="code-note"><b>Easy explanation:</b> The program checks the mark. If it is 50 or more, it prints Pass. If not, it prints Fail.</div>
+<h4>2. Looping statements</h4><ul><li><code>for</code> loop repeats over a sequence or range.</li><li><code>while</code> loop repeats while a condition is true.</li></ul>
+<pre>for i in range(1, 4):
+    print(i)
 
-<div class="jumpbox">
-  <select id="unitSelect">
-    <option value="">Select a unit...</option>
-    <option value="unit1">Unit I – Python Basics</option>
-    <option value="unit2">Unit II – Functions and Sequences</option>
-    <option value="unit3">Unit III – Strings</option>
-    <option value="unit4">Unit IV – Performing Privilege Escalation</option>
-    <option value="unit5">Unit V – Credentials and User Data</option>
-  </select>
-  <select id="questionSelect">
-    <option value="">Select a question...</option>
-    <option value="q1">Question 1</option><option value="q2">Question 2</option>
-    <option value="q3">Question 3</option><option value="q4">Question 4</option>
-    <option value="q5">Question 5</option><option value="q6">Question 6</option>
-    <option value="q7">Question 7</option><option value="q8">Question 8</option>
-    <option value="q9">Question 9</option><option value="q10">Question 10</option>
-    <option value="q11">Question 11</option><option value="q12">Question 12</option>
-    <option value="q13">Question 13</option><option value="q14">Question 14</option>
-    <option value="q15">Question 15</option><option value="q16">Question 16</option>
-    <option value="q17">Question 17</option><option value="q18">Question 18</option>
-    <option value="q19">Question 19</option><option value="q20">Question 20</option>
-    <option value="q21">Question 21</option><option value="q22">Question 22</option>
-    <option value="q23">Question 23</option><option value="q24">Question 24</option>
-    <option value="q25">Question 25</option><option value="q26">Question 26</option>
-    <option value="q27">Question 27</option><option value="q28">Question 28</option>
-    <option value="q29">Question 29</option><option value="q30">Question 30</option>
-  </select>
-  <button class="smallbtn" onclick="goToSelection()">Go to selected topic</button>
+count = 1
+while count <= 3:
+    print(count)
+    count += 1</pre><div class="code-note"><b>Easy explanation:</b> The for loop prints the numbers 1, 2 and 3. range(1, 4) stops before 4.</div>
+<h4>3. Jump statements</h4><ul><li><code>break</code> stops the loop.</li><li><code>continue</code> skips the current round and moves to the next.</li><li><code>pass</code> does nothing; it is used as a placeholder.</li></ul>
+<p><b>Conclusion:</b> Control statements help Python choose, repeat and control program actions.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">5.</span>Explain augmented assignment operators with examples.</h3>
+<p>Augmented assignment operators perform an operation and store the result back in the same variable. They make code shorter.</p>
+<table style="width:100%;border-collapse:collapse"><tr><th align="left">Operator</th><th align="left">Meaning</th><th align="left">Same as</th></tr>
+<tr><td><code>+=</code></td><td>Add and assign</td><td><code>x = x + 2</code></td></tr><tr><td><code>-=</code></td><td>Subtract and assign</td><td><code>x = x - 2</code></td></tr><tr><td><code>*=</code></td><td>Multiply and assign</td><td><code>x = x * 2</code></td></tr><tr><td><code>/=</code></td><td>Divide and assign</td><td><code>x = x / 2</code></td></tr><tr><td><code>//=</code></td><td>Floor-divide and assign</td><td><code>x = x // 2</code></td></tr><tr><td><code>%=</code></td><td>Remainder and assign</td><td><code>x = x % 2</code></td></tr><tr><td><code>**=</code></td><td>Power and assign</td><td><code>x = x ** 2</code></td></tr></table>
+<pre>x = 10
+x += 5
+print(x)   # 15
+x *= 2
+print(x)   # 30</pre><div class="code-note"><b>Easy explanation:</b> Start with x = 10. Add 5 and save it. Then multiply the new value by 2.</div>
+<p><b>Conclusion:</b> These operators reduce repeated variable names and make programs easy to read.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">6.</span>Explain break and continue statements with examples.</h3>
+<p><code>break</code> and <code>continue</code> are loop-control statements.</p>
+<h4>break</h4><p>It immediately stops the nearest loop. Program execution continues after the loop.</p>
+<pre>for n in range(1, 6):
+    if n == 4:
+        break
+    print(n)
+# Output: 1 2 3</pre><div class="code-note"><b>Easy explanation:</b> break stops the loop when n becomes 4. The output is 1, 2 and 3.</div>
+<h4>continue</h4><p>It skips the remaining statements in the current round and starts the next round.</p>
+<pre>for n in range(1, 6):
+    if n == 3:
+        continue
+    print(n)
+# Output: 1 2 4 5</pre><div class="code-note"><b>Easy explanation:</b> continue skips number 3 only. The loop then continues and prints 1, 2, 4 and 5.</div>
+<h4>Difference</h4><ul><li><code>break</code> ends the loop completely.</li><li><code>continue</code> skips only one round.</li></ul>
+<p><b>Conclusion:</b> Both statements control loop execution, but they work differently.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<section class="unit-heading" id="unit2"><h2>UNIT II — Functions and Sequences</h2><p>Functions • Recursion • Lists • Tuples • Slicing</p></section><div class="sub">Half I</div>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">7.</span>Explain functions in Python with an example.</h3>
+<p>A <b>function</b> is a named block of reusable code that performs a particular task. It avoids writing the same code many times.</p>
+<h4>Advantages</h4><ul><li>Code can be reused.</li><li>Program becomes shorter and clearer.</li><li>Testing and fixing errors become easier.</li><li>A large program can be divided into small parts.</li></ul>
+<h4>Syntax</h4><pre>def function_name():
+    statements
+
+function_name()</pre><div class="code-note"><b>Easy explanation:</b> This is the general function pattern: def gives the function a name. The indented lines are its work. Call the function by writing its name with brackets.</div>
+<h4>Example</h4><pre>def greet():
+    print("Welcome to Python")
+
+greet()</pre><div class="code-note"><b>Easy explanation:</b> greet() runs the function and displays the welcome message.</div>
+<p><code>def</code> defines a function. The function name is <code>greet</code>. The indented line is its body. <code>greet()</code> calls the function.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">8.</span>Explain functions with multiple parameters and keyword arguments.</h3>
+<p><b>Parameters</b> are names written in a function definition. <b>Arguments</b> are actual values supplied when calling the function.</p>
+<h4>Multiple parameters</h4><p>A function can receive two or more values.</p>
+<pre>def add(a, b):
+    print(a + b)
+
+add(10, 20)  # 30</pre><div class="code-note"><b>Easy explanation:</b> add() receives two numbers, adds them and displays the total. add(10, 20) gives 30.</div>
+<h4>Keyword arguments</h4><p>Values are passed by writing the parameter name. Their order does not matter.</p>
+<pre>def student(name, age):
+    print(name, age)
+
+student(age=20, name="Ravi")</pre><div class="code-note"><b>Easy explanation:</b> Keyword arguments use the parameter names. Here, age=20 and name='Ravi' are passed to the function.</div>
+<h4>Important points</h4><ul><li>Parameters receive values from the function call.</li><li>Multiple parameters are separated by commas.</li><li>Keyword arguments use the form <code>name=value</code>.</li><li>Keyword arguments make function calls easier to understand.</li></ul><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">9.</span>Explain recursion with an example.</h3>
+<p><b>Recursion</b> is a process in which a function calls itself to solve a smaller part of a problem.</p>
+<h4>Important parts</h4><ul><li><b>Base condition:</b> stops the function from calling itself forever.</li><li><b>Recursive call:</b> calls the same function with a smaller or simpler value.</li></ul>
+<h4>Example — factorial</h4><pre>def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+print(factorial(5))  # Answer: 120</pre><div class="code-note"><b>Easy explanation:</b> The function calls itself with a smaller number. When n reaches 0, it returns 1 and stops. factorial(5) gives 120.</div>
+<p>Working: factorial(5) becomes 5 × 4 × 3 × 2 × 1 = 120. The base condition is <code>n == 0</code>.</p>
+<h4>Advantages and care</h4><ul><li>Useful for problems that can be divided into smaller similar problems.</li><li>Can make some programs easy to understand.</li><li>A missing base condition can cause infinite recursion.</li></ul><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<div class="sub">Half II</div>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">10.</span>Explain lists and tuples with examples.</h3>
+<p>Lists and tuples are ordered collections. They can store many values in one variable.</p>
+<h4>List</h4><ul><li>Written using square brackets <code>[]</code>.</li><li>Mutable: values can be changed.</li><li>Can add or remove items.</li></ul>
+<pre>marks = [70, 80, 90]
+marks[0] = 75
+marks.append(95)
+print(marks)</pre><div class="code-note"><b>Easy explanation:</b> The list stores three marks. The first mark is changed, and append() adds one more mark to the end.</div>
+<h4>Tuple</h4><ul><li>Written using round brackets <code>()</code>.</li><li>Immutable: values cannot be changed after creation.</li><li>Useful for fixed data.</li></ul>
+<pre>days = ("Mon", "Tue", "Wed")
+print(days[0])</pre><div class="code-note"><b>Easy explanation:</b> The tuple stores three days. Use an index such as [0] to read the first item. A tuple cannot be changed.</div>
+<h4>Difference</h4><p>Both are ordered and support indexing. The main difference is that a list can be changed, but a tuple cannot be changed.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">11.</span>Explain sequence slicing and unpacking with examples.</h3>
+<p><b>Slicing</b> means taking a part of a sequence such as a string, list or tuple.</p>
+<h4>Slicing syntax</h4><pre>sequence[start : stop : step]</pre><div class="code-note"><b>Easy explanation:</b> This is the slicing pattern: start is included, stop is not included, and step tells how many places to move.</div>
+<ul><li><code>start</code> is the starting index (included).</li><li><code>stop</code> is the ending index (not included).</li><li><code>step</code> tells how many positions to move.</li></ul>
+<pre>numbers = [10, 20, 30, 40, 50]
+print(numbers[1:4])  # [20, 30, 40]
+print(numbers[:3])   # [10, 20, 30]
+print(numbers[::2])  # [10, 30, 50]</pre><div class="code-note"><b>Easy explanation:</b> This takes some items from the list. [1:4] gives 20, 30 and 40. [:3] gives the first three. [::2] takes every second item.</div>
+<h4>Unpacking</h4><p>Unpacking assigns sequence items to separate variables.</p>
+<pre>student = ("Ravi", 20, "DCFS")
+name, age, course = student
+print(name)
+print(age)
+print(course)</pre><div class="code-note"><b>Easy explanation:</b> Unpacking places each tuple item into its own variable: name, age and course.</div>
+<p>The number of variables should normally match the number of items. Slicing gets selected items; unpacking separates items into variables.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">12.</span>Explain list comprehension with an example.</h3>
+<p><b>List comprehension</b> is a short way to create a new list from an existing sequence. It can also include a condition.</p>
+<h4>Syntax</h4><pre>new_list = [expression for item in sequence if condition]</pre><div class="code-note"><b>Easy explanation:</b> This is the list-comprehension pattern. It makes a new list by taking each item and applying an expression. The if part is optional.</div>
+<h4>Example 1 — squares</h4><pre>squares = []
+for number in range(1, 6):
+    squares.append(number * number)
+
+print(squares)
+# Answer: [1, 4, 9, 16, 25]</pre><div class="code-note"><b>Easy explanation:</b> This makes the square of each number from 1 to 5. The result is 1, 4, 9, 16 and 25.</div>
+<h4>Example 2 — even numbers</h4><pre>even = []
+for number in range(1, 11):
+    if number % 2 == 0:
+        even.append(number)
+
+print(even)
+# Answer: [2, 4, 6, 8, 10]</pre><div class="code-note"><b>Easy explanation:</b> This keeps only even numbers from 1 to 10. A number is even when its remainder after division by 2 is 0.</div>
+<h4>Advantages</h4><ul><li>Uses fewer lines of code.</li><li>Easy to create lists.</li><li>Can filter values using a condition.</li></ul><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<section class="unit-heading" id="unit3"><h2>UNIT III — Strings</h2><p>Formatting • Joining • Searching • String methods</p></section><div class="sub">Half I</div>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">13.</span>Explain string formatting with an example.</h3>
+<p><b>String formatting</b> means placing values such as names, numbers and results inside a string in a readable form.</p>
+<h4>Common methods</h4><ul><li><b>f-string:</b> places variables inside <code>{}</code>.</li><li><b>format():</b> uses braces as placeholders.</li><li><b>% formatting:</b> an older formatting method.</li></ul>
+<pre>name = "Anu"
+mark = 85
+print(f"{name} scored {mark} marks")
+
+print("{} scored {} marks".format(name, mark))
+
+print("%s scored %d marks" % (name, mark))</pre><div class="code-note"><b>Easy explanation:</b> The f-string puts the name and mark into the sentence. format() and % are other ways to add values to text.</div>
+<p>F-strings are usually the clearest method for modern Python programs.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">14.</span>Explain string concatenation and repetition.</h3>
+<p><b>Concatenation</b> joins two or more strings. The <code>+</code> operator is used.</p>
+<pre>first = "Cyber"
+second = "Security"
+print(first + " " + second)
+# Cyber Security</pre><div class="code-note"><b>Easy explanation:</b> The plus sign joins two strings with a space between them.</div>
+<p><b>Repetition</b> repeats a string a given number of times. The <code>*</code> operator is used with an integer.</p>
+<pre>word = "Hi "
+print(word * 3)
+# Hi Hi Hi</pre><div class="code-note"><b>Easy explanation:</b> The star sign repeats the text three times.</div>
+<h4>Important points</h4><ul><li>Concatenation joins strings together.</li><li>Repetition creates repeated copies of a string.</li><li>Use <code>str()</code> to convert a number into text before joining it with a string.</li></ul>
+<pre>age = 20
+print("Age: " + str(age))</pre><div class="code-note"><b>Easy explanation:</b> str(age) changes the number 20 into text so it can be joined with another string.</div><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">15.</span>Explain how to remove whitespace and change character case in strings.</h3>
+<p>Whitespace means extra spaces, tabs or line breaks around text.</p>
+<h4>Removing whitespace</h4><ul><li><code>strip()</code> removes whitespace from both ends.</li><li><code>lstrip()</code> removes whitespace from the left side.</li><li><code>rstrip()</code> removes whitespace from the right side.</li></ul>
+<h4>Changing case</h4><ul><li><code>upper()</code> changes letters to uppercase.</li><li><code>lower()</code> changes letters to lowercase.</li><li><code>title()</code> makes the first letter of each word uppercase.</li><li><code>capitalize()</code> makes the first character uppercase.</li><li><code>swapcase()</code> changes uppercase to lowercase and lowercase to uppercase.</li></ul>
+<pre>text = "  hello Python  "
+print(text.strip())
+print(text.upper())
+print(text.lower())
+print(text.title())</pre><div class="code-note"><b>Easy explanation:</b> strip() removes spaces from both ends. upper() makes letters capital. lower() makes them small. title() starts each word with a capital.</div>
+<p>String methods return a new string; they do not change the original string.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<div class="sub">Half II</div>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">16.</span>Explain string comparison and substring searching.</h3>
+<p><b>String comparison</b> checks whether two strings are equal or which one comes first. Python compares strings character by character using Unicode values.</p>
+<h4>Comparison operators</h4><ul><li><code>==</code> checks whether strings are equal.</li><li><code>!=</code> checks whether they are different.</li><li><code>&lt;</code> and <code>&gt;</code> compare their order.</li></ul>
+<h4>Substring searching</h4><ul><li><code>in</code> checks whether a smaller string is present.</li><li><code>find()</code> returns the position of the first match, or -1 if not found.</li><li><code>count()</code> counts occurrences.</li></ul>
+<pre>text = "python programming"
+print("python" in text)       # True
+print(text.find("program"))  # 7
+print(text.count("m"))       # 2
+print("Python" == "python")  # False</pre><div class="code-note"><b>Easy explanation:</b> in checks if a word is present. find() gives its position. count() counts how many times a character appears. == checks exact equality.</div>
+<p>String comparisons are case-sensitive. Convert both strings to lowercase when a case-insensitive comparison is needed.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">17.</span>Explain string splitting and joining with examples.</h3>
+<p><b>Splitting</b> divides one string into a list of smaller strings. The <code>split()</code> method is used.</p>
+<pre>message = "Python is easy"
+words = message.split()
+print(words)
+# ['Python', 'is', 'easy']</pre><div class="code-note"><b>Easy explanation:</b> split() cuts a sentence into a list of words.</div>
+<p>A separator can also be given.</p>
+<pre>data = "red,green,blue"
+colours = data.split(",")
+print(colours)</pre><div class="code-note"><b>Easy explanation:</b> split(',') cuts the text wherever a comma appears.</div>
+<p><b>Joining</b> combines items from an iterable into one string. The <code>join()</code> method is used.</p>
+<pre>words = ["Python", "is", "easy"]
+message = " ".join(words)
+print(message)
+# Python is easy</pre><div class="code-note"><b>Easy explanation:</b> join() connects the words into one sentence, with a space between each word.</div>
+<p><b>Difference:</b> split changes a string into a list; join combines strings into one string.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">18.</span>Explain string replacement and character-testing methods.</h3>
+<p><code>replace()</code> creates a new string in which matching text is replaced.</p>
+<pre>text = "I like Java"
+new_text = text.replace("Java", "Python")
+print(new_text)
+# I like Python</pre><div class="code-note"><b>Easy explanation:</b> replace() changes Java to Python. The testing methods return True or False depending on the characters.</div>
+<h4>Character-testing methods</h4><ul><li><code>isalpha()</code> — checks whether all characters are letters.</li><li><code>isdigit()</code> — checks whether all characters are digits.</li><li><code>isalnum()</code> — checks whether all characters are letters or digits.</li><li><code>isspace()</code> — checks whether all characters are whitespace.</li><li><code>islower()</code> — checks whether all cased letters are lowercase.</li><li><code>isupper()</code> — checks whether all cased letters are uppercase.</li></ul>
+<pre>print("Hello".isalpha())  # True
+print("1234".isdigit())   # True
+print("abc123".isalnum()) # True
+print("   ".isspace())    # True</pre><div class="code-note"><b>Easy explanation:</b> Use these pip commands to review packages in your own Python environment. They list packages, show package details, check dependencies and save package versions.</div>
+<p>These methods return either <code>True</code> or <code>False</code>.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<section class="unit-heading" id="unit4"><h2>UNIT IV — Performing Privilege Escalation</h2><p>Startup scripts • Execution flow • Security detection</p></section><div class="sub">Half I</div>
+<div class="notice">Cybersecurity note: The following answers focus on understanding, system auditing and defensive detection in systems you own or are authorised to examine.</div>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">19.</span>Explain boot and logon initialization scripts.</h3>
+<p><b>Initialization scripts</b> are programs or commands that run automatically when a computer starts or when a user logs in. They prepare the system for use.</p>
+<h4>Types</h4><ul><li><b>Boot scripts:</b> run when the operating system starts.</li><li><b>Logon scripts:</b> run when a user signs in.</li><li><b>Startup services:</b> background programs started automatically.</li></ul>
+<h4>Uses</h4><ul><li>Start required services.</li><li>Connect network drives.</li><li>Set environment variables.</li><li>Apply security settings.</li><li>Load user preferences.</li></ul>
+<h4>Security risks and protection</h4><ul><li>An unauthorised script may run harmful commands.</li><li>Attackers may try to change startup entries to run again after restart.</li><li>Use trusted scripts, correct permissions and digital signatures where suitable.</li><li>Review startup locations and logs regularly.</li></ul>
+<p><b>Conclusion:</b> Startup scripts are useful for system setup, but they must be monitored to prevent unauthorised execution.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">20.</span>Explain how to detect suspicious logon scripts.</h3>
+<p>A suspicious logon script is an unexpected or changed script that runs when a user signs in. It may try to collect information, change settings or run unknown programs.</p>
+<h4>Detection steps</h4><ol><li>List the scripts configured for user logon.</li><li>Check the file location and file owner.</li><li>Compare the script with an approved copy or known hash.</li><li>Look for unknown commands, encoded text or unexpected downloads.</li><li>Check file creation and modification times.</li><li>Review security and logon event logs.</li><li>Scan the file with updated security software.</li><li>Disable or isolate a suspicious entry only after following the organisation's response process.</li></ol>
+<h4>Warning signs</h4><ul><li>A script appears unexpectedly.</li><li>Its name imitates a trusted system file.</li><li>It runs from a temporary or user-writable folder.</li><li>It makes unusual network connections.</li><li>It was modified without approval.</li></ul>
+<p><b>Conclusion:</b> Regular checks, file integrity monitoring and event-log review help identify suspicious logon scripts.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">21.</span>Explain execution-flow hijacking.</h3>
+<p><b>Execution-flow hijacking</b> is an attack in which an attacker changes the normal path of a program so that unintended code runs. It can happen when a system trusts unsafe files, libraries or program paths.</p>
+<h4>Common forms</h4><ul><li><b>DLL search-order hijacking:</b> a program loads an unsafe library instead of the correct one.</li><li><b>Path hijacking:</b> a program finds an untrusted executable because of an unsafe search path.</li><li><b>Unquoted service path issue:</b> a poorly configured Windows service path may be interpreted incorrectly.</li><li><b>Unsafe plugin loading:</b> a program loads an untrusted plugin.</li></ul>
+<h4>Security impact</h4><ul><li>Unwanted code may run under the program's permissions.</li><li>Data or system settings may be affected.</li><li>It may help an attacker maintain access.</li></ul>
+<h4>Prevention</h4><ul><li>Use trusted, absolute paths.</li><li>Restrict write permissions on program and library folders.</li><li>Keep software updated.</li><li>Use code signing and application control.</li><li>Monitor unexpected child processes and library loads.</li></ul>
+<p><b>Conclusion:</b> Secure paths, permissions and monitoring reduce execution-flow hijacking risks.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<div class="sub">Half II</div>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">22.</span>Explain how to detect suspicious Python libraries.</h3>
+<p>A Python library is reusable code that can be added to a program. A suspicious library may be fake, modified or downloaded from an untrusted source.</p>
+<h4>Detection methods</h4><ol><li>Install packages only from trusted sources.</li><li>Check the package name carefully for spelling mistakes or look-alike names.</li><li>Review the author, project page, release history and community activity.</li><li>Check dependencies and requested permissions.</li><li>Compare installed package versions with the approved requirements file.</li><li>Use hash checks or software-composition analysis tools.</li><li>Scan source code and monitor unexpected file or network activity.</li></ol>
+<h4>Useful commands</h4><pre>python -m pip list
+python -m pip show package_name
+python -m pip check
+python -m pip freeze</pre><div class="code-note"><b>Easy explanation:</b> On Windows, dir /r lists files and shows alternate data streams if they exist.</div>
+<p><b>Conclusion:</b> Trusted sources, package review, version control and security scanning help detect unsafe Python libraries.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">23.</span>Explain methods to detect attempts to disable antivirus software.</h3>
+<p>Antivirus software protects a computer by detecting and blocking harmful programs. Attackers may try to stop it to avoid detection.</p>
+<h4>Warning signs</h4><ul><li>Real-time protection is turned off without permission.</li><li>Security services stop unexpectedly.</li><li>Security settings or exclusions change without approval.</li><li>Unknown programs try to change security tools.</li><li>Security logs suddenly become empty or stop updating.</li></ul>
+<h4>Detection methods</h4><ol><li>Monitor antivirus status through the security dashboard.</li><li>Review operating-system and antivirus event logs.</li><li>Alert on unexpected service stops or configuration changes.</li><li>Use endpoint detection and response (EDR) tools.</li><li>Restrict who can change security settings.</li><li>Keep security software and the operating system updated.</li></ol>
+<p><b>Conclusion:</b> Continuous monitoring and restricted permissions help identify attempts to disable antivirus protection.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">24.</span>Explain Alternate Data Streams (ADS) and their detection.</h3>
+<p><b>Alternate Data Streams (ADS)</b> are an NTFS file-system feature in Windows. A file can contain an additional named data stream besides its main content. This feature has valid uses, but attackers may misuse it to hide data.</p>
+<h4>Risks</h4><ul><li>Extra data may not be visible in normal file browsing.</li><li>Malicious content may be hidden in an alternate stream.</li><li>It can make investigation more difficult.</li></ul>
+<h4>Detection</h4><ul><li>Use trusted forensic tools that can list NTFS streams.</li><li>Review unexpected streams attached to ordinary files.</li><li>Compare stream names, sizes and timestamps with normal system activity.</li><li>Scan suspicious content safely in an isolated environment.</li><li>Preserve forensic evidence before making changes.</li></ul>
+<h4>Example command for authorised checking</h4><pre>dir /r</pre><div class="code-note"><b>Easy explanation:</b> These commands list files and folders. Use them only on a computer and folders you are allowed to inspect.</div>
+<p>This Windows command can display alternate data streams. Do not delete a stream just because it is unfamiliar; first verify whether it is legitimate.</p>
+<p><b>Conclusion:</b> ADS is a normal NTFS feature, but stream inspection is important during security investigations.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<section class="unit-heading" id="unit5"><h2>UNIT V — Accessing Credentials and Collecting User Data</h2><p>Password protection • Network security • Monitoring • Honeypots</p></section><div class="sub">Half I</div>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">25.</span>Explain how to protect passwords stored in web browsers.</h3>
+<p>Browsers can save usernames and passwords to make login easier. If a device or browser account is compromised, saved passwords may be exposed.</p>
+<h4>Protection methods</h4><ol><li>Use a strong device password or PIN.</li><li>Enable multi-factor authentication (MFA) on important accounts.</li><li>Use a trusted password manager with a strong master password.</li><li>Keep the browser and operating system updated.</li><li>Do not save passwords on shared or public computers.</li><li>Lock the device when not in use.</li><li>Review saved passwords and remove old or unused entries.</li><li>Use unique passwords for every account.</li></ol>
+<h4>Important terms</h4><ul><li><b>Encryption:</b> changes data into a protected form.</li><li><b>MFA:</b> requires another proof of identity besides a password.</li><li><b>Password manager:</b> securely stores and manages passwords.</li></ul>
+<p><b>Conclusion:</b> Strong device security, unique passwords, MFA and trusted password storage protect browser credentials.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">26.</span>Explain network sniffing and its security risks.</h3>
+<p><b>Network sniffing</b> is the process of capturing and examining data packets travelling through a network. It is used by administrators to troubleshoot networks and by investigators to study traffic.</p>
+<h4>Uses</h4><ul><li>Find network problems.</li><li>Study traffic and performance.</li><li>Investigate suspicious communication.</li></ul>
+<h4>Security risks</h4><ul><li>Unencrypted passwords or messages may be exposed.</li><li>Private information may be collected.</li><li>Attackers may learn network details.</li><li>Captured data may be misused.</li></ul>
+<h4>Protection</h4><ul><li>Use HTTPS and secure protocols.</li><li>Use WPA2 or WPA3 for Wi-Fi.</li><li>Avoid sensitive activity on unknown public Wi-Fi.</li><li>Use a VPN when appropriate.</li><li>Monitor networks and restrict access to packet-capture tools.</li></ul>
+<p><b>Conclusion:</b> Network sniffing is useful for monitoring, but encryption and access control protect data from unauthorised capture.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">27.</span>Explain deceptive network connections.</h3>
+<p><b>Deceptive network connections</b> are fake or misleading network services or access points designed to attract users or devices. Security teams may also create controlled decoy systems to detect attacks.</p>
+<h4>Examples</h4><ul><li><b>Rogue Wi-Fi hotspot:</b> an unauthorised wireless access point that imitates a trusted network.</li><li><b>Evil twin:</b> a fake Wi-Fi network using a name similar to a genuine one.</li><li><b>Fake login page:</b> a page that imitates a real service to trick users.</li><li><b>Honeypot:</b> a controlled decoy system used to observe suspicious activity.</li></ul>
+<h4>Risks</h4><ul><li>Users may connect to an unsafe network.</li><li>Login details or private data may be stolen.</li><li>Traffic may be monitored or changed.</li></ul>
+<h4>Prevention</h4><ul><li>Verify the correct Wi-Fi name with the organisation.</li><li>Avoid unknown open networks.</li><li>Use HTTPS and MFA.</li><li>Disable automatic connection to unknown Wi-Fi.</li><li>Use authorised honeypots only in controlled environments.</li></ul>
+<p><b>Conclusion:</b> Users should verify network identity, while security teams can use controlled decoys to detect threats.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<div class="sub">Half II</div>
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">28.</span>Explain user account monitoring.</h3>
+<p><b>User account monitoring</b> means checking account activity to identify unusual or unauthorised actions.</p>
+<h4>What should be monitored?</h4><ul><li>Successful and failed login attempts.</li><li>Login time, location and device.</li><li>New user accounts and permission changes.</li><li>Password resets and account lockouts.</li><li>Access to sensitive files.</li><li>Changes to administrator accounts.</li></ul>
+<h4>Methods</h4><ol><li>Enable system audit logs.</li><li>Review login and account-change events.</li><li>Use alerts for repeated failed logins.</li><li>Apply least privilege: give users only the access they need.</li><li>Disable unused accounts after approval.</li><li>Review accounts and permissions regularly.</li></ol>
+<p><b>Conclusion:</b> Account monitoring helps find suspicious logins, misuse and unauthorised changes early.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">29.</span>Explain file and directory discovery.</h3>
+<p><b>File and directory discovery</b> is the process of finding files and folders in a computer. It is used by administrators and investigators to locate important data.</p>
+<h4>Methods</h4><ul><li>Browse folders using a file manager.</li><li>Search by file name, type or date.</li><li>Check common folders such as Documents, Downloads and Desktop.</li><li>Use command-line tools to list files.</li><li>Review file permissions and timestamps.</li></ul>
+<h4>Useful commands</h4><pre># Windows
+dir
+tree
+where python
+
+# Linux
+ls -la
+find /home -type f
+pwd</pre><div class="code-note"><b>Easy explanation:</b> The Linux commands show the current folder, list files and search for files under the home folder.</div>
+<h4>Security importance</h4><ul><li>Helps locate suspicious or hidden files.</li><li>Helps find evidence during an investigation.</li><li>Shows files with unusual names or locations.</li><li>Helps identify unauthorised changes.</li></ul>
+<p>Investigators should follow permission rules and preserve original evidence. <b>Conclusion:</b> File discovery helps locate and examine data in an organised way.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<article class="question"><span class="answer-tag">8+ mark answer structure</span><h3><span class="num">30.</span>Explain honeypot files and folders.</h3>
+<p><b>Honeypot files and folders</b> are decoy items created to attract or detect unauthorised access. They look interesting but contain no real sensitive information.</p>
+<h4>How they work</h4><ol><li>A security team creates a decoy file or folder.</li><li>It is placed in a monitored location.</li><li>Legitimate users are told not to access it, where appropriate.</li><li>Access to the decoy creates an alert or log entry.</li><li>The security team investigates the activity.</li></ol>
+<h4>Examples</h4><ul><li>A fake folder named <code>Confidential_Backup</code>.</li><li>A decoy document containing no real private data.</li><li>A fake configuration file monitored for access.</li></ul>
+<h4>Advantages</h4><ul><li>Can give an early warning of suspicious activity.</li><li>Helps security teams study attacker behaviour.</li><li>Creates useful alerts with less normal user activity.</li></ul>
+<h4>Limitations</h4><ul><li>It does not replace antivirus or a firewall.</li><li>It must be monitored and maintained.</li><li>It should not contain real passwords or sensitive data.</li></ul>
+<p><b>Conclusion:</b> Honeypot files and folders are useful warning systems for detecting unauthorised access.</p><div class="answer-guide"><b>To make this a complete 8+ mark answer:</b><ul><li>Start with the meaning or definition.</li><li>Explain every heading in separate, simple points.</li><li>Write the syntax or a small example program when suitable.</li><li>Explain what the example does and mention its result.</li><li>Finish with its use, importance or a short conclusion.</li></ul></div></article>
+
+<section class="unit-heading" id="quick"><h2>Quick Revision — Important Keywords</h2><p>Fast revision before the exam</p></section>
+<div class="question"><ul>
+<li><b>Variable:</b> name used to store a value.</li><li><b>Assignment:</b> gives a value using <code>=</code>.</li><li><b>input():</b> receives user input.</li><li><b>print():</b> displays output.</li><li><b>String:</b> sequence of characters.</li><li><b>Control statement:</b> controls program flow.</li><li><b>Function:</b> reusable block of code.</li><li><b>Recursion:</b> function calls itself.</li><li><b>List:</b> ordered, changeable collection.</li><li><b>Tuple:</b> ordered, unchangeable collection.</li><li><b>Slicing:</b> takes a part of a sequence.</li><li><b>List comprehension:</b> short way to create a list.</li><li><b>Concatenation:</b> joins strings.</li><li><b>split():</b> divides a string into a list.</li><li><b>join():</b> combines strings.</li><li><b>Privilege escalation:</b> gaining higher access rights than normally allowed.</li><li><b>ADS:</b> extra named data stream in NTFS.</li><li><b>Network sniffing:</b> capturing and examining network packets.</li><li><b>Honeypot:</b> decoy used to detect suspicious activity.</li><li><b>MFA:</b> multi-factor authentication.</li>
+</ul></div>
+</div>
+</main></div><footer>Made for revision • Read the question carefully • Write headings, keywords, examples and neat programs</footer>
 </div>
 
-<div class="toolbar">
-  <button class="smallbtn" onclick="expandAll()">Expand all answers</button>
-  <button class="smallbtn" onclick="collapseAll()">Close all answers</button>
-  <button class="smallbtn" onclick="window.print()">Print / Save as PDF</button>
-</div>
+<script>
+const units=[
+ {id:'unit1',name:'Introduction to Python',num:'01'},
+ {id:'unit2',name:'Functions & Sequences',num:'02'},
+ {id:'unit3',name:'Strings',num:'03'},
+ {id:'unit4',name:'Privilege Escalation',num:'04'},
+ {id:'unit5',name:'Credentials & User Data',num:'05'},
+ {id:'quick',name:'Quick Revision',num:'★'}
+];
+const nav=document.getElementById('unitNav');
+units.forEach((u,i)=>{
+ const b=document.createElement('button');b.className='unit-link'+(i===0?' active':'');
+ b.innerHTML='<span class="unit-num">'+u.num+'</span><span>'+u.name+'</span>';
+ b.onclick=()=>{document.getElementById(u.id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.unit-link').forEach(x=>x.classList.remove('active'));b.classList.add('active')};
+ nav.appendChild(b);
+});
+const search=document.getElementById('search');
+search.addEventListener('input',()=>{
+ const q=search.value.toLowerCase().trim();
+ document.querySelectorAll('.question').forEach(card=>card.classList.toggle('hidden',!!q&&!card.innerText.toLowerCase().includes(q)));
+ document.querySelectorAll('.unit-heading,.part-label').forEach(el=>{
+  if(!q){el.classList.remove('hidden');return;}
+  let n=el.nextElementSibling,found=false;
+  while(n&&!n.classList.contains('unit-heading')&&!n.classList.contains('part-label')){if(n.classList.contains('question')&&!n.classList.contains('hidden'))found=true;n=n.nextElementSibling}
+  el.classList.toggle('hidden',!found);
+ });
+ updateProgress();
+});
+function showAll(){search.value='';document.querySelectorAll('.hidden').forEach(x=>x.classList.remove('hidden'));updateProgress()}
+function hideAll(){document.querySelectorAll('.question').forEach(x=>x.classList.add('hidden'));search.value='';}
+function updateProgress(){
+ const total=document.querySelectorAll('.question').length;
+ const visible=[...document.querySelectorAll('.question')].filter(x=>!x.classList.contains('hidden')).length;
+ document.getElementById('progressBar').style.width=(visible/total*100)+'%';
+ document.getElementById('progressText').textContent=visible+' of '+total+' questions shown';
+}
+updateProgress();
+</script>
 
-<div class="unit-heading" id="unit1"><h2>UNIT I – Introduction to Python Programming</h2><p>Questions 1–6</p></div>
+</body>
+  </html>
